@@ -10,3 +10,6 @@ main: main.o
 
 main.o: main.cpp struct_info.h
 	$(CC) $(CFLAGS) main.cpp -o main.o $(INCLUDE) $(LDLIBS)
+
+getFunctions: getFunctions.cpp
+	$(CC) $(CFLAGS) getFunctions.cpp -o getFunctions $(INCLUDE) $(LDLIBS)
