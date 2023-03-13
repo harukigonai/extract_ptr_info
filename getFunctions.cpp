@@ -64,7 +64,7 @@ int main(int argc, char **argv)
     SMDiagnostic Err;
 
     LLVMContext *C = new LLVMContext();
-    Module *mod = parseIRFile("/home/haruki/libssl.so.1.0.0.bc", Err, *C).release();
+    Module *mod = parseIRFile("./bitcode/libssl.so.1.0.0.bc", Err, *C).release();
     DataLayout dataLayout = DataLayout(mod);
 
     const TargetLibraryInfo *TLI; 

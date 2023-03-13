@@ -345,7 +345,7 @@ int main(int argc, char **argv)
   SMDiagnostic Err;
 
   LLVMContext *C = new LLVMContext();
-  Module *mod = parseIRFile("/home/haruki/libssl.so.1.0.0.bc", Err, *C).release();
+  Module *mod = parseIRFile("./bitcode/libssl.so.1.0.0.bc", Err, *C).release();
   DataLayout dataLayout = DataLayout(mod);
 
   unordered_map<Type *, struct type_info *> types;
@@ -382,8 +382,8 @@ int main(int argc, char **argv)
       // builtins.insert(F.getFunction().getName());
       const Function &f = F.getFunction();
       FunctionType *functionType = f.getFunctionType();
-      // Type *returnType = functionType->getReturnType();
-      // returnType->dump();
+      Type *returnType = functionType->getReturnType();
+      returnType->dump();
       // uint numParams = functionType->getNumParams();
 
       // ArrayRef<Type *> paramTypes = functionType->params();
