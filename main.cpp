@@ -12,6 +12,7 @@
 #include <llvm/IR/Instructions.h>
 #include <llvm/IR/Constants.h>
 #include <llvm/IR/DataLayout.h>
+#include <llvm/Analysis/TargetLibraryInfo.h>
 
 #include <llvm/IR/Module.h>
 #include <llvm/IR/Type.h>
@@ -40,7 +41,10 @@ using llvm::Type;
 using llvm::PointerType;
 using llvm::ArrayType;
 using llvm::IntegerType;
+using llvm::FunctionType;
 using llvm::StructLayout;
+using llvm::TargetLibraryInfo;
+using llvm::LibFunc;
 
 void print_types_helper(set<struct type_info *> &entity_processed,
   struct type_info *type_info)
@@ -355,15 +359,38 @@ int main(int argc, char **argv)
 
   extract_ptr_types(types);
 
-  print_types(types);
+  // print_types(types);
 
-  // size_t arr_size = compute_arr_size(types);
-  // cout << "Arr size is " << arr_size << "\n";
+  size_t arr_size = compute_arr_size(types);
+  cout << "Arr size is " << arr_size << "\n";
 
-  // uint64_t *ent_array = new uint64_t[arr_size];
+  uint64_t *ent_array = new uint64_t[arr_size];
 
-  // ptrchild_typesToArray(ent_array, types);
+  ptrchild_typesToArray(ent_array, types);
 
-  // for (int i = 0; i < arr_size; i++) 
-  //   cout << ent_array[i] << " ";
+  FILE *f = fopen("lib_entity.data", "wb");
+  fwrite(ent_array, sizeof(uint64_t), arr_size, f);
+  fclose(f);
+
+  // get OpenSSL all Functions:
+  const TargetLibraryInfo *TLI; 
+  LibFunc func;
+
+  for (auto &F : *mod) {
+    if (!TLI->getLibFunc(F, func)) {
+      cout << F.getFunction().getName().data() << "\n";
+      // builtins.insert(F.getFunction().getName());
+      const Function &f = F.getFunction();
+      FunctionType *functionType = f.getFunctionType();
+      // Type *returnType = functionType->getReturnType();
+      // returnType->dump();
+      // uint numParams = functionType->getNumParams();
+
+      // ArrayRef<Type *> paramTypes = functionType->params();
+      // for (auto ref : paramTypes) {
+      //   ref->dump();
+      // }
+      cout << "\n";
+    }
+  }
 }
