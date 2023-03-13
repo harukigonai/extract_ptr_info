@@ -48,16 +48,17 @@ using llvm::ArrayType;
 using llvm::IntegerType;
 using llvm::StructLayout;
 
-struct member {
+struct child_type {
     size_t offset;
-    struct entity_info *entity_info;
+    char name[4096];
+    struct type_info *type_info;
 };
 
-struct entity_info {
-    char *name;
+struct type_info {
+    char name[4096];
     Type::TypeID type;
     size_t size;
-    vector<struct member *> *members;
+    vector<struct child_type *> *child_types;
 };
 
 #endif
