@@ -67,13 +67,12 @@ int main(int argc, char **argv)
     Module *mod = parseIRFile("./bitcode/libssl.so.1.0.0.bc", Err, *C).release();
     DataLayout dataLayout = DataLayout(mod);
 
-    const TargetLibraryInfo *TLI; 
+    const TargetLibraryInfo *TLI = new TargetLibraryInfo(TargetLibraryInfoImpl(Triple(mod->getTargetTriple())));
     LibFunc func;
 
     for (auto &F : *mod) {
         if (!TLI->getLibFunc(F, func)) {
             Function &f = (Function&)F.getFunction();
-
             runOnFunction(f);
             printf("\n");
         }
