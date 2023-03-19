@@ -16,6 +16,7 @@
 
 #include <llvm/IR/Module.h>
 #include <llvm/IR/Type.h>
+#include <llvm/ADT/Triple.h>
 
 using std::unique_ptr;
 using std::cout;
@@ -44,7 +45,9 @@ using llvm::IntegerType;
 using llvm::FunctionType;
 using llvm::StructLayout;
 using llvm::TargetLibraryInfo;
+using llvm::TargetLibraryInfoImpl;
 using llvm::LibFunc;
+using llvm::Triple;
 
 void print_types_helper(set<struct type_info *> &entity_processed,
   struct type_info *type_info)
@@ -373,7 +376,7 @@ int main(int argc, char **argv)
   fclose(f);
 
   // get OpenSSL all Functions:
-  const TargetLibraryInfo *TLI; 
+  const TargetLibraryInfo *TLI = new TargetLibraryInfo(TargetLibraryInfoImpl(Triple(mod->getTargetTriple())));
   LibFunc func;
 
   for (auto &F : *mod) {
