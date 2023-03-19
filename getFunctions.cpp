@@ -22,25 +22,28 @@ using llvm::Type;
 using llvm::raw_string_ostream;
 using llvm::LibFunc;
 using llvm::TargetLibraryInfo;
+using llvm::TargetLibraryInfoImpl;
+using llvm::Triple;
+using llvm::Attribute;
+// using llvm::CallingConv;
 
-int get_type_str(Type *type, char *buf, int max_len) {
+int get_type_str(Type *type, char *buf, bool isConst, int max_len) {
     if (!type) return -1;
 
     std::string str;
     raw_string_ostream os(str);
+    if (isConst) os << "const ";
     type->print(os);
 
     strncpy(buf, str.c_str(), max_len);
     return strlen(buf);
 }
 
-void dumpFuncArgType(char *funcName, int argNo, Type *type) {
+void dumpFuncArgType(char *funcName, int argNo, Type *type, bool isConst) {
     char typeBuf[50] = {0}; // TODO: hardcoded for now, fix
     char outBuf[200] = {0};  // TODO: hardcoded for now, fix
-
-    get_type_str(type, typeBuf, sizeof(typeBuf));
-    sprintf(outBuf, "%s$%02d:%s\n", funcName, argNo, typeBuf);
-    // outs() << outBuf;
+    get_type_str(type, typeBuf, isConst, sizeof(typeBuf));
+    sprintf(outBuf, "%s$%02d:%s", funcName, argNo, typeBuf);
     printf("%s\n", outBuf);
 }
 
@@ -49,11 +52,11 @@ bool runOnFunction(Function &F) {
     strcpy(funcName, F.getName().str().c_str());
 
     for (const Argument &arg : F.args()) {
-        int argNo = arg.getArgNo();
-        dumpFuncArgType(funcName, argNo, arg.getType());
+        dumpFuncArgType(funcName, arg.getArgNo(), arg.getType(), arg.onlyReadsMemory()); // arg.hasAttribute(Attribute::ReadOnly));
     }
 
-    dumpFuncArgType(funcName, -1, F.getReturnType());
+    bool isRetConst = F.getAttributes().getRetAttributes().hasAttribute(Attribute::ReadOnly); // doesn't currently work, always False
+    dumpFuncArgType(funcName, -1, F.getReturnType(), isRetConst);
 
     return false;
 }
@@ -64,7 +67,8 @@ int main(int argc, char **argv)
     SMDiagnostic Err;
 
     LLVMContext *C = new LLVMContext();
-    Module *mod = parseIRFile("./bitcode/libssl.so.1.0.0.bc", Err, *C).release();
+    Module *mod = parseIRFile("./bitcode/libssl.a.bc", Err, *C).release();
+    // Module *mod = parseIRFile("./bitcode/hello.bc", Err, *C).release();
     DataLayout dataLayout = DataLayout(mod);
 
     const TargetLibraryInfo *TLI = new TargetLibraryInfo(TargetLibraryInfoImpl(Triple(mod->getTargetTriple())));
@@ -74,7 +78,6 @@ int main(int argc, char **argv)
         if (!TLI->getLibFunc(F, func)) {
             Function &f = (Function&)F.getFunction();
             runOnFunction(f);
-            printf("\n");
         }
     }
 }
