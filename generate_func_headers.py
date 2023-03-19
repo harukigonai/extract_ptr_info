@@ -41,6 +41,8 @@ def process_const(IR_type):
 def process_struct(IR_type):
         if f"%struct" in IR_type:
                 struct_name = re.search("[^*]*", IR_type[len(f"%struct."):]).group(0) # find name of struct
+                if re.search("\.\d+", struct_name):
+                        struct_name = struct_name.split(".")[0] # some structs are outputted as 'struct.ssl_st.3566*', get rid of the .3566
                 ptrs = "*" * IR_type.count("*") 
                 return f"struct {struct_name}{ptrs}"
         return ""
