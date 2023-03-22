@@ -347,25 +347,23 @@ int setEntInArray(uint64_t *ent_array,
   return ent_to_index[type_info];
 }
 
-void ptrChildTypesToArray(uint64_t *ent_array,
+unordered_map<struct type_info *, int> *ptrChildTypesToArray(uint64_t *ent_array,
                           unordered_map<Type *, struct type_info *> &structs) {
   int ind = 0;
   unordered_map<struct type_info *, int> ent_to_id;
-  unordered_map<struct type_info *, int> ent_to_index;
+  unordered_map<struct type_info *, int> *ent_to_index = new unordered_map<struct type_info *, int>();
   int id = 0;
 
   for (auto &t : structs) {
     struct type_info *type_info = t.second;
 
-    setEntInArray(ent_array, ent_to_index, ind, ent_to_id, id, type_info);
+    setEntInArray(ent_array, *ent_to_index, ind, ent_to_id, id, type_info);
   }
+  return ent_to_index;
 }
-
-
 
 int main(int argc, char **argv) {
   set<string> funcs_we_care_about;
-
   fstream newfile;
   newfile.open("funcs_we_care_about.txt", ios::in);
   if (newfile.is_open()){
@@ -395,7 +393,7 @@ int main(int argc, char **argv) {
 
   int p = 0;
   for (auto &F : *mod) {
-    if (!TLI->getLibFunc(F, func)) {
+    // if (!TLI->getLibFunc(F, func)) {
       if (p <= 2) {
         p++;
         continue;
@@ -416,8 +414,6 @@ int main(int argc, char **argv) {
       }
 
       char filename[4096];
-      strcpy(filename, "bin/");
-      strcat(filename, name.data());
 
       unordered_map<Type *, struct type_info *> types;
 
@@ -443,7 +439,7 @@ int main(int argc, char **argv) {
 
       uint64_t *ent_array = new uint64_t[arr_size];
 
-      ptrChildTypesToArray(ent_array, types);
+      unordered_map<struct type_info *, int> *ent_to_index = ptrChildTypesToArray(ent_array, types);
 
       // printf("size is %lu\n", arr_size);
       // for (int i = 0; i < arr_size; i++) {
@@ -452,19 +448,41 @@ int main(int argc, char **argv) {
       // printf("\n\n");
       delete ent_array;
 
-      strcat(filename, "_entity_metadata");
-
+      sprintf(filename, "bin/%s_entity_metadata", name.data());
       FILE *f = fopen(filename, "wb");
       fwrite(ent_array, sizeof(uint64_t), arr_size, f);
       fclose(f);
 
+      struct type_info *type_info;
+      int *index;
+
+      sprintf(filename, "bin/%s_arg_entity_index", name.data());
+      f = fopen(filename, "wb");
+      if (!returnType->isVoidTy()) {
+        type_info = types.find(returnType)->second;
+        index = &ent_to_index->find(type_info)->second;
+        fwrite(index, sizeof(int), 1, f);
+      }
+      fclose(f);
+
+      sprintf(filename, "bin/%s_ret_entity_index", name.data());
+      f = fopen(filename, "wb");
+      for (Type *paramType : paramTypes) {
+        if (!paramType->isVoidTy()) {
+          type_info = types.find(paramType)->second;
+          index = &ent_to_index->find(type_info)->second;
+          fwrite(index, sizeof(int), 1, f);
+        }
+      }
+      fclose(f);
+
       p++;
-    }
+    // }
   }
 
   cout << "\n\n\n";
   for (string woohoo : funcs_we_care_about)
   {
-      std::cout << woohoo << '\n ';
+    std::cout << "func is " << woohoo << "\n";
   }
 }
