@@ -12,4 +12,4 @@ main.o: main.cpp struct_info.h
 
 .PHONY: clean
 clean:
-	rm -f *.o main
+	rm -f *.o main bin/*
