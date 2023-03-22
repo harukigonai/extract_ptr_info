@@ -448,7 +448,7 @@ int main(int argc, char **argv) {
       // printf("\n\n");
       delete ent_array;
 
-      sprintf(filename, "bin/%s_entity_metadata", name.data());
+      sprintf(filename, "bin/%s.entity_metadata", name.data());
       FILE *f = fopen(filename, "wb");
       fwrite(ent_array, sizeof(uint64_t), arr_size, f);
       fclose(f);
@@ -456,7 +456,7 @@ int main(int argc, char **argv) {
       struct type_info *type_info;
       int *index;
 
-      sprintf(filename, "bin/%s_arg_entity_index", name.data());
+      sprintf(filename, "bin/%s.arg_entity_index", name.data());
       f = fopen(filename, "wb");
       if (!returnType->isVoidTy()) {
         type_info = types.find(returnType)->second;
@@ -465,7 +465,7 @@ int main(int argc, char **argv) {
       }
       fclose(f);
 
-      sprintf(filename, "bin/%s_ret_entity_index", name.data());
+      sprintf(filename, "bin/%s.ret_entity_index", name.data());
       f = fopen(filename, "wb");
       for (Type *paramType : paramTypes) {
         if (!paramType->isVoidTy()) {
