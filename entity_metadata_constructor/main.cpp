@@ -1,57 +1,59 @@
 #include <iostream>
+#include <fstream>
 
-#include <string>
-#include <vector>
 #include <set>
 #include <stdexcept>
+#include <string>
+#include <vector>
 
 #include "struct_info.h"
-
-#include <llvm/IR/LLVMContext.h>
-#include <llvm/IR/Module.h>
-#include <llvm/IR/Instructions.h>
+#include <llvm/Analysis/TargetLibraryInfo.h>
 #include <llvm/IR/Constants.h>
 #include <llvm/IR/DataLayout.h>
-#include <llvm/Analysis/TargetLibraryInfo.h>
+#include <llvm/IR/Instructions.h>
+#include <llvm/IR/LLVMContext.h>
+#include <llvm/IR/Module.h>
 
+#include <llvm/ADT/Triple.h>
 #include <llvm/IR/Module.h>
 #include <llvm/IR/Type.h>
-#include <llvm/ADT/Triple.h>
 
-using std::unique_ptr;
 using std::cout;
 using std::endl;
+using std::set;
+using std::unique_ptr;
 using std::unordered_map;
 using std::vector;
-using std::set;
+using std::string;
+using std::fstream;
+using std::ios;
 
-using llvm::Module;
-using llvm::SMDiagnostic;
-using llvm::LLVMContext;
-using llvm::parseIRFile;
-using llvm::StringRef;
-using llvm::ExecutionEngine;
-using llvm::EngineBuilder;
 using llvm::ArrayRef;
-using llvm::GenericValue;
-using llvm::Function;
-using llvm::CallGraph;
-using llvm::StructType;
-using llvm::DataLayout;
-using llvm::Type;
-using llvm::PointerType;
 using llvm::ArrayType;
-using llvm::IntegerType;
+using llvm::CallGraph;
+using llvm::DataLayout;
+using llvm::EngineBuilder;
+using llvm::ExecutionEngine;
+using llvm::Function;
 using llvm::FunctionType;
+using llvm::GenericValue;
+using llvm::IntegerType;
+using llvm::LibFunc;
+using llvm::LLVMContext;
+using llvm::Module;
+using llvm::parseIRFile;
+using llvm::PointerType;
+using llvm::SMDiagnostic;
+using llvm::StringRef;
 using llvm::StructLayout;
+using llvm::StructType;
 using llvm::TargetLibraryInfo;
 using llvm::TargetLibraryInfoImpl;
-using llvm::LibFunc;
 using llvm::Triple;
+using llvm::Type;
 
 void print_types_helper(set<struct type_info *> &entity_processed,
-  struct type_info *type_info)
-{
+                        struct type_info *type_info) {
   const bool is_in = entity_processed.find(type_info) != entity_processed.end();
   if (is_in)
     return;
@@ -63,7 +65,7 @@ void print_types_helper(set<struct type_info *> &entity_processed,
   cout << "Size is " << type_info->size << "\n";
   for (int j = 0; j < type_info->child_types->size(); j++) {
     struct child_type *child_type = (*type_info->child_types)[j];
-    cout << "Child offset is " << child_type->offset <<  ". ";
+    cout << "Child offset is " << child_type->offset << ". ";
     cout << "Child Address is " << child_type->type_info << ". ";
     cout << "Child Name is " << child_type->name << "\n";
   }
@@ -75,42 +77,45 @@ void print_types_helper(set<struct type_info *> &entity_processed,
   }
 }
 
-void print_types(unordered_map<Type *, struct type_info *> &types)
-{
+void print_types(unordered_map<Type *, struct type_info *> &types) {
   cout << "Size of types is " << types.size() << "\n\n";
 
   set<struct type_info *> entity_processed;
-  for (auto& t : types) {
+  for (auto &t : types) {
     struct type_info *type_info = t.second;
     print_types_helper(entity_processed, type_info);
   }
 }
 
+/*
+ * Add a child_type_info to its parents child_type vector
+ */
 void saveChildType(vector<struct child_type *> *child_types,
-  struct type_info *child_type_info, size_t offset)
-{
+                   struct type_info *child_type_info, size_t offset) {
   struct child_type *child_type = new struct child_type;
   child_type->offset = offset;
   child_type->type_info = child_type_info;
   child_types->insert(child_types->end(), child_type);
 }
 
-struct type_info *extract_types(DataLayout &dataLayout,
-  unordered_map<Type *, struct type_info *> &types,
-  Type *type)
-{
+/*
+ * Generates graph of types in @types
+ */
+struct type_info *
+extract_types(DataLayout &dataLayout,
+              unordered_map<Type *, struct type_info *> &types, Type *type) {
+  // Is the type already in types? If so we don't need to do anything
   unordered_map<Type *, struct type_info *>::const_iterator got =
-    types.find(type);
+      types.find(type);
   if (got != types.end())
     return got->second;
 
   // Create new type_info
   struct type_info *type_info = new struct type_info;
-  type_info->type = type->getTypeID();
-  // printf("a\n");
-  memset(type_info->name, 0, 4096);
-  // printf("b\n");
 
+  // Populate some metadata in type_info
+  type_info->type = type->getTypeID();
+  memset(type_info->name, 0, 4096);
   if (type->isSized())
     type_info->size = dataLayout.getTypeAllocSize(type);
   else
@@ -118,26 +123,36 @@ struct type_info *extract_types(DataLayout &dataLayout,
 
   type_info->child_types = new vector<struct child_type *>();
   vector<struct child_type *> *child_types = type_info->child_types;
+
+  // Add type to types
   types[type] = type_info;
 
   if (type->isPointerTy()) {
     strcpy(type_info->name, "pointer");
 
+    // child_type is whatever the pointer points to
     Type *child_type = type->getContainedType(0);
-    struct type_info *child_type_info = extract_types(dataLayout, types, child_type);
+    struct type_info *child_type_info =
+        extract_types(dataLayout, types, child_type);
+
     saveChildType(child_types, child_type_info, 0);
   } else if (type->isStructTy()) {
     StructType *structType = (StructType *)type;
+
     const StructLayout *structLayout = dataLayout.getStructLayout(structType);
     if (structType->hasName())
       strcpy(type_info->name, (char *)structType->getName().data());
-    else
+    else {
+      // Do we handle this case?
       strcpy(type_info->name, "struct.unnamed");
+    }
 
+    // Go through the struct's children
     for (int i = 0; i < structType->getNumElements(); i++) {
       Type *child_type = structType->getTypeAtIndex(i);
       uint64_t offset = structLayout->getElementOffset(i);
-      struct type_info *child_type_info = extract_types(dataLayout, types, child_type);
+      struct type_info *child_type_info =
+          extract_types(dataLayout, types, child_type);
       saveChildType(child_types, child_type_info, offset);
     }
   } else if (type->isArrayTy()) {
@@ -152,7 +167,8 @@ struct type_info *extract_types(DataLayout &dataLayout,
 
     for (int i = 0; i < num_elements; i++) {
       uint64_t offset = child_size * i;
-      struct type_info *child_type_info = extract_types(dataLayout, types, child_type);
+      struct type_info *child_type_info =
+          extract_types(dataLayout, types, child_type);
       saveChildType(child_types, child_type_info, offset);
     }
   } else if (type->isIntegerTy()) {
@@ -173,15 +189,15 @@ struct type_info *extract_types(DataLayout &dataLayout,
   return type_info;
 }
 
+/*
+ * Add detail to the name field of each type_info
+ */
 void detail_type(set<struct type_info *> entity_processed,
-  struct type_info *type_info)
-{
+                 struct type_info *type_info) {
   const bool is_in = entity_processed.find(type_info) != entity_processed.end();
   if (is_in)
     return;
   entity_processed.insert(type_info);
-
-  // printf("ayo\n");
 
   for (int i = 0; i < type_info->child_types->size(); i++) {
     struct child_type *child_type = (*type_info->child_types)[i];
@@ -191,7 +207,7 @@ void detail_type(set<struct type_info *> entity_processed,
   }
 
   if (type_info->name == NULL) {
-
+    // Do we handle this case?
   } else if (strcmp(type_info->name, "pointer") == 0 ||
              strcmp(type_info->name, "array") == 0) {
     struct child_type *child_type = (*type_info->child_types)[0];
@@ -207,10 +223,9 @@ void detail_type(set<struct type_info *> entity_processed,
   }
 }
 
-void detail_types(unordered_map<Type *, struct type_info *> &types)
-{
+void detail_types(unordered_map<Type *, struct type_info *> &types) {
   set<struct type_info *> entity_processed;
-  for (auto& t : types) {
+  for (auto &t : types) {
     struct type_info *type_info = t.second;
 
     detail_type(entity_processed, type_info);
@@ -218,12 +233,10 @@ void detail_types(unordered_map<Type *, struct type_info *> &types)
 }
 
 bool remove_non_ptr_types(
-  unordered_map<struct type_info *, bool> &entity_contains_ptr,
-  set<struct type_info *> &entity_processed,
-  struct type_info *type_info)
-{
+    unordered_map<struct type_info *, bool> &entity_contains_ptr,
+    set<struct type_info *> &entity_processed, struct type_info *type_info) {
   unordered_map<struct type_info *, bool>::const_iterator got =
-    entity_contains_ptr.find(type_info);
+      entity_contains_ptr.find(type_info);
   if (got != entity_contains_ptr.end())
     return got->second;
 
@@ -232,8 +245,8 @@ bool remove_non_ptr_types(
     return true;
   entity_processed.insert(type_info);
 
+  // See which children are ptrs. Delete non-ptr children
   bool contains_ptr = false;
-
   vector<struct child_type *> *child_types = type_info->child_types;
   vector<struct child_type *>::iterator it;
   for (it = child_types->begin(); it != child_types->end();) {
@@ -241,36 +254,39 @@ bool remove_non_ptr_types(
     if (child_type->type_info == type_info)
       continue;
 
-    bool child_contains_ptr = 
-      remove_non_ptr_types(entity_contains_ptr, entity_processed, child_type->type_info);
-    if (child_contains_ptr) {
+    bool child_contains_ptr = remove_non_ptr_types(
+        entity_contains_ptr, entity_processed, child_type->type_info);
+    if (child_contains_ptr || type_info->type == Type::PointerTyID) {
+      // Are we a struct/array that contains a ptr, or are we a pointer?
       contains_ptr = true;
       it++;
-    } else
+    } else {
+      // If neither, then we don't care about this child
       it = child_types->erase(it);
+    }
   }
 
-  bool containsPtr =
-    contains_ptr || type_info->type == Type::PointerTyID;
+  // Either a child contains a ptr or we are a pointer
+  bool containsPtr = contains_ptr || type_info->type == Type::PointerTyID;
   entity_contains_ptr[type_info] = containsPtr;
   return containsPtr;
 }
 
-void extract_ptr_types(unordered_map<Type *, struct type_info *> &structs)
-{
+void extract_ptr_types(unordered_map<Type *, struct type_info *> &structs) {
   unordered_map<struct type_info *, bool> entity_contains_ptr;
   set<struct type_info *> entity_processed;
-  for (auto& t : structs) {
+  for (auto &t : structs) {
     struct type_info *type_info = t.second;
 
     remove_non_ptr_types(entity_contains_ptr, entity_processed, type_info);
   }
 }
 
-size_t updateSize(set<struct type_info *> &entity_processed,
-  size_t &size,
-  struct type_info *type_info)
-{
+/*
+ * Determine how many bytes we need for the entity_metadata array
+ */
+size_t updateSize(set<struct type_info *> &entity_processed, size_t &size,
+                  struct type_info *type_info) {
   const bool is_in = entity_processed.find(type_info) != entity_processed.end();
   if (is_in)
     return 0;
@@ -286,12 +302,11 @@ size_t updateSize(set<struct type_info *> &entity_processed,
   return ent_size;
 }
 
-size_t compute_arr_size(unordered_map<Type *, struct type_info *> &structs)
-{
+size_t compute_arr_size(unordered_map<Type *, struct type_info *> &structs) {
   size_t size = 0;
   set<struct type_info *> entity_processed;
 
-  for (auto& t : structs) {
+  for (auto &t : structs) {
     struct type_info *type_info = t.second;
 
     size += updateSize(entity_processed, size, type_info);
@@ -299,101 +314,157 @@ size_t compute_arr_size(unordered_map<Type *, struct type_info *> &structs)
   return size;
 }
 
+/*
+ * Populate the entity_metadata array with relevant info
+ */
 int setEntInArray(uint64_t *ent_array,
-  unordered_map<struct type_info *, int> &ent_to_index, int &ind,
-  unordered_map<struct type_info *, int> &ent_to_id, int &id,
-  struct type_info *type_info)
-{
+                  unordered_map<struct type_info *, int> &ent_to_index,
+                  int &ind, unordered_map<struct type_info *, int> &ent_to_id,
+                  int &id, struct type_info *type_info) {
   unordered_map<struct type_info *, int>::const_iterator got =
-    ent_to_index.find(type_info);
+      ent_to_index.find(type_info);
   if (got != ent_to_index.end())
     return got->second;
   ent_to_index[type_info] = ind;
-  ent_to_id[type_info] = id++;
+  ent_to_id[type_info] = id++; // ent_to_id is unused now, replaced with mode
 
   size_t child_types_size = type_info->child_types->size();
   int local_ind = ind;
   ind += 3 + child_types_size;
 
-  ent_array[local_ind++] = ent_to_id[type_info];
+  // ent_array[local_ind++] = ent_to_id[type_info];
+  ent_array[local_ind++] = type_info->type == Type::PointerTyID ? 1 : 0;
   ent_array[local_ind++] = type_info->size;
   ent_array[local_ind++] = child_types_size;
 
   size_t ent_size = 3 + child_types_size;
   for (int j = 0; j < child_types_size; j++) {
     struct child_type *child_type = (*type_info->child_types)[j];
-    ent_array[local_ind++] = setEntInArray(ent_array, ent_to_index, ind, ent_to_id, id, child_type->type_info);
+    ent_array[local_ind++] = setEntInArray(
+        ent_array, ent_to_index, ind, ent_to_id, id, child_type->type_info);
   }
 
   return ent_to_index[type_info];
 }
 
-void ptrchild_typesToArray(uint64_t *ent_array,
-  unordered_map<Type *, struct type_info *> &structs)
-{
+void ptrChildTypesToArray(uint64_t *ent_array,
+                          unordered_map<Type *, struct type_info *> &structs) {
   int ind = 0;
   unordered_map<struct type_info *, int> ent_to_id;
   unordered_map<struct type_info *, int> ent_to_index;
   int id = 0;
 
-  for (auto& t : structs) {
+  for (auto &t : structs) {
     struct type_info *type_info = t.second;
 
     setEntInArray(ent_array, ent_to_index, ind, ent_to_id, id, type_info);
   }
 }
 
-int main(int argc, char **argv)
-{
+
+
+int main(int argc, char **argv) {
+  set<string> funcs_we_care_about;
+
+  fstream newfile;
+  newfile.open("funcs_we_care_about.txt", ios::in);
+  if (newfile.is_open()){
+    string tp;
+    while(getline(newfile, tp)){
+      cout << "nice we have_" << tp  << "_\n";
+      funcs_we_care_about.insert(tp);
+    }
+    newfile.close();
+  } else {
+    cout << "f\n";
+  }
+
   SMDiagnostic Err;
 
   LLVMContext *C = new LLVMContext();
-  Module *mod = parseIRFile("./bitcode/libssl.so.1.0.0.bc", Err, *C).release();
+  Module *mod = parseIRFile("../bitcode/libssl.so.1.0.0.bc", Err, *C).release();
+  if (!mod) {
+    cout << "File passed in was invalid.";
+    return 1;
+  }
   DataLayout dataLayout = DataLayout(mod);
 
-  unordered_map<Type *, struct type_info *> types;
-  for (StructType *type : mod->getIdentifiedStructTypes()) {
-    extract_types(dataLayout, types, type);
-  }
-
-  detail_types(types);
-
-  // print_types(types);
-
-  extract_ptr_types(types);
-
-  // print_types(types);
-
-  size_t arr_size = compute_arr_size(types);
-  cout << "Arr size is " << arr_size << "\n";
-
-  uint64_t *ent_array = new uint64_t[arr_size];
-
-  ptrchild_typesToArray(ent_array, types);
-
-  FILE *f = fopen("lib_entity.data", "wb");
-  fwrite(ent_array, sizeof(uint64_t), arr_size, f);
-  fclose(f);
-
-  // get OpenSSL all Functions:
-  const TargetLibraryInfo *TLI = new TargetLibraryInfo(TargetLibraryInfoImpl(Triple(mod->getTargetTriple())));
+  const TargetLibraryInfo *TLI = new TargetLibraryInfo(
+      TargetLibraryInfoImpl(Triple(mod->getTargetTriple())));
   LibFunc func;
 
+  int p = 0;
   for (auto &F : *mod) {
     if (!TLI->getLibFunc(F, func)) {
-      cout << F.getFunction().getName().data() << "\n";
-      // builtins.insert(F.getFunction().getName());
-      const Function &f = F.getFunction();
-      FunctionType *functionType = f.getFunctionType();
-      Type *returnType = functionType->getReturnType();
-      returnType->dump();
-      // uint numParams = functionType->getNumParams();
+      if (p <= 2) {
+        p++;
+        continue;
+      }
 
-      // ArrayRef<Type *> paramTypes = functionType->params();
-      // for (auto ref : paramTypes) {
-      //   ref->dump();
+      const Function &lib_func = F.getFunction();
+      FunctionType *functionType = lib_func.getFunctionType();
+      StringRef name = lib_func.getName();
+      string name_as_str = string(name.data());
+      const bool is_in = funcs_we_care_about.find(name_as_str) !=
+        funcs_we_care_about.end();
+      if (!is_in) {
+        cout << "oof guess we don't care abt _" << name_as_str << "_\n";
+        continue;
+      } else {
+        cout << "we care abt _" << name_as_str << "_\n";
+        funcs_we_care_about.erase(name_as_str);
+      }
+
+      char filename[4096];
+      strcpy(filename, "bin/");
+      strcat(filename, name.data());
+
+      unordered_map<Type *, struct type_info *> types;
+
+      Type *returnType = functionType->getReturnType();
+      if (!returnType->isVoidTy()) {
+        extract_types(dataLayout, types, returnType);
+        // returnType->dump();
+      }
+
+      ArrayRef<Type *> paramTypes = functionType->params();
+      for (Type *paramType : paramTypes) {
+        if (!paramType->isVoidTy()) {
+          extract_types(dataLayout, types, paramType);
+          // paramType->dump();
+        }
+      }
+
+      detail_types(types);
+
+      extract_ptr_types(types);
+
+      size_t arr_size = compute_arr_size(types);
+
+      uint64_t *ent_array = new uint64_t[arr_size];
+
+      ptrChildTypesToArray(ent_array, types);
+
+      // printf("size is %lu\n", arr_size);
+      // for (int i = 0; i < arr_size; i++) {
+      //   printf("%lu ", ent_array[i]);
       // }
-      cout << "\n";
+      // printf("\n\n");
+      delete ent_array;
+
+      strcat(filename, "_entity_metadata");
+
+      FILE *f = fopen(filename, "wb");
+      fwrite(ent_array, sizeof(uint64_t), arr_size, f);
+      fclose(f);
+
+      p++;
     }
+  }
+
+  cout << "\n\n\n";
+  for (string woohoo : funcs_we_care_about)
+  {
+      std::cout << woohoo << '\n ';
   }
 }
