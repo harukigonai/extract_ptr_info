@@ -467,12 +467,6 @@ int main(int argc, char **argv) {
       // printf("\n\n");
       // delete ent_array;
 
-      for(unordered_map<int, char *>::const_iterator it = ind_to_name.begin();
-          it != ind_to_name.end(); ++it)
-      {
-          std::cout << it->first << " -> " << it->second << "\n";
-      }
-
       int p = 0;
       char *curr_func_name = NULL;
       uint64_t num_children = 0;
@@ -488,7 +482,7 @@ int main(int argc, char **argv) {
           if (p == 2) {
             unordered_map<int, char *>::const_iterator got =
                 ind_to_name.find(k - 2);
-            printf("Looking for index %d\n", k);
+            // printf("Looking for index %d\n", k);
             if (got != ind_to_name.end()) {
               fprintf(f, "/* %d: %s */\n", k - 2, got->second);
             } else {
@@ -525,7 +519,7 @@ int main(int argc, char **argv) {
       struct type_info *type_info;
       int index;
 
-      sprintf(filename, "bin/%s.arg_entity_index", name.data());
+      sprintf(filename, "bin/%s.ret_entity_index", name.data());
       f = fopen(filename, "w");
       if (!returnType->isVoidTy()) {
         type_info = types.find(returnType)->second;
@@ -536,14 +530,14 @@ int main(int argc, char **argv) {
       }
       fclose(f);
 
-      sprintf(filename, "bin/%s.ret_entity_index", name.data());
+      sprintf(filename, "bin/%s.arg_entity_index", name.data());
       f = fopen(filename, "w");
       if (paramTypes.size()) {
         for (Type *paramType : paramTypes) {
           if (!paramType->isVoidTy()) {
             type_info = types.find(paramType)->second;
             index = ent_to_index->find(type_info)->second;
-            fprintf(f, "%d ", index);
+            fprintf(f, "%d, ", index);
           }
         }
       } else {
