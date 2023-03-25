@@ -6,6 +6,7 @@
 #include <stdexcept>
 #include <string>
 #include <vector>
+#include <unordered_map>
 
 #include "struct_info.h"
 #include <llvm/Analysis/TargetLibraryInfo.h>
@@ -393,7 +394,7 @@ int main(int argc, char **argv) {
   SMDiagnostic Err;
 
   LLVMContext *C = new LLVMContext();
-  Module *mod = parseIRFile("../bitcode/liblinked.bc", Err, *C).release();
+  Module *mod = parseIRFile("/root/extract_ptr_info/arm64_bc_apache_and_openssl/all_bc/all_linked.bc", Err, *C).release();
   if (!mod) {
     cout << "File passed in was invalid.";
     return 1;

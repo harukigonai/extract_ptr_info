@@ -1,6 +1,8 @@
 #ifndef __STRUCT_INFO_H__
 #define __STRUCT_INFO_H__
 
+#include <unordered_map>
+
 #include <llvm/IR/LLVMContext.h>
 #include <llvm/IR/Module.h>
 #include <llvm/IR/Function.h>
