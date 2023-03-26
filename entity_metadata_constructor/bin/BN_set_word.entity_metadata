@@ -1,0 +1,7 @@
+0, 24, 1, /* 0: struct.bignum_st */
+	5, 0,
+1, 8, 1, /* 5: pointer.int */
+	10, 0,
+0, 4, 0, /* 10: int */
+1, 8, 1, /* 13: pointer.struct.bignum_st */
+	0, 0,
