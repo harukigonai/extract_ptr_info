@@ -34,53 +34,41 @@ const EVP_MD * EVP_sha1(void)
             0, 0, 0, /* 0: func */
             1, 8, 1, /* 3: pointer.func */
             	0, 0,
-            0, 20, 5, /* 8: array[5].int */
-            	21, 0,
-            	21, 4,
-            	21, 8,
-            	21, 12,
-            	21, 16,
-            0, 4, 0, /* 21: int */
-            0, 0, 0, /* 24: func */
-            1, 8, 1, /* 27: pointer.func */
-            	24, 0,
-            0, 0, 0, /* 32: func */
-            1, 8, 1, /* 35: pointer.struct.env_md_st */
-            	40, 0,
-            0, 120, 15, /* 40: struct.env_md_st */
-            	21, 0,
-            	21, 4,
-            	21, 8,
-            	73, 16,
-            	76, 24,
-            	84, 32,
-            	92, 40,
-            	100, 48,
-            	76, 56,
-            	108, 64,
-            	27, 72,
-            	8, 80,
-            	21, 100,
-            	21, 104,
+            0, 20, 0, /* 8: array[5].int */
+            0, 0, 0, /* 11: func */
+            1, 8, 1, /* 14: pointer.func */
+            	11, 0,
+            0, 0, 0, /* 19: func */
+            0, 120, 8, /* 22: struct.env_md_st */
+            	41, 24,
+            	49, 32,
+            	57, 40,
+            	65, 48,
+            	41, 56,
+            	73, 64,
+            	14, 72,
             	3, 112,
-            0, 8, 0, /* 73: long */
-            1, 8, 1, /* 76: pointer.func */
-            	81, 0,
-            0, 0, 0, /* 81: func */
-            1, 8, 1, /* 84: pointer.func */
-            	89, 0,
-            0, 0, 0, /* 89: func */
-            1, 8, 1, /* 92: pointer.func */
-            	97, 0,
-            0, 0, 0, /* 97: func */
-            1, 8, 1, /* 100: pointer.func */
-            	105, 0,
-            0, 0, 0, /* 105: func */
-            1, 8, 1, /* 108: pointer.func */
-            	32, 0,
+            1, 8, 1, /* 41: pointer.func */
+            	46, 0,
+            0, 0, 0, /* 46: func */
+            1, 8, 1, /* 49: pointer.func */
+            	54, 0,
+            0, 0, 0, /* 54: func */
+            1, 8, 1, /* 57: pointer.func */
+            	62, 0,
+            0, 0, 0, /* 62: func */
+            1, 8, 1, /* 65: pointer.func */
+            	70, 0,
+            0, 0, 0, /* 70: func */
+            1, 8, 1, /* 73: pointer.func */
+            	19, 0,
+            1, 8, 1, /* 78: pointer.struct.env_md_st */
+            	22, 0,
+            0, 8, 0, /* 83: long */
+            0, 4, 0, /* 86: int */
         },
         .arg_entity_index = { -1 },
-        .ret_entity_index = 35,
+        .ret_entity_index = 78,
     };
     struct lib_enter_args *args_addr = &args;
     populate_ret(args_addr, ret);

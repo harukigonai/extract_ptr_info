@@ -33,27 +33,16 @@ const char * SSL_CIPHER_get_name(const SSL_CIPHER * arg_a)
         .entity_metadata = {
             0, 8, 0, /* 0: long */
             0, 4, 0, /* 3: int */
-            0, 88, 12, /* 6: struct.ssl_cipher_st */
-            	3, 0,
-            	33, 8,
-            	0, 16,
-            	0, 24,
-            	0, 32,
-            	0, 40,
-            	0, 48,
-            	0, 56,
-            	0, 64,
-            	0, 72,
-            	3, 80,
-            	3, 84,
-            1, 8, 1, /* 33: pointer.char */
-            	38, 0,
-            0, 1, 0, /* 38: char */
-            1, 8, 1, /* 41: pointer.struct.ssl_cipher_st */
+            0, 88, 1, /* 6: struct.ssl_cipher_st */
+            	11, 8,
+            1, 8, 1, /* 11: pointer.char */
+            	16, 0,
+            0, 1, 0, /* 16: char */
+            1, 8, 1, /* 19: pointer.struct.ssl_cipher_st */
             	6, 0,
         },
-        .arg_entity_index = { 41, },
-        .ret_entity_index = 33,
+        .arg_entity_index = { 19, },
+        .ret_entity_index = 11,
     };
     struct lib_enter_args *args_addr = &args;
     populate_arg(args_addr, arg_a);

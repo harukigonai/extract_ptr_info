@@ -35,27 +35,16 @@ int SSL_CIPHER_get_bits(const SSL_CIPHER * arg_a,int * arg_b)
             0, 1, 0, /* 3: char */
             1, 8, 1, /* 6: pointer.char */
             	3, 0,
-            0, 88, 12, /* 11: struct.ssl_cipher_st */
-            	38, 0,
+            0, 88, 1, /* 11: struct.ssl_cipher_st */
             	6, 8,
-            	0, 16,
-            	0, 24,
-            	0, 32,
-            	0, 40,
-            	0, 48,
-            	0, 56,
-            	0, 64,
-            	0, 72,
-            	38, 80,
-            	38, 84,
-            0, 4, 0, /* 38: int */
-            1, 8, 1, /* 41: pointer.struct.ssl_cipher_st */
+            1, 8, 1, /* 16: pointer.struct.ssl_cipher_st */
             	11, 0,
-            1, 8, 1, /* 46: pointer.int */
-            	38, 0,
+            1, 8, 1, /* 21: pointer.int */
+            	26, 0,
+            0, 4, 0, /* 26: int */
         },
-        .arg_entity_index = { 41, 46, },
-        .ret_entity_index = 38,
+        .arg_entity_index = { 16, 21, },
+        .ret_entity_index = 26,
     };
     struct lib_enter_args *args_addr = &args;
     populate_arg(args_addr, arg_a);
