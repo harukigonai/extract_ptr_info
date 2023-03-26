@@ -1,0 +1,34 @@
+0, 8, 0, /* 0: long */
+0, 4, 0, /* 3: int */
+1, 8, 1, /* 6: pointer.func */
+	11, 0,
+0, 0, 0, /* 11: func */
+1, 8, 1, /* 14: pointer.struct.X509_name_st */
+	19, 0,
+0, 40, 5, /* 19: struct.X509_name_st */
+	32, 0,
+	3, 8,
+	68, 16,
+	60, 24,
+	3, 32,
+1, 8, 1, /* 32: pointer.struct.stack_st_OPENSSL_STRING */
+	37, 0,
+0, 32, 1, /* 37: struct.stack_st_OPENSSL_STRING */
+	42, 0,
+0, 32, 5, /* 42: struct.stack_st */
+	3, 0,
+	55, 8,
+	3, 16,
+	3, 20,
+	6, 24,
+1, 8, 1, /* 55: pointer.pointer.char */
+	60, 0,
+1, 8, 1, /* 60: pointer.char */
+	65, 0,
+0, 1, 0, /* 65: char */
+1, 8, 1, /* 68: pointer.struct.buf_mem_st */
+	73, 0,
+0, 24, 3, /* 73: struct.buf_mem_st */
+	0, 0,
+	60, 8,
+	0, 16,

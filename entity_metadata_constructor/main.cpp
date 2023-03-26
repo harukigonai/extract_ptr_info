@@ -1,3 +1,4 @@
+#include <cstdint>
 #include <iostream>
 #include <fstream>
 
@@ -5,6 +6,7 @@
 #include <stdexcept>
 #include <string>
 #include <vector>
+#include <unordered_map>
 
 #include "struct_info.h"
 #include <llvm/Analysis/TargetLibraryInfo.h>
@@ -17,6 +19,7 @@
 #include <llvm/ADT/Triple.h>
 #include <llvm/IR/Module.h>
 #include <llvm/IR/Type.h>
+// #include <clang/AST/Type.h>
 
 using std::cout;
 using std::endl;
@@ -117,6 +120,7 @@ extract_types(DataLayout &dataLayout,
   type_info->type = type->getTypeID();
   memset(type_info->name, 0, 4096);
   if (type->isSized())
+  // if (1)
     type_info->size = dataLayout.getTypeAllocSize(type);
   else
     type_info->size = 0;
@@ -146,6 +150,10 @@ extract_types(DataLayout &dataLayout,
       // Do we handle this case?
       strcpy(type_info->name, "struct.unnamed");
     }
+
+    // structType->dump();
+    // printf("is canonical: %d\n", q->getLocallyUnqualifiedSingleStepDesugaredType());
+    // printf("struct %s has size %lu\n", type_info->name, type_info->size);
 
     // Go through the struct's children
     for (int i = 0; i < structType->getNumElements(); i++) {
@@ -293,7 +301,7 @@ size_t updateSize(set<struct type_info *> &entity_processed, size_t &size,
   entity_processed.insert(type_info);
 
   size_t child_types_size = type_info->child_types->size();
-  size_t ent_size = 3 + child_types_size;
+  size_t ent_size = 3 + 2 * child_types_size;
   for (int j = 0; j < child_types_size; j++) {
     struct child_type *child_type = (*type_info->child_types)[j];
     size += updateSize(entity_processed, size, child_type->type_info);
@@ -320,20 +328,24 @@ size_t compute_arr_size(unordered_map<Type *, struct type_info *> &structs) {
 int setEntInArray(uint64_t *ent_array,
                   unordered_map<struct type_info *, int> &ent_to_index,
                   int &ind, unordered_map<struct type_info *, int> &ent_to_id,
-                  int &id, struct type_info *type_info) {
+                  int &id, struct type_info *type_info,
+                  unordered_map<int, char *> &ind_to_name) {
   unordered_map<struct type_info *, int>::const_iterator got =
       ent_to_index.find(type_info);
   if (got != ent_to_index.end())
     return got->second;
   ent_to_index[type_info] = ind;
   ent_to_id[type_info] = id++; // ent_to_id is unused now, replaced with mode
+  ind_to_name[ind] = (char *)&type_info->name;
 
   size_t child_types_size = type_info->child_types->size();
   int local_ind = ind;
-  ind += 3 + child_types_size;
+  ind += 3 + 2 * child_types_size;
 
+  // ent_array[local_ind++] = 9999999999999999;
   // ent_array[local_ind++] = ent_to_id[type_info];
   ent_array[local_ind++] = type_info->type == Type::PointerTyID ? 1 : 0;
+  
   ent_array[local_ind++] = type_info->size;
   ent_array[local_ind++] = child_types_size;
 
@@ -341,13 +353,15 @@ int setEntInArray(uint64_t *ent_array,
   for (int j = 0; j < child_types_size; j++) {
     struct child_type *child_type = (*type_info->child_types)[j];
     ent_array[local_ind++] = setEntInArray(
-        ent_array, ent_to_index, ind, ent_to_id, id, child_type->type_info);
+        ent_array, ent_to_index, ind, ent_to_id, id, child_type->type_info, ind_to_name);
+    ent_array[local_ind++] = child_type->offset;
   }
 
   return ent_to_index[type_info];
 }
 
 unordered_map<struct type_info *, int> *ptrChildTypesToArray(uint64_t *ent_array,
+                          unordered_map<int, char *> &ind_to_name,
                           unordered_map<Type *, struct type_info *> &structs) {
   int ind = 0;
   unordered_map<struct type_info *, int> ent_to_id;
@@ -357,7 +371,7 @@ unordered_map<struct type_info *, int> *ptrChildTypesToArray(uint64_t *ent_array
   for (auto &t : structs) {
     struct type_info *type_info = t.second;
 
-    setEntInArray(ent_array, *ent_to_index, ind, ent_to_id, id, type_info);
+    setEntInArray(ent_array, *ent_to_index, ind, ent_to_id, id, type_info, ind_to_name);
   }
   return ent_to_index;
 }
@@ -380,7 +394,7 @@ int main(int argc, char **argv) {
   SMDiagnostic Err;
 
   LLVMContext *C = new LLVMContext();
-  Module *mod = parseIRFile("../bitcode/libssl.so.1.0.0.bc", Err, *C).release();
+  Module *mod = parseIRFile("../arm64_bc_apache_and_openssl/all_bc/all_linked.bc", Err, *C).release();
   if (!mod) {
     cout << "File passed in was invalid.";
     return 1;
@@ -391,25 +405,29 @@ int main(int argc, char **argv) {
       TargetLibraryInfoImpl(Triple(mod->getTargetTriple())));
   LibFunc func;
 
-  int p = 0;
   for (auto &F : *mod) {
     // if (!TLI->getLibFunc(F, func)) {
-      if (p <= 2) {
-        p++;
-        continue;
-      }
+      // if (p <= 2) {
+      //   p++;
+      //   continue;
+      // }
 
       const Function &lib_func = F.getFunction();
       FunctionType *functionType = lib_func.getFunctionType();
       StringRef name = lib_func.getName();
       string name_as_str = string(name.data());
+      // if (strcmp(name_as_str.c_str(), "EVP_DigestInit_ex")) {
+      //   // printf("%s is not EVP_DigestInit_ex\n", name_as_str.c_str());
+      //   continue;
+      // }
+
       const bool is_in = funcs_we_care_about.find(name_as_str) !=
         funcs_we_care_about.end();
       if (!is_in) {
-        cout << "oof guess we don't care abt _" << name_as_str << "_\n";
+        // cout << "oof guess we don't care abt _" << name_as_str << "_\n";
         continue;
       } else {
-        cout << "we care abt _" << name_as_str << "_\n";
+        // cout << "we care abt _" << name_as_str << "_\n";
         funcs_we_care_about.erase(name_as_str);
       }
 
@@ -433,56 +451,107 @@ int main(int argc, char **argv) {
 
       detail_types(types);
 
-      extract_ptr_types(types);
+      // extract_ptr_types(types);
 
       size_t arr_size = compute_arr_size(types);
 
       uint64_t *ent_array = new uint64_t[arr_size];
+      unordered_map<int, char *> ind_to_name;
 
-      unordered_map<struct type_info *, int> *ent_to_index = ptrChildTypesToArray(ent_array, types);
+      unordered_map<struct type_info *, int> *ent_to_index = ptrChildTypesToArray(ent_array, ind_to_name, types);
 
       // printf("size is %lu\n", arr_size);
       // for (int i = 0; i < arr_size; i++) {
       //   printf("%lu ", ent_array[i]);
       // }
       // printf("\n\n");
-      delete ent_array;
+      // delete ent_array;
+
+      int p = 0;
+      char *curr_func_name = NULL;
+      uint64_t num_children = 0;
+      uint64_t num_children_processed = 0;
 
       sprintf(filename, "bin/%s.entity_metadata", name.data());
-      FILE *f = fopen(filename, "wb");
-      fwrite(ent_array, sizeof(uint64_t), arr_size, f);
+
+      FILE *f = fopen(filename, "w");
+      for (int k = 0; k < arr_size; k++) {
+        if (p <= 2) {
+          fprintf(f, "%lu, ", ent_array[k]);
+
+          if (p == 2) {
+            unordered_map<int, char *>::const_iterator got =
+                ind_to_name.find(k - 2);
+            // printf("Looking for index %d\n", k);
+            if (got != ind_to_name.end()) {
+              fprintf(f, "/* %d: %s */\n", k - 2, got->second);
+            } else {
+              fprintf(f, "/* %d: Unnamed */\n", k - 2);
+            }
+
+            num_children = ent_array[k];
+            if (num_children == 0) {
+              p = 0;
+              num_children_processed = 0;
+              continue;
+            }
+          }
+          p++;
+        } else {
+          fprintf(f, "\t%lu, ", ent_array[k]);
+          k++;
+          fprintf(f, "%lu,\n", ent_array[k]);
+
+          num_children_processed++;
+
+          if (num_children == num_children_processed) {
+            p = 0;
+            num_children_processed = 0;
+            printf("\n");
+            continue;
+          }
+        }
+      }
+      // printf("\n\n\n\n");
+
       fclose(f);
 
       struct type_info *type_info;
-      int *index;
-
-      sprintf(filename, "bin/%s.arg_entity_index", name.data());
-      f = fopen(filename, "wb");
-      if (!returnType->isVoidTy()) {
-        type_info = types.find(returnType)->second;
-        index = &ent_to_index->find(type_info)->second;
-        fwrite(index, sizeof(int), 1, f);
-      }
-      fclose(f);
+      int index;
 
       sprintf(filename, "bin/%s.ret_entity_index", name.data());
-      f = fopen(filename, "wb");
-      for (Type *paramType : paramTypes) {
-        if (!paramType->isVoidTy()) {
-          type_info = types.find(paramType)->second;
-          index = &ent_to_index->find(type_info)->second;
-          fwrite(index, sizeof(int), 1, f);
-        }
+      f = fopen(filename, "w");
+      if (!returnType->isVoidTy()) {
+        type_info = types.find(returnType)->second;
+        index = ent_to_index->find(type_info)->second;
+        fprintf(f, "%d", index);
+      } else {
+        fprintf(f, "-1");
       }
       fclose(f);
 
-      p++;
+      sprintf(filename, "bin/%s.arg_entity_index", name.data());
+      f = fopen(filename, "w");
+      if (paramTypes.size()) {
+        for (Type *paramType : paramTypes) {
+          if (!paramType->isVoidTy()) {
+            type_info = types.find(paramType)->second;
+            index = ent_to_index->find(type_info)->second;
+            fprintf(f, "%d, ", index);
+          }
+        }
+      } else {
+        fprintf(f, "-1");
+      }
+
+      fclose(f);
+
     // }
   }
 
-  cout << "\n\n\n";
+  // cout << "\n\n\n";
   for (string woohoo : funcs_we_care_about)
   {
-    std::cout << "func is " << woohoo << "\n";
+    // std::cout << "func is " << woohoo << "\n";
   }
 }
