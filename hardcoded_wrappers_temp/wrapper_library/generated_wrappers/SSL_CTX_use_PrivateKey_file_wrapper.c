@@ -27,6 +27,7 @@
 
 int SSL_CTX_use_PrivateKey_file(SSL_CTX * arg_a,const char * arg_b,int arg_c) 
 {
+    printf("SSL_CTX_use_PrivateKey_file called\n");
     int ret;
 
     struct lib_enter_args args = {

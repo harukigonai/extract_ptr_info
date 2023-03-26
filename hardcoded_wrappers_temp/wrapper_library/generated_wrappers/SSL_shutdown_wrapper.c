@@ -27,6 +27,7 @@
 
 int SSL_shutdown(SSL * arg_a) 
 {
+    printf("SSL_shutdown called\n");
     int ret;
 
     struct lib_enter_args args = {

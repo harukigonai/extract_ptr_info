@@ -27,6 +27,7 @@
 
 const char * SSL_get_servername(const SSL * arg_a,const int arg_b) 
 {
+    printf("SSL_get_servername called\n");
     const char * ret;
 
     struct lib_enter_args args = {

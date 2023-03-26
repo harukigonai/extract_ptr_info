@@ -27,6 +27,7 @@
 
 int SSL_read(SSL * arg_a,void * arg_b,int arg_c) 
 {
+    printf("SSL_read called\n");
     int ret;
 
     struct lib_enter_args args = {

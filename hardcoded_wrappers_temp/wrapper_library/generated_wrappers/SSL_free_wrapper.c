@@ -27,6 +27,7 @@
 
 void SSL_free(SSL * arg_a) 
 {
+    printf("SSL_free called\n");
     struct lib_enter_args args = {
         .entity_metadata = {
             0, 0, 0, /* 0: func */

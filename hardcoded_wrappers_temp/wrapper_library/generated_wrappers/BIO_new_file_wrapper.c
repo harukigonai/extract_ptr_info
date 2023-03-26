@@ -27,6 +27,7 @@
 
 BIO * BIO_new_file(const char * arg_a,const char * arg_b) 
 {
+    printf("BIO_new_file called\n");
     BIO * ret;
 
     struct lib_enter_args args = {

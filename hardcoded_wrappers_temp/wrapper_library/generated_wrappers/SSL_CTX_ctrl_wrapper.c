@@ -27,6 +27,7 @@
 
 long SSL_CTX_ctrl(SSL_CTX * arg_a,int arg_b,long arg_c,void * arg_d) 
 {
+    printf("SSL_CTX_ctrl called\n");
     long ret;
 
     struct lib_enter_args args = {

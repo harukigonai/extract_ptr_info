@@ -27,6 +27,7 @@
 
 void X509_STORE_CTX_free(X509_STORE_CTX * arg_a) 
 {
+    printf("X509_STORE_CTX_free called\n");
     struct lib_enter_args args = {
         .entity_metadata = {
             0, 0, 0, /* 0: func */

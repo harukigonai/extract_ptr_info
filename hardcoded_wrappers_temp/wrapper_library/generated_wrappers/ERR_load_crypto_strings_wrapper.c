@@ -27,6 +27,7 @@
 
 void ERR_load_crypto_strings(void) 
 {
+    printf("ERR_load_crypto_strings called\n");
     struct lib_enter_args args = {
         .entity_metadata = {
         },

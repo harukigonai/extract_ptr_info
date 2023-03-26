@@ -27,6 +27,7 @@
 
 int SSL_write(SSL * arg_a,const void * arg_b,int arg_c) 
 {
+    printf("SSL_write called\n");
     int ret;
 
     struct lib_enter_args args = {

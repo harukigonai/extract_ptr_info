@@ -27,6 +27,7 @@
 
 int X509_check_private_key(X509 * arg_a,EVP_PKEY * arg_b) 
 {
+    printf("X509_check_private_key called\n");
     int ret;
 
     struct lib_enter_args args = {

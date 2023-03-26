@@ -27,6 +27,7 @@
 
 BIO_METHOD * BIO_s_file(void) 
 {
+    printf("BIO_s_file called\n");
     BIO_METHOD * ret;
 
     struct lib_enter_args args = {

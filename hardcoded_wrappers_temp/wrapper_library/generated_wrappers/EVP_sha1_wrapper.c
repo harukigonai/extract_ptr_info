@@ -27,6 +27,7 @@
 
 const EVP_MD * EVP_sha1(void) 
 {
+    printf("EVP_sha1 called\n");
     const EVP_MD * ret;
 
     struct lib_enter_args args = {

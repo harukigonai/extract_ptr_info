@@ -27,6 +27,7 @@
 
 int X509_STORE_CTX_init(X509_STORE_CTX * arg_a,X509_STORE * arg_b,X509 * arg_c,STACK_OF(X509) * arg_d) 
 {
+    printf("X509_STORE_CTX_init called\n");
     int ret;
 
     struct lib_enter_args args = {

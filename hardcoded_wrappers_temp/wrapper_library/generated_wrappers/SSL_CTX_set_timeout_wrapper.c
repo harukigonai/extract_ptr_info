@@ -27,6 +27,7 @@
 
 long SSL_CTX_set_timeout(SSL_CTX * arg_a,long arg_b) 
 {
+    printf("SSL_CTX_set_timeout called\n");
     long ret;
 
     struct lib_enter_args args = {

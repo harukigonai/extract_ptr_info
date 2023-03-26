@@ -27,6 +27,7 @@
 
 int BIO_read(BIO * arg_a,void * arg_b,int arg_c) 
 {
+    printf("BIO_read called\n");
     int ret;
 
     struct lib_enter_args args = {

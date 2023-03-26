@@ -27,6 +27,7 @@
 
 int EVP_PKEY_size(EVP_PKEY * arg_a) 
 {
+    printf("EVP_PKEY_size called\n");
     int ret;
 
     struct lib_enter_args args = {

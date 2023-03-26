@@ -27,6 +27,7 @@
 
 X509 * SSL_get_peer_certificate(const SSL * arg_a) 
 {
+    printf("SSL_get_peer_certificate called\n");
     X509 * ret;
 
     struct lib_enter_args args = {

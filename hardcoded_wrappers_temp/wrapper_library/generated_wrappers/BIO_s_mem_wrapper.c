@@ -27,6 +27,7 @@
 
 BIO_METHOD * BIO_s_mem(void) 
 {
+    printf("BIO_s_mem called\n");
     BIO_METHOD * ret;
 
     struct lib_enter_args args = {

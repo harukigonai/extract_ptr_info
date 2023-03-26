@@ -27,6 +27,7 @@
 
 int BIO_write(BIO * arg_a,const void * arg_b,int arg_c) 
 {
+    printf("BIO_write called\n");
     int ret;
 
     struct lib_enter_args args = {

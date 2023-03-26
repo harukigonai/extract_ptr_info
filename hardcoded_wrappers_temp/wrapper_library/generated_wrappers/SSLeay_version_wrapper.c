@@ -27,6 +27,7 @@
 
 const char * SSLeay_version(int arg_a) 
 {
+    printf("SSLeay_version called\n");
     const char * ret;
 
     struct lib_enter_args args = {

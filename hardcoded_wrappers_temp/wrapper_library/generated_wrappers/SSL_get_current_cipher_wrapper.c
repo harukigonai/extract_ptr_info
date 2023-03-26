@@ -27,6 +27,7 @@
 
 const SSL_CIPHER * SSL_get_current_cipher(const SSL * arg_a) 
 {
+    printf("SSL_get_current_cipher called\n");
     const SSL_CIPHER * ret;
 
     struct lib_enter_args args = {

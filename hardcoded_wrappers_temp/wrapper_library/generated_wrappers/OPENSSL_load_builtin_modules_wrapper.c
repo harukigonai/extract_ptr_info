@@ -27,6 +27,7 @@
 
 void OPENSSL_load_builtin_modules(void) 
 {
+    printf("OPENSSL_load_builtin_modules called\n");
     struct lib_enter_args args = {
         .entity_metadata = {
         },

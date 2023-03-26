@@ -27,6 +27,7 @@
 
 char * SSL_get_srp_username(SSL * arg_a) 
 {
+    printf("SSL_get_srp_username called\n");
     char * ret;
 
     struct lib_enter_args args = {

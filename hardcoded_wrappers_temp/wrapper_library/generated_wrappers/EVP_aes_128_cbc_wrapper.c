@@ -27,6 +27,7 @@
 
 const EVP_CIPHER * EVP_aes_128_cbc(void) 
 {
+    printf("EVP_aes_128_cbc called\n");
     const EVP_CIPHER * ret;
 
     struct lib_enter_args args = {

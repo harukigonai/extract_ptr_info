@@ -27,6 +27,7 @@
 
 void SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl_st *, unsigned char *, int, int *)) 
 {
+    printf("SSL_CTX_sess_set_get_cb called\n");
     struct lib_enter_args args = {
         .entity_metadata = {
             0, 0, 0, /* 0: func */

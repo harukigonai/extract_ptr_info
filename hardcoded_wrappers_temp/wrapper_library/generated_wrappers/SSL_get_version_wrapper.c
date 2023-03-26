@@ -27,6 +27,7 @@
 
 const char * SSL_get_version(const SSL * arg_a) 
 {
+    printf("SSL_get_version called\n");
     const char * ret;
 
     struct lib_enter_args args = {

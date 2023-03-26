@@ -27,6 +27,7 @@
 
 void SSL_set_verify(SSL * arg_a,int arg_b,int (*arg_c)(int, X509_STORE_CTX *)) 
 {
+    printf("SSL_set_verify called\n");
     struct lib_enter_args args = {
         .entity_metadata = {
             0, 0, 0, /* 0: func */

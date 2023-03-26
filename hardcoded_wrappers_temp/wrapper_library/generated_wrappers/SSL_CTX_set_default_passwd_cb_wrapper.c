@@ -27,6 +27,7 @@
 
 void SSL_CTX_set_default_passwd_cb(SSL_CTX * arg_a,pem_password_cb * arg_b) 
 {
+    printf("SSL_CTX_set_default_passwd_cb called\n");
     struct lib_enter_args args = {
         .entity_metadata = {
             0, 0, 0, /* 0: func */

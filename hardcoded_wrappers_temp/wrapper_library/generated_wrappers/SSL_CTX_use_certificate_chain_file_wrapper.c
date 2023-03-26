@@ -27,6 +27,7 @@
 
 int SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b) 
 {
+    printf("SSL_CTX_use_certificate_chain_file called\n");
     int ret;
 
     struct lib_enter_args args = {

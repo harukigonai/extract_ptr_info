@@ -27,6 +27,7 @@
 
 EVP_PKEY * PEM_read_bio_PrivateKey(BIO * arg_a,EVP_PKEY ** arg_b,pem_password_cb * arg_c,void * arg_d) 
 {
+    printf("PEM_read_bio_PrivateKey called\n");
     EVP_PKEY * ret;
 
     struct lib_enter_args args = {

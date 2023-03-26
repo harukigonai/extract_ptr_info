@@ -27,6 +27,7 @@
 
 unsigned long SSLeay(void) 
 {
+    printf("SSLeay called\n");
     unsigned long ret;
 
     struct lib_enter_args args = {

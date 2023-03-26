@@ -27,6 +27,7 @@
 
 const EVP_MD * EVP_sha256(void) 
 {
+    printf("EVP_sha256 called\n");
     const EVP_MD * ret;
 
     struct lib_enter_args args = {

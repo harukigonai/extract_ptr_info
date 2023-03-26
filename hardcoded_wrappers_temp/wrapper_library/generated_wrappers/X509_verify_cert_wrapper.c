@@ -27,6 +27,7 @@
 
 int X509_verify_cert(X509_STORE_CTX * arg_a) 
 {
+    printf("X509_verify_cert called\n");
     int ret;
 
     struct lib_enter_args args = {

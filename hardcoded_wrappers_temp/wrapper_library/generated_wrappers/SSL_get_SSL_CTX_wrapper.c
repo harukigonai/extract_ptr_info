@@ -27,6 +27,7 @@
 
 SSL_CTX * SSL_get_SSL_CTX(const SSL * arg_a) 
 {
+    printf("SSL_get_SSL_CTX called\n");
     SSL_CTX * ret;
 
     struct lib_enter_args args = {

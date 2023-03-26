@@ -27,6 +27,7 @@
 
 void * SSL_get_ex_data(const SSL * arg_a,int arg_b) 
 {
+    printf("SSL_get_ex_data called\n");
     void * ret;
 
     struct lib_enter_args args = {

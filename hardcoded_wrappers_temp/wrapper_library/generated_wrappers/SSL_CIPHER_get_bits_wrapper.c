@@ -27,6 +27,7 @@
 
 int SSL_CIPHER_get_bits(const SSL_CIPHER * arg_a,int * arg_b) 
 {
+    printf("SSL_CIPHER_get_bits called\n");
     int ret;
 
     struct lib_enter_args args = {

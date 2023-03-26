@@ -27,6 +27,7 @@
 
 void EVP_PKEY_free(EVP_PKEY * arg_a) 
 {
+    printf("EVP_PKEY_free called\n");
     struct lib_enter_args args = {
         .entity_metadata = {
             0, 8, 1, /* 0: struct.fnames */

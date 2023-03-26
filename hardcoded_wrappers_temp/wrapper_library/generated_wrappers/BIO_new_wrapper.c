@@ -27,6 +27,7 @@
 
 BIO * BIO_new(BIO_METHOD * arg_a) 
 {
+    printf("BIO_new called\n");
     BIO * ret;
 
     struct lib_enter_args args = {

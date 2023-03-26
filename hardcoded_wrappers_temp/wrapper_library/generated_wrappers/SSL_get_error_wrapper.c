@@ -27,6 +27,7 @@
 
 int SSL_get_error(const SSL * arg_a,int arg_b) 
 {
+    printf("SSL_get_error called\n");
     int ret;
 
     struct lib_enter_args args = {

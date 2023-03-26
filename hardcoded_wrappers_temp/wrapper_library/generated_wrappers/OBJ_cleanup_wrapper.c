@@ -27,6 +27,7 @@
 
 void OBJ_cleanup(void) 
 {
+    printf("OBJ_cleanup called\n");
     struct lib_enter_args args = {
         .entity_metadata = {
         },

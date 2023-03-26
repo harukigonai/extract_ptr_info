@@ -27,6 +27,7 @@
 
 EVP_MD_CTX * EVP_MD_CTX_create(void) 
 {
+    printf("EVP_MD_CTX_create called\n");
     EVP_MD_CTX * ret;
 
     struct lib_enter_args args = {

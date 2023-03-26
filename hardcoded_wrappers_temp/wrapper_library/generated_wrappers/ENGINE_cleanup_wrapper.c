@@ -27,6 +27,7 @@
 
 void ENGINE_cleanup(void) 
 {
+    printf("ENGINE_cleanup called\n");
     struct lib_enter_args args = {
         .entity_metadata = {
         },

@@ -27,6 +27,7 @@
 
 void SSL_CTX_set_info_callback(SSL_CTX *arg_a, void (*arg_b)(const SSL *,int,int)) 
 {
+    printf("SSL_CTX_set_info_callback called\n");
     struct lib_enter_args args = {
         .entity_metadata = {
             0, 0, 0, /* 0: func */

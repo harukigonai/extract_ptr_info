@@ -27,6 +27,7 @@
 
 int RAND_bytes(unsigned char * arg_a,int arg_b) 
 {
+    printf("RAND_bytes called\n");
     int ret;
 
     struct lib_enter_args args = {

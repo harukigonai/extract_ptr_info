@@ -27,6 +27,7 @@
 
 int EC_GROUP_get_curve_name(const EC_GROUP * arg_a) 
 {
+    printf("EC_GROUP_get_curve_name called\n");
     int ret;
 
     struct lib_enter_args args = {

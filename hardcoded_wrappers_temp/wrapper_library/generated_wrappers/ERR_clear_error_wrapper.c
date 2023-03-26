@@ -27,6 +27,7 @@
 
 void ERR_clear_error(void) 
 {
+    printf("ERR_clear_error called\n");
     struct lib_enter_args args = {
         .entity_metadata = {
         },

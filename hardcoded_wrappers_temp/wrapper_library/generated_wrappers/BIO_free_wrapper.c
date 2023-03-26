@@ -27,6 +27,7 @@
 
 int BIO_free(BIO * arg_a) 
 {
+    printf("BIO_free called\n");
     int ret;
 
     struct lib_enter_args args = {

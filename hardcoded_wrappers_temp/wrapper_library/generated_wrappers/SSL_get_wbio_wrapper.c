@@ -27,6 +27,7 @@
 
 BIO * SSL_get_wbio(const SSL * arg_a) 
 {
+    printf("SSL_get_wbio called\n");
     BIO * ret;
 
     struct lib_enter_args args = {

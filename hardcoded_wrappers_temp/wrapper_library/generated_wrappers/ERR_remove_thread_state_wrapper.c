@@ -27,6 +27,7 @@
 
 void ERR_remove_thread_state(const CRYPTO_THREADID * arg_a) 
 {
+    printf("ERR_remove_thread_state called\n");
     struct lib_enter_args args = {
         .entity_metadata = {
             0, 8, 0, /* 0: long */

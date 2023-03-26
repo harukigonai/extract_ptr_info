@@ -27,6 +27,7 @@
 
 int SSL_set_session_id_context(SSL * arg_a,const unsigned char * arg_b,unsigned int arg_c) 
 {
+    printf("SSL_set_session_id_context called\n");
     int ret;
 
     struct lib_enter_args args = {

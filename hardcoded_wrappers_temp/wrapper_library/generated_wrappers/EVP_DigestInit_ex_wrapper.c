@@ -27,6 +27,7 @@
 
 int EVP_DigestInit_ex(EVP_MD_CTX * arg_a,const EVP_MD * arg_b,ENGINE * arg_c) 
 {
+    printf("EVP_DigestInit_ex called\n");
     int ret;
 
     struct lib_enter_args args = {

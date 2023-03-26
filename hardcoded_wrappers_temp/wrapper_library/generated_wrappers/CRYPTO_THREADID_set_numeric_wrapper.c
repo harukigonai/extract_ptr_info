@@ -27,6 +27,7 @@
 
 void CRYPTO_THREADID_set_numeric(CRYPTO_THREADID * arg_a,unsigned long arg_b) 
 {
+    printf("CRYPTO_THREADID_set_numeric called\n");
     struct lib_enter_args args = {
         .entity_metadata = {
             0, 8, 0, /* 0: long */

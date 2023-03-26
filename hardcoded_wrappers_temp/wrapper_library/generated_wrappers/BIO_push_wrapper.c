@@ -27,6 +27,7 @@
 
 BIO * BIO_push(BIO * arg_a,BIO * arg_b) 
 {
+    printf("BIO_push called\n");
     BIO * ret;
 
     struct lib_enter_args args = {

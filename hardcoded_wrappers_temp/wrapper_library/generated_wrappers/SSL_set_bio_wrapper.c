@@ -27,6 +27,7 @@
 
 void SSL_set_bio(SSL * arg_a,BIO * arg_b,BIO * arg_c) 
 {
+    printf("SSL_set_bio called\n");
     struct lib_enter_args args = {
         .entity_metadata = {
             0, 0, 0, /* 0: func */

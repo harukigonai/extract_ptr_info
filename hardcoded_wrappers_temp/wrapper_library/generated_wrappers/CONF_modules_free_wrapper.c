@@ -27,6 +27,7 @@
 
 void CONF_modules_free(void) 
 {
+    printf("CONF_modules_free called\n");
     struct lib_enter_args args = {
         .entity_metadata = {
         },

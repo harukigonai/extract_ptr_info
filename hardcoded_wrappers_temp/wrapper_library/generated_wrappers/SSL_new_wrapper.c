@@ -27,6 +27,7 @@
 
 SSL * SSL_new(SSL_CTX * arg_a) 
 {
+    printf("SSL_new called\n");
     SSL * ret;
 
     struct lib_enter_args args = {

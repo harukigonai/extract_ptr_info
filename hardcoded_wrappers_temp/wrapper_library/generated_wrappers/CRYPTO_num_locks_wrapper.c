@@ -27,6 +27,7 @@
 
 int CRYPTO_num_locks(void) 
 {
+    printf("CRYPTO_num_locks called\n");
     int ret;
 
     struct lib_enter_args args = {

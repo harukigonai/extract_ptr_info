@@ -27,6 +27,7 @@
 
 EVP_PKEY * X509_get_pubkey(X509 * arg_a) 
 {
+    printf("X509_get_pubkey called\n");
     EVP_PKEY * ret;
 
     struct lib_enter_args args = {

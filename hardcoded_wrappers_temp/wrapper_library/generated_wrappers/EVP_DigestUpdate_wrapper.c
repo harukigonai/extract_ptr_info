@@ -27,6 +27,7 @@
 
 int EVP_DigestUpdate(EVP_MD_CTX * arg_a, const void * arg_b,size_t arg_c) 
 {
+    printf("EVP_DigestUpdate called\n");
     int ret;
 
     struct lib_enter_args args = {

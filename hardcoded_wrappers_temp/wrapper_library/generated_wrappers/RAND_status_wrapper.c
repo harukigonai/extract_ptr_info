@@ -27,6 +27,7 @@
 
 int RAND_status(void) 
 {
+    printf("RAND_status called\n");
     int ret;
 
     struct lib_enter_args args = {

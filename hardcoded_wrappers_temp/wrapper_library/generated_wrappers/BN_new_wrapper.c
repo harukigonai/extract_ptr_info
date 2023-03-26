@@ -27,6 +27,7 @@
 
 BIGNUM * BN_new(void) 
 {
+    printf("BN_new called\n");
     BIGNUM * ret;
 
     struct lib_enter_args args = {

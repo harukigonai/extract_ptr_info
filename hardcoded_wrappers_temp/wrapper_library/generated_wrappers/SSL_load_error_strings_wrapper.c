@@ -27,6 +27,7 @@
 
 void SSL_load_error_strings(void) 
 {
+    printf("SSL_load_error_strings called\n");
     struct lib_enter_args args = {
         .entity_metadata = {
         },

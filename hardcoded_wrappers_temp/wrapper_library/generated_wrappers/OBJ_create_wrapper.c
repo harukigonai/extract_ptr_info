@@ -27,6 +27,7 @@
 
 int OBJ_create(const char * arg_a,const char * arg_b,const char * arg_c) 
 {
+    printf("OBJ_create called\n");
     int ret;
 
     struct lib_enter_args args = {

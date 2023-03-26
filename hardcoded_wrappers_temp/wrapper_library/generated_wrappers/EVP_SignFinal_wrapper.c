@@ -27,6 +27,7 @@
 
 int EVP_SignFinal(EVP_MD_CTX * arg_a,unsigned char * arg_b,unsigned int * arg_c,EVP_PKEY * arg_d) 
 {
+    printf("EVP_SignFinal called\n");
     int ret;
 
     struct lib_enter_args args = {

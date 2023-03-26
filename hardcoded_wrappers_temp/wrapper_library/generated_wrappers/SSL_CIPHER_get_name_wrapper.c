@@ -27,6 +27,7 @@
 
 const char * SSL_CIPHER_get_name(const SSL_CIPHER * arg_a) 
 {
+    printf("SSL_CIPHER_get_name called\n");
     const char * ret;
 
     struct lib_enter_args args = {

@@ -27,6 +27,7 @@
 
 int SSL_get_ex_new_index(long arg_a,void * arg_b,CRYPTO_EX_new * arg_c,CRYPTO_EX_dup * arg_d,CRYPTO_EX_free * arg_e) 
 {
+    printf("SSL_get_ex_new_index called\n");
     int ret;
 
     struct lib_enter_args args = {

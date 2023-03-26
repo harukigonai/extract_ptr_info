@@ -27,6 +27,7 @@
 
 int SSL_CTX_check_private_key(const SSL_CTX * arg_a) 
 {
+    printf("SSL_CTX_check_private_key called\n");
     int ret;
 
     struct lib_enter_args args = {

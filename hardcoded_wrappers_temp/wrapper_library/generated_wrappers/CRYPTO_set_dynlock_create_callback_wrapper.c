@@ -27,6 +27,7 @@
 
 void CRYPTO_set_dynlock_create_callback(struct CRYPTO_dynlock_value *(*arg_a)(const char *, int)) 
 {
+    printf("CRYPTO_set_dynlock_create_callback called\n");
     struct lib_enter_args args = {
         .entity_metadata = {
             0, 0, 0, /* 0: func */

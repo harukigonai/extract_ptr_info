@@ -27,6 +27,7 @@
 
 int SSL_library_init(void) 
 {
+    printf("SSL_library_init called\n");
     int ret;
 
     struct lib_enter_args args = {

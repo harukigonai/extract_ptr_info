@@ -27,6 +27,7 @@
 
 long SSL_get_verify_result(const SSL * arg_a) 
 {
+    printf("SSL_get_verify_result called\n");
     long ret;
 
     struct lib_enter_args args = {

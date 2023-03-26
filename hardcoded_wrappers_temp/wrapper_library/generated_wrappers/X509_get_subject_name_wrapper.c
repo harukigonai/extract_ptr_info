@@ -27,6 +27,7 @@
 
 X509_NAME * X509_get_subject_name(X509 * arg_a) 
 {
+    printf("X509_get_subject_name called\n");
     X509_NAME * ret;
 
     struct lib_enter_args args = {

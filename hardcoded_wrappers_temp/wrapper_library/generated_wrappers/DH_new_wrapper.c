@@ -27,6 +27,7 @@
 
 DH * DH_new(void) 
 {
+    printf("DH_new called\n");
     DH * ret;
 
     struct lib_enter_args args = {

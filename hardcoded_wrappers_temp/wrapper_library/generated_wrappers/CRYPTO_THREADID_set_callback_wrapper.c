@@ -27,6 +27,7 @@
 
 int CRYPTO_THREADID_set_callback(void (*arg_a)(CRYPTO_THREADID *)) 
 {
+    printf("CRYPTO_THREADID_set_callback called\n");
     int ret;
 
     struct lib_enter_args args = {

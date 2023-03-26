@@ -27,6 +27,7 @@
 
 void SSL_set_shutdown(SSL * arg_a,int arg_b) 
 {
+    printf("SSL_set_shutdown called\n");
     struct lib_enter_args args = {
         .entity_metadata = {
             0, 0, 0, /* 0: func */

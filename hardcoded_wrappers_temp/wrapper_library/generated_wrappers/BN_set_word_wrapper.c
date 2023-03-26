@@ -27,6 +27,7 @@
 
 int BN_set_word(BIGNUM * arg_a,BN_ULONG arg_b) 
 {
+    printf("BN_set_word called\n");
     int ret;
 
     struct lib_enter_args args = {

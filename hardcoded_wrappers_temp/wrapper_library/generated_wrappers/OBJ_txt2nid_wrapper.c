@@ -27,6 +27,7 @@
 
 int OBJ_txt2nid(const char * arg_a) 
 {
+    printf("OBJ_txt2nid called\n");
     int ret;
 
     struct lib_enter_args args = {

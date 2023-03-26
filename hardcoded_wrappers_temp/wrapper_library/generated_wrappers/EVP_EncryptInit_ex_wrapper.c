@@ -27,6 +27,7 @@
 
 int EVP_EncryptInit_ex(EVP_CIPHER_CTX * arg_a,const EVP_CIPHER * arg_b,ENGINE * arg_c,const unsigned char * arg_d,const unsigned char * arg_e) 
 {
+    printf("EVP_EncryptInit_ex called\n");
     int ret;
 
     struct lib_enter_args args = {

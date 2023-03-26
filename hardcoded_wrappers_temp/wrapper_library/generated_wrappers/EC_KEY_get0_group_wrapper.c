@@ -27,6 +27,7 @@
 
 const EC_GROUP * EC_KEY_get0_group(const EC_KEY * arg_a) 
 {
+    printf("EC_KEY_get0_group called\n");
     const EC_GROUP * ret;
 
     struct lib_enter_args args = {

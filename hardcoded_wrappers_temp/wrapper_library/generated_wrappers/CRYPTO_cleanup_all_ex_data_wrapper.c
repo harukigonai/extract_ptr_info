@@ -27,6 +27,7 @@
 
 void CRYPTO_cleanup_all_ex_data(void) 
 {
+    printf("CRYPTO_cleanup_all_ex_data called\n");
     struct lib_enter_args args = {
         .entity_metadata = {
         },

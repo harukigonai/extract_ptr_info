@@ -27,6 +27,7 @@
 
 X509_STORE_CTX * X509_STORE_CTX_new(void) 
 {
+    printf("X509_STORE_CTX_new called\n");
     X509_STORE_CTX * ret;
 
     struct lib_enter_args args = {

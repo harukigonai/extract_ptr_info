@@ -27,6 +27,7 @@
 
 unsigned long ERR_peek_last_error(void) 
 {
+    printf("ERR_peek_last_error called\n");
     unsigned long ret;
 
     struct lib_enter_args args = {
