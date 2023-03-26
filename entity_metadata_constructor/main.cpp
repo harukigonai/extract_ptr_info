@@ -383,12 +383,9 @@ int main(int argc, char **argv) {
   if (newfile.is_open()){
     string tp;
     while(getline(newfile, tp)){
-      cout << "nice we have_" << tp  << "_\n";
       funcs_we_care_about.insert(tp);
     }
     newfile.close();
-  } else {
-    cout << "f\n";
   }
 
   SMDiagnostic Err;
@@ -406,28 +403,17 @@ int main(int argc, char **argv) {
   LibFunc func;
 
   for (auto &F : *mod) {
-    // if (!TLI->getLibFunc(F, func)) {
-      // if (p <= 2) {
-      //   p++;
-      //   continue;
-      // }
-
+    if (!TLI->getLibFunc(F, func)) {
       const Function &lib_func = F.getFunction();
       FunctionType *functionType = lib_func.getFunctionType();
       StringRef name = lib_func.getName();
       string name_as_str = string(name.data());
-      // if (strcmp(name_as_str.c_str(), "EVP_DigestInit_ex")) {
-      //   // printf("%s is not EVP_DigestInit_ex\n", name_as_str.c_str());
-      //   continue;
-      // }
 
       const bool is_in = funcs_we_care_about.find(name_as_str) !=
         funcs_we_care_about.end();
       if (!is_in) {
-        // cout << "oof guess we don't care abt _" << name_as_str << "_\n";
         continue;
       } else {
-        // cout << "we care abt _" << name_as_str << "_\n";
         funcs_we_care_about.erase(name_as_str);
       }
 
@@ -438,20 +424,18 @@ int main(int argc, char **argv) {
       Type *returnType = functionType->getReturnType();
       if (!returnType->isVoidTy()) {
         extract_types(dataLayout, types, returnType);
-        // returnType->dump();
       }
 
       ArrayRef<Type *> paramTypes = functionType->params();
       for (Type *paramType : paramTypes) {
         if (!paramType->isVoidTy()) {
           extract_types(dataLayout, types, paramType);
-          // paramType->dump();
         }
       }
 
       detail_types(types);
 
-      // extract_ptr_types(types);
+      extract_ptr_types(types);
 
       size_t arr_size = compute_arr_size(types);
 
@@ -459,13 +443,6 @@ int main(int argc, char **argv) {
       unordered_map<int, char *> ind_to_name;
 
       unordered_map<struct type_info *, int> *ent_to_index = ptrChildTypesToArray(ent_array, ind_to_name, types);
-
-      // printf("size is %lu\n", arr_size);
-      // for (int i = 0; i < arr_size; i++) {
-      //   printf("%lu ", ent_array[i]);
-      // }
-      // printf("\n\n");
-      // delete ent_array;
 
       int p = 0;
       char *curr_func_name = NULL;
@@ -482,7 +459,6 @@ int main(int argc, char **argv) {
           if (p == 2) {
             unordered_map<int, char *>::const_iterator got =
                 ind_to_name.find(k - 2);
-            // printf("Looking for index %d\n", k);
             if (got != ind_to_name.end()) {
               fprintf(f, "/* %d: %s */\n", k - 2, got->second);
             } else {
@@ -507,12 +483,10 @@ int main(int argc, char **argv) {
           if (num_children == num_children_processed) {
             p = 0;
             num_children_processed = 0;
-            printf("\n");
             continue;
           }
         }
       }
-      // printf("\n\n\n\n");
 
       fclose(f);
 
@@ -545,13 +519,11 @@ int main(int argc, char **argv) {
       }
 
       fclose(f);
-
-    // }
+    }
   }
 
-  // cout << "\n\n\n";
-  for (string woohoo : funcs_we_care_about)
+  for (string func_not_processed : funcs_we_care_about)
   {
-    // std::cout << "func is " << woohoo << "\n";
+    std::cout << "Function " << func_not_processed << " was not found.\n";
   }
 }

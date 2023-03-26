@@ -226,7 +226,7 @@ def main():
     arg = sys.argv[1]
     if arg == "clean":
         for path in pathlib.Path(wrapper_output_dir).glob("**/*"):
-            if path.is_file():
+            if path.is_file() and "Makefile" not in path.name:
                 path.unlink()
         return
 
