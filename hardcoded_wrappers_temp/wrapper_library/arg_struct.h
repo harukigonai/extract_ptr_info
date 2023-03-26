@@ -29,6 +29,6 @@ struct lib_enter_args {
     size_t entity_metadata_size;
 };
 
-#define offsetof(TYPE, MEMBER) ((size_t) &((TYPE *)0)->MEMBER)
+// #define offsetof(TYPE, MEMBER) ((size_t) &((TYPE *)0)->MEMBER)
 
 #endif
