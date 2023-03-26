@@ -5,7 +5,7 @@ LDLIBS = -ldl
 INCLUDE = -I/opt/openssl/openssl/include
 
 .PHONY: all
-all: clean libuhh.so
+all: clean libssl_wrapper.so
 
 .PHONY: clean
 clean:
@@ -14,10 +14,10 @@ clean:
 %.so:
 	$(LINK.c) $(LDFLAGS) $^ -o $@ $(LDLIBS)
 
-libuhh.so: uhh.o
+libssl_wrapper.so: libssl_wrapper.o
 
-uhh.o: uhh.c
-	gcc -g -Wall -c uhh.c -o uhh.o $(CLFAGS) -I/opt/openssl/openssl/include $(LDLIBS)
+libssl_wrapper.o: libssl_wrapper.c
+	gcc -g -Wall -c libssl_wrapper.c -o libssl_wrapper.o $(CLFAGS) -I/opt/openssl/openssl/include $(LDLIBS)
 
-# LD_PRELOAD="/root/apache/preloader/libuhh.so" /root/apache/bin/apachectl -D FOREGROUND
-# LD_PRELOAD="/root/apache/preloader/libuhh.so" /root/apache/bin/apachectl
+# LD_PRELOAD="/root/apache/preloader/libssl_wrapper.so" /root/apache/bin/apachectl -D FOREGROUND
+# LD_PRELOAD="/root/apache/preloader/libssl_wrapper.so" /root/apache/bin/apachectl
