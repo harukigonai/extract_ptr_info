@@ -31,6 +31,7 @@ int X509_NAME_get_index_by_NID(X509_NAME * arg_a,int arg_b,int arg_c)
     int ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 8, 0, /* 0: long */
             1, 8, 1, /* 3: pointer.func */

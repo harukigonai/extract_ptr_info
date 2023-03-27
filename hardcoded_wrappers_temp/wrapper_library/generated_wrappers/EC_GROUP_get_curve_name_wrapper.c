@@ -31,6 +31,7 @@ int EC_GROUP_get_curve_name(const EC_GROUP * arg_a)
     int ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 0, 0, /* 0: func */
             1, 8, 1, /* 3: pointer.func */

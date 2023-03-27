@@ -31,6 +31,7 @@ const EC_GROUP * EC_KEY_get0_group(const EC_KEY * arg_a)
     const EC_GROUP * ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             1, 8, 1, /* 0: pointer.struct.bignum_st */
             	5, 0,

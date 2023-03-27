@@ -29,6 +29,7 @@ void ERR_clear_error(void)
 {
     printf("ERR_clear_error called\n");
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
         },
         .arg_entity_index = { -1 },

@@ -31,6 +31,7 @@ EC_KEY * EC_KEY_new_by_curve_name(int arg_a)
     EC_KEY * ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             1, 8, 1, /* 0: pointer.struct.bignum_st */
             	5, 0,

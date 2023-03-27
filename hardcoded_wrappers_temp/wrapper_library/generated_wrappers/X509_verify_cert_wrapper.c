@@ -31,6 +31,7 @@ int X509_verify_cert(X509_STORE_CTX * arg_a)
     int ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 0, 0, /* 0: func */
             0, 8, 1, /* 3: union.anon.1.3070 */

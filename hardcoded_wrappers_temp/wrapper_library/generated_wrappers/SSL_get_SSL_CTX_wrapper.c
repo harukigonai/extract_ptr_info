@@ -31,6 +31,7 @@ SSL_CTX * SSL_get_SSL_CTX(const SSL * arg_a)
     SSL_CTX * ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 0, 0, /* 0: func */
             1, 8, 1, /* 3: pointer.func */

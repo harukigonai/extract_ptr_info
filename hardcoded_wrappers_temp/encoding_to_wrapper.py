@@ -107,6 +107,9 @@ def generate_function_wrapper(func_dict, wrapper_output_dir, ent_metadata_dir):
     # start struct lib_enter_args
     func_text += "    struct lib_enter_args args = {\n"
 
+    # zero out num_args
+    func_text += "        .num_args = 0,\n"
+
     # start entity_metadata
     func_text += "        .entity_metadata = {\n"
     ent_meta_filename = os.path.join(ent_metadata_dir, f"{func_name}.entity_metadata")

@@ -31,6 +31,7 @@ const EVP_MD * EVP_sha256(void)
     const EVP_MD * ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 0, 0, /* 0: func */
             1, 8, 1, /* 3: pointer.func */

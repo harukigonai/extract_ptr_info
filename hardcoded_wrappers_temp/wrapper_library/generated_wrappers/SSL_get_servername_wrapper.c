@@ -31,6 +31,7 @@ const char * SSL_get_servername(const SSL * arg_a,const int arg_b)
     const char * ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 0, 0, /* 0: func */
             1, 8, 1, /* 3: pointer.func */

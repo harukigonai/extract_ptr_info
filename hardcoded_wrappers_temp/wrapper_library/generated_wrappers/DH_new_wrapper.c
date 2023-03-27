@@ -31,6 +31,7 @@ DH * DH_new(void)
     DH * ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 32, 2, /* 0: struct.ENGINE_CMD_DEFN_st */
             	7, 8,

@@ -29,6 +29,7 @@ void ENGINE_load_builtin_engines(void)
 {
     printf("ENGINE_load_builtin_engines called\n");
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
         },
         .arg_entity_index = { -1 },

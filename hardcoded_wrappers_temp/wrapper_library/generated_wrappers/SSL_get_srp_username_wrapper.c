@@ -31,6 +31,7 @@ char * SSL_get_srp_username(SSL * arg_a)
     char * ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 0, 0, /* 0: func */
             0, 16, 1, /* 3: struct.tls_session_ticket_ext_st */

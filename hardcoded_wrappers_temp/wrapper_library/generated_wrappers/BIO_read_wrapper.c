@@ -31,6 +31,7 @@ int BIO_read(BIO * arg_a,void * arg_b,int arg_c)
     int ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 32, 2, /* 0: struct.stack_st */
             	7, 8,

@@ -31,6 +31,7 @@ int X509_check_private_key(X509 * arg_a,EVP_PKEY * arg_b)
     int ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 40, 5, /* 0: struct.x509_cert_aux_st */
             	13, 0,

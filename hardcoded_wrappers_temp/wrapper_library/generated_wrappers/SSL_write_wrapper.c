@@ -31,6 +31,7 @@ int SSL_write(SSL * arg_a,const void * arg_b,int arg_c)
     int ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 0, 0, /* 0: func */
             1, 8, 1, /* 3: pointer.func */

@@ -31,6 +31,7 @@ int EVP_EncryptInit_ex(EVP_CIPHER_CTX * arg_a,const EVP_CIPHER * arg_b,ENGINE * 
     int ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 0, 0, /* 0: func */
             0, 32, 1, /* 3: struct.stack_st_OPENSSL_STRING */

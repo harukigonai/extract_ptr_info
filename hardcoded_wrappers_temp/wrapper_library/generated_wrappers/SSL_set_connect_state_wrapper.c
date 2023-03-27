@@ -29,6 +29,7 @@ void SSL_set_connect_state(SSL * arg_a)
 {
     printf("SSL_set_connect_state called\n");
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 0, 0, /* 0: func */
             1, 8, 1, /* 3: pointer.func */

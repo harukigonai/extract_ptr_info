@@ -31,6 +31,7 @@ const EVP_CIPHER * EVP_aes_256_cbc(void)
     const EVP_CIPHER * ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 0, 0, /* 0: func */
             1, 8, 1, /* 3: pointer.struct.evp_cipher_st.2256 */

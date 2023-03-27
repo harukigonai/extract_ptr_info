@@ -31,6 +31,7 @@ int EVP_DigestUpdate(EVP_MD_CTX * arg_a, const void * arg_b,size_t arg_c)
     int ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 8, 1, /* 0: struct.fnames */
             	5, 0,

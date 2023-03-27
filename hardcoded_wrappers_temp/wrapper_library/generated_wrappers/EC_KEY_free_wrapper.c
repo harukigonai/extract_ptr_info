@@ -29,6 +29,7 @@ void EC_KEY_free(EC_KEY * arg_a)
 {
     printf("EC_KEY_free called\n");
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             1, 8, 1, /* 0: pointer.struct.bignum_st */
             	5, 0,

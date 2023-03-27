@@ -29,6 +29,7 @@ void ENGINE_cleanup(void)
 {
     printf("ENGINE_cleanup called\n");
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
         },
         .arg_entity_index = { -1 },

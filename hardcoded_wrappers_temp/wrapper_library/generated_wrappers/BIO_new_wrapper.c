@@ -31,6 +31,7 @@ BIO * BIO_new(BIO_METHOD * arg_a)
     BIO * ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 32, 2, /* 0: struct.stack_st */
             	7, 8,

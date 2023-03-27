@@ -31,6 +31,7 @@ const char * SSL_CIPHER_get_name(const SSL_CIPHER * arg_a)
     const char * ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 8, 0, /* 0: long */
             0, 4, 0, /* 3: int */

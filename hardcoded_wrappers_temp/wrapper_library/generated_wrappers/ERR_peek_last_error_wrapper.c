@@ -31,6 +31,7 @@ unsigned long ERR_peek_last_error(void)
     unsigned long ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 8, 0, /* 0: long */
         },

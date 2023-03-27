@@ -31,6 +31,7 @@ int SSL_CTX_set_cipher_list(SSL_CTX * arg_a,const char * arg_b)
     int ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 0, 0, /* 0: func */
             1, 8, 1, /* 3: pointer.func */

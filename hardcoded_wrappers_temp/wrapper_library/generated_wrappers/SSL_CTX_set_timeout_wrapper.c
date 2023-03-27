@@ -31,6 +31,7 @@ long SSL_CTX_set_timeout(SSL_CTX * arg_a,long arg_b)
     long ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 0, 0, /* 0: func */
             0, 0, 0, /* 3: func */

@@ -31,6 +31,7 @@ int BN_set_word(BIGNUM * arg_a,BN_ULONG arg_b)
     int ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 24, 1, /* 0: struct.bignum_st */
             	5, 0,

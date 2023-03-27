@@ -31,6 +31,7 @@ void * SSL_get_ex_data(const SSL * arg_a,int arg_b)
     void * ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 0, 0, /* 0: func */
             1, 8, 1, /* 3: pointer.func */

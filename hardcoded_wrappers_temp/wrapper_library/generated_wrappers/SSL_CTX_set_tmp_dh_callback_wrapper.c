@@ -29,6 +29,7 @@ void SSL_CTX_set_tmp_dh_callback(SSL_CTX * arg_a,DH *(*arg_b)(SSL *, int, int))
 {
     printf("SSL_CTX_set_tmp_dh_callback called\n");
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 0, 0, /* 0: func */
             1, 8, 1, /* 3: pointer.func */

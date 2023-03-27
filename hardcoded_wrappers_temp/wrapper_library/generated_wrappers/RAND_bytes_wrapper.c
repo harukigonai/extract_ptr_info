@@ -31,6 +31,7 @@ int RAND_bytes(unsigned char * arg_a,int arg_b)
     int ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 1, 0, /* 0: char */
             1, 8, 1, /* 3: pointer.char */

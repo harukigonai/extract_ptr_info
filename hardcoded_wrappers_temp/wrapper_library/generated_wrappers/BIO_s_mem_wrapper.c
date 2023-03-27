@@ -31,6 +31,7 @@ BIO_METHOD * BIO_s_mem(void)
     BIO_METHOD * ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 0, 0, /* 0: func */
             0, 80, 9, /* 3: struct.bio_method_st */

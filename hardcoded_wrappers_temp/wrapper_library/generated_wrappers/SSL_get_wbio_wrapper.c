@@ -31,6 +31,7 @@ BIO * SSL_get_wbio(const SSL * arg_a)
     BIO * ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 0, 0, /* 0: func */
             1, 8, 1, /* 3: pointer.func */

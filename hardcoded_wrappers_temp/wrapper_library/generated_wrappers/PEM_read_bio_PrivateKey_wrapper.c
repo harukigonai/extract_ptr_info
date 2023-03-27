@@ -31,6 +31,7 @@ EVP_PKEY * PEM_read_bio_PrivateKey(BIO * arg_a,EVP_PKEY ** arg_b,pem_password_cb
     EVP_PKEY * ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             1, 8, 1, /* 0: pointer.func */
             	5, 0,

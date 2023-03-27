@@ -31,6 +31,7 @@ int SSL_library_init(void)
     int ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 4, 0, /* 0: int */
         },

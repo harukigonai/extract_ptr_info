@@ -29,6 +29,7 @@ void OPENSSL_cleanse(void * arg_a,size_t arg_b)
 {
     printf("OPENSSL_cleanse called\n");
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 8, 0, /* 0: long */
             0, 1, 0, /* 3: char */

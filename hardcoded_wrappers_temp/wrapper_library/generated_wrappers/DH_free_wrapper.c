@@ -29,6 +29,7 @@ void DH_free(DH * arg_a)
 {
     printf("DH_free called\n");
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 32, 2, /* 0: struct.ENGINE_CMD_DEFN_st */
             	7, 8,

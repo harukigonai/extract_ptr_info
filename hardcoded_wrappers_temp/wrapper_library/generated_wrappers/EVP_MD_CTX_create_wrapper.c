@@ -31,6 +31,7 @@ EVP_MD_CTX * EVP_MD_CTX_create(void)
     EVP_MD_CTX * ret;
 
     struct lib_enter_args args = {
+        .num_args = 0,
         .entity_metadata = {
             0, 8, 1, /* 0: struct.fnames */
             	5, 0,
