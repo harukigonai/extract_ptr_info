@@ -36,7 +36,7 @@ const char * SSLeay_version(int arg_a)
             0, 4, 0, /* 0: int */
             0, 1, 0, /* 3: char */
             1, 8, 1, /* 6: pointer.char */
-            	3, 0,
+            	4096, 0,
         },
         .arg_entity_index = { 0, },
         .ret_entity_index = 6,
