@@ -31,7 +31,7 @@ BIO * SSL_get_wbio(const SSL * arg_a)
 
     BIO * (*orig_SSL_get_wbio)(const SSL *);
     orig_SSL_get_wbio = dlsym(RTLD_NEXT, "SSL_get_wbio");
-    ret = (*orig_SSL_get_wbio)(new_arg_a);
+    ret = (*orig_SSL_get_wbio)(arg_a);
 
     return ret;
 }

@@ -31,7 +31,7 @@ long SSL_get_verify_result(const SSL * arg_a)
 
     long (*orig_SSL_get_verify_result)(const SSL *);
     orig_SSL_get_verify_result = dlsym(RTLD_NEXT, "SSL_get_verify_result");
-    ret = (*orig_SSL_get_verify_result)(new_arg_a);
+    ret = (*orig_SSL_get_verify_result)(arg_a);
 
     return ret;
 }

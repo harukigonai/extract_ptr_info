@@ -31,7 +31,7 @@ char * SSL_get_srp_username(SSL * arg_a)
 
     char * (*orig_SSL_get_srp_username)(SSL *);
     orig_SSL_get_srp_username = dlsym(RTLD_NEXT, "SSL_get_srp_username");
-    ret = (*orig_SSL_get_srp_username)(new_arg_a);
+    ret = (*orig_SSL_get_srp_username)(arg_a);
 
     return ret;
 }

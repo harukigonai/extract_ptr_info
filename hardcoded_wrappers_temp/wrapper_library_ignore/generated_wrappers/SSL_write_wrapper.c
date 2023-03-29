@@ -31,7 +31,7 @@ int SSL_write(SSL * arg_a,const void * arg_b,int arg_c)
 
     int (*orig_SSL_write)(SSL *,const void *,int);
     orig_SSL_write = dlsym(RTLD_NEXT, "SSL_write");
-    ret = (*orig_SSL_write)(new_arg_a,new_arg_b,new_arg_c);
+    ret = (*orig_SSL_write)(arg_a,arg_b,arg_c);
 
     return ret;
 }

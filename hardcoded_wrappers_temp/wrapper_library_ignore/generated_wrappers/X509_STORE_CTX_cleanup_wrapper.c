@@ -29,7 +29,7 @@ void X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a)
 {
     void (*orig_X509_STORE_CTX_cleanup)(X509_STORE_CTX *);
     orig_X509_STORE_CTX_cleanup = dlsym(RTLD_NEXT, "X509_STORE_CTX_cleanup");
-    (*orig_X509_STORE_CTX_cleanup)(new_arg_a);
+    (*orig_X509_STORE_CTX_cleanup)(arg_a);
 
 }
 

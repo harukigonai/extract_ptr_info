@@ -31,7 +31,7 @@ const char * SSLeay_version(int arg_a)
 
     const char * (*orig_SSLeay_version)(int);
     orig_SSLeay_version = dlsym(RTLD_NEXT, "SSLeay_version");
-    ret = (*orig_SSLeay_version)(new_arg_a);
+    ret = (*orig_SSLeay_version)(arg_a);
 
     return ret;
 }

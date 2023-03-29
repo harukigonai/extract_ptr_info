@@ -31,7 +31,7 @@ int SSL_shutdown(SSL * arg_a)
 
     int (*orig_SSL_shutdown)(SSL *);
     orig_SSL_shutdown = dlsym(RTLD_NEXT, "SSL_shutdown");
-    ret = (*orig_SSL_shutdown)(new_arg_a);
+    ret = (*orig_SSL_shutdown)(arg_a);
 
     return ret;
 }

@@ -29,7 +29,7 @@ void SSL_set_verify(SSL * arg_a,int arg_b,int (*arg_c)(int, X509_STORE_CTX *))
 {
     void (*orig_SSL_set_verify)(SSL *,int,int (*)(int, X509_STORE_CTX *));
     orig_SSL_set_verify = dlsym(RTLD_NEXT, "SSL_set_verify");
-    (*orig_SSL_set_verify)(new_arg_a,new_arg_b,new_arg_c);
+    (*orig_SSL_set_verify)(arg_a,arg_b,arg_c);
 
 }
 

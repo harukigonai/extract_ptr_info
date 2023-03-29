@@ -31,7 +31,7 @@ int EC_GROUP_get_curve_name(const EC_GROUP * arg_a)
 
     int (*orig_EC_GROUP_get_curve_name)(const EC_GROUP *);
     orig_EC_GROUP_get_curve_name = dlsym(RTLD_NEXT, "EC_GROUP_get_curve_name");
-    ret = (*orig_EC_GROUP_get_curve_name)(new_arg_a);
+    ret = (*orig_EC_GROUP_get_curve_name)(arg_a);
 
     return ret;
 }

@@ -29,7 +29,7 @@ void ERR_remove_thread_state(const CRYPTO_THREADID * arg_a)
 {
     void (*orig_ERR_remove_thread_state)(const CRYPTO_THREADID *);
     orig_ERR_remove_thread_state = dlsym(RTLD_NEXT, "ERR_remove_thread_state");
-    (*orig_ERR_remove_thread_state)(new_arg_a);
+    (*orig_ERR_remove_thread_state)(arg_a);
 
 }
 

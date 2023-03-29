@@ -31,7 +31,7 @@ int BIO_read(BIO * arg_a,void * arg_b,int arg_c)
 
     int (*orig_BIO_read)(BIO *,void *,int);
     orig_BIO_read = dlsym(RTLD_NEXT, "BIO_read");
-    ret = (*orig_BIO_read)(new_arg_a,new_arg_b,new_arg_c);
+    ret = (*orig_BIO_read)(arg_a,arg_b,arg_c);
 
     return ret;
 }

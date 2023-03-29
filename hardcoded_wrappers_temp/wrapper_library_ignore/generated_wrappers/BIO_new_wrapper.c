@@ -31,7 +31,7 @@ BIO * BIO_new(BIO_METHOD * arg_a)
 
     BIO * (*orig_BIO_new)(BIO_METHOD *);
     orig_BIO_new = dlsym(RTLD_NEXT, "BIO_new");
-    ret = (*orig_BIO_new)(new_arg_a);
+    ret = (*orig_BIO_new)(arg_a);
 
     return ret;
 }

@@ -29,7 +29,7 @@ void RAND_seed(void * arg_a,int arg_b)
 {
     void (*orig_RAND_seed)(void *,int);
     orig_RAND_seed = dlsym(RTLD_NEXT, "RAND_seed");
-    (*orig_RAND_seed)(new_arg_a,new_arg_b);
+    (*orig_RAND_seed)(arg_a,arg_b);
 
 }
 

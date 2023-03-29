@@ -29,7 +29,7 @@ void SSL_free(SSL * arg_a)
 {
     void (*orig_SSL_free)(SSL *);
     orig_SSL_free = dlsym(RTLD_NEXT, "SSL_free");
-    (*orig_SSL_free)(new_arg_a);
+    (*orig_SSL_free)(arg_a);
 
 }
 

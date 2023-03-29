@@ -31,7 +31,7 @@ int SSL_CIPHER_get_bits(const SSL_CIPHER * arg_a,int * arg_b)
 
     int (*orig_SSL_CIPHER_get_bits)(const SSL_CIPHER *,int *);
     orig_SSL_CIPHER_get_bits = dlsym(RTLD_NEXT, "SSL_CIPHER_get_bits");
-    ret = (*orig_SSL_CIPHER_get_bits)(new_arg_a,new_arg_b);
+    ret = (*orig_SSL_CIPHER_get_bits)(arg_a,arg_b);
 
     return ret;
 }

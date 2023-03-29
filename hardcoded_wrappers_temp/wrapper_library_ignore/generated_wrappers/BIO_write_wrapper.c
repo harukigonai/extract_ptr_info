@@ -31,7 +31,7 @@ int BIO_write(BIO * arg_a,const void * arg_b,int arg_c)
 
     int (*orig_BIO_write)(BIO *,const void *,int);
     orig_BIO_write = dlsym(RTLD_NEXT, "BIO_write");
-    ret = (*orig_BIO_write)(new_arg_a,new_arg_b,new_arg_c);
+    ret = (*orig_BIO_write)(arg_a,arg_b,arg_c);
 
     return ret;
 }

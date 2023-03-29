@@ -31,7 +31,7 @@ int EVP_PKEY_size(EVP_PKEY * arg_a)
 
     int (*orig_EVP_PKEY_size)(EVP_PKEY *);
     orig_EVP_PKEY_size = dlsym(RTLD_NEXT, "EVP_PKEY_size");
-    ret = (*orig_EVP_PKEY_size)(new_arg_a);
+    ret = (*orig_EVP_PKEY_size)(arg_a);
 
     return ret;
 }

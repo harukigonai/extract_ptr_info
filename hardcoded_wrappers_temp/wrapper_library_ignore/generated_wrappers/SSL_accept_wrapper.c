@@ -31,7 +31,7 @@ int SSL_accept(SSL * arg_a)
 
     int (*orig_SSL_accept)(SSL *);
     orig_SSL_accept = dlsym(RTLD_NEXT, "SSL_accept");
-    ret = (*orig_SSL_accept)(new_arg_a);
+    ret = (*orig_SSL_accept)(arg_a);
 
     return ret;
 }

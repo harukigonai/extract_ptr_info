@@ -31,7 +31,7 @@ void * SSL_get_ex_data(const SSL * arg_a,int arg_b)
 
     void * (*orig_SSL_get_ex_data)(const SSL *,int);
     orig_SSL_get_ex_data = dlsym(RTLD_NEXT, "SSL_get_ex_data");
-    ret = (*orig_SSL_get_ex_data)(new_arg_a,new_arg_b);
+    ret = (*orig_SSL_get_ex_data)(arg_a,arg_b);
 
     return ret;
 }

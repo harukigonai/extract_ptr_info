@@ -29,7 +29,7 @@ void DH_free(DH * arg_a)
 {
     void (*orig_DH_free)(DH *);
     orig_DH_free = dlsym(RTLD_NEXT, "DH_free");
-    (*orig_DH_free)(new_arg_a);
+    (*orig_DH_free)(arg_a);
 
 }
 

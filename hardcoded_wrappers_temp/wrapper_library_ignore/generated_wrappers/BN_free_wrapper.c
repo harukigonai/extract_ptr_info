@@ -29,7 +29,7 @@ void BN_free(BIGNUM * arg_a)
 {
     void (*orig_BN_free)(BIGNUM *);
     orig_BN_free = dlsym(RTLD_NEXT, "BN_free");
-    (*orig_BN_free)(new_arg_a);
+    (*orig_BN_free)(arg_a);
 
 }
 

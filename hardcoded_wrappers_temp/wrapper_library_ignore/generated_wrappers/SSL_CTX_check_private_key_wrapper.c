@@ -31,7 +31,7 @@ int SSL_CTX_check_private_key(const SSL_CTX * arg_a)
 
     int (*orig_SSL_CTX_check_private_key)(const SSL_CTX *);
     orig_SSL_CTX_check_private_key = dlsym(RTLD_NEXT, "SSL_CTX_check_private_key");
-    ret = (*orig_SSL_CTX_check_private_key)(new_arg_a);
+    ret = (*orig_SSL_CTX_check_private_key)(arg_a);
 
     return ret;
 }

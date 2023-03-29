@@ -29,7 +29,7 @@ void EC_KEY_free(EC_KEY * arg_a)
 {
     void (*orig_EC_KEY_free)(EC_KEY *);
     orig_EC_KEY_free = dlsym(RTLD_NEXT, "EC_KEY_free");
-    (*orig_EC_KEY_free)(new_arg_a);
+    (*orig_EC_KEY_free)(arg_a);
 
 }
 

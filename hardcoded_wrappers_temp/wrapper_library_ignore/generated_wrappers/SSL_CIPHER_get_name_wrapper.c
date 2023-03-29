@@ -31,7 +31,7 @@ const char * SSL_CIPHER_get_name(const SSL_CIPHER * arg_a)
 
     const char * (*orig_SSL_CIPHER_get_name)(const SSL_CIPHER *);
     orig_SSL_CIPHER_get_name = dlsym(RTLD_NEXT, "SSL_CIPHER_get_name");
-    ret = (*orig_SSL_CIPHER_get_name)(new_arg_a);
+    ret = (*orig_SSL_CIPHER_get_name)(arg_a);
 
     return ret;
 }

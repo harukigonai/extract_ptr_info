@@ -31,7 +31,7 @@ int OBJ_create(const char * arg_a,const char * arg_b,const char * arg_c)
 
     int (*orig_OBJ_create)(const char *,const char *,const char *);
     orig_OBJ_create = dlsym(RTLD_NEXT, "OBJ_create");
-    ret = (*orig_OBJ_create)(new_arg_a,new_arg_b,new_arg_c);
+    ret = (*orig_OBJ_create)(arg_a,arg_b,arg_c);
 
     return ret;
 }

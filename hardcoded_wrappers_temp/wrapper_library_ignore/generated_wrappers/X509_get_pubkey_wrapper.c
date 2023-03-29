@@ -31,7 +31,7 @@ EVP_PKEY * X509_get_pubkey(X509 * arg_a)
 
     EVP_PKEY * (*orig_X509_get_pubkey)(X509 *);
     orig_X509_get_pubkey = dlsym(RTLD_NEXT, "X509_get_pubkey");
-    ret = (*orig_X509_get_pubkey)(new_arg_a);
+    ret = (*orig_X509_get_pubkey)(arg_a);
 
     return ret;
 }

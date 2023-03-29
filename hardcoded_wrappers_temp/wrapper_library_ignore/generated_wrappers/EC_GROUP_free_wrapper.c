@@ -29,7 +29,7 @@ void EC_GROUP_free(EC_GROUP * arg_a)
 {
     void (*orig_EC_GROUP_free)(EC_GROUP *);
     orig_EC_GROUP_free = dlsym(RTLD_NEXT, "EC_GROUP_free");
-    (*orig_EC_GROUP_free)(new_arg_a);
+    (*orig_EC_GROUP_free)(arg_a);
 
 }
 

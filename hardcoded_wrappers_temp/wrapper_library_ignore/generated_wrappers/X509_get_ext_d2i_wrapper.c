@@ -31,7 +31,7 @@ void * X509_get_ext_d2i(X509 * arg_a,int arg_b,int * arg_c,int * arg_d)
 
     void * (*orig_X509_get_ext_d2i)(X509 *,int,int *,int *);
     orig_X509_get_ext_d2i = dlsym(RTLD_NEXT, "X509_get_ext_d2i");
-    ret = (*orig_X509_get_ext_d2i)(new_arg_a,new_arg_b,new_arg_c,new_arg_d);
+    ret = (*orig_X509_get_ext_d2i)(arg_a,arg_b,arg_c,arg_d);
 
     return ret;
 }

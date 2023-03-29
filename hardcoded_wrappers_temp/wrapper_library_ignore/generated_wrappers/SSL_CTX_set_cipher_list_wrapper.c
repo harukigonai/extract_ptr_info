@@ -31,7 +31,7 @@ int SSL_CTX_set_cipher_list(SSL_CTX * arg_a,const char * arg_b)
 
     int (*orig_SSL_CTX_set_cipher_list)(SSL_CTX *,const char *);
     orig_SSL_CTX_set_cipher_list = dlsym(RTLD_NEXT, "SSL_CTX_set_cipher_list");
-    ret = (*orig_SSL_CTX_set_cipher_list)(new_arg_a,new_arg_b);
+    ret = (*orig_SSL_CTX_set_cipher_list)(arg_a,arg_b);
 
     return ret;
 }

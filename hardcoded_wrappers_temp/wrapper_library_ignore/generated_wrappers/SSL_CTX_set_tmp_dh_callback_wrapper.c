@@ -29,7 +29,7 @@ void SSL_CTX_set_tmp_dh_callback(SSL_CTX * arg_a,DH *(*arg_b)(SSL *, int, int))
 {
     void (*orig_SSL_CTX_set_tmp_dh_callback)(SSL_CTX *,DH *(*)(SSL *, int, int));
     orig_SSL_CTX_set_tmp_dh_callback = dlsym(RTLD_NEXT, "SSL_CTX_set_tmp_dh_callback");
-    (*orig_SSL_CTX_set_tmp_dh_callback)(new_arg_a,new_arg_b);
+    (*orig_SSL_CTX_set_tmp_dh_callback)(arg_a,arg_b);
 
 }
 

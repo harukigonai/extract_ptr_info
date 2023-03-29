@@ -31,7 +31,7 @@ int SSL_get_ex_new_index(long arg_a,void * arg_b,CRYPTO_EX_new * arg_c,CRYPTO_EX
 
     int (*orig_SSL_get_ex_new_index)(long,void *,CRYPTO_EX_new *,CRYPTO_EX_dup *,CRYPTO_EX_free *);
     orig_SSL_get_ex_new_index = dlsym(RTLD_NEXT, "SSL_get_ex_new_index");
-    ret = (*orig_SSL_get_ex_new_index)(new_arg_a,new_arg_b,new_arg_c,new_arg_d,new_arg_e);
+    ret = (*orig_SSL_get_ex_new_index)(arg_a,arg_b,arg_c,arg_d,arg_e);
 
     return ret;
 }

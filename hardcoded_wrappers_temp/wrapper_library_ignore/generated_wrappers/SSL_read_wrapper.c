@@ -31,7 +31,7 @@ int SSL_read(SSL * arg_a,void * arg_b,int arg_c)
 
     int (*orig_SSL_read)(SSL *,void *,int);
     orig_SSL_read = dlsym(RTLD_NEXT, "SSL_read");
-    ret = (*orig_SSL_read)(new_arg_a,new_arg_b,new_arg_c);
+    ret = (*orig_SSL_read)(arg_a,arg_b,arg_c);
 
     return ret;
 }

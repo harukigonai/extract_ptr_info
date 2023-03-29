@@ -29,7 +29,7 @@ void SSL_CTX_sess_set_remove_cb(SSL_CTX * arg_a,void (*arg_b)(struct ssl_ctx_st 
 {
     void (*orig_SSL_CTX_sess_set_remove_cb)(SSL_CTX *,void (*)(struct ssl_ctx_st *,SSL_SESSION *));
     orig_SSL_CTX_sess_set_remove_cb = dlsym(RTLD_NEXT, "SSL_CTX_sess_set_remove_cb");
-    (*orig_SSL_CTX_sess_set_remove_cb)(new_arg_a,new_arg_b);
+    (*orig_SSL_CTX_sess_set_remove_cb)(arg_a,arg_b);
 
 }
 

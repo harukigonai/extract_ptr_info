@@ -29,7 +29,7 @@ void BIO_free_all(BIO * arg_a)
 {
     void (*orig_BIO_free_all)(BIO *);
     orig_BIO_free_all = dlsym(RTLD_NEXT, "BIO_free_all");
-    (*orig_BIO_free_all)(new_arg_a);
+    (*orig_BIO_free_all)(arg_a);
 
 }
 

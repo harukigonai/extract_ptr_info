@@ -29,7 +29,7 @@ void SSL_CTX_free(SSL_CTX * arg_a)
 {
     void (*orig_SSL_CTX_free)(SSL_CTX *);
     orig_SSL_CTX_free = dlsym(RTLD_NEXT, "SSL_CTX_free");
-    (*orig_SSL_CTX_free)(new_arg_a);
+    (*orig_SSL_CTX_free)(arg_a);
 
 }
 

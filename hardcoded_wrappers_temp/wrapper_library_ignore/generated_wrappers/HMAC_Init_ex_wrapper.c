@@ -31,7 +31,7 @@ int HMAC_Init_ex(HMAC_CTX * arg_a,const void * arg_b,int arg_c,const EVP_MD * ar
 
     int (*orig_HMAC_Init_ex)(HMAC_CTX *,const void *,int,const EVP_MD *,ENGINE *);
     orig_HMAC_Init_ex = dlsym(RTLD_NEXT, "HMAC_Init_ex");
-    ret = (*orig_HMAC_Init_ex)(new_arg_a,new_arg_b,new_arg_c,new_arg_d,new_arg_e);
+    ret = (*orig_HMAC_Init_ex)(arg_a,arg_b,arg_c,arg_d,arg_e);
 
     return ret;
 }

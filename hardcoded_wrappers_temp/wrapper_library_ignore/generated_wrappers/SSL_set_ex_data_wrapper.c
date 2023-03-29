@@ -31,7 +31,7 @@ int SSL_set_ex_data(SSL * arg_a,int arg_b,void * arg_c)
 
     int (*orig_SSL_set_ex_data)(SSL *,int,void *);
     orig_SSL_set_ex_data = dlsym(RTLD_NEXT, "SSL_set_ex_data");
-    ret = (*orig_SSL_set_ex_data)(new_arg_a,new_arg_b,new_arg_c);
+    ret = (*orig_SSL_set_ex_data)(arg_a,arg_b,arg_c);
 
     return ret;
 }

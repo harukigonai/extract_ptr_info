@@ -31,7 +31,7 @@ int RAND_bytes(unsigned char * arg_a,int arg_b)
 
     int (*orig_RAND_bytes)(unsigned char *,int);
     orig_RAND_bytes = dlsym(RTLD_NEXT, "RAND_bytes");
-    ret = (*orig_RAND_bytes)(new_arg_a,new_arg_b);
+    ret = (*orig_RAND_bytes)(arg_a,arg_b);
 
     return ret;
 }

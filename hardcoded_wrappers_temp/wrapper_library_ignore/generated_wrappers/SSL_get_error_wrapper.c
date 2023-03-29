@@ -31,7 +31,7 @@ int SSL_get_error(const SSL * arg_a,int arg_b)
 
     int (*orig_SSL_get_error)(const SSL *,int);
     orig_SSL_get_error = dlsym(RTLD_NEXT, "SSL_get_error");
-    ret = (*orig_SSL_get_error)(new_arg_a,new_arg_b);
+    ret = (*orig_SSL_get_error)(arg_a,arg_b);
 
     return ret;
 }

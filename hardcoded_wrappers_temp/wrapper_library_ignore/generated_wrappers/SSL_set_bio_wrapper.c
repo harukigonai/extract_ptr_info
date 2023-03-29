@@ -29,7 +29,7 @@ void SSL_set_bio(SSL * arg_a,BIO * arg_b,BIO * arg_c)
 {
     void (*orig_SSL_set_bio)(SSL *,BIO *,BIO *);
     orig_SSL_set_bio = dlsym(RTLD_NEXT, "SSL_set_bio");
-    (*orig_SSL_set_bio)(new_arg_a,new_arg_b,new_arg_c);
+    (*orig_SSL_set_bio)(arg_a,arg_b,arg_c);
 
 }
 

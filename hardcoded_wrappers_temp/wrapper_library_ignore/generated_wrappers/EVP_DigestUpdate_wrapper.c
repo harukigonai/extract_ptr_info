@@ -31,7 +31,7 @@ int EVP_DigestUpdate(EVP_MD_CTX * arg_a, const void * arg_b,size_t arg_c)
 
     int (*orig_EVP_DigestUpdate)(EVP_MD_CTX *, const void *,size_t);
     orig_EVP_DigestUpdate = dlsym(RTLD_NEXT, "EVP_DigestUpdate");
-    ret = (*orig_EVP_DigestUpdate)(new_arg_a,new_arg_b,new_arg_c);
+    ret = (*orig_EVP_DigestUpdate)(arg_a,arg_b,arg_c);
 
     return ret;
 }

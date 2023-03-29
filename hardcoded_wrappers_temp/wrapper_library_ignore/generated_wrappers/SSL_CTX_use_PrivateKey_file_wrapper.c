@@ -31,7 +31,7 @@ int SSL_CTX_use_PrivateKey_file(SSL_CTX * arg_a,const char * arg_b,int arg_c)
 
     int (*orig_SSL_CTX_use_PrivateKey_file)(SSL_CTX *,const char *,int);
     orig_SSL_CTX_use_PrivateKey_file = dlsym(RTLD_NEXT, "SSL_CTX_use_PrivateKey_file");
-    ret = (*orig_SSL_CTX_use_PrivateKey_file)(new_arg_a,new_arg_b,new_arg_c);
+    ret = (*orig_SSL_CTX_use_PrivateKey_file)(arg_a,arg_b,arg_c);
 
     return ret;
 }

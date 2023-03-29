@@ -31,7 +31,7 @@ long SSL_CTX_ctrl(SSL_CTX * arg_a,int arg_b,long arg_c,void * arg_d)
 
     long (*orig_SSL_CTX_ctrl)(SSL_CTX *,int,long,void *);
     orig_SSL_CTX_ctrl = dlsym(RTLD_NEXT, "SSL_CTX_ctrl");
-    ret = (*orig_SSL_CTX_ctrl)(new_arg_a,new_arg_b,new_arg_c,new_arg_d);
+    ret = (*orig_SSL_CTX_ctrl)(arg_a,arg_b,arg_c,arg_d);
 
     return ret;
 }

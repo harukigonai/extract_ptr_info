@@ -29,7 +29,7 @@ void OPENSSL_cleanse(void * arg_a,size_t arg_b)
 {
     void (*orig_OPENSSL_cleanse)(void *,size_t);
     orig_OPENSSL_cleanse = dlsym(RTLD_NEXT, "OPENSSL_cleanse");
-    (*orig_OPENSSL_cleanse)(new_arg_a,new_arg_b);
+    (*orig_OPENSSL_cleanse)(arg_a,arg_b);
 
 }
 

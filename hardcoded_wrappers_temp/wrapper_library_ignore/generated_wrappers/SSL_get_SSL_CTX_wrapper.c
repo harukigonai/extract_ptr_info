@@ -31,7 +31,7 @@ SSL_CTX * SSL_get_SSL_CTX(const SSL * arg_a)
 
     SSL_CTX * (*orig_SSL_get_SSL_CTX)(const SSL *);
     orig_SSL_get_SSL_CTX = dlsym(RTLD_NEXT, "SSL_get_SSL_CTX");
-    ret = (*orig_SSL_get_SSL_CTX)(new_arg_a);
+    ret = (*orig_SSL_get_SSL_CTX)(arg_a);
 
     return ret;
 }

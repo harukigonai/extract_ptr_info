@@ -29,7 +29,7 @@ void CRYPTO_set_dynlock_lock_callback(void (*arg_a)(int, struct CRYPTO_dynlock_v
 {
     void (*orig_CRYPTO_set_dynlock_lock_callback)(void (*)(int, struct CRYPTO_dynlock_value *, const char *, int));
     orig_CRYPTO_set_dynlock_lock_callback = dlsym(RTLD_NEXT, "CRYPTO_set_dynlock_lock_callback");
-    (*orig_CRYPTO_set_dynlock_lock_callback)(new_arg_a);
+    (*orig_CRYPTO_set_dynlock_lock_callback)(arg_a);
 
 }
 

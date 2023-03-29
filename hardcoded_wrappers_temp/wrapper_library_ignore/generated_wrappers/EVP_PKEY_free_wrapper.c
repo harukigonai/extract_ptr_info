@@ -29,7 +29,7 @@ void EVP_PKEY_free(EVP_PKEY * arg_a)
 {
     void (*orig_EVP_PKEY_free)(EVP_PKEY *);
     orig_EVP_PKEY_free = dlsym(RTLD_NEXT, "EVP_PKEY_free");
-    (*orig_EVP_PKEY_free)(new_arg_a);
+    (*orig_EVP_PKEY_free)(arg_a);
 
 }
 

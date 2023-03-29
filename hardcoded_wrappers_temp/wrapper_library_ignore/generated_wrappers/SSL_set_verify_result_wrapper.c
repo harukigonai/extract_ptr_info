@@ -29,7 +29,7 @@ void SSL_set_verify_result(SSL * arg_a,long arg_b)
 {
     void (*orig_SSL_set_verify_result)(SSL *,long);
     orig_SSL_set_verify_result = dlsym(RTLD_NEXT, "SSL_set_verify_result");
-    (*orig_SSL_set_verify_result)(new_arg_a,new_arg_b);
+    (*orig_SSL_set_verify_result)(arg_a,arg_b);
 
 }
 

@@ -31,7 +31,7 @@ X509_NAME * X509_get_subject_name(X509 * arg_a)
 
     X509_NAME * (*orig_X509_get_subject_name)(X509 *);
     orig_X509_get_subject_name = dlsym(RTLD_NEXT, "X509_get_subject_name");
-    ret = (*orig_X509_get_subject_name)(new_arg_a);
+    ret = (*orig_X509_get_subject_name)(arg_a);
 
     return ret;
 }

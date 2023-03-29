@@ -31,7 +31,7 @@ BIO * BIO_push(BIO * arg_a,BIO * arg_b)
 
     BIO * (*orig_BIO_push)(BIO *,BIO *);
     orig_BIO_push = dlsym(RTLD_NEXT, "BIO_push");
-    ret = (*orig_BIO_push)(new_arg_a,new_arg_b);
+    ret = (*orig_BIO_push)(arg_a,arg_b);
 
     return ret;
 }

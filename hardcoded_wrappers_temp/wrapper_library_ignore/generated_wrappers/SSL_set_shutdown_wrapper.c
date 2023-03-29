@@ -29,7 +29,7 @@ void SSL_set_shutdown(SSL * arg_a,int arg_b)
 {
     void (*orig_SSL_set_shutdown)(SSL *,int);
     orig_SSL_set_shutdown = dlsym(RTLD_NEXT, "SSL_set_shutdown");
-    (*orig_SSL_set_shutdown)(new_arg_a,new_arg_b);
+    (*orig_SSL_set_shutdown)(arg_a,arg_b);
 
 }
 

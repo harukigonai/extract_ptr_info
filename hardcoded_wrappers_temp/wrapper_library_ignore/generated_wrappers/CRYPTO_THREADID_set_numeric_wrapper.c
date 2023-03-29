@@ -29,7 +29,7 @@ void CRYPTO_THREADID_set_numeric(CRYPTO_THREADID * arg_a,unsigned long arg_b)
 {
     void (*orig_CRYPTO_THREADID_set_numeric)(CRYPTO_THREADID *,unsigned long);
     orig_CRYPTO_THREADID_set_numeric = dlsym(RTLD_NEXT, "CRYPTO_THREADID_set_numeric");
-    (*orig_CRYPTO_THREADID_set_numeric)(new_arg_a,new_arg_b);
+    (*orig_CRYPTO_THREADID_set_numeric)(arg_a,arg_b);
 
 }
 

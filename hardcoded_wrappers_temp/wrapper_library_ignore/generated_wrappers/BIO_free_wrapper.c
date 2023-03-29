@@ -31,7 +31,7 @@ int BIO_free(BIO * arg_a)
 
     int (*orig_BIO_free)(BIO *);
     orig_BIO_free = dlsym(RTLD_NEXT, "BIO_free");
-    ret = (*orig_BIO_free)(new_arg_a);
+    ret = (*orig_BIO_free)(arg_a);
 
     return ret;
 }

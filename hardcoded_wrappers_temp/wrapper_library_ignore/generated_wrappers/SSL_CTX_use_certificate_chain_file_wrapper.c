@@ -31,7 +31,7 @@ int SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
 
     int (*orig_SSL_CTX_use_certificate_chain_file)(SSL_CTX *,const char *);
     orig_SSL_CTX_use_certificate_chain_file = dlsym(RTLD_NEXT, "SSL_CTX_use_certificate_chain_file");
-    ret = (*orig_SSL_CTX_use_certificate_chain_file)(new_arg_a,new_arg_b);
+    ret = (*orig_SSL_CTX_use_certificate_chain_file)(arg_a,arg_b);
 
     return ret;
 }

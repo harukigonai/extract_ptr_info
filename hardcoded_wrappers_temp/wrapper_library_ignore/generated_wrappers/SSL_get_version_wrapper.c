@@ -31,7 +31,7 @@ const char * SSL_get_version(const SSL * arg_a)
 
     const char * (*orig_SSL_get_version)(const SSL *);
     orig_SSL_get_version = dlsym(RTLD_NEXT, "SSL_get_version");
-    ret = (*orig_SSL_get_version)(new_arg_a);
+    ret = (*orig_SSL_get_version)(arg_a);
 
     return ret;
 }

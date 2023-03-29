@@ -31,7 +31,7 @@ EC_KEY * EC_KEY_new_by_curve_name(int arg_a)
 
     EC_KEY * (*orig_EC_KEY_new_by_curve_name)(int);
     orig_EC_KEY_new_by_curve_name = dlsym(RTLD_NEXT, "EC_KEY_new_by_curve_name");
-    ret = (*orig_EC_KEY_new_by_curve_name)(new_arg_a);
+    ret = (*orig_EC_KEY_new_by_curve_name)(arg_a);
 
     return ret;
 }

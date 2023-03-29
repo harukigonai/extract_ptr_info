@@ -31,7 +31,7 @@ int EVP_DigestInit_ex(EVP_MD_CTX * arg_a,const EVP_MD * arg_b,ENGINE * arg_c)
 
     int (*orig_EVP_DigestInit_ex)(EVP_MD_CTX *,const EVP_MD *,ENGINE *);
     orig_EVP_DigestInit_ex = dlsym(RTLD_NEXT, "EVP_DigestInit_ex");
-    ret = (*orig_EVP_DigestInit_ex)(new_arg_a,new_arg_b,new_arg_c);
+    ret = (*orig_EVP_DigestInit_ex)(arg_a,arg_b,arg_c);
 
     return ret;
 }

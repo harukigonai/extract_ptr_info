@@ -31,7 +31,7 @@ X509 * SSL_get_certificate(const SSL * arg_a)
 
     X509 * (*orig_SSL_get_certificate)(const SSL *);
     orig_SSL_get_certificate = dlsym(RTLD_NEXT, "SSL_get_certificate");
-    ret = (*orig_SSL_get_certificate)(new_arg_a);
+    ret = (*orig_SSL_get_certificate)(arg_a);
 
     return ret;
 }

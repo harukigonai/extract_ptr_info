@@ -29,7 +29,7 @@ void SSL_set_connect_state(SSL * arg_a)
 {
     void (*orig_SSL_set_connect_state)(SSL *);
     orig_SSL_set_connect_state = dlsym(RTLD_NEXT, "SSL_set_connect_state");
-    (*orig_SSL_set_connect_state)(new_arg_a);
+    (*orig_SSL_set_connect_state)(arg_a);
 
 }
 

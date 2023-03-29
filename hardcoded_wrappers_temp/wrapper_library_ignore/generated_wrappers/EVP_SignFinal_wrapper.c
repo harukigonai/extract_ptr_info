@@ -31,7 +31,7 @@ int EVP_SignFinal(EVP_MD_CTX * arg_a,unsigned char * arg_b,unsigned int * arg_c,
 
     int (*orig_EVP_SignFinal)(EVP_MD_CTX *,unsigned char *,unsigned int *,EVP_PKEY *);
     orig_EVP_SignFinal = dlsym(RTLD_NEXT, "EVP_SignFinal");
-    ret = (*orig_EVP_SignFinal)(new_arg_a,new_arg_b,new_arg_c,new_arg_d);
+    ret = (*orig_EVP_SignFinal)(arg_a,arg_b,arg_c,arg_d);
 
     return ret;
 }

@@ -31,7 +31,7 @@ SSL * SSL_new(SSL_CTX * arg_a)
 
     SSL * (*orig_SSL_new)(SSL_CTX *);
     orig_SSL_new = dlsym(RTLD_NEXT, "SSL_new");
-    ret = (*orig_SSL_new)(new_arg_a);
+    ret = (*orig_SSL_new)(arg_a);
 
     return ret;
 }

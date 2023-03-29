@@ -31,7 +31,7 @@ const char * SSL_get_servername(const SSL * arg_a,const int arg_b)
 
     const char * (*orig_SSL_get_servername)(const SSL *,const int);
     orig_SSL_get_servername = dlsym(RTLD_NEXT, "SSL_get_servername");
-    ret = (*orig_SSL_get_servername)(new_arg_a,new_arg_b);
+    ret = (*orig_SSL_get_servername)(arg_a,arg_b);
 
     return ret;
 }

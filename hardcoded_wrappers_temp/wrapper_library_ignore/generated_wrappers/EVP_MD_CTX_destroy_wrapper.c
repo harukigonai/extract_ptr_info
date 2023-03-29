@@ -29,7 +29,7 @@ void EVP_MD_CTX_destroy(EVP_MD_CTX * arg_a)
 {
     void (*orig_EVP_MD_CTX_destroy)(EVP_MD_CTX *);
     orig_EVP_MD_CTX_destroy = dlsym(RTLD_NEXT, "EVP_MD_CTX_destroy");
-    (*orig_EVP_MD_CTX_destroy)(new_arg_a);
+    (*orig_EVP_MD_CTX_destroy)(arg_a);
 
 }
 

@@ -31,7 +31,7 @@ long SSL_CTX_set_timeout(SSL_CTX * arg_a,long arg_b)
 
     long (*orig_SSL_CTX_set_timeout)(SSL_CTX *,long);
     orig_SSL_CTX_set_timeout = dlsym(RTLD_NEXT, "SSL_CTX_set_timeout");
-    ret = (*orig_SSL_CTX_set_timeout)(new_arg_a,new_arg_b);
+    ret = (*orig_SSL_CTX_set_timeout)(arg_a,arg_b);
 
     return ret;
 }

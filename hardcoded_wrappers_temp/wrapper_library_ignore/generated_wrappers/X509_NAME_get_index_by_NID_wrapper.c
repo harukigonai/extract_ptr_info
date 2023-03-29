@@ -31,7 +31,7 @@ int X509_NAME_get_index_by_NID(X509_NAME * arg_a,int arg_b,int arg_c)
 
     int (*orig_X509_NAME_get_index_by_NID)(X509_NAME *,int,int);
     orig_X509_NAME_get_index_by_NID = dlsym(RTLD_NEXT, "X509_NAME_get_index_by_NID");
-    ret = (*orig_X509_NAME_get_index_by_NID)(new_arg_a,new_arg_b,new_arg_c);
+    ret = (*orig_X509_NAME_get_index_by_NID)(arg_a,arg_b,arg_c);
 
     return ret;
 }

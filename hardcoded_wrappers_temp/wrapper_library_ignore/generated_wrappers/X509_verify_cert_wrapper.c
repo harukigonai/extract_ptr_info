@@ -31,7 +31,7 @@ int X509_verify_cert(X509_STORE_CTX * arg_a)
 
     int (*orig_X509_verify_cert)(X509_STORE_CTX *);
     orig_X509_verify_cert = dlsym(RTLD_NEXT, "X509_verify_cert");
-    ret = (*orig_X509_verify_cert)(new_arg_a);
+    ret = (*orig_X509_verify_cert)(arg_a);
 
     return ret;
 }

@@ -31,7 +31,7 @@ int OBJ_txt2nid(const char * arg_a)
 
     int (*orig_OBJ_txt2nid)(const char *);
     orig_OBJ_txt2nid = dlsym(RTLD_NEXT, "OBJ_txt2nid");
-    ret = (*orig_OBJ_txt2nid)(new_arg_a);
+    ret = (*orig_OBJ_txt2nid)(arg_a);
 
     return ret;
 }

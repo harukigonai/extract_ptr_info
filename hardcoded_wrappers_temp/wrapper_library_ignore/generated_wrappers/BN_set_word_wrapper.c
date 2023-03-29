@@ -31,7 +31,7 @@ int BN_set_word(BIGNUM * arg_a,BN_ULONG arg_b)
 
     int (*orig_BN_set_word)(BIGNUM *,BN_ULONG);
     orig_BN_set_word = dlsym(RTLD_NEXT, "BN_set_word");
-    ret = (*orig_BN_set_word)(new_arg_a,new_arg_b);
+    ret = (*orig_BN_set_word)(arg_a,arg_b);
 
     return ret;
 }

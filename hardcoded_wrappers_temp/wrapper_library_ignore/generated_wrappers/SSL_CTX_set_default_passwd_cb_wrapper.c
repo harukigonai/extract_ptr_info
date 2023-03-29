@@ -29,7 +29,7 @@ void SSL_CTX_set_default_passwd_cb(SSL_CTX * arg_a,pem_password_cb * arg_b)
 {
     void (*orig_SSL_CTX_set_default_passwd_cb)(SSL_CTX *,pem_password_cb *);
     orig_SSL_CTX_set_default_passwd_cb = dlsym(RTLD_NEXT, "SSL_CTX_set_default_passwd_cb");
-    (*orig_SSL_CTX_set_default_passwd_cb)(new_arg_a,new_arg_b);
+    (*orig_SSL_CTX_set_default_passwd_cb)(arg_a,arg_b);
 
 }
 
