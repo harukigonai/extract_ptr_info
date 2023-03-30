@@ -28,7 +28,7 @@
 void SSL_CTX_set_default_passwd_cb(SSL_CTX * arg_a,pem_password_cb * arg_b) 
 {
     if (syscall(890))
-        _SSL_CTX_set_default_passwd_cb(arg_a,arg_b)
+        _SSL_CTX_set_default_passwd_cb(arg_a,arg_b);
     else {
         void (*orig_SSL_CTX_set_default_passwd_cb)(SSL_CTX *,pem_password_cb *);
         orig_SSL_CTX_set_default_passwd_cb = dlsym(RTLD_NEXT, "SSL_CTX_set_default_passwd_cb");

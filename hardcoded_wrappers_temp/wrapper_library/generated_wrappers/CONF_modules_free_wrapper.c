@@ -28,7 +28,7 @@
 void CONF_modules_free(void) 
 {
     if (syscall(890))
-        _CONF_modules_free()
+        _CONF_modules_free();
     else {
         void (*orig_CONF_modules_free)(void);
         orig_CONF_modules_free = dlsym(RTLD_NEXT, "CONF_modules_free");

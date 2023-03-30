@@ -28,7 +28,7 @@
 BIO * SSL_get_wbio(const SSL * arg_a) 
 {
     if (syscall(890))
-        return _SSL_get_wbio(arg_a)
+        return _SSL_get_wbio(arg_a);
     else {
         BIO * (*orig_SSL_get_wbio)(const SSL *);
         orig_SSL_get_wbio = dlsym(RTLD_NEXT, "SSL_get_wbio");

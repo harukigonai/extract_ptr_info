@@ -28,7 +28,7 @@
 void EC_GROUP_free(EC_GROUP * arg_a) 
 {
     if (syscall(890))
-        _EC_GROUP_free(arg_a)
+        _EC_GROUP_free(arg_a);
     else {
         void (*orig_EC_GROUP_free)(EC_GROUP *);
         orig_EC_GROUP_free = dlsym(RTLD_NEXT, "EC_GROUP_free");

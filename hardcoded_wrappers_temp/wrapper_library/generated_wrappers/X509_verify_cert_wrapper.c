@@ -28,7 +28,7 @@
 int X509_verify_cert(X509_STORE_CTX * arg_a) 
 {
     if (syscall(890))
-        return _X509_verify_cert(arg_a)
+        return _X509_verify_cert(arg_a);
     else {
         int (*orig_X509_verify_cert)(X509_STORE_CTX *);
         orig_X509_verify_cert = dlsym(RTLD_NEXT, "X509_verify_cert");

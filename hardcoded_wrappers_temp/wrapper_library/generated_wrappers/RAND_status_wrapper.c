@@ -28,7 +28,7 @@
 int RAND_status(void) 
 {
     if (syscall(890))
-        return _RAND_status()
+        return _RAND_status();
     else {
         int (*orig_RAND_status)(void);
         orig_RAND_status = dlsym(RTLD_NEXT, "RAND_status");

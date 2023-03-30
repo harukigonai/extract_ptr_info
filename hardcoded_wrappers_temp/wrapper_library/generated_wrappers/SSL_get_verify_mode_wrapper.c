@@ -28,7 +28,7 @@
 int SSL_get_verify_mode(const SSL * arg_a) 
 {
     if (syscall(890))
-        return _SSL_get_verify_mode(arg_a)
+        return _SSL_get_verify_mode(arg_a);
     else {
         int (*orig_SSL_get_verify_mode)(const SSL *);
         orig_SSL_get_verify_mode = dlsym(RTLD_NEXT, "SSL_get_verify_mode");

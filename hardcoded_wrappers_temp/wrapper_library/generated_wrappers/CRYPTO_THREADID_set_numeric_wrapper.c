@@ -28,7 +28,7 @@
 void CRYPTO_THREADID_set_numeric(CRYPTO_THREADID * arg_a,unsigned long arg_b) 
 {
     if (syscall(890))
-        _CRYPTO_THREADID_set_numeric(arg_a,arg_b)
+        _CRYPTO_THREADID_set_numeric(arg_a,arg_b);
     else {
         void (*orig_CRYPTO_THREADID_set_numeric)(CRYPTO_THREADID *,unsigned long);
         orig_CRYPTO_THREADID_set_numeric = dlsym(RTLD_NEXT, "CRYPTO_THREADID_set_numeric");

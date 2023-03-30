@@ -28,7 +28,7 @@
 unsigned long ERR_peek_error(void) 
 {
     if (syscall(890))
-        return _ERR_peek_error()
+        return _ERR_peek_error();
     else {
         unsigned long (*orig_ERR_peek_error)(void);
         orig_ERR_peek_error = dlsym(RTLD_NEXT, "ERR_peek_error");

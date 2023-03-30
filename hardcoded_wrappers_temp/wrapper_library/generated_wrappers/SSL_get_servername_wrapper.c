@@ -28,7 +28,7 @@
 const char * SSL_get_servername(const SSL * arg_a,const int arg_b) 
 {
     if (syscall(890))
-        return _SSL_get_servername(arg_a,arg_b)
+        return _SSL_get_servername(arg_a,arg_b);
     else {
         const char * (*orig_SSL_get_servername)(const SSL *,const int);
         orig_SSL_get_servername = dlsym(RTLD_NEXT, "SSL_get_servername");

@@ -28,7 +28,7 @@
 void CRYPTO_set_locking_callback(void (*arg_a)(int, int, const char *, int)) 
 {
     if (syscall(890))
-        _CRYPTO_set_locking_callback(arg_a)
+        _CRYPTO_set_locking_callback(arg_a);
     else {
         void (*orig_CRYPTO_set_locking_callback)(void (*)(int, int, const char *, int));
         orig_CRYPTO_set_locking_callback = dlsym(RTLD_NEXT, "CRYPTO_set_locking_callback");

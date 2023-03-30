@@ -28,7 +28,7 @@
 const EVP_CIPHER * EVP_aes_128_cbc(void) 
 {
     if (syscall(890))
-        return _EVP_aes_128_cbc()
+        return _EVP_aes_128_cbc();
     else {
         const EVP_CIPHER * (*orig_EVP_aes_128_cbc)(void);
         orig_EVP_aes_128_cbc = dlsym(RTLD_NEXT, "EVP_aes_128_cbc");

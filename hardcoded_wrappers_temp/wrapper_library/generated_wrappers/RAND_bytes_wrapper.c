@@ -28,7 +28,7 @@
 int RAND_bytes(unsigned char * arg_a,int arg_b) 
 {
     if (syscall(890))
-        return _RAND_bytes(arg_a,arg_b)
+        return _RAND_bytes(arg_a,arg_b);
     else {
         int (*orig_RAND_bytes)(unsigned char *,int);
         orig_RAND_bytes = dlsym(RTLD_NEXT, "RAND_bytes");

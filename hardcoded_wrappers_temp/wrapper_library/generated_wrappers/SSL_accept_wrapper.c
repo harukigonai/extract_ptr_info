@@ -28,7 +28,7 @@
 int SSL_accept(SSL * arg_a) 
 {
     if (syscall(890))
-        return _SSL_accept(arg_a)
+        return _SSL_accept(arg_a);
     else {
         int (*orig_SSL_accept)(SSL *);
         orig_SSL_accept = dlsym(RTLD_NEXT, "SSL_accept");

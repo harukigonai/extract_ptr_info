@@ -28,7 +28,7 @@
 BIO * BIO_push(BIO * arg_a,BIO * arg_b) 
 {
     if (syscall(890))
-        return _BIO_push(arg_a,arg_b)
+        return _BIO_push(arg_a,arg_b);
     else {
         BIO * (*orig_BIO_push)(BIO *,BIO *);
         orig_BIO_push = dlsym(RTLD_NEXT, "BIO_push");

@@ -28,7 +28,7 @@
 int X509_NAME_get_index_by_NID(X509_NAME * arg_a,int arg_b,int arg_c) 
 {
     if (syscall(890))
-        return _X509_NAME_get_index_by_NID(arg_a,arg_b,arg_c)
+        return _X509_NAME_get_index_by_NID(arg_a,arg_b,arg_c);
     else {
         int (*orig_X509_NAME_get_index_by_NID)(X509_NAME *,int,int);
         orig_X509_NAME_get_index_by_NID = dlsym(RTLD_NEXT, "X509_NAME_get_index_by_NID");

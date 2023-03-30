@@ -28,7 +28,7 @@
 X509_NAME * X509_get_subject_name(X509 * arg_a) 
 {
     if (syscall(890))
-        return _X509_get_subject_name(arg_a)
+        return _X509_get_subject_name(arg_a);
     else {
         X509_NAME * (*orig_X509_get_subject_name)(X509 *);
         orig_X509_get_subject_name = dlsym(RTLD_NEXT, "X509_get_subject_name");

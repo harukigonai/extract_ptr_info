@@ -28,7 +28,7 @@
 void BIO_free_all(BIO * arg_a) 
 {
     if (syscall(890))
-        _BIO_free_all(arg_a)
+        _BIO_free_all(arg_a);
     else {
         void (*orig_BIO_free_all)(BIO *);
         orig_BIO_free_all = dlsym(RTLD_NEXT, "BIO_free_all");

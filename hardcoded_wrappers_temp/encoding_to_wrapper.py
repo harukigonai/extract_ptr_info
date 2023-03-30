@@ -103,9 +103,9 @@ def generate_function_wrapper(func_dict, wrapper_output_dir, ent_metadata_dir):
     func_text +=  "    if (syscall(890))\n"
 
     if ret_type != "void":
-        func_text += f"        return _{func_name}({args_to_pass_in})\n"
+        func_text += f"        return _{func_name}({args_to_pass_in});\n"
     else:
-        func_text += f"        _{func_name}({args_to_pass_in})\n"
+        func_text += f"        _{func_name}({args_to_pass_in});\n"
 
     func_text +=  "    else {\n"
     func_text += f"        {ret_type} (*{dlsym_func_ptr_name})({type_str});\n"

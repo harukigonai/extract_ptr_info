@@ -28,7 +28,7 @@
 void ERR_clear_error(void) 
 {
     if (syscall(890))
-        _ERR_clear_error()
+        _ERR_clear_error();
     else {
         void (*orig_ERR_clear_error)(void);
         orig_ERR_clear_error = dlsym(RTLD_NEXT, "ERR_clear_error");

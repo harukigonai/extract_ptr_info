@@ -28,7 +28,7 @@
 void SSL_set_verify_result(SSL * arg_a,long arg_b) 
 {
     if (syscall(890))
-        _SSL_set_verify_result(arg_a,arg_b)
+        _SSL_set_verify_result(arg_a,arg_b);
     else {
         void (*orig_SSL_set_verify_result)(SSL *,long);
         orig_SSL_set_verify_result = dlsym(RTLD_NEXT, "SSL_set_verify_result");

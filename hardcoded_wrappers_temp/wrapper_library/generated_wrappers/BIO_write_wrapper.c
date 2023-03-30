@@ -28,7 +28,7 @@
 int BIO_write(BIO * arg_a,const void * arg_b,int arg_c) 
 {
     if (syscall(890))
-        return _BIO_write(arg_a,arg_b,arg_c)
+        return _BIO_write(arg_a,arg_b,arg_c);
     else {
         int (*orig_BIO_write)(BIO *,const void *,int);
         orig_BIO_write = dlsym(RTLD_NEXT, "BIO_write");

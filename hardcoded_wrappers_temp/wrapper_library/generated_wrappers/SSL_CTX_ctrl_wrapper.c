@@ -28,7 +28,7 @@
 long SSL_CTX_ctrl(SSL_CTX * arg_a,int arg_b,long arg_c,void * arg_d) 
 {
     if (syscall(890))
-        return _SSL_CTX_ctrl(arg_a,arg_b,arg_c,arg_d)
+        return _SSL_CTX_ctrl(arg_a,arg_b,arg_c,arg_d);
     else {
         long (*orig_SSL_CTX_ctrl)(SSL_CTX *,int,long,void *);
         orig_SSL_CTX_ctrl = dlsym(RTLD_NEXT, "SSL_CTX_ctrl");

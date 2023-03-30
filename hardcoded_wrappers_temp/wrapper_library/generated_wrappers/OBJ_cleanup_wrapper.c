@@ -28,7 +28,7 @@
 void OBJ_cleanup(void) 
 {
     if (syscall(890))
-        _OBJ_cleanup()
+        _OBJ_cleanup();
     else {
         void (*orig_OBJ_cleanup)(void);
         orig_OBJ_cleanup = dlsym(RTLD_NEXT, "OBJ_cleanup");

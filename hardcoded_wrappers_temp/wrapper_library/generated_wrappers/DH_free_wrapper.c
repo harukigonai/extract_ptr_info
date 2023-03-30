@@ -28,7 +28,7 @@
 void DH_free(DH * arg_a) 
 {
     if (syscall(890))
-        _DH_free(arg_a)
+        _DH_free(arg_a);
     else {
         void (*orig_DH_free)(DH *);
         orig_DH_free = dlsym(RTLD_NEXT, "DH_free");

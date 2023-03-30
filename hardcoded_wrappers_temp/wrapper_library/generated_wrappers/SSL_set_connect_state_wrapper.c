@@ -28,7 +28,7 @@
 void SSL_set_connect_state(SSL * arg_a) 
 {
     if (syscall(890))
-        _SSL_set_connect_state(arg_a)
+        _SSL_set_connect_state(arg_a);
     else {
         void (*orig_SSL_set_connect_state)(SSL *);
         orig_SSL_set_connect_state = dlsym(RTLD_NEXT, "SSL_set_connect_state");

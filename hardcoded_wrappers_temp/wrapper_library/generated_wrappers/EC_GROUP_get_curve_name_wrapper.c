@@ -28,7 +28,7 @@
 int EC_GROUP_get_curve_name(const EC_GROUP * arg_a) 
 {
     if (syscall(890))
-        return _EC_GROUP_get_curve_name(arg_a)
+        return _EC_GROUP_get_curve_name(arg_a);
     else {
         int (*orig_EC_GROUP_get_curve_name)(const EC_GROUP *);
         orig_EC_GROUP_get_curve_name = dlsym(RTLD_NEXT, "EC_GROUP_get_curve_name");

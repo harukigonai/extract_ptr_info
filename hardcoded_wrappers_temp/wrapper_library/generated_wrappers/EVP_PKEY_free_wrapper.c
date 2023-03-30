@@ -28,7 +28,7 @@
 void EVP_PKEY_free(EVP_PKEY * arg_a) 
 {
     if (syscall(890))
-        _EVP_PKEY_free(arg_a)
+        _EVP_PKEY_free(arg_a);
     else {
         void (*orig_EVP_PKEY_free)(EVP_PKEY *);
         orig_EVP_PKEY_free = dlsym(RTLD_NEXT, "EVP_PKEY_free");

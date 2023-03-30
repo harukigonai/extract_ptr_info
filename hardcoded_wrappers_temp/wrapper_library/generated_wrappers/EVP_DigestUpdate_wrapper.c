@@ -28,7 +28,7 @@
 int EVP_DigestUpdate(EVP_MD_CTX * arg_a, const void * arg_b,size_t arg_c) 
 {
     if (syscall(890))
-        return _EVP_DigestUpdate(arg_a,arg_b,arg_c)
+        return _EVP_DigestUpdate(arg_a,arg_b,arg_c);
     else {
         int (*orig_EVP_DigestUpdate)(EVP_MD_CTX *, const void *,size_t);
         orig_EVP_DigestUpdate = dlsym(RTLD_NEXT, "EVP_DigestUpdate");

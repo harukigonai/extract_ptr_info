@@ -28,7 +28,7 @@
 X509_STORE_CTX * X509_STORE_CTX_new(void) 
 {
     if (syscall(890))
-        return _X509_STORE_CTX_new()
+        return _X509_STORE_CTX_new();
     else {
         X509_STORE_CTX * (*orig_X509_STORE_CTX_new)(void);
         orig_X509_STORE_CTX_new = dlsym(RTLD_NEXT, "X509_STORE_CTX_new");

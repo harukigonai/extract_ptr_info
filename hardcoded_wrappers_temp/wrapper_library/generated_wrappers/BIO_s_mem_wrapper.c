@@ -28,7 +28,7 @@
 BIO_METHOD * BIO_s_mem(void) 
 {
     if (syscall(890))
-        return _BIO_s_mem()
+        return _BIO_s_mem();
     else {
         BIO_METHOD * (*orig_BIO_s_mem)(void);
         orig_BIO_s_mem = dlsym(RTLD_NEXT, "BIO_s_mem");

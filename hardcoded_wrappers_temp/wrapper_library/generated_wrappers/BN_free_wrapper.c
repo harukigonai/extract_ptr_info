@@ -28,7 +28,7 @@
 void BN_free(BIGNUM * arg_a) 
 {
     if (syscall(890))
-        _BN_free(arg_a)
+        _BN_free(arg_a);
     else {
         void (*orig_BN_free)(BIGNUM *);
         orig_BN_free = dlsym(RTLD_NEXT, "BN_free");

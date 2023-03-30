@@ -28,7 +28,7 @@
 BIO * BIO_new(BIO_METHOD * arg_a) 
 {
     if (syscall(890))
-        return _BIO_new(arg_a)
+        return _BIO_new(arg_a);
     else {
         BIO * (*orig_BIO_new)(BIO_METHOD *);
         orig_BIO_new = dlsym(RTLD_NEXT, "BIO_new");

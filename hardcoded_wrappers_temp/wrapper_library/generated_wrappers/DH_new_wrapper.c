@@ -28,7 +28,7 @@
 DH * DH_new(void) 
 {
     if (syscall(890))
-        return _DH_new()
+        return _DH_new();
     else {
         DH * (*orig_DH_new)(void);
         orig_DH_new = dlsym(RTLD_NEXT, "DH_new");

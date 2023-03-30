@@ -28,7 +28,7 @@
 int SSL_read(SSL * arg_a,void * arg_b,int arg_c) 
 {
     if (syscall(890))
-        return _SSL_read(arg_a,arg_b,arg_c)
+        return _SSL_read(arg_a,arg_b,arg_c);
     else {
         int (*orig_SSL_read)(SSL *,void *,int);
         orig_SSL_read = dlsym(RTLD_NEXT, "SSL_read");

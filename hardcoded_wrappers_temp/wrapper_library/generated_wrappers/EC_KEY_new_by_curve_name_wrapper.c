@@ -28,7 +28,7 @@
 EC_KEY * EC_KEY_new_by_curve_name(int arg_a) 
 {
     if (syscall(890))
-        return _EC_KEY_new_by_curve_name(arg_a)
+        return _EC_KEY_new_by_curve_name(arg_a);
     else {
         EC_KEY * (*orig_EC_KEY_new_by_curve_name)(int);
         orig_EC_KEY_new_by_curve_name = dlsym(RTLD_NEXT, "EC_KEY_new_by_curve_name");

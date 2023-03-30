@@ -28,7 +28,7 @@
 int BN_set_word(BIGNUM * arg_a,BN_ULONG arg_b) 
 {
     if (syscall(890))
-        return _BN_set_word(arg_a,arg_b)
+        return _BN_set_word(arg_a,arg_b);
     else {
         int (*orig_BN_set_word)(BIGNUM *,BN_ULONG);
         orig_BN_set_word = dlsym(RTLD_NEXT, "BN_set_word");

@@ -28,7 +28,7 @@
 void ERR_load_crypto_strings(void) 
 {
     if (syscall(890))
-        _ERR_load_crypto_strings()
+        _ERR_load_crypto_strings();
     else {
         void (*orig_ERR_load_crypto_strings)(void);
         orig_ERR_load_crypto_strings = dlsym(RTLD_NEXT, "ERR_load_crypto_strings");

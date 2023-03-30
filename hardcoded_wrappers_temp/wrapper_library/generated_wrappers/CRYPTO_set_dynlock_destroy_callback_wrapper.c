@@ -28,7 +28,7 @@
 void CRYPTO_set_dynlock_destroy_callback(void (*arg_a)(struct CRYPTO_dynlock_value *, const char *, int)) 
 {
     if (syscall(890))
-        _CRYPTO_set_dynlock_destroy_callback(arg_a)
+        _CRYPTO_set_dynlock_destroy_callback(arg_a);
     else {
         void (*orig_CRYPTO_set_dynlock_destroy_callback)(void (*)(struct CRYPTO_dynlock_value *, const char *, int));
         orig_CRYPTO_set_dynlock_destroy_callback = dlsym(RTLD_NEXT, "CRYPTO_set_dynlock_destroy_callback");

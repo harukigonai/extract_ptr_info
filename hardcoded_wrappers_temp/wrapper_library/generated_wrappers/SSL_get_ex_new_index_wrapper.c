@@ -28,7 +28,7 @@
 int SSL_get_ex_new_index(long arg_a,void * arg_b,CRYPTO_EX_new * arg_c,CRYPTO_EX_dup * arg_d,CRYPTO_EX_free * arg_e) 
 {
     if (syscall(890))
-        return _SSL_get_ex_new_index(arg_a,arg_b,arg_c,arg_d,arg_e)
+        return _SSL_get_ex_new_index(arg_a,arg_b,arg_c,arg_d,arg_e);
     else {
         int (*orig_SSL_get_ex_new_index)(long,void *,CRYPTO_EX_new *,CRYPTO_EX_dup *,CRYPTO_EX_free *);
         orig_SSL_get_ex_new_index = dlsym(RTLD_NEXT, "SSL_get_ex_new_index");

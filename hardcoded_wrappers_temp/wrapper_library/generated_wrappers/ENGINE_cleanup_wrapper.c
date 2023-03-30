@@ -28,7 +28,7 @@
 void ENGINE_cleanup(void) 
 {
     if (syscall(890))
-        _ENGINE_cleanup()
+        _ENGINE_cleanup();
     else {
         void (*orig_ENGINE_cleanup)(void);
         orig_ENGINE_cleanup = dlsym(RTLD_NEXT, "ENGINE_cleanup");

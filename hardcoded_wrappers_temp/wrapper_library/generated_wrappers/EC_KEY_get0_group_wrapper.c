@@ -28,7 +28,7 @@
 const EC_GROUP * EC_KEY_get0_group(const EC_KEY * arg_a) 
 {
     if (syscall(890))
-        return _EC_KEY_get0_group(arg_a)
+        return _EC_KEY_get0_group(arg_a);
     else {
         const EC_GROUP * (*orig_EC_KEY_get0_group)(const EC_KEY *);
         orig_EC_KEY_get0_group = dlsym(RTLD_NEXT, "EC_KEY_get0_group");

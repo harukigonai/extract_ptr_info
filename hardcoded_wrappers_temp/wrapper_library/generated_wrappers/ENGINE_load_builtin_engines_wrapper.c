@@ -28,7 +28,7 @@
 void ENGINE_load_builtin_engines(void) 
 {
     if (syscall(890))
-        _ENGINE_load_builtin_engines()
+        _ENGINE_load_builtin_engines();
     else {
         void (*orig_ENGINE_load_builtin_engines)(void);
         orig_ENGINE_load_builtin_engines = dlsym(RTLD_NEXT, "ENGINE_load_builtin_engines");

@@ -28,7 +28,7 @@
 unsigned long SSLeay(void) 
 {
     if (syscall(890))
-        return _SSLeay()
+        return _SSLeay();
     else {
         unsigned long (*orig_SSLeay)(void);
         orig_SSLeay = dlsym(RTLD_NEXT, "SSLeay");

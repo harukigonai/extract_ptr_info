@@ -28,7 +28,7 @@
 void SSL_CTX_set_verify(SSL_CTX * arg_a,int arg_b,int (*arg_c)(int, X509_STORE_CTX *)) 
 {
     if (syscall(890))
-        _SSL_CTX_set_verify(arg_a,arg_b,arg_c)
+        _SSL_CTX_set_verify(arg_a,arg_b,arg_c);
     else {
         void (*orig_SSL_CTX_set_verify)(SSL_CTX *,int,int (*)(int, X509_STORE_CTX *));
         orig_SSL_CTX_set_verify = dlsym(RTLD_NEXT, "SSL_CTX_set_verify");

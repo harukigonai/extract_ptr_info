@@ -28,7 +28,7 @@
 void ERR_remove_thread_state(const CRYPTO_THREADID * arg_a) 
 {
     if (syscall(890))
-        _ERR_remove_thread_state(arg_a)
+        _ERR_remove_thread_state(arg_a);
     else {
         void (*orig_ERR_remove_thread_state)(const CRYPTO_THREADID *);
         orig_ERR_remove_thread_state = dlsym(RTLD_NEXT, "ERR_remove_thread_state");

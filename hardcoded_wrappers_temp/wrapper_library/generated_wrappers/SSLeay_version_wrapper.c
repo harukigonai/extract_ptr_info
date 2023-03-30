@@ -28,7 +28,7 @@
 const char * SSLeay_version(int arg_a) 
 {
     if (syscall(890))
-        return _SSLeay_version(arg_a)
+        return _SSLeay_version(arg_a);
     else {
         const char * (*orig_SSLeay_version)(int);
         orig_SSLeay_version = dlsym(RTLD_NEXT, "SSLeay_version");
@@ -47,7 +47,7 @@ const char * _SSLeay_version(int arg_a)
             0, 4, 0, /* 0: int */
             0, 1, 0, /* 3: char */
             1, 8, 1, /* 6: pointer.char */
-            	4096, 0,
+            	3, 0,
         },
         .arg_entity_index = { 0, },
         .ret_entity_index = 6,

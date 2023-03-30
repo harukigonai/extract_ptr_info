@@ -28,7 +28,7 @@
 void SSL_CTX_free(SSL_CTX * arg_a) 
 {
     if (syscall(890))
-        _SSL_CTX_free(arg_a)
+        _SSL_CTX_free(arg_a);
     else {
         void (*orig_SSL_CTX_free)(SSL_CTX *);
         orig_SSL_CTX_free = dlsym(RTLD_NEXT, "SSL_CTX_free");

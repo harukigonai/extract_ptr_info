@@ -28,7 +28,7 @@
 void RAND_seed(void * arg_a,int arg_b) 
 {
     if (syscall(890))
-        _RAND_seed(arg_a,arg_b)
+        _RAND_seed(arg_a,arg_b);
     else {
         void (*orig_RAND_seed)(void *,int);
         orig_RAND_seed = dlsym(RTLD_NEXT, "RAND_seed");

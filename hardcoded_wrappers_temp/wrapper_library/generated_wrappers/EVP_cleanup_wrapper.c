@@ -28,7 +28,7 @@
 void EVP_cleanup(void) 
 {
     if (syscall(890))
-        _EVP_cleanup()
+        _EVP_cleanup();
     else {
         void (*orig_EVP_cleanup)(void);
         orig_EVP_cleanup = dlsym(RTLD_NEXT, "EVP_cleanup");

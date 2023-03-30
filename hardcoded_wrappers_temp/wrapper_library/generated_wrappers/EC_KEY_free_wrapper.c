@@ -28,7 +28,7 @@
 void EC_KEY_free(EC_KEY * arg_a) 
 {
     if (syscall(890))
-        _EC_KEY_free(arg_a)
+        _EC_KEY_free(arg_a);
     else {
         void (*orig_EC_KEY_free)(EC_KEY *);
         orig_EC_KEY_free = dlsym(RTLD_NEXT, "EC_KEY_free");

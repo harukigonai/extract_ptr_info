@@ -28,7 +28,7 @@
 void SSL_CTX_sess_set_new_cb(SSL_CTX * arg_a,int (*arg_b)(struct ssl_st *, SSL_SESSION *)) 
 {
     if (syscall(890))
-        _SSL_CTX_sess_set_new_cb(arg_a,arg_b)
+        _SSL_CTX_sess_set_new_cb(arg_a,arg_b);
     else {
         void (*orig_SSL_CTX_sess_set_new_cb)(SSL_CTX *,int (*)(struct ssl_st *, SSL_SESSION *));
         orig_SSL_CTX_sess_set_new_cb = dlsym(RTLD_NEXT, "SSL_CTX_sess_set_new_cb");

@@ -28,7 +28,7 @@
 int SSL_get_error(const SSL * arg_a,int arg_b) 
 {
     if (syscall(890))
-        return _SSL_get_error(arg_a,arg_b)
+        return _SSL_get_error(arg_a,arg_b);
     else {
         int (*orig_SSL_get_error)(const SSL *,int);
         orig_SSL_get_error = dlsym(RTLD_NEXT, "SSL_get_error");

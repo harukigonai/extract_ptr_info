@@ -28,7 +28,7 @@
 int BIO_read(BIO * arg_a,void * arg_b,int arg_c) 
 {
     if (syscall(890))
-        return _BIO_read(arg_a,arg_b,arg_c)
+        return _BIO_read(arg_a,arg_b,arg_c);
     else {
         int (*orig_BIO_read)(BIO *,void *,int);
         orig_BIO_read = dlsym(RTLD_NEXT, "BIO_read");

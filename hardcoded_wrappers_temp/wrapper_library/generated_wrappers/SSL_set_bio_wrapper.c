@@ -28,7 +28,7 @@
 void SSL_set_bio(SSL * arg_a,BIO * arg_b,BIO * arg_c) 
 {
     if (syscall(890))
-        _SSL_set_bio(arg_a,arg_b,arg_c)
+        _SSL_set_bio(arg_a,arg_b,arg_c);
     else {
         void (*orig_SSL_set_bio)(SSL *,BIO *,BIO *);
         orig_SSL_set_bio = dlsym(RTLD_NEXT, "SSL_set_bio");

@@ -28,7 +28,7 @@
 int SSL_library_init(void) 
 {
     if (syscall(890))
-        return _SSL_library_init()
+        return _SSL_library_init();
     else {
         int (*orig_SSL_library_init)(void);
         orig_SSL_library_init = dlsym(RTLD_NEXT, "SSL_library_init");

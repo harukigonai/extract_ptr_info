@@ -28,7 +28,7 @@
 BIGNUM * BN_new(void) 
 {
     if (syscall(890))
-        return _BN_new()
+        return _BN_new();
     else {
         BIGNUM * (*orig_BN_new)(void);
         orig_BN_new = dlsym(RTLD_NEXT, "BN_new");
