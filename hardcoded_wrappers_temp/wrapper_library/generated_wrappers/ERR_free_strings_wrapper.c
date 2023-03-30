@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+void bb_ERR_free_strings(void);
+
 void ERR_free_strings(void) 
 {
     if (syscall(890))
-        _ERR_free_strings();
+        bb_ERR_free_strings();
     else {
         void (*orig_ERR_free_strings)(void);
         orig_ERR_free_strings = dlsym(RTLD_NEXT, "ERR_free_strings");
@@ -36,7 +38,7 @@ void ERR_free_strings(void)
     }
 }
 
-void _ERR_free_strings(void) 
+void bb_ERR_free_strings(void) 
 {
     printf("ERR_free_strings called\n");
     struct lib_enter_args args = {

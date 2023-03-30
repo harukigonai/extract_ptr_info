@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+int bb_SSL_set_session_id_context(SSL * arg_a,const unsigned char * arg_b,unsigned int arg_c);
+
 int SSL_set_session_id_context(SSL * arg_a,const unsigned char * arg_b,unsigned int arg_c) 
 {
     if (syscall(890))
-        return _SSL_set_session_id_context(arg_a,arg_b,arg_c);
+        return bb_SSL_set_session_id_context(arg_a,arg_b,arg_c);
     else {
         int (*orig_SSL_set_session_id_context)(SSL *,const unsigned char *,unsigned int);
         orig_SSL_set_session_id_context = dlsym(RTLD_NEXT, "SSL_set_session_id_context");
@@ -36,7 +38,7 @@ int SSL_set_session_id_context(SSL * arg_a,const unsigned char * arg_b,unsigned 
     }
 }
 
-int _SSL_set_session_id_context(SSL * arg_a,const unsigned char * arg_b,unsigned int arg_c) 
+int bb_SSL_set_session_id_context(SSL * arg_a,const unsigned char * arg_b,unsigned int arg_c) 
 {
     printf("SSL_set_session_id_context called\n");
     int ret;

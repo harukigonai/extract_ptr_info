@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+int bb_SSL_set_ex_data(SSL * arg_a,int arg_b,void * arg_c);
+
 int SSL_set_ex_data(SSL * arg_a,int arg_b,void * arg_c) 
 {
     if (syscall(890))
-        return _SSL_set_ex_data(arg_a,arg_b,arg_c);
+        return bb_SSL_set_ex_data(arg_a,arg_b,arg_c);
     else {
         int (*orig_SSL_set_ex_data)(SSL *,int,void *);
         orig_SSL_set_ex_data = dlsym(RTLD_NEXT, "SSL_set_ex_data");
@@ -36,7 +38,7 @@ int SSL_set_ex_data(SSL * arg_a,int arg_b,void * arg_c)
     }
 }
 
-int _SSL_set_ex_data(SSL * arg_a,int arg_b,void * arg_c) 
+int bb_SSL_set_ex_data(SSL * arg_a,int arg_b,void * arg_c) 
 {
     printf("SSL_set_ex_data called\n");
     int ret;

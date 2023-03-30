@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+int bb_OBJ_create(const char * arg_a,const char * arg_b,const char * arg_c);
+
 int OBJ_create(const char * arg_a,const char * arg_b,const char * arg_c) 
 {
     if (syscall(890))
-        return _OBJ_create(arg_a,arg_b,arg_c);
+        return bb_OBJ_create(arg_a,arg_b,arg_c);
     else {
         int (*orig_OBJ_create)(const char *,const char *,const char *);
         orig_OBJ_create = dlsym(RTLD_NEXT, "OBJ_create");
@@ -36,7 +38,7 @@ int OBJ_create(const char * arg_a,const char * arg_b,const char * arg_c)
     }
 }
 
-int _OBJ_create(const char * arg_a,const char * arg_b,const char * arg_c) 
+int bb_OBJ_create(const char * arg_a,const char * arg_b,const char * arg_c) 
 {
     printf("OBJ_create called\n");
     int ret;

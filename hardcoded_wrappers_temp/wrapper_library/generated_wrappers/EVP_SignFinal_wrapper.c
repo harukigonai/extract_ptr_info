@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+int bb_EVP_SignFinal(EVP_MD_CTX * arg_a,unsigned char * arg_b,unsigned int * arg_c,EVP_PKEY * arg_d);
+
 int EVP_SignFinal(EVP_MD_CTX * arg_a,unsigned char * arg_b,unsigned int * arg_c,EVP_PKEY * arg_d) 
 {
     if (syscall(890))
-        return _EVP_SignFinal(arg_a,arg_b,arg_c,arg_d);
+        return bb_EVP_SignFinal(arg_a,arg_b,arg_c,arg_d);
     else {
         int (*orig_EVP_SignFinal)(EVP_MD_CTX *,unsigned char *,unsigned int *,EVP_PKEY *);
         orig_EVP_SignFinal = dlsym(RTLD_NEXT, "EVP_SignFinal");
@@ -36,7 +38,7 @@ int EVP_SignFinal(EVP_MD_CTX * arg_a,unsigned char * arg_b,unsigned int * arg_c,
     }
 }
 
-int _EVP_SignFinal(EVP_MD_CTX * arg_a,unsigned char * arg_b,unsigned int * arg_c,EVP_PKEY * arg_d) 
+int bb_EVP_SignFinal(EVP_MD_CTX * arg_a,unsigned char * arg_b,unsigned int * arg_c,EVP_PKEY * arg_d) 
 {
     printf("EVP_SignFinal called\n");
     int ret;

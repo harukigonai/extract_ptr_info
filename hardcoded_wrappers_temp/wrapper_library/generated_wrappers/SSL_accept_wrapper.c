@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+int bb_SSL_accept(SSL * arg_a);
+
 int SSL_accept(SSL * arg_a) 
 {
     if (syscall(890))
-        return _SSL_accept(arg_a);
+        return bb_SSL_accept(arg_a);
     else {
         int (*orig_SSL_accept)(SSL *);
         orig_SSL_accept = dlsym(RTLD_NEXT, "SSL_accept");
@@ -36,7 +38,7 @@ int SSL_accept(SSL * arg_a)
     }
 }
 
-int _SSL_accept(SSL * arg_a) 
+int bb_SSL_accept(SSL * arg_a) 
 {
     printf("SSL_accept called\n");
     int ret;

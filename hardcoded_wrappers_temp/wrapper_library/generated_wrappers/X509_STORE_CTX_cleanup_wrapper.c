@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a);
+
 void X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a) 
 {
     if (syscall(890))
-        _X509_STORE_CTX_cleanup(arg_a);
+        bb_X509_STORE_CTX_cleanup(arg_a);
     else {
         void (*orig_X509_STORE_CTX_cleanup)(X509_STORE_CTX *);
         orig_X509_STORE_CTX_cleanup = dlsym(RTLD_NEXT, "X509_STORE_CTX_cleanup");
@@ -36,7 +38,7 @@ void X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a)
     }
 }
 
-void _X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a) 
+void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a) 
 {
     printf("X509_STORE_CTX_cleanup called\n");
     struct lib_enter_args args = {

@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+int bb_X509_STORE_CTX_init(X509_STORE_CTX * arg_a,X509_STORE * arg_b,X509 * arg_c,STACK_OF(X509) * arg_d);
+
 int X509_STORE_CTX_init(X509_STORE_CTX * arg_a,X509_STORE * arg_b,X509 * arg_c,STACK_OF(X509) * arg_d) 
 {
     if (syscall(890))
-        return _X509_STORE_CTX_init(arg_a,arg_b,arg_c,arg_d);
+        return bb_X509_STORE_CTX_init(arg_a,arg_b,arg_c,arg_d);
     else {
         int (*orig_X509_STORE_CTX_init)(X509_STORE_CTX *,X509_STORE *,X509 *,STACK_OF(X509) *);
         orig_X509_STORE_CTX_init = dlsym(RTLD_NEXT, "X509_STORE_CTX_init");
@@ -36,7 +38,7 @@ int X509_STORE_CTX_init(X509_STORE_CTX * arg_a,X509_STORE * arg_b,X509 * arg_c,S
     }
 }
 
-int _X509_STORE_CTX_init(X509_STORE_CTX * arg_a,X509_STORE * arg_b,X509 * arg_c,STACK_OF(X509) * arg_d) 
+int bb_X509_STORE_CTX_init(X509_STORE_CTX * arg_a,X509_STORE * arg_b,X509 * arg_c,STACK_OF(X509) * arg_d) 
 {
     printf("X509_STORE_CTX_init called\n");
     int ret;

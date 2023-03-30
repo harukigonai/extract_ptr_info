@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+char * bb_SSL_get_srp_username(SSL * arg_a);
+
 char * SSL_get_srp_username(SSL * arg_a) 
 {
     if (syscall(890))
-        return _SSL_get_srp_username(arg_a);
+        return bb_SSL_get_srp_username(arg_a);
     else {
         char * (*orig_SSL_get_srp_username)(SSL *);
         orig_SSL_get_srp_username = dlsym(RTLD_NEXT, "SSL_get_srp_username");
@@ -36,7 +38,7 @@ char * SSL_get_srp_username(SSL * arg_a)
     }
 }
 
-char * _SSL_get_srp_username(SSL * arg_a) 
+char * bb_SSL_get_srp_username(SSL * arg_a) 
 {
     printf("SSL_get_srp_username called\n");
     char * ret;

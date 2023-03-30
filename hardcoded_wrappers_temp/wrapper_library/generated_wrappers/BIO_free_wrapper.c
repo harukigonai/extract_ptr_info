@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+int bb_BIO_free(BIO * arg_a);
+
 int BIO_free(BIO * arg_a) 
 {
     if (syscall(890))
-        return _BIO_free(arg_a);
+        return bb_BIO_free(arg_a);
     else {
         int (*orig_BIO_free)(BIO *);
         orig_BIO_free = dlsym(RTLD_NEXT, "BIO_free");
@@ -36,7 +38,7 @@ int BIO_free(BIO * arg_a)
     }
 }
 
-int _BIO_free(BIO * arg_a) 
+int bb_BIO_free(BIO * arg_a) 
 {
     printf("BIO_free called\n");
     int ret;

@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+void bb_EC_GROUP_free(EC_GROUP * arg_a);
+
 void EC_GROUP_free(EC_GROUP * arg_a) 
 {
     if (syscall(890))
-        _EC_GROUP_free(arg_a);
+        bb_EC_GROUP_free(arg_a);
     else {
         void (*orig_EC_GROUP_free)(EC_GROUP *);
         orig_EC_GROUP_free = dlsym(RTLD_NEXT, "EC_GROUP_free");
@@ -36,7 +38,7 @@ void EC_GROUP_free(EC_GROUP * arg_a)
     }
 }
 
-void _EC_GROUP_free(EC_GROUP * arg_a) 
+void bb_EC_GROUP_free(EC_GROUP * arg_a) 
 {
     printf("EC_GROUP_free called\n");
     struct lib_enter_args args = {

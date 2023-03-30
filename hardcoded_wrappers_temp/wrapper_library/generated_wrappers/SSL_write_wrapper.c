@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+int bb_SSL_write(SSL * arg_a,const void * arg_b,int arg_c);
+
 int SSL_write(SSL * arg_a,const void * arg_b,int arg_c) 
 {
     if (syscall(890))
-        return _SSL_write(arg_a,arg_b,arg_c);
+        return bb_SSL_write(arg_a,arg_b,arg_c);
     else {
         int (*orig_SSL_write)(SSL *,const void *,int);
         orig_SSL_write = dlsym(RTLD_NEXT, "SSL_write");
@@ -36,7 +38,7 @@ int SSL_write(SSL * arg_a,const void * arg_b,int arg_c)
     }
 }
 
-int _SSL_write(SSL * arg_a,const void * arg_b,int arg_c) 
+int bb_SSL_write(SSL * arg_a,const void * arg_b,int arg_c) 
 {
     printf("SSL_write called\n");
     int ret;

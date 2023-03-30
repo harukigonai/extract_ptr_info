@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+EVP_PKEY * bb_PEM_read_bio_PrivateKey(BIO * arg_a,EVP_PKEY ** arg_b,pem_password_cb * arg_c,void * arg_d);
+
 EVP_PKEY * PEM_read_bio_PrivateKey(BIO * arg_a,EVP_PKEY ** arg_b,pem_password_cb * arg_c,void * arg_d) 
 {
     if (syscall(890))
-        return _PEM_read_bio_PrivateKey(arg_a,arg_b,arg_c,arg_d);
+        return bb_PEM_read_bio_PrivateKey(arg_a,arg_b,arg_c,arg_d);
     else {
         EVP_PKEY * (*orig_PEM_read_bio_PrivateKey)(BIO *,EVP_PKEY **,pem_password_cb *,void *);
         orig_PEM_read_bio_PrivateKey = dlsym(RTLD_NEXT, "PEM_read_bio_PrivateKey");
@@ -36,7 +38,7 @@ EVP_PKEY * PEM_read_bio_PrivateKey(BIO * arg_a,EVP_PKEY ** arg_b,pem_password_cb
     }
 }
 
-EVP_PKEY * _PEM_read_bio_PrivateKey(BIO * arg_a,EVP_PKEY ** arg_b,pem_password_cb * arg_c,void * arg_d) 
+EVP_PKEY * bb_PEM_read_bio_PrivateKey(BIO * arg_a,EVP_PKEY ** arg_b,pem_password_cb * arg_c,void * arg_d) 
 {
     printf("PEM_read_bio_PrivateKey called\n");
     EVP_PKEY * ret;

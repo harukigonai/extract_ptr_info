@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+int bb_SSL_library_init(void);
+
 int SSL_library_init(void) 
 {
     if (syscall(890))
-        return _SSL_library_init();
+        return bb_SSL_library_init();
     else {
         int (*orig_SSL_library_init)(void);
         orig_SSL_library_init = dlsym(RTLD_NEXT, "SSL_library_init");
@@ -36,7 +38,7 @@ int SSL_library_init(void)
     }
 }
 
-int _SSL_library_init(void) 
+int bb_SSL_library_init(void) 
 {
     printf("SSL_library_init called\n");
     int ret;

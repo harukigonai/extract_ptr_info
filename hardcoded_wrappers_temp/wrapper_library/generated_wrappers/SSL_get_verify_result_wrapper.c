@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+long bb_SSL_get_verify_result(const SSL * arg_a);
+
 long SSL_get_verify_result(const SSL * arg_a) 
 {
     if (syscall(890))
-        return _SSL_get_verify_result(arg_a);
+        return bb_SSL_get_verify_result(arg_a);
     else {
         long (*orig_SSL_get_verify_result)(const SSL *);
         orig_SSL_get_verify_result = dlsym(RTLD_NEXT, "SSL_get_verify_result");
@@ -36,7 +38,7 @@ long SSL_get_verify_result(const SSL * arg_a)
     }
 }
 
-long _SSL_get_verify_result(const SSL * arg_a) 
+long bb_SSL_get_verify_result(const SSL * arg_a) 
 {
     printf("SSL_get_verify_result called\n");
     long ret;

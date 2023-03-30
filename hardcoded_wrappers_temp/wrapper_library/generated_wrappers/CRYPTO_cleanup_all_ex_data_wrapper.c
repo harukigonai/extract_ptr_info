@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+void bb_CRYPTO_cleanup_all_ex_data(void);
+
 void CRYPTO_cleanup_all_ex_data(void) 
 {
     if (syscall(890))
-        _CRYPTO_cleanup_all_ex_data();
+        bb_CRYPTO_cleanup_all_ex_data();
     else {
         void (*orig_CRYPTO_cleanup_all_ex_data)(void);
         orig_CRYPTO_cleanup_all_ex_data = dlsym(RTLD_NEXT, "CRYPTO_cleanup_all_ex_data");
@@ -36,7 +38,7 @@ void CRYPTO_cleanup_all_ex_data(void)
     }
 }
 
-void _CRYPTO_cleanup_all_ex_data(void) 
+void bb_CRYPTO_cleanup_all_ex_data(void) 
 {
     printf("CRYPTO_cleanup_all_ex_data called\n");
     struct lib_enter_args args = {

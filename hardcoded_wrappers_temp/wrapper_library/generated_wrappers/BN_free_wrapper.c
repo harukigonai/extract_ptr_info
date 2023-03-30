@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+void bb_BN_free(BIGNUM * arg_a);
+
 void BN_free(BIGNUM * arg_a) 
 {
     if (syscall(890))
-        _BN_free(arg_a);
+        bb_BN_free(arg_a);
     else {
         void (*orig_BN_free)(BIGNUM *);
         orig_BN_free = dlsym(RTLD_NEXT, "BN_free");
@@ -36,7 +38,7 @@ void BN_free(BIGNUM * arg_a)
     }
 }
 
-void _BN_free(BIGNUM * arg_a) 
+void bb_BN_free(BIGNUM * arg_a) 
 {
     printf("BN_free called\n");
     struct lib_enter_args args = {

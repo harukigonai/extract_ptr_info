@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+SSL * bb_SSL_new(SSL_CTX * arg_a);
+
 SSL * SSL_new(SSL_CTX * arg_a) 
 {
     if (syscall(890))
-        return _SSL_new(arg_a);
+        return bb_SSL_new(arg_a);
     else {
         SSL * (*orig_SSL_new)(SSL_CTX *);
         orig_SSL_new = dlsym(RTLD_NEXT, "SSL_new");
@@ -36,7 +38,7 @@ SSL * SSL_new(SSL_CTX * arg_a)
     }
 }
 
-SSL * _SSL_new(SSL_CTX * arg_a) 
+SSL * bb_SSL_new(SSL_CTX * arg_a) 
 {
     printf("SSL_new called\n");
     SSL * ret;

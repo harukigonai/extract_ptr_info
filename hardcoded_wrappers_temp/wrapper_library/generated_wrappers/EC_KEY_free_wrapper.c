@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+void bb_EC_KEY_free(EC_KEY * arg_a);
+
 void EC_KEY_free(EC_KEY * arg_a) 
 {
     if (syscall(890))
-        _EC_KEY_free(arg_a);
+        bb_EC_KEY_free(arg_a);
     else {
         void (*orig_EC_KEY_free)(EC_KEY *);
         orig_EC_KEY_free = dlsym(RTLD_NEXT, "EC_KEY_free");
@@ -36,7 +38,7 @@ void EC_KEY_free(EC_KEY * arg_a)
     }
 }
 
-void _EC_KEY_free(EC_KEY * arg_a) 
+void bb_EC_KEY_free(EC_KEY * arg_a) 
 {
     printf("EC_KEY_free called\n");
     struct lib_enter_args args = {

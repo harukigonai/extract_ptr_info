@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+BIO * bb_BIO_push(BIO * arg_a,BIO * arg_b);
+
 BIO * BIO_push(BIO * arg_a,BIO * arg_b) 
 {
     if (syscall(890))
-        return _BIO_push(arg_a,arg_b);
+        return bb_BIO_push(arg_a,arg_b);
     else {
         BIO * (*orig_BIO_push)(BIO *,BIO *);
         orig_BIO_push = dlsym(RTLD_NEXT, "BIO_push");
@@ -36,7 +38,7 @@ BIO * BIO_push(BIO * arg_a,BIO * arg_b)
     }
 }
 
-BIO * _BIO_push(BIO * arg_a,BIO * arg_b) 
+BIO * bb_BIO_push(BIO * arg_a,BIO * arg_b) 
 {
     printf("BIO_push called\n");
     BIO * ret;

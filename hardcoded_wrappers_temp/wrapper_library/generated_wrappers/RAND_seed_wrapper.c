@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+void bb_RAND_seed(void * arg_a,int arg_b);
+
 void RAND_seed(void * arg_a,int arg_b) 
 {
     if (syscall(890))
-        _RAND_seed(arg_a,arg_b);
+        bb_RAND_seed(arg_a,arg_b);
     else {
         void (*orig_RAND_seed)(void *,int);
         orig_RAND_seed = dlsym(RTLD_NEXT, "RAND_seed");
@@ -36,7 +38,7 @@ void RAND_seed(void * arg_a,int arg_b)
     }
 }
 
-void _RAND_seed(void * arg_a,int arg_b) 
+void bb_RAND_seed(void * arg_a,int arg_b) 
 {
     printf("RAND_seed called\n");
     struct lib_enter_args args = {

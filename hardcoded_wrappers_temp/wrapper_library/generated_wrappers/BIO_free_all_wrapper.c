@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+void bb_BIO_free_all(BIO * arg_a);
+
 void BIO_free_all(BIO * arg_a) 
 {
     if (syscall(890))
-        _BIO_free_all(arg_a);
+        bb_BIO_free_all(arg_a);
     else {
         void (*orig_BIO_free_all)(BIO *);
         orig_BIO_free_all = dlsym(RTLD_NEXT, "BIO_free_all");
@@ -36,7 +38,7 @@ void BIO_free_all(BIO * arg_a)
     }
 }
 
-void _BIO_free_all(BIO * arg_a) 
+void bb_BIO_free_all(BIO * arg_a) 
 {
     printf("BIO_free_all called\n");
     struct lib_enter_args args = {

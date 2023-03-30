@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+int bb_BIO_read(BIO * arg_a,void * arg_b,int arg_c);
+
 int BIO_read(BIO * arg_a,void * arg_b,int arg_c) 
 {
     if (syscall(890))
-        return _BIO_read(arg_a,arg_b,arg_c);
+        return bb_BIO_read(arg_a,arg_b,arg_c);
     else {
         int (*orig_BIO_read)(BIO *,void *,int);
         orig_BIO_read = dlsym(RTLD_NEXT, "BIO_read");
@@ -36,7 +38,7 @@ int BIO_read(BIO * arg_a,void * arg_b,int arg_c)
     }
 }
 
-int _BIO_read(BIO * arg_a,void * arg_b,int arg_c) 
+int bb_BIO_read(BIO * arg_a,void * arg_b,int arg_c) 
 {
     printf("BIO_read called\n");
     int ret;

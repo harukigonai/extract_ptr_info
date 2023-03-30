@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+DH * bb_DH_new(void);
+
 DH * DH_new(void) 
 {
     if (syscall(890))
-        return _DH_new();
+        return bb_DH_new();
     else {
         DH * (*orig_DH_new)(void);
         orig_DH_new = dlsym(RTLD_NEXT, "DH_new");
@@ -36,7 +38,7 @@ DH * DH_new(void)
     }
 }
 
-DH * _DH_new(void) 
+DH * bb_DH_new(void) 
 {
     printf("DH_new called\n");
     DH * ret;

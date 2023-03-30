@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+int bb_SSL_get_error(const SSL * arg_a,int arg_b);
+
 int SSL_get_error(const SSL * arg_a,int arg_b) 
 {
     if (syscall(890))
-        return _SSL_get_error(arg_a,arg_b);
+        return bb_SSL_get_error(arg_a,arg_b);
     else {
         int (*orig_SSL_get_error)(const SSL *,int);
         orig_SSL_get_error = dlsym(RTLD_NEXT, "SSL_get_error");
@@ -36,7 +38,7 @@ int SSL_get_error(const SSL * arg_a,int arg_b)
     }
 }
 
-int _SSL_get_error(const SSL * arg_a,int arg_b) 
+int bb_SSL_get_error(const SSL * arg_a,int arg_b) 
 {
     printf("SSL_get_error called\n");
     int ret;

@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+int bb_SSL_CTX_use_PrivateKey_file(SSL_CTX * arg_a,const char * arg_b,int arg_c);
+
 int SSL_CTX_use_PrivateKey_file(SSL_CTX * arg_a,const char * arg_b,int arg_c) 
 {
     if (syscall(890))
-        return _SSL_CTX_use_PrivateKey_file(arg_a,arg_b,arg_c);
+        return bb_SSL_CTX_use_PrivateKey_file(arg_a,arg_b,arg_c);
     else {
         int (*orig_SSL_CTX_use_PrivateKey_file)(SSL_CTX *,const char *,int);
         orig_SSL_CTX_use_PrivateKey_file = dlsym(RTLD_NEXT, "SSL_CTX_use_PrivateKey_file");
@@ -36,7 +38,7 @@ int SSL_CTX_use_PrivateKey_file(SSL_CTX * arg_a,const char * arg_b,int arg_c)
     }
 }
 
-int _SSL_CTX_use_PrivateKey_file(SSL_CTX * arg_a,const char * arg_b,int arg_c) 
+int bb_SSL_CTX_use_PrivateKey_file(SSL_CTX * arg_a,const char * arg_b,int arg_c) 
 {
     printf("SSL_CTX_use_PrivateKey_file called\n");
     int ret;

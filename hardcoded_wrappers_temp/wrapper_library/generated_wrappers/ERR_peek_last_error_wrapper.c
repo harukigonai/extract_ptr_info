@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+unsigned long bb_ERR_peek_last_error(void);
+
 unsigned long ERR_peek_last_error(void) 
 {
     if (syscall(890))
-        return _ERR_peek_last_error();
+        return bb_ERR_peek_last_error();
     else {
         unsigned long (*orig_ERR_peek_last_error)(void);
         orig_ERR_peek_last_error = dlsym(RTLD_NEXT, "ERR_peek_last_error");
@@ -36,7 +38,7 @@ unsigned long ERR_peek_last_error(void)
     }
 }
 
-unsigned long _ERR_peek_last_error(void) 
+unsigned long bb_ERR_peek_last_error(void) 
 {
     printf("ERR_peek_last_error called\n");
     unsigned long ret;

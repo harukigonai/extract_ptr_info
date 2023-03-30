@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+long bb_SSL_CTX_ctrl(SSL_CTX * arg_a,int arg_b,long arg_c,void * arg_d);
+
 long SSL_CTX_ctrl(SSL_CTX * arg_a,int arg_b,long arg_c,void * arg_d) 
 {
     if (syscall(890))
-        return _SSL_CTX_ctrl(arg_a,arg_b,arg_c,arg_d);
+        return bb_SSL_CTX_ctrl(arg_a,arg_b,arg_c,arg_d);
     else {
         long (*orig_SSL_CTX_ctrl)(SSL_CTX *,int,long,void *);
         orig_SSL_CTX_ctrl = dlsym(RTLD_NEXT, "SSL_CTX_ctrl");
@@ -36,7 +38,7 @@ long SSL_CTX_ctrl(SSL_CTX * arg_a,int arg_b,long arg_c,void * arg_d)
     }
 }
 
-long _SSL_CTX_ctrl(SSL_CTX * arg_a,int arg_b,long arg_c,void * arg_d) 
+long bb_SSL_CTX_ctrl(SSL_CTX * arg_a,int arg_b,long arg_c,void * arg_d) 
 {
     printf("SSL_CTX_ctrl called\n");
     long ret;

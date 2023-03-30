@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+void bb_SSL_load_error_strings(void);
+
 void SSL_load_error_strings(void) 
 {
     if (syscall(890))
-        _SSL_load_error_strings();
+        bb_SSL_load_error_strings();
     else {
         void (*orig_SSL_load_error_strings)(void);
         orig_SSL_load_error_strings = dlsym(RTLD_NEXT, "SSL_load_error_strings");
@@ -36,7 +38,7 @@ void SSL_load_error_strings(void)
     }
 }
 
-void _SSL_load_error_strings(void) 
+void bb_SSL_load_error_strings(void) 
 {
     printf("SSL_load_error_strings called\n");
     struct lib_enter_args args = {

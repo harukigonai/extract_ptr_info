@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+int bb_EVP_DigestInit_ex(EVP_MD_CTX * arg_a,const EVP_MD * arg_b,ENGINE * arg_c);
+
 int EVP_DigestInit_ex(EVP_MD_CTX * arg_a,const EVP_MD * arg_b,ENGINE * arg_c) 
 {
     if (syscall(890))
-        return _EVP_DigestInit_ex(arg_a,arg_b,arg_c);
+        return bb_EVP_DigestInit_ex(arg_a,arg_b,arg_c);
     else {
         int (*orig_EVP_DigestInit_ex)(EVP_MD_CTX *,const EVP_MD *,ENGINE *);
         orig_EVP_DigestInit_ex = dlsym(RTLD_NEXT, "EVP_DigestInit_ex");
@@ -36,7 +38,7 @@ int EVP_DigestInit_ex(EVP_MD_CTX * arg_a,const EVP_MD * arg_b,ENGINE * arg_c)
     }
 }
 
-int _EVP_DigestInit_ex(EVP_MD_CTX * arg_a,const EVP_MD * arg_b,ENGINE * arg_c) 
+int bb_EVP_DigestInit_ex(EVP_MD_CTX * arg_a,const EVP_MD * arg_b,ENGINE * arg_c) 
 {
     printf("EVP_DigestInit_ex called\n");
     int ret;

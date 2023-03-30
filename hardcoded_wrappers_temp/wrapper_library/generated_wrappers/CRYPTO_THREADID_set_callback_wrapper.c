@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+int bb_CRYPTO_THREADID_set_callback(void (*arg_a)(CRYPTO_THREADID *));
+
 int CRYPTO_THREADID_set_callback(void (*arg_a)(CRYPTO_THREADID *)) 
 {
     if (syscall(890))
-        return _CRYPTO_THREADID_set_callback(arg_a);
+        return bb_CRYPTO_THREADID_set_callback(arg_a);
     else {
         int (*orig_CRYPTO_THREADID_set_callback)(void (*)(CRYPTO_THREADID *));
         orig_CRYPTO_THREADID_set_callback = dlsym(RTLD_NEXT, "CRYPTO_THREADID_set_callback");
@@ -36,7 +38,7 @@ int CRYPTO_THREADID_set_callback(void (*arg_a)(CRYPTO_THREADID *))
     }
 }
 
-int _CRYPTO_THREADID_set_callback(void (*arg_a)(CRYPTO_THREADID *)) 
+int bb_CRYPTO_THREADID_set_callback(void (*arg_a)(CRYPTO_THREADID *)) 
 {
     printf("CRYPTO_THREADID_set_callback called\n");
     int ret;

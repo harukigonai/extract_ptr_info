@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+void bb_SSL_free(SSL * arg_a);
+
 void SSL_free(SSL * arg_a) 
 {
     if (syscall(890))
-        _SSL_free(arg_a);
+        bb_SSL_free(arg_a);
     else {
         void (*orig_SSL_free)(SSL *);
         orig_SSL_free = dlsym(RTLD_NEXT, "SSL_free");
@@ -36,7 +38,7 @@ void SSL_free(SSL * arg_a)
     }
 }
 
-void _SSL_free(SSL * arg_a) 
+void bb_SSL_free(SSL * arg_a) 
 {
     printf("SSL_free called\n");
     struct lib_enter_args args = {

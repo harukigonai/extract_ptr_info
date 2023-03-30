@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+BIGNUM * bb_BN_new(void);
+
 BIGNUM * BN_new(void) 
 {
     if (syscall(890))
-        return _BN_new();
+        return bb_BN_new();
     else {
         BIGNUM * (*orig_BN_new)(void);
         orig_BN_new = dlsym(RTLD_NEXT, "BN_new");
@@ -36,7 +38,7 @@ BIGNUM * BN_new(void)
     }
 }
 
-BIGNUM * _BN_new(void) 
+BIGNUM * bb_BN_new(void) 
 {
     printf("BN_new called\n");
     BIGNUM * ret;

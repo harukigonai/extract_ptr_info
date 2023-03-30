@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+void bb_ERR_remove_thread_state(const CRYPTO_THREADID * arg_a);
+
 void ERR_remove_thread_state(const CRYPTO_THREADID * arg_a) 
 {
     if (syscall(890))
-        _ERR_remove_thread_state(arg_a);
+        bb_ERR_remove_thread_state(arg_a);
     else {
         void (*orig_ERR_remove_thread_state)(const CRYPTO_THREADID *);
         orig_ERR_remove_thread_state = dlsym(RTLD_NEXT, "ERR_remove_thread_state");
@@ -36,7 +38,7 @@ void ERR_remove_thread_state(const CRYPTO_THREADID * arg_a)
     }
 }
 
-void _ERR_remove_thread_state(const CRYPTO_THREADID * arg_a) 
+void bb_ERR_remove_thread_state(const CRYPTO_THREADID * arg_a) 
 {
     printf("ERR_remove_thread_state called\n");
     struct lib_enter_args args = {

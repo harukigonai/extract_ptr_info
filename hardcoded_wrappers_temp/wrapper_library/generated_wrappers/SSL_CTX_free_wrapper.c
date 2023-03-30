@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+void bb_SSL_CTX_free(SSL_CTX * arg_a);
+
 void SSL_CTX_free(SSL_CTX * arg_a) 
 {
     if (syscall(890))
-        _SSL_CTX_free(arg_a);
+        bb_SSL_CTX_free(arg_a);
     else {
         void (*orig_SSL_CTX_free)(SSL_CTX *);
         orig_SSL_CTX_free = dlsym(RTLD_NEXT, "SSL_CTX_free");
@@ -36,7 +38,7 @@ void SSL_CTX_free(SSL_CTX * arg_a)
     }
 }
 
-void _SSL_CTX_free(SSL_CTX * arg_a) 
+void bb_SSL_CTX_free(SSL_CTX * arg_a) 
 {
     printf("SSL_CTX_free called\n");
     struct lib_enter_args args = {

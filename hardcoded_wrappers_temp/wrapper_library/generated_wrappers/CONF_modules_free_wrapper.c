@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+void bb_CONF_modules_free(void);
+
 void CONF_modules_free(void) 
 {
     if (syscall(890))
-        _CONF_modules_free();
+        bb_CONF_modules_free();
     else {
         void (*orig_CONF_modules_free)(void);
         orig_CONF_modules_free = dlsym(RTLD_NEXT, "CONF_modules_free");
@@ -36,7 +38,7 @@ void CONF_modules_free(void)
     }
 }
 
-void _CONF_modules_free(void) 
+void bb_CONF_modules_free(void) 
 {
     printf("CONF_modules_free called\n");
     struct lib_enter_args args = {

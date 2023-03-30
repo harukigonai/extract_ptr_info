@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+const char * bb_SSL_get_servername(const SSL * arg_a,const int arg_b);
+
 const char * SSL_get_servername(const SSL * arg_a,const int arg_b) 
 {
     if (syscall(890))
-        return _SSL_get_servername(arg_a,arg_b);
+        return bb_SSL_get_servername(arg_a,arg_b);
     else {
         const char * (*orig_SSL_get_servername)(const SSL *,const int);
         orig_SSL_get_servername = dlsym(RTLD_NEXT, "SSL_get_servername");
@@ -36,7 +38,7 @@ const char * SSL_get_servername(const SSL * arg_a,const int arg_b)
     }
 }
 
-const char * _SSL_get_servername(const SSL * arg_a,const int arg_b) 
+const char * bb_SSL_get_servername(const SSL * arg_a,const int arg_b) 
 {
     printf("SSL_get_servername called\n");
     const char * ret;

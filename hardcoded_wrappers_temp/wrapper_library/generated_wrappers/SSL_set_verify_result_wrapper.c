@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+void bb_SSL_set_verify_result(SSL * arg_a,long arg_b);
+
 void SSL_set_verify_result(SSL * arg_a,long arg_b) 
 {
     if (syscall(890))
-        _SSL_set_verify_result(arg_a,arg_b);
+        bb_SSL_set_verify_result(arg_a,arg_b);
     else {
         void (*orig_SSL_set_verify_result)(SSL *,long);
         orig_SSL_set_verify_result = dlsym(RTLD_NEXT, "SSL_set_verify_result");
@@ -36,7 +38,7 @@ void SSL_set_verify_result(SSL * arg_a,long arg_b)
     }
 }
 
-void _SSL_set_verify_result(SSL * arg_a,long arg_b) 
+void bb_SSL_set_verify_result(SSL * arg_a,long arg_b) 
 {
     printf("SSL_set_verify_result called\n");
     struct lib_enter_args args = {

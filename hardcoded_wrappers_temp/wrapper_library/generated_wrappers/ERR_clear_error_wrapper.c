@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+void bb_ERR_clear_error(void);
+
 void ERR_clear_error(void) 
 {
     if (syscall(890))
-        _ERR_clear_error();
+        bb_ERR_clear_error();
     else {
         void (*orig_ERR_clear_error)(void);
         orig_ERR_clear_error = dlsym(RTLD_NEXT, "ERR_clear_error");
@@ -36,7 +38,7 @@ void ERR_clear_error(void)
     }
 }
 
-void _ERR_clear_error(void) 
+void bb_ERR_clear_error(void) 
 {
     printf("ERR_clear_error called\n");
     struct lib_enter_args args = {

@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+void bb_EVP_cleanup(void);
+
 void EVP_cleanup(void) 
 {
     if (syscall(890))
-        _EVP_cleanup();
+        bb_EVP_cleanup();
     else {
         void (*orig_EVP_cleanup)(void);
         orig_EVP_cleanup = dlsym(RTLD_NEXT, "EVP_cleanup");
@@ -36,7 +38,7 @@ void EVP_cleanup(void)
     }
 }
 
-void _EVP_cleanup(void) 
+void bb_EVP_cleanup(void) 
 {
     printf("EVP_cleanup called\n");
     struct lib_enter_args args = {

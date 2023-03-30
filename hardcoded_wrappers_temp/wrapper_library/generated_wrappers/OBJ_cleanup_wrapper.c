@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+void bb_OBJ_cleanup(void);
+
 void OBJ_cleanup(void) 
 {
     if (syscall(890))
-        _OBJ_cleanup();
+        bb_OBJ_cleanup();
     else {
         void (*orig_OBJ_cleanup)(void);
         orig_OBJ_cleanup = dlsym(RTLD_NEXT, "OBJ_cleanup");
@@ -36,7 +38,7 @@ void OBJ_cleanup(void)
     }
 }
 
-void _OBJ_cleanup(void) 
+void bb_OBJ_cleanup(void) 
 {
     printf("OBJ_cleanup called\n");
     struct lib_enter_args args = {

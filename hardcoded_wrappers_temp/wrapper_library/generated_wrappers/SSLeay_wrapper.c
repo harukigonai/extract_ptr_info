@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+unsigned long bb_SSLeay(void);
+
 unsigned long SSLeay(void) 
 {
     if (syscall(890))
-        return _SSLeay();
+        return bb_SSLeay();
     else {
         unsigned long (*orig_SSLeay)(void);
         orig_SSLeay = dlsym(RTLD_NEXT, "SSLeay");
@@ -36,7 +38,7 @@ unsigned long SSLeay(void)
     }
 }
 
-unsigned long _SSLeay(void) 
+unsigned long bb_SSLeay(void) 
 {
     printf("SSLeay called\n");
     unsigned long ret;

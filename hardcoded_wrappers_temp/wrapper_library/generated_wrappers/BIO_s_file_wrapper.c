@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+BIO_METHOD * bb_BIO_s_file(void);
+
 BIO_METHOD * BIO_s_file(void) 
 {
     if (syscall(890))
-        return _BIO_s_file();
+        return bb_BIO_s_file();
     else {
         BIO_METHOD * (*orig_BIO_s_file)(void);
         orig_BIO_s_file = dlsym(RTLD_NEXT, "BIO_s_file");
@@ -36,7 +38,7 @@ BIO_METHOD * BIO_s_file(void)
     }
 }
 
-BIO_METHOD * _BIO_s_file(void) 
+BIO_METHOD * bb_BIO_s_file(void) 
 {
     printf("BIO_s_file called\n");
     BIO_METHOD * ret;

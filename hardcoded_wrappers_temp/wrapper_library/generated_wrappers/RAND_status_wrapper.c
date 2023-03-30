@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+int bb_RAND_status(void);
+
 int RAND_status(void) 
 {
     if (syscall(890))
-        return _RAND_status();
+        return bb_RAND_status();
     else {
         int (*orig_RAND_status)(void);
         orig_RAND_status = dlsym(RTLD_NEXT, "RAND_status");
@@ -36,7 +38,7 @@ int RAND_status(void)
     }
 }
 
-int _RAND_status(void) 
+int bb_RAND_status(void) 
 {
     printf("RAND_status called\n");
     int ret;

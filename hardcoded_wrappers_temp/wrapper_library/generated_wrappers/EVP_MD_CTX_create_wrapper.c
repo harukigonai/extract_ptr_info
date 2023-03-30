@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+EVP_MD_CTX * bb_EVP_MD_CTX_create(void);
+
 EVP_MD_CTX * EVP_MD_CTX_create(void) 
 {
     if (syscall(890))
-        return _EVP_MD_CTX_create();
+        return bb_EVP_MD_CTX_create();
     else {
         EVP_MD_CTX * (*orig_EVP_MD_CTX_create)(void);
         orig_EVP_MD_CTX_create = dlsym(RTLD_NEXT, "EVP_MD_CTX_create");
@@ -36,7 +38,7 @@ EVP_MD_CTX * EVP_MD_CTX_create(void)
     }
 }
 
-EVP_MD_CTX * _EVP_MD_CTX_create(void) 
+EVP_MD_CTX * bb_EVP_MD_CTX_create(void) 
 {
     printf("EVP_MD_CTX_create called\n");
     EVP_MD_CTX * ret;

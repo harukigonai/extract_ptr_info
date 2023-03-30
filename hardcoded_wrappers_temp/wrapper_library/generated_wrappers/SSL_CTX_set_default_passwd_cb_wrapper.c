@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+void bb_SSL_CTX_set_default_passwd_cb(SSL_CTX * arg_a,pem_password_cb * arg_b);
+
 void SSL_CTX_set_default_passwd_cb(SSL_CTX * arg_a,pem_password_cb * arg_b) 
 {
     if (syscall(890))
-        _SSL_CTX_set_default_passwd_cb(arg_a,arg_b);
+        bb_SSL_CTX_set_default_passwd_cb(arg_a,arg_b);
     else {
         void (*orig_SSL_CTX_set_default_passwd_cb)(SSL_CTX *,pem_password_cb *);
         orig_SSL_CTX_set_default_passwd_cb = dlsym(RTLD_NEXT, "SSL_CTX_set_default_passwd_cb");
@@ -36,7 +38,7 @@ void SSL_CTX_set_default_passwd_cb(SSL_CTX * arg_a,pem_password_cb * arg_b)
     }
 }
 
-void _SSL_CTX_set_default_passwd_cb(SSL_CTX * arg_a,pem_password_cb * arg_b) 
+void bb_SSL_CTX_set_default_passwd_cb(SSL_CTX * arg_a,pem_password_cb * arg_b) 
 {
     printf("SSL_CTX_set_default_passwd_cb called\n");
     struct lib_enter_args args = {

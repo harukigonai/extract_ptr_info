@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+BIO_METHOD * bb_BIO_s_mem(void);
+
 BIO_METHOD * BIO_s_mem(void) 
 {
     if (syscall(890))
-        return _BIO_s_mem();
+        return bb_BIO_s_mem();
     else {
         BIO_METHOD * (*orig_BIO_s_mem)(void);
         orig_BIO_s_mem = dlsym(RTLD_NEXT, "BIO_s_mem");
@@ -36,7 +38,7 @@ BIO_METHOD * BIO_s_mem(void)
     }
 }
 
-BIO_METHOD * _BIO_s_mem(void) 
+BIO_METHOD * bb_BIO_s_mem(void) 
 {
     printf("BIO_s_mem called\n");
     BIO_METHOD * ret;

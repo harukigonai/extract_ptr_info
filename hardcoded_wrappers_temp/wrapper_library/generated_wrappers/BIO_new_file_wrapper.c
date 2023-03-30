@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+BIO * bb_BIO_new_file(const char * arg_a,const char * arg_b);
+
 BIO * BIO_new_file(const char * arg_a,const char * arg_b) 
 {
     if (syscall(890))
-        return _BIO_new_file(arg_a,arg_b);
+        return bb_BIO_new_file(arg_a,arg_b);
     else {
         BIO * (*orig_BIO_new_file)(const char *,const char *);
         orig_BIO_new_file = dlsym(RTLD_NEXT, "BIO_new_file");
@@ -36,7 +38,7 @@ BIO * BIO_new_file(const char * arg_a,const char * arg_b)
     }
 }
 
-BIO * _BIO_new_file(const char * arg_a,const char * arg_b) 
+BIO * bb_BIO_new_file(const char * arg_a,const char * arg_b) 
 {
     printf("BIO_new_file called\n");
     BIO * ret;

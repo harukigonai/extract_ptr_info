@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+const EVP_MD * bb_EVP_sha1(void);
+
 const EVP_MD * EVP_sha1(void) 
 {
     if (syscall(890))
-        return _EVP_sha1();
+        return bb_EVP_sha1();
     else {
         const EVP_MD * (*orig_EVP_sha1)(void);
         orig_EVP_sha1 = dlsym(RTLD_NEXT, "EVP_sha1");
@@ -36,7 +38,7 @@ const EVP_MD * EVP_sha1(void)
     }
 }
 
-const EVP_MD * _EVP_sha1(void) 
+const EVP_MD * bb_EVP_sha1(void) 
 {
     printf("EVP_sha1 called\n");
     const EVP_MD * ret;

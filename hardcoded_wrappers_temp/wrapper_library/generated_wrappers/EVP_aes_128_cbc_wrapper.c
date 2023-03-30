@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+const EVP_CIPHER * bb_EVP_aes_128_cbc(void);
+
 const EVP_CIPHER * EVP_aes_128_cbc(void) 
 {
     if (syscall(890))
-        return _EVP_aes_128_cbc();
+        return bb_EVP_aes_128_cbc();
     else {
         const EVP_CIPHER * (*orig_EVP_aes_128_cbc)(void);
         orig_EVP_aes_128_cbc = dlsym(RTLD_NEXT, "EVP_aes_128_cbc");
@@ -36,7 +38,7 @@ const EVP_CIPHER * EVP_aes_128_cbc(void)
     }
 }
 
-const EVP_CIPHER * _EVP_aes_128_cbc(void) 
+const EVP_CIPHER * bb_EVP_aes_128_cbc(void) 
 {
     printf("EVP_aes_128_cbc called\n");
     const EVP_CIPHER * ret;

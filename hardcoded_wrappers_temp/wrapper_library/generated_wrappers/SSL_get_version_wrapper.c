@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+const char * bb_SSL_get_version(const SSL * arg_a);
+
 const char * SSL_get_version(const SSL * arg_a) 
 {
     if (syscall(890))
-        return _SSL_get_version(arg_a);
+        return bb_SSL_get_version(arg_a);
     else {
         const char * (*orig_SSL_get_version)(const SSL *);
         orig_SSL_get_version = dlsym(RTLD_NEXT, "SSL_get_version");
@@ -36,7 +38,7 @@ const char * SSL_get_version(const SSL * arg_a)
     }
 }
 
-const char * _SSL_get_version(const SSL * arg_a) 
+const char * bb_SSL_get_version(const SSL * arg_a) 
 {
     printf("SSL_get_version called\n");
     const char * ret;

@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+const char * bb_SSL_CIPHER_get_name(const SSL_CIPHER * arg_a);
+
 const char * SSL_CIPHER_get_name(const SSL_CIPHER * arg_a) 
 {
     if (syscall(890))
-        return _SSL_CIPHER_get_name(arg_a);
+        return bb_SSL_CIPHER_get_name(arg_a);
     else {
         const char * (*orig_SSL_CIPHER_get_name)(const SSL_CIPHER *);
         orig_SSL_CIPHER_get_name = dlsym(RTLD_NEXT, "SSL_CIPHER_get_name");
@@ -36,7 +38,7 @@ const char * SSL_CIPHER_get_name(const SSL_CIPHER * arg_a)
     }
 }
 
-const char * _SSL_CIPHER_get_name(const SSL_CIPHER * arg_a) 
+const char * bb_SSL_CIPHER_get_name(const SSL_CIPHER * arg_a) 
 {
     printf("SSL_CIPHER_get_name called\n");
     const char * ret;

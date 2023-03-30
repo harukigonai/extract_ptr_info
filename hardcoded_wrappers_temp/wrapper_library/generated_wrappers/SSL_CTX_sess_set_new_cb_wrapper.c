@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+void bb_SSL_CTX_sess_set_new_cb(SSL_CTX * arg_a,int (*arg_b)(struct ssl_st *, SSL_SESSION *));
+
 void SSL_CTX_sess_set_new_cb(SSL_CTX * arg_a,int (*arg_b)(struct ssl_st *, SSL_SESSION *)) 
 {
     if (syscall(890))
-        _SSL_CTX_sess_set_new_cb(arg_a,arg_b);
+        bb_SSL_CTX_sess_set_new_cb(arg_a,arg_b);
     else {
         void (*orig_SSL_CTX_sess_set_new_cb)(SSL_CTX *,int (*)(struct ssl_st *, SSL_SESSION *));
         orig_SSL_CTX_sess_set_new_cb = dlsym(RTLD_NEXT, "SSL_CTX_sess_set_new_cb");
@@ -36,7 +38,7 @@ void SSL_CTX_sess_set_new_cb(SSL_CTX * arg_a,int (*arg_b)(struct ssl_st *, SSL_S
     }
 }
 
-void _SSL_CTX_sess_set_new_cb(SSL_CTX * arg_a,int (*arg_b)(struct ssl_st *, SSL_SESSION *)) 
+void bb_SSL_CTX_sess_set_new_cb(SSL_CTX * arg_a,int (*arg_b)(struct ssl_st *, SSL_SESSION *)) 
 {
     printf("SSL_CTX_sess_set_new_cb called\n");
     struct lib_enter_args args = {

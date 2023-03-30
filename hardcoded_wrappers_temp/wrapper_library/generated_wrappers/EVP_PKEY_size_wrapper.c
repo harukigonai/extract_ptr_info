@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+int bb_EVP_PKEY_size(EVP_PKEY * arg_a);
+
 int EVP_PKEY_size(EVP_PKEY * arg_a) 
 {
     if (syscall(890))
-        return _EVP_PKEY_size(arg_a);
+        return bb_EVP_PKEY_size(arg_a);
     else {
         int (*orig_EVP_PKEY_size)(EVP_PKEY *);
         orig_EVP_PKEY_size = dlsym(RTLD_NEXT, "EVP_PKEY_size");
@@ -36,7 +38,7 @@ int EVP_PKEY_size(EVP_PKEY * arg_a)
     }
 }
 
-int _EVP_PKEY_size(EVP_PKEY * arg_a) 
+int bb_EVP_PKEY_size(EVP_PKEY * arg_a) 
 {
     printf("EVP_PKEY_size called\n");
     int ret;

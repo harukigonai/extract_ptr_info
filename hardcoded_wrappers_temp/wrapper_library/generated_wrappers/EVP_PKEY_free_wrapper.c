@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+void bb_EVP_PKEY_free(EVP_PKEY * arg_a);
+
 void EVP_PKEY_free(EVP_PKEY * arg_a) 
 {
     if (syscall(890))
-        _EVP_PKEY_free(arg_a);
+        bb_EVP_PKEY_free(arg_a);
     else {
         void (*orig_EVP_PKEY_free)(EVP_PKEY *);
         orig_EVP_PKEY_free = dlsym(RTLD_NEXT, "EVP_PKEY_free");
@@ -36,7 +38,7 @@ void EVP_PKEY_free(EVP_PKEY * arg_a)
     }
 }
 
-void _EVP_PKEY_free(EVP_PKEY * arg_a) 
+void bb_EVP_PKEY_free(EVP_PKEY * arg_a) 
 {
     printf("EVP_PKEY_free called\n");
     struct lib_enter_args args = {

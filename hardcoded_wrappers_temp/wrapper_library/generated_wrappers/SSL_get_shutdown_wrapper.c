@@ -25,10 +25,12 @@
 
 #include "../arg_struct.h"
 
+int bb_SSL_get_shutdown(const SSL * arg_a);
+
 int SSL_get_shutdown(const SSL * arg_a) 
 {
     if (syscall(890))
-        return _SSL_get_shutdown(arg_a);
+        return bb_SSL_get_shutdown(arg_a);
     else {
         int (*orig_SSL_get_shutdown)(const SSL *);
         orig_SSL_get_shutdown = dlsym(RTLD_NEXT, "SSL_get_shutdown");
@@ -36,7 +38,7 @@ int SSL_get_shutdown(const SSL * arg_a)
     }
 }
 
-int _SSL_get_shutdown(const SSL * arg_a) 
+int bb_SSL_get_shutdown(const SSL * arg_a) 
 {
     printf("SSL_get_shutdown called\n");
     int ret;
