@@ -29,6 +29,7 @@ const char * bb_SSL_CIPHER_get_name(const SSL_CIPHER * arg_a);
 
 const char * SSL_CIPHER_get_name(const SSL_CIPHER * arg_a) 
 {
+    printf("SSL_CIPHER_get_name called\n");
     if (syscall(890))
         return bb_SSL_CIPHER_get_name(arg_a);
     else {
@@ -40,7 +41,6 @@ const char * SSL_CIPHER_get_name(const SSL_CIPHER * arg_a)
 
 const char * bb_SSL_CIPHER_get_name(const SSL_CIPHER * arg_a) 
 {
-    printf("SSL_CIPHER_get_name called\n");
     const char * ret;
 
     struct lib_enter_args args = {

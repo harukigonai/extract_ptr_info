@@ -29,6 +29,7 @@ EVP_PKEY * bb_PEM_read_bio_PrivateKey(BIO * arg_a,EVP_PKEY ** arg_b,pem_password
 
 EVP_PKEY * PEM_read_bio_PrivateKey(BIO * arg_a,EVP_PKEY ** arg_b,pem_password_cb * arg_c,void * arg_d) 
 {
+    printf("PEM_read_bio_PrivateKey called\n");
     if (syscall(890))
         return bb_PEM_read_bio_PrivateKey(arg_a,arg_b,arg_c,arg_d);
     else {
@@ -40,7 +41,6 @@ EVP_PKEY * PEM_read_bio_PrivateKey(BIO * arg_a,EVP_PKEY ** arg_b,pem_password_cb
 
 EVP_PKEY * bb_PEM_read_bio_PrivateKey(BIO * arg_a,EVP_PKEY ** arg_b,pem_password_cb * arg_c,void * arg_d) 
 {
-    printf("PEM_read_bio_PrivateKey called\n");
     EVP_PKEY * ret;
 
     struct lib_enter_args args = {

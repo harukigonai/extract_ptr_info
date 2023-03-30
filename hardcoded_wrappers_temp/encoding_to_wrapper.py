@@ -102,6 +102,8 @@ def generate_function_wrapper(func_dict, wrapper_output_dir, ent_metadata_dir):
     func_text += "\n"
     func_text += f"{ret_type} {func_name}({arg_str}) " + "\n"
     func_text +=  "{\n"
+    # add print for debugging (remove later)
+    func_text += f"    printf(\"{func_name} called\\n\");\n"
     func_text +=  "    if (syscall(890))\n"
 
     if ret_type != "void":
@@ -124,8 +126,6 @@ def generate_function_wrapper(func_dict, wrapper_output_dir, ent_metadata_dir):
 
     func_text += f"{ret_type} bb_{func_name}({arg_str}) " + "\n"
     func_text += "{\n"
-    # add print for debugging (remove later)
-    func_text += f"    printf(\"{func_name} called\\n\");\n"
 
     # declare return variable
     if ret_type != "void":

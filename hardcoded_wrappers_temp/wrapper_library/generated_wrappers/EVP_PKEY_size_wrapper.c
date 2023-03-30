@@ -29,6 +29,7 @@ int bb_EVP_PKEY_size(EVP_PKEY * arg_a);
 
 int EVP_PKEY_size(EVP_PKEY * arg_a) 
 {
+    printf("EVP_PKEY_size called\n");
     if (syscall(890))
         return bb_EVP_PKEY_size(arg_a);
     else {
@@ -40,7 +41,6 @@ int EVP_PKEY_size(EVP_PKEY * arg_a)
 
 int bb_EVP_PKEY_size(EVP_PKEY * arg_a) 
 {
-    printf("EVP_PKEY_size called\n");
     int ret;
 
     struct lib_enter_args args = {

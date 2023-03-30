@@ -29,6 +29,7 @@ void bb_ERR_load_crypto_strings(void);
 
 void ERR_load_crypto_strings(void) 
 {
+    printf("ERR_load_crypto_strings called\n");
     if (syscall(890))
         bb_ERR_load_crypto_strings();
     else {
@@ -40,7 +41,6 @@ void ERR_load_crypto_strings(void)
 
 void bb_ERR_load_crypto_strings(void) 
 {
-    printf("ERR_load_crypto_strings called\n");
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {

@@ -29,6 +29,7 @@ void bb_BN_free(BIGNUM * arg_a);
 
 void BN_free(BIGNUM * arg_a) 
 {
+    printf("BN_free called\n");
     if (syscall(890))
         bb_BN_free(arg_a);
     else {
@@ -40,7 +41,6 @@ void BN_free(BIGNUM * arg_a)
 
 void bb_BN_free(BIGNUM * arg_a) 
 {
-    printf("BN_free called\n");
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {

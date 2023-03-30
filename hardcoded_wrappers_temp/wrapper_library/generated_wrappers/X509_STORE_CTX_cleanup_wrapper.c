@@ -29,6 +29,7 @@ void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a);
 
 void X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a) 
 {
+    printf("X509_STORE_CTX_cleanup called\n");
     if (syscall(890))
         bb_X509_STORE_CTX_cleanup(arg_a);
     else {
@@ -40,7 +41,6 @@ void X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a)
 
 void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a) 
 {
-    printf("X509_STORE_CTX_cleanup called\n");
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {

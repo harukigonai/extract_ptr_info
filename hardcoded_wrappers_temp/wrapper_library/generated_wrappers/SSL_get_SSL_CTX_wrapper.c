@@ -29,6 +29,7 @@ SSL_CTX * bb_SSL_get_SSL_CTX(const SSL * arg_a);
 
 SSL_CTX * SSL_get_SSL_CTX(const SSL * arg_a) 
 {
+    printf("SSL_get_SSL_CTX called\n");
     if (syscall(890))
         return bb_SSL_get_SSL_CTX(arg_a);
     else {
@@ -40,7 +41,6 @@ SSL_CTX * SSL_get_SSL_CTX(const SSL * arg_a)
 
 SSL_CTX * bb_SSL_get_SSL_CTX(const SSL * arg_a) 
 {
-    printf("SSL_get_SSL_CTX called\n");
     SSL_CTX * ret;
 
     struct lib_enter_args args = {

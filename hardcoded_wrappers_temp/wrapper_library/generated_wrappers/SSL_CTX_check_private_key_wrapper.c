@@ -29,6 +29,7 @@ int bb_SSL_CTX_check_private_key(const SSL_CTX * arg_a);
 
 int SSL_CTX_check_private_key(const SSL_CTX * arg_a) 
 {
+    printf("SSL_CTX_check_private_key called\n");
     if (syscall(890))
         return bb_SSL_CTX_check_private_key(arg_a);
     else {
@@ -40,7 +41,6 @@ int SSL_CTX_check_private_key(const SSL_CTX * arg_a)
 
 int bb_SSL_CTX_check_private_key(const SSL_CTX * arg_a) 
 {
-    printf("SSL_CTX_check_private_key called\n");
     int ret;
 
     struct lib_enter_args args = {

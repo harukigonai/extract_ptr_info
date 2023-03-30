@@ -29,6 +29,7 @@ void bb_DH_free(DH * arg_a);
 
 void DH_free(DH * arg_a) 
 {
+    printf("DH_free called\n");
     if (syscall(890))
         bb_DH_free(arg_a);
     else {
@@ -40,7 +41,6 @@ void DH_free(DH * arg_a)
 
 void bb_DH_free(DH * arg_a) 
 {
-    printf("DH_free called\n");
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {

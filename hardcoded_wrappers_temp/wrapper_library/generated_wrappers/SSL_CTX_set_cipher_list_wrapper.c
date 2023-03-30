@@ -29,6 +29,7 @@ int bb_SSL_CTX_set_cipher_list(SSL_CTX * arg_a,const char * arg_b);
 
 int SSL_CTX_set_cipher_list(SSL_CTX * arg_a,const char * arg_b) 
 {
+    printf("SSL_CTX_set_cipher_list called\n");
     if (syscall(890))
         return bb_SSL_CTX_set_cipher_list(arg_a,arg_b);
     else {
@@ -40,7 +41,6 @@ int SSL_CTX_set_cipher_list(SSL_CTX * arg_a,const char * arg_b)
 
 int bb_SSL_CTX_set_cipher_list(SSL_CTX * arg_a,const char * arg_b) 
 {
-    printf("SSL_CTX_set_cipher_list called\n");
     int ret;
 
     struct lib_enter_args args = {

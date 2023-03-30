@@ -29,6 +29,7 @@ void bb_CRYPTO_set_dynlock_create_callback(struct CRYPTO_dynlock_value *(*arg_a)
 
 void CRYPTO_set_dynlock_create_callback(struct CRYPTO_dynlock_value *(*arg_a)(const char *, int)) 
 {
+    printf("CRYPTO_set_dynlock_create_callback called\n");
     if (syscall(890))
         bb_CRYPTO_set_dynlock_create_callback(arg_a);
     else {
@@ -40,7 +41,6 @@ void CRYPTO_set_dynlock_create_callback(struct CRYPTO_dynlock_value *(*arg_a)(co
 
 void bb_CRYPTO_set_dynlock_create_callback(struct CRYPTO_dynlock_value *(*arg_a)(const char *, int)) 
 {
-    printf("CRYPTO_set_dynlock_create_callback called\n");
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {

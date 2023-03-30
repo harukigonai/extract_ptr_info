@@ -29,6 +29,7 @@ void bb_BIO_free_all(BIO * arg_a);
 
 void BIO_free_all(BIO * arg_a) 
 {
+    printf("BIO_free_all called\n");
     if (syscall(890))
         bb_BIO_free_all(arg_a);
     else {
@@ -40,7 +41,6 @@ void BIO_free_all(BIO * arg_a)
 
 void bb_BIO_free_all(BIO * arg_a) 
 {
-    printf("BIO_free_all called\n");
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {

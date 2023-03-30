@@ -29,6 +29,7 @@ void bb_OBJ_cleanup(void);
 
 void OBJ_cleanup(void) 
 {
+    printf("OBJ_cleanup called\n");
     if (syscall(890))
         bb_OBJ_cleanup();
     else {
@@ -40,7 +41,6 @@ void OBJ_cleanup(void)
 
 void bb_OBJ_cleanup(void) 
 {
-    printf("OBJ_cleanup called\n");
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {

@@ -29,6 +29,7 @@ EVP_MD_CTX * bb_EVP_MD_CTX_create(void);
 
 EVP_MD_CTX * EVP_MD_CTX_create(void) 
 {
+    printf("EVP_MD_CTX_create called\n");
     if (syscall(890))
         return bb_EVP_MD_CTX_create();
     else {
@@ -40,7 +41,6 @@ EVP_MD_CTX * EVP_MD_CTX_create(void)
 
 EVP_MD_CTX * bb_EVP_MD_CTX_create(void) 
 {
-    printf("EVP_MD_CTX_create called\n");
     EVP_MD_CTX * ret;
 
     struct lib_enter_args args = {

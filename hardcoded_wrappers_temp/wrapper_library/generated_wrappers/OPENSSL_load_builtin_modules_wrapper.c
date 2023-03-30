@@ -29,6 +29,7 @@ void bb_OPENSSL_load_builtin_modules(void);
 
 void OPENSSL_load_builtin_modules(void) 
 {
+    printf("OPENSSL_load_builtin_modules called\n");
     if (syscall(890))
         bb_OPENSSL_load_builtin_modules();
     else {
@@ -40,7 +41,6 @@ void OPENSSL_load_builtin_modules(void)
 
 void bb_OPENSSL_load_builtin_modules(void) 
 {
-    printf("OPENSSL_load_builtin_modules called\n");
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {

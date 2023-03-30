@@ -29,6 +29,7 @@ BIO * bb_BIO_new(BIO_METHOD * arg_a);
 
 BIO * BIO_new(BIO_METHOD * arg_a) 
 {
+    printf("BIO_new called\n");
     if (syscall(890))
         return bb_BIO_new(arg_a);
     else {
@@ -40,7 +41,6 @@ BIO * BIO_new(BIO_METHOD * arg_a)
 
 BIO * bb_BIO_new(BIO_METHOD * arg_a) 
 {
-    printf("BIO_new called\n");
     BIO * ret;
 
     struct lib_enter_args args = {

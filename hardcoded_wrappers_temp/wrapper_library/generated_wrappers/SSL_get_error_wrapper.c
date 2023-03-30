@@ -29,6 +29,7 @@ int bb_SSL_get_error(const SSL * arg_a,int arg_b);
 
 int SSL_get_error(const SSL * arg_a,int arg_b) 
 {
+    printf("SSL_get_error called\n");
     if (syscall(890))
         return bb_SSL_get_error(arg_a,arg_b);
     else {
@@ -40,7 +41,6 @@ int SSL_get_error(const SSL * arg_a,int arg_b)
 
 int bb_SSL_get_error(const SSL * arg_a,int arg_b) 
 {
-    printf("SSL_get_error called\n");
     int ret;
 
     struct lib_enter_args args = {

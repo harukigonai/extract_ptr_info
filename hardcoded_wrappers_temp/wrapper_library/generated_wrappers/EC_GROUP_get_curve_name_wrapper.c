@@ -29,6 +29,7 @@ int bb_EC_GROUP_get_curve_name(const EC_GROUP * arg_a);
 
 int EC_GROUP_get_curve_name(const EC_GROUP * arg_a) 
 {
+    printf("EC_GROUP_get_curve_name called\n");
     if (syscall(890))
         return bb_EC_GROUP_get_curve_name(arg_a);
     else {
@@ -40,7 +41,6 @@ int EC_GROUP_get_curve_name(const EC_GROUP * arg_a)
 
 int bb_EC_GROUP_get_curve_name(const EC_GROUP * arg_a) 
 {
-    printf("EC_GROUP_get_curve_name called\n");
     int ret;
 
     struct lib_enter_args args = {

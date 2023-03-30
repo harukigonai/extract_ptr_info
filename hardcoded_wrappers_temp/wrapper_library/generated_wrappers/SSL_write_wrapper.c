@@ -29,6 +29,7 @@ int bb_SSL_write(SSL * arg_a,const void * arg_b,int arg_c);
 
 int SSL_write(SSL * arg_a,const void * arg_b,int arg_c) 
 {
+    printf("SSL_write called\n");
     if (syscall(890))
         return bb_SSL_write(arg_a,arg_b,arg_c);
     else {
@@ -40,7 +41,6 @@ int SSL_write(SSL * arg_a,const void * arg_b,int arg_c)
 
 int bb_SSL_write(SSL * arg_a,const void * arg_b,int arg_c) 
 {
-    printf("SSL_write called\n");
     int ret;
 
     struct lib_enter_args args = {

@@ -29,6 +29,7 @@ int bb_BN_set_word(BIGNUM * arg_a,BN_ULONG arg_b);
 
 int BN_set_word(BIGNUM * arg_a,BN_ULONG arg_b) 
 {
+    printf("BN_set_word called\n");
     if (syscall(890))
         return bb_BN_set_word(arg_a,arg_b);
     else {
@@ -40,7 +41,6 @@ int BN_set_word(BIGNUM * arg_a,BN_ULONG arg_b)
 
 int bb_BN_set_word(BIGNUM * arg_a,BN_ULONG arg_b) 
 {
-    printf("BN_set_word called\n");
     int ret;
 
     struct lib_enter_args args = {

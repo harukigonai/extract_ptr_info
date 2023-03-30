@@ -29,6 +29,7 @@ void bb_SSL_CTX_set_verify(SSL_CTX * arg_a,int arg_b,int (*arg_c)(int, X509_STOR
 
 void SSL_CTX_set_verify(SSL_CTX * arg_a,int arg_b,int (*arg_c)(int, X509_STORE_CTX *)) 
 {
+    printf("SSL_CTX_set_verify called\n");
     if (syscall(890))
         bb_SSL_CTX_set_verify(arg_a,arg_b,arg_c);
     else {
@@ -40,7 +41,6 @@ void SSL_CTX_set_verify(SSL_CTX * arg_a,int arg_b,int (*arg_c)(int, X509_STORE_C
 
 void bb_SSL_CTX_set_verify(SSL_CTX * arg_a,int arg_b,int (*arg_c)(int, X509_STORE_CTX *)) 
 {
-    printf("SSL_CTX_set_verify called\n");
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {

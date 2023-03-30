@@ -29,6 +29,7 @@ void bb_EC_GROUP_free(EC_GROUP * arg_a);
 
 void EC_GROUP_free(EC_GROUP * arg_a) 
 {
+    printf("EC_GROUP_free called\n");
     if (syscall(890))
         bb_EC_GROUP_free(arg_a);
     else {
@@ -40,7 +41,6 @@ void EC_GROUP_free(EC_GROUP * arg_a)
 
 void bb_EC_GROUP_free(EC_GROUP * arg_a) 
 {
-    printf("EC_GROUP_free called\n");
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {

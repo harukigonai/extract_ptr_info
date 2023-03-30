@@ -29,6 +29,7 @@ BIGNUM * bb_BN_new(void);
 
 BIGNUM * BN_new(void) 
 {
+    printf("BN_new called\n");
     if (syscall(890))
         return bb_BN_new();
     else {
@@ -40,7 +41,6 @@ BIGNUM * BN_new(void)
 
 BIGNUM * bb_BN_new(void) 
 {
-    printf("BN_new called\n");
     BIGNUM * ret;
 
     struct lib_enter_args args = {

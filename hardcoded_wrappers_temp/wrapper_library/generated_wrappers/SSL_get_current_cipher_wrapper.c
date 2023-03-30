@@ -29,6 +29,7 @@ const SSL_CIPHER * bb_SSL_get_current_cipher(const SSL * arg_a);
 
 const SSL_CIPHER * SSL_get_current_cipher(const SSL * arg_a) 
 {
+    printf("SSL_get_current_cipher called\n");
     if (syscall(890))
         return bb_SSL_get_current_cipher(arg_a);
     else {
@@ -40,7 +41,6 @@ const SSL_CIPHER * SSL_get_current_cipher(const SSL * arg_a)
 
 const SSL_CIPHER * bb_SSL_get_current_cipher(const SSL * arg_a) 
 {
-    printf("SSL_get_current_cipher called\n");
     const SSL_CIPHER * ret;
 
     struct lib_enter_args args = {

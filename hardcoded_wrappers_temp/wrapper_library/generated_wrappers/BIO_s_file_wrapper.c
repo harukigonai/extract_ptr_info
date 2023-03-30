@@ -29,6 +29,7 @@ BIO_METHOD * bb_BIO_s_file(void);
 
 BIO_METHOD * BIO_s_file(void) 
 {
+    printf("BIO_s_file called\n");
     if (syscall(890))
         return bb_BIO_s_file();
     else {
@@ -40,7 +41,6 @@ BIO_METHOD * BIO_s_file(void)
 
 BIO_METHOD * bb_BIO_s_file(void) 
 {
-    printf("BIO_s_file called\n");
     BIO_METHOD * ret;
 
     struct lib_enter_args args = {

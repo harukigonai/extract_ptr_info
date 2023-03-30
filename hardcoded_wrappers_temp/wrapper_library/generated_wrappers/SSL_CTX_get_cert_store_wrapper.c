@@ -29,6 +29,7 @@ X509_STORE * bb_SSL_CTX_get_cert_store(const SSL_CTX * arg_a);
 
 X509_STORE * SSL_CTX_get_cert_store(const SSL_CTX * arg_a) 
 {
+    printf("SSL_CTX_get_cert_store called\n");
     if (syscall(890))
         return bb_SSL_CTX_get_cert_store(arg_a);
     else {
@@ -40,7 +41,6 @@ X509_STORE * SSL_CTX_get_cert_store(const SSL_CTX * arg_a)
 
 X509_STORE * bb_SSL_CTX_get_cert_store(const SSL_CTX * arg_a) 
 {
-    printf("SSL_CTX_get_cert_store called\n");
     X509_STORE * ret;
 
     struct lib_enter_args args = {

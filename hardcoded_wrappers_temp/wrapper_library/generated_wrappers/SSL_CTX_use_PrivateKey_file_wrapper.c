@@ -29,6 +29,7 @@ int bb_SSL_CTX_use_PrivateKey_file(SSL_CTX * arg_a,const char * arg_b,int arg_c)
 
 int SSL_CTX_use_PrivateKey_file(SSL_CTX * arg_a,const char * arg_b,int arg_c) 
 {
+    printf("SSL_CTX_use_PrivateKey_file called\n");
     if (syscall(890))
         return bb_SSL_CTX_use_PrivateKey_file(arg_a,arg_b,arg_c);
     else {
@@ -40,7 +41,6 @@ int SSL_CTX_use_PrivateKey_file(SSL_CTX * arg_a,const char * arg_b,int arg_c)
 
 int bb_SSL_CTX_use_PrivateKey_file(SSL_CTX * arg_a,const char * arg_b,int arg_c) 
 {
-    printf("SSL_CTX_use_PrivateKey_file called\n");
     int ret;
 
     struct lib_enter_args args = {

@@ -29,6 +29,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a);
 
 char * SSL_get_srp_username(SSL * arg_a) 
 {
+    printf("SSL_get_srp_username called\n");
     if (syscall(890))
         return bb_SSL_get_srp_username(arg_a);
     else {
@@ -40,7 +41,6 @@ char * SSL_get_srp_username(SSL * arg_a)
 
 char * bb_SSL_get_srp_username(SSL * arg_a) 
 {
-    printf("SSL_get_srp_username called\n");
     char * ret;
 
     struct lib_enter_args args = {

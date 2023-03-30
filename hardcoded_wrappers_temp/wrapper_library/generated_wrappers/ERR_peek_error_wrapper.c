@@ -29,6 +29,7 @@ unsigned long bb_ERR_peek_error(void);
 
 unsigned long ERR_peek_error(void) 
 {
+    printf("ERR_peek_error called\n");
     if (syscall(890))
         return bb_ERR_peek_error();
     else {
@@ -40,7 +41,6 @@ unsigned long ERR_peek_error(void)
 
 unsigned long bb_ERR_peek_error(void) 
 {
-    printf("ERR_peek_error called\n");
     unsigned long ret;
 
     struct lib_enter_args args = {

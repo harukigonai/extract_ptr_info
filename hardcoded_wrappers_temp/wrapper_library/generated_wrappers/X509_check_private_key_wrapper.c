@@ -29,6 +29,7 @@ int bb_X509_check_private_key(X509 * arg_a,EVP_PKEY * arg_b);
 
 int X509_check_private_key(X509 * arg_a,EVP_PKEY * arg_b) 
 {
+    printf("X509_check_private_key called\n");
     if (syscall(890))
         return bb_X509_check_private_key(arg_a,arg_b);
     else {
@@ -40,7 +41,6 @@ int X509_check_private_key(X509 * arg_a,EVP_PKEY * arg_b)
 
 int bb_X509_check_private_key(X509 * arg_a,EVP_PKEY * arg_b) 
 {
-    printf("X509_check_private_key called\n");
     int ret;
 
     struct lib_enter_args args = {

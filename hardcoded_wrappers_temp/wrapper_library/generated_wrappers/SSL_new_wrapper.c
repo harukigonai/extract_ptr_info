@@ -29,6 +29,7 @@ SSL * bb_SSL_new(SSL_CTX * arg_a);
 
 SSL * SSL_new(SSL_CTX * arg_a) 
 {
+    printf("SSL_new called\n");
     if (syscall(890))
         return bb_SSL_new(arg_a);
     else {
@@ -40,7 +41,6 @@ SSL * SSL_new(SSL_CTX * arg_a)
 
 SSL * bb_SSL_new(SSL_CTX * arg_a) 
 {
-    printf("SSL_new called\n");
     SSL * ret;
 
     struct lib_enter_args args = {

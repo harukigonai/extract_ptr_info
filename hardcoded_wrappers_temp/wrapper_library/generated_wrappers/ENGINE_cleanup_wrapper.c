@@ -29,6 +29,7 @@ void bb_ENGINE_cleanup(void);
 
 void ENGINE_cleanup(void) 
 {
+    printf("ENGINE_cleanup called\n");
     if (syscall(890))
         bb_ENGINE_cleanup();
     else {
@@ -40,7 +41,6 @@ void ENGINE_cleanup(void)
 
 void bb_ENGINE_cleanup(void) 
 {
-    printf("ENGINE_cleanup called\n");
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {

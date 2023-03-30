@@ -29,6 +29,7 @@ void bb_SSL_CTX_set_default_passwd_cb(SSL_CTX * arg_a,pem_password_cb * arg_b);
 
 void SSL_CTX_set_default_passwd_cb(SSL_CTX * arg_a,pem_password_cb * arg_b) 
 {
+    printf("SSL_CTX_set_default_passwd_cb called\n");
     if (syscall(890))
         bb_SSL_CTX_set_default_passwd_cb(arg_a,arg_b);
     else {
@@ -40,7 +41,6 @@ void SSL_CTX_set_default_passwd_cb(SSL_CTX * arg_a,pem_password_cb * arg_b)
 
 void bb_SSL_CTX_set_default_passwd_cb(SSL_CTX * arg_a,pem_password_cb * arg_b) 
 {
-    printf("SSL_CTX_set_default_passwd_cb called\n");
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {

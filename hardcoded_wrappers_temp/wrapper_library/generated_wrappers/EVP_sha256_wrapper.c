@@ -29,6 +29,7 @@ const EVP_MD * bb_EVP_sha256(void);
 
 const EVP_MD * EVP_sha256(void) 
 {
+    printf("EVP_sha256 called\n");
     if (syscall(890))
         return bb_EVP_sha256();
     else {
@@ -40,7 +41,6 @@ const EVP_MD * EVP_sha256(void)
 
 const EVP_MD * bb_EVP_sha256(void) 
 {
-    printf("EVP_sha256 called\n");
     const EVP_MD * ret;
 
     struct lib_enter_args args = {

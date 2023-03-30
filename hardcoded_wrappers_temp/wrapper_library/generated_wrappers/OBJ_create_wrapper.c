@@ -29,6 +29,7 @@ int bb_OBJ_create(const char * arg_a,const char * arg_b,const char * arg_c);
 
 int OBJ_create(const char * arg_a,const char * arg_b,const char * arg_c) 
 {
+    printf("OBJ_create called\n");
     if (syscall(890))
         return bb_OBJ_create(arg_a,arg_b,arg_c);
     else {
@@ -40,7 +41,6 @@ int OBJ_create(const char * arg_a,const char * arg_b,const char * arg_c)
 
 int bb_OBJ_create(const char * arg_a,const char * arg_b,const char * arg_c) 
 {
-    printf("OBJ_create called\n");
     int ret;
 
     struct lib_enter_args args = {

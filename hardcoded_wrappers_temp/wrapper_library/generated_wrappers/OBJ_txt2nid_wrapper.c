@@ -29,6 +29,7 @@ int bb_OBJ_txt2nid(const char * arg_a);
 
 int OBJ_txt2nid(const char * arg_a) 
 {
+    printf("OBJ_txt2nid called\n");
     if (syscall(890))
         return bb_OBJ_txt2nid(arg_a);
     else {
@@ -40,7 +41,6 @@ int OBJ_txt2nid(const char * arg_a)
 
 int bb_OBJ_txt2nid(const char * arg_a) 
 {
-    printf("OBJ_txt2nid called\n");
     int ret;
 
     struct lib_enter_args args = {

@@ -29,6 +29,7 @@ void bb_ENGINE_load_builtin_engines(void);
 
 void ENGINE_load_builtin_engines(void) 
 {
+    printf("ENGINE_load_builtin_engines called\n");
     if (syscall(890))
         bb_ENGINE_load_builtin_engines();
     else {
@@ -40,7 +41,6 @@ void ENGINE_load_builtin_engines(void)
 
 void bb_ENGINE_load_builtin_engines(void) 
 {
-    printf("ENGINE_load_builtin_engines called\n");
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {

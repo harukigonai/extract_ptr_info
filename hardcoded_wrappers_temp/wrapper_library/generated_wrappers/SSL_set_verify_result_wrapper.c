@@ -29,6 +29,7 @@ void bb_SSL_set_verify_result(SSL * arg_a,long arg_b);
 
 void SSL_set_verify_result(SSL * arg_a,long arg_b) 
 {
+    printf("SSL_set_verify_result called\n");
     if (syscall(890))
         bb_SSL_set_verify_result(arg_a,arg_b);
     else {
@@ -40,7 +41,6 @@ void SSL_set_verify_result(SSL * arg_a,long arg_b)
 
 void bb_SSL_set_verify_result(SSL * arg_a,long arg_b) 
 {
-    printf("SSL_set_verify_result called\n");
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {

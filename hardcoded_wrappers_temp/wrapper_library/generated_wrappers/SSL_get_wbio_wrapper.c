@@ -29,6 +29,7 @@ BIO * bb_SSL_get_wbio(const SSL * arg_a);
 
 BIO * SSL_get_wbio(const SSL * arg_a) 
 {
+    printf("SSL_get_wbio called\n");
     if (syscall(890))
         return bb_SSL_get_wbio(arg_a);
     else {
@@ -40,7 +41,6 @@ BIO * SSL_get_wbio(const SSL * arg_a)
 
 BIO * bb_SSL_get_wbio(const SSL * arg_a) 
 {
-    printf("SSL_get_wbio called\n");
     BIO * ret;
 
     struct lib_enter_args args = {

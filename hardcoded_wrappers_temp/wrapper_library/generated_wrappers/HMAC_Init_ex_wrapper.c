@@ -29,6 +29,7 @@ int bb_HMAC_Init_ex(HMAC_CTX * arg_a,const void * arg_b,int arg_c,const EVP_MD *
 
 int HMAC_Init_ex(HMAC_CTX * arg_a,const void * arg_b,int arg_c,const EVP_MD * arg_d,ENGINE * arg_e) 
 {
+    printf("HMAC_Init_ex called\n");
     if (syscall(890))
         return bb_HMAC_Init_ex(arg_a,arg_b,arg_c,arg_d,arg_e);
     else {
@@ -40,7 +41,6 @@ int HMAC_Init_ex(HMAC_CTX * arg_a,const void * arg_b,int arg_c,const EVP_MD * ar
 
 int bb_HMAC_Init_ex(HMAC_CTX * arg_a,const void * arg_b,int arg_c,const EVP_MD * arg_d,ENGINE * arg_e) 
 {
-    printf("HMAC_Init_ex called\n");
     int ret;
 
     struct lib_enter_args args = {

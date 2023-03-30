@@ -29,6 +29,7 @@ void bb_EVP_MD_CTX_destroy(EVP_MD_CTX * arg_a);
 
 void EVP_MD_CTX_destroy(EVP_MD_CTX * arg_a) 
 {
+    printf("EVP_MD_CTX_destroy called\n");
     if (syscall(890))
         bb_EVP_MD_CTX_destroy(arg_a);
     else {
@@ -40,7 +41,6 @@ void EVP_MD_CTX_destroy(EVP_MD_CTX * arg_a)
 
 void bb_EVP_MD_CTX_destroy(EVP_MD_CTX * arg_a) 
 {
-    printf("EVP_MD_CTX_destroy called\n");
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {

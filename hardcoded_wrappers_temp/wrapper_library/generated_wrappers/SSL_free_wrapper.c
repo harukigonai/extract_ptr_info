@@ -29,6 +29,7 @@ void bb_SSL_free(SSL * arg_a);
 
 void SSL_free(SSL * arg_a) 
 {
+    printf("SSL_free called\n");
     if (syscall(890))
         bb_SSL_free(arg_a);
     else {
@@ -40,7 +41,6 @@ void SSL_free(SSL * arg_a)
 
 void bb_SSL_free(SSL * arg_a) 
 {
-    printf("SSL_free called\n");
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {

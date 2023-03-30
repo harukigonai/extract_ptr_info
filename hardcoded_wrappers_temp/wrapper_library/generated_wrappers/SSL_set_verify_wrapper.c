@@ -29,6 +29,7 @@ void bb_SSL_set_verify(SSL * arg_a,int arg_b,int (*arg_c)(int, X509_STORE_CTX *)
 
 void SSL_set_verify(SSL * arg_a,int arg_b,int (*arg_c)(int, X509_STORE_CTX *)) 
 {
+    printf("SSL_set_verify called\n");
     if (syscall(890))
         bb_SSL_set_verify(arg_a,arg_b,arg_c);
     else {
@@ -40,7 +41,6 @@ void SSL_set_verify(SSL * arg_a,int arg_b,int (*arg_c)(int, X509_STORE_CTX *))
 
 void bb_SSL_set_verify(SSL * arg_a,int arg_b,int (*arg_c)(int, X509_STORE_CTX *)) 
 {
-    printf("SSL_set_verify called\n");
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {

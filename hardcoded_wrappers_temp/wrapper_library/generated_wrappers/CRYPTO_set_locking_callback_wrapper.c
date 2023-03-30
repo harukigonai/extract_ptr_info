@@ -29,6 +29,7 @@ void bb_CRYPTO_set_locking_callback(void (*arg_a)(int, int, const char *, int));
 
 void CRYPTO_set_locking_callback(void (*arg_a)(int, int, const char *, int)) 
 {
+    printf("CRYPTO_set_locking_callback called\n");
     if (syscall(890))
         bb_CRYPTO_set_locking_callback(arg_a);
     else {
@@ -40,7 +41,6 @@ void CRYPTO_set_locking_callback(void (*arg_a)(int, int, const char *, int))
 
 void bb_CRYPTO_set_locking_callback(void (*arg_a)(int, int, const char *, int)) 
 {
-    printf("CRYPTO_set_locking_callback called\n");
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {

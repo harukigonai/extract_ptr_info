@@ -29,6 +29,7 @@ unsigned long bb_SSLeay(void);
 
 unsigned long SSLeay(void) 
 {
+    printf("SSLeay called\n");
     if (syscall(890))
         return bb_SSLeay();
     else {
@@ -40,7 +41,6 @@ unsigned long SSLeay(void)
 
 unsigned long bb_SSLeay(void) 
 {
-    printf("SSLeay called\n");
     unsigned long ret;
 
     struct lib_enter_args args = {

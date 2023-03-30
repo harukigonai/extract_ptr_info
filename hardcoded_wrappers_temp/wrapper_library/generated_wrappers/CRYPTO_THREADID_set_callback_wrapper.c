@@ -29,6 +29,7 @@ int bb_CRYPTO_THREADID_set_callback(void (*arg_a)(CRYPTO_THREADID *));
 
 int CRYPTO_THREADID_set_callback(void (*arg_a)(CRYPTO_THREADID *)) 
 {
+    printf("CRYPTO_THREADID_set_callback called\n");
     if (syscall(890))
         return bb_CRYPTO_THREADID_set_callback(arg_a);
     else {
@@ -40,7 +41,6 @@ int CRYPTO_THREADID_set_callback(void (*arg_a)(CRYPTO_THREADID *))
 
 int bb_CRYPTO_THREADID_set_callback(void (*arg_a)(CRYPTO_THREADID *)) 
 {
-    printf("CRYPTO_THREADID_set_callback called\n");
     int ret;
 
     struct lib_enter_args args = {

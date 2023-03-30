@@ -29,6 +29,7 @@ const char * bb_SSLeay_version(int arg_a);
 
 const char * SSLeay_version(int arg_a) 
 {
+    printf("SSLeay_version called\n");
     if (syscall(890))
         return bb_SSLeay_version(arg_a);
     else {
@@ -40,7 +41,6 @@ const char * SSLeay_version(int arg_a)
 
 const char * bb_SSLeay_version(int arg_a) 
 {
-    printf("SSLeay_version called\n");
     const char * ret;
 
     struct lib_enter_args args = {
@@ -49,7 +49,7 @@ const char * bb_SSLeay_version(int arg_a)
             0, 4, 0, /* 0: int */
             0, 1, 0, /* 3: char */
             1, 8, 1, /* 6: pointer.char */
-            	4096, 0,
+            	3, 0,
         },
         .arg_entity_index = { 0, },
         .ret_entity_index = 6,

@@ -29,6 +29,7 @@ void bb_RAND_seed(void * arg_a,int arg_b);
 
 void RAND_seed(void * arg_a,int arg_b) 
 {
+    printf("RAND_seed called\n");
     if (syscall(890))
         bb_RAND_seed(arg_a,arg_b);
     else {
@@ -40,7 +41,6 @@ void RAND_seed(void * arg_a,int arg_b)
 
 void bb_RAND_seed(void * arg_a,int arg_b) 
 {
-    printf("RAND_seed called\n");
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {

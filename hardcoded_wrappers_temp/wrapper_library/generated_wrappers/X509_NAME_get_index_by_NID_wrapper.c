@@ -29,6 +29,7 @@ int bb_X509_NAME_get_index_by_NID(X509_NAME * arg_a,int arg_b,int arg_c);
 
 int X509_NAME_get_index_by_NID(X509_NAME * arg_a,int arg_b,int arg_c) 
 {
+    printf("X509_NAME_get_index_by_NID called\n");
     if (syscall(890))
         return bb_X509_NAME_get_index_by_NID(arg_a,arg_b,arg_c);
     else {
@@ -40,7 +41,6 @@ int X509_NAME_get_index_by_NID(X509_NAME * arg_a,int arg_b,int arg_c)
 
 int bb_X509_NAME_get_index_by_NID(X509_NAME * arg_a,int arg_b,int arg_c) 
 {
-    printf("X509_NAME_get_index_by_NID called\n");
     int ret;
 
     struct lib_enter_args args = {

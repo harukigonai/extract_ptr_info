@@ -29,6 +29,7 @@ void bb_SSL_load_error_strings(void);
 
 void SSL_load_error_strings(void) 
 {
+    printf("SSL_load_error_strings called\n");
     if (syscall(890))
         bb_SSL_load_error_strings();
     else {
@@ -40,7 +41,6 @@ void SSL_load_error_strings(void)
 
 void bb_SSL_load_error_strings(void) 
 {
-    printf("SSL_load_error_strings called\n");
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {

@@ -29,6 +29,7 @@ X509 * bb_SSL_get_certificate(const SSL * arg_a);
 
 X509 * SSL_get_certificate(const SSL * arg_a) 
 {
+    printf("SSL_get_certificate called\n");
     if (syscall(890))
         return bb_SSL_get_certificate(arg_a);
     else {
@@ -40,7 +41,6 @@ X509 * SSL_get_certificate(const SSL * arg_a)
 
 X509 * bb_SSL_get_certificate(const SSL * arg_a) 
 {
-    printf("SSL_get_certificate called\n");
     X509 * ret;
 
     struct lib_enter_args args = {

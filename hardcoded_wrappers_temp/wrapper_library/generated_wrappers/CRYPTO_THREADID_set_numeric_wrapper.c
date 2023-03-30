@@ -29,6 +29,7 @@ void bb_CRYPTO_THREADID_set_numeric(CRYPTO_THREADID * arg_a,unsigned long arg_b)
 
 void CRYPTO_THREADID_set_numeric(CRYPTO_THREADID * arg_a,unsigned long arg_b) 
 {
+    printf("CRYPTO_THREADID_set_numeric called\n");
     if (syscall(890))
         bb_CRYPTO_THREADID_set_numeric(arg_a,arg_b);
     else {
@@ -40,7 +41,6 @@ void CRYPTO_THREADID_set_numeric(CRYPTO_THREADID * arg_a,unsigned long arg_b)
 
 void bb_CRYPTO_THREADID_set_numeric(CRYPTO_THREADID * arg_a,unsigned long arg_b) 
 {
-    printf("CRYPTO_THREADID_set_numeric called\n");
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {

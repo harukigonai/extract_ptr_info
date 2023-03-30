@@ -29,6 +29,7 @@ void bb_SSL_CTX_set_info_callback(SSL_CTX *arg_a, void (*arg_b)(const SSL *,int,
 
 void SSL_CTX_set_info_callback(SSL_CTX *arg_a, void (*arg_b)(const SSL *,int,int)) 
 {
+    printf("SSL_CTX_set_info_callback called\n");
     if (syscall(890))
         bb_SSL_CTX_set_info_callback(arg_a,arg_b);
     else {
@@ -40,7 +41,6 @@ void SSL_CTX_set_info_callback(SSL_CTX *arg_a, void (*arg_b)(const SSL *,int,int
 
 void bb_SSL_CTX_set_info_callback(SSL_CTX *arg_a, void (*arg_b)(const SSL *,int,int)) 
 {
-    printf("SSL_CTX_set_info_callback called\n");
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {

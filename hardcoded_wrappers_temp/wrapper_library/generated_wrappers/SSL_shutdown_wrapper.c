@@ -29,6 +29,7 @@ int bb_SSL_shutdown(SSL * arg_a);
 
 int SSL_shutdown(SSL * arg_a) 
 {
+    printf("SSL_shutdown called\n");
     if (syscall(890))
         return bb_SSL_shutdown(arg_a);
     else {
@@ -40,7 +41,6 @@ int SSL_shutdown(SSL * arg_a)
 
 int bb_SSL_shutdown(SSL * arg_a) 
 {
-    printf("SSL_shutdown called\n");
     int ret;
 
     struct lib_enter_args args = {

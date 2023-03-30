@@ -29,6 +29,7 @@ void bb_EVP_PKEY_free(EVP_PKEY * arg_a);
 
 void EVP_PKEY_free(EVP_PKEY * arg_a) 
 {
+    printf("EVP_PKEY_free called\n");
     if (syscall(890))
         bb_EVP_PKEY_free(arg_a);
     else {
@@ -40,7 +41,6 @@ void EVP_PKEY_free(EVP_PKEY * arg_a)
 
 void bb_EVP_PKEY_free(EVP_PKEY * arg_a) 
 {
-    printf("EVP_PKEY_free called\n");
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {

@@ -29,6 +29,7 @@ int bb_RAND_bytes(unsigned char * arg_a,int arg_b);
 
 int RAND_bytes(unsigned char * arg_a,int arg_b) 
 {
+    printf("RAND_bytes called\n");
     if (syscall(890))
         return bb_RAND_bytes(arg_a,arg_b);
     else {
@@ -40,7 +41,6 @@ int RAND_bytes(unsigned char * arg_a,int arg_b)
 
 int bb_RAND_bytes(unsigned char * arg_a,int arg_b) 
 {
-    printf("RAND_bytes called\n");
     int ret;
 
     struct lib_enter_args args = {

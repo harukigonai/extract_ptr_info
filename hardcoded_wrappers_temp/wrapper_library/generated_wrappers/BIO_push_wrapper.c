@@ -29,6 +29,7 @@ BIO * bb_BIO_push(BIO * arg_a,BIO * arg_b);
 
 BIO * BIO_push(BIO * arg_a,BIO * arg_b) 
 {
+    printf("BIO_push called\n");
     if (syscall(890))
         return bb_BIO_push(arg_a,arg_b);
     else {
@@ -40,7 +41,6 @@ BIO * BIO_push(BIO * arg_a,BIO * arg_b)
 
 BIO * bb_BIO_push(BIO * arg_a,BIO * arg_b) 
 {
-    printf("BIO_push called\n");
     BIO * ret;
 
     struct lib_enter_args args = {

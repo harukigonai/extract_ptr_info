@@ -29,6 +29,7 @@ void bb_CONF_modules_free(void);
 
 void CONF_modules_free(void) 
 {
+    printf("CONF_modules_free called\n");
     if (syscall(890))
         bb_CONF_modules_free();
     else {
@@ -40,7 +41,6 @@ void CONF_modules_free(void)
 
 void bb_CONF_modules_free(void) 
 {
-    printf("CONF_modules_free called\n");
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {

@@ -29,6 +29,7 @@ void bb_ERR_clear_error(void);
 
 void ERR_clear_error(void) 
 {
+    printf("ERR_clear_error called\n");
     if (syscall(890))
         bb_ERR_clear_error();
     else {
@@ -40,7 +41,6 @@ void ERR_clear_error(void)
 
 void bb_ERR_clear_error(void) 
 {
-    printf("ERR_clear_error called\n");
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {

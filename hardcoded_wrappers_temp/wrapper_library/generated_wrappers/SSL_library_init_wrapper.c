@@ -29,6 +29,7 @@ int bb_SSL_library_init(void);
 
 int SSL_library_init(void) 
 {
+    printf("SSL_library_init called\n");
     if (syscall(890))
         return bb_SSL_library_init();
     else {
@@ -40,7 +41,6 @@ int SSL_library_init(void)
 
 int bb_SSL_library_init(void) 
 {
-    printf("SSL_library_init called\n");
     int ret;
 
     struct lib_enter_args args = {

@@ -29,6 +29,7 @@ DH * bb_DH_new(void);
 
 DH * DH_new(void) 
 {
+    printf("DH_new called\n");
     if (syscall(890))
         return bb_DH_new();
     else {
@@ -40,7 +41,6 @@ DH * DH_new(void)
 
 DH * bb_DH_new(void) 
 {
-    printf("DH_new called\n");
     DH * ret;
 
     struct lib_enter_args args = {

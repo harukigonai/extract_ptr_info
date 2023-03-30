@@ -29,6 +29,7 @@ void bb_CRYPTO_cleanup_all_ex_data(void);
 
 void CRYPTO_cleanup_all_ex_data(void) 
 {
+    printf("CRYPTO_cleanup_all_ex_data called\n");
     if (syscall(890))
         bb_CRYPTO_cleanup_all_ex_data();
     else {
@@ -40,7 +41,6 @@ void CRYPTO_cleanup_all_ex_data(void)
 
 void bb_CRYPTO_cleanup_all_ex_data(void) 
 {
-    printf("CRYPTO_cleanup_all_ex_data called\n");
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
