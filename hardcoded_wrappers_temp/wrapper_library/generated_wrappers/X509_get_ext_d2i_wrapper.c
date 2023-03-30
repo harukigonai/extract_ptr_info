@@ -30,7 +30,7 @@ void * bb_X509_get_ext_d2i(X509 * arg_a,int arg_b,int * arg_c,int * arg_d);
 void * X509_get_ext_d2i(X509 * arg_a,int arg_b,int * arg_c,int * arg_d) 
 {
     printf("X509_get_ext_d2i called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_X509_get_ext_d2i(arg_a,arg_b,arg_c,arg_d);
     else {
         void * (*orig_X509_get_ext_d2i)(X509 *,int,int *,int *);

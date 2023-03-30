@@ -30,7 +30,7 @@ void bb_EC_GROUP_free(EC_GROUP * arg_a);
 void EC_GROUP_free(EC_GROUP * arg_a) 
 {
     printf("EC_GROUP_free called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_EC_GROUP_free(arg_a);
     else {
         void (*orig_EC_GROUP_free)(EC_GROUP *);

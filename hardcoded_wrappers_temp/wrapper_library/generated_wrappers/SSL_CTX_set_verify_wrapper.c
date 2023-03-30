@@ -30,7 +30,7 @@ void bb_SSL_CTX_set_verify(SSL_CTX * arg_a,int arg_b,int (*arg_c)(int, X509_STOR
 void SSL_CTX_set_verify(SSL_CTX * arg_a,int arg_b,int (*arg_c)(int, X509_STORE_CTX *)) 
 {
     printf("SSL_CTX_set_verify called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_SSL_CTX_set_verify(arg_a,arg_b,arg_c);
     else {
         void (*orig_SSL_CTX_set_verify)(SSL_CTX *,int,int (*)(int, X509_STORE_CTX *));

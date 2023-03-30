@@ -30,7 +30,7 @@ X509_STORE_CTX * bb_X509_STORE_CTX_new(void);
 X509_STORE_CTX * X509_STORE_CTX_new(void) 
 {
     printf("X509_STORE_CTX_new called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_X509_STORE_CTX_new();
     else {
         X509_STORE_CTX * (*orig_X509_STORE_CTX_new)(void);

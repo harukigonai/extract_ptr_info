@@ -30,7 +30,7 @@ void bb_SSL_set_connect_state(SSL * arg_a);
 void SSL_set_connect_state(SSL * arg_a) 
 {
     printf("SSL_set_connect_state called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_SSL_set_connect_state(arg_a);
     else {
         void (*orig_SSL_set_connect_state)(SSL *);

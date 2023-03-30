@@ -30,7 +30,7 @@ long bb_SSL_CTX_set_timeout(SSL_CTX * arg_a,long arg_b);
 long SSL_CTX_set_timeout(SSL_CTX * arg_a,long arg_b) 
 {
     printf("SSL_CTX_set_timeout called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_SSL_CTX_set_timeout(arg_a,arg_b);
     else {
         long (*orig_SSL_CTX_set_timeout)(SSL_CTX *,long);

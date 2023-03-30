@@ -30,7 +30,7 @@ X509 * bb_SSL_get_peer_certificate(const SSL * arg_a);
 X509 * SSL_get_peer_certificate(const SSL * arg_a) 
 {
     printf("SSL_get_peer_certificate called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_SSL_get_peer_certificate(arg_a);
     else {
         X509 * (*orig_SSL_get_peer_certificate)(const SSL *);

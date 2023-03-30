@@ -30,7 +30,7 @@ void bb_OPENSSL_cleanse(void * arg_a,size_t arg_b);
 void OPENSSL_cleanse(void * arg_a,size_t arg_b) 
 {
     printf("OPENSSL_cleanse called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_OPENSSL_cleanse(arg_a,arg_b);
     else {
         void (*orig_OPENSSL_cleanse)(void *,size_t);

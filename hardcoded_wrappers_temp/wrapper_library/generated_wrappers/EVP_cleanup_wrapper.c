@@ -30,7 +30,7 @@ void bb_EVP_cleanup(void);
 void EVP_cleanup(void) 
 {
     printf("EVP_cleanup called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_EVP_cleanup();
     else {
         void (*orig_EVP_cleanup)(void);

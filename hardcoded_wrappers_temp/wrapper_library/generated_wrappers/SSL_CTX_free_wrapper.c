@@ -30,7 +30,7 @@ void bb_SSL_CTX_free(SSL_CTX * arg_a);
 void SSL_CTX_free(SSL_CTX * arg_a) 
 {
     printf("SSL_CTX_free called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_SSL_CTX_free(arg_a);
     else {
         void (*orig_SSL_CTX_free)(SSL_CTX *);

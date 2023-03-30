@@ -30,7 +30,7 @@ void bb_BIO_free_all(BIO * arg_a);
 void BIO_free_all(BIO * arg_a) 
 {
     printf("BIO_free_all called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_BIO_free_all(arg_a);
     else {
         void (*orig_BIO_free_all)(BIO *);

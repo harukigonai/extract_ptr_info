@@ -30,7 +30,7 @@ void bb_ENGINE_load_builtin_engines(void);
 void ENGINE_load_builtin_engines(void) 
 {
     printf("ENGINE_load_builtin_engines called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_ENGINE_load_builtin_engines();
     else {
         void (*orig_ENGINE_load_builtin_engines)(void);

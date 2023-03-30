@@ -30,7 +30,7 @@ void bb_SSL_set_verify(SSL * arg_a,int arg_b,int (*arg_c)(int, X509_STORE_CTX *)
 void SSL_set_verify(SSL * arg_a,int arg_b,int (*arg_c)(int, X509_STORE_CTX *)) 
 {
     printf("SSL_set_verify called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_SSL_set_verify(arg_a,arg_b,arg_c);
     else {
         void (*orig_SSL_set_verify)(SSL *,int,int (*)(int, X509_STORE_CTX *));

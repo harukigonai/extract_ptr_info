@@ -30,7 +30,7 @@ void bb_EC_KEY_free(EC_KEY * arg_a);
 void EC_KEY_free(EC_KEY * arg_a) 
 {
     printf("EC_KEY_free called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_EC_KEY_free(arg_a);
     else {
         void (*orig_EC_KEY_free)(EC_KEY *);

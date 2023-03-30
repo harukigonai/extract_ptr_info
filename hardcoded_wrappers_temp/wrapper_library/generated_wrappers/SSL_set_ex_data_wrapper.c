@@ -30,7 +30,7 @@ int bb_SSL_set_ex_data(SSL * arg_a,int arg_b,void * arg_c);
 int SSL_set_ex_data(SSL * arg_a,int arg_b,void * arg_c) 
 {
     printf("SSL_set_ex_data called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_SSL_set_ex_data(arg_a,arg_b,arg_c);
     else {
         int (*orig_SSL_set_ex_data)(SSL *,int,void *);

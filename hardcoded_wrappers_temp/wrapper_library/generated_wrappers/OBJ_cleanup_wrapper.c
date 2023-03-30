@@ -30,7 +30,7 @@ void bb_OBJ_cleanup(void);
 void OBJ_cleanup(void) 
 {
     printf("OBJ_cleanup called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_OBJ_cleanup();
     else {
         void (*orig_OBJ_cleanup)(void);

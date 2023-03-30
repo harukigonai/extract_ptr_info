@@ -30,7 +30,7 @@ int bb_EVP_DigestInit_ex(EVP_MD_CTX * arg_a,const EVP_MD * arg_b,ENGINE * arg_c)
 int EVP_DigestInit_ex(EVP_MD_CTX * arg_a,const EVP_MD * arg_b,ENGINE * arg_c) 
 {
     printf("EVP_DigestInit_ex called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_EVP_DigestInit_ex(arg_a,arg_b,arg_c);
     else {
         int (*orig_EVP_DigestInit_ex)(EVP_MD_CTX *,const EVP_MD *,ENGINE *);

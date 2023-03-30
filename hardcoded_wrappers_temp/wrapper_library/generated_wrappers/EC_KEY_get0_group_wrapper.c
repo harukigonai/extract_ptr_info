@@ -30,7 +30,7 @@ const EC_GROUP * bb_EC_KEY_get0_group(const EC_KEY * arg_a);
 const EC_GROUP * EC_KEY_get0_group(const EC_KEY * arg_a) 
 {
     printf("EC_KEY_get0_group called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_EC_KEY_get0_group(arg_a);
     else {
         const EC_GROUP * (*orig_EC_KEY_get0_group)(const EC_KEY *);

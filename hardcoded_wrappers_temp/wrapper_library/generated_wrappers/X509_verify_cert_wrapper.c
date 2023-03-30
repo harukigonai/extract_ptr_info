@@ -30,7 +30,7 @@ int bb_X509_verify_cert(X509_STORE_CTX * arg_a);
 int X509_verify_cert(X509_STORE_CTX * arg_a) 
 {
     printf("X509_verify_cert called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_X509_verify_cert(arg_a);
     else {
         int (*orig_X509_verify_cert)(X509_STORE_CTX *);

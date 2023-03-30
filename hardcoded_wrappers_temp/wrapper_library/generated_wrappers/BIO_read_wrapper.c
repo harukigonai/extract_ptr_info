@@ -30,7 +30,7 @@ int bb_BIO_read(BIO * arg_a,void * arg_b,int arg_c);
 int BIO_read(BIO * arg_a,void * arg_b,int arg_c) 
 {
     printf("BIO_read called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_BIO_read(arg_a,arg_b,arg_c);
     else {
         int (*orig_BIO_read)(BIO *,void *,int);

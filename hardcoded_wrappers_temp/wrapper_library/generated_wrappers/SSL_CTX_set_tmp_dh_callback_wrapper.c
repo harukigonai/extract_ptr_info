@@ -30,7 +30,7 @@ void bb_SSL_CTX_set_tmp_dh_callback(SSL_CTX * arg_a,DH *(*arg_b)(SSL *, int, int
 void SSL_CTX_set_tmp_dh_callback(SSL_CTX * arg_a,DH *(*arg_b)(SSL *, int, int)) 
 {
     printf("SSL_CTX_set_tmp_dh_callback called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_SSL_CTX_set_tmp_dh_callback(arg_a,arg_b);
     else {
         void (*orig_SSL_CTX_set_tmp_dh_callback)(SSL_CTX *,DH *(*)(SSL *, int, int));

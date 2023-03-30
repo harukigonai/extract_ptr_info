@@ -30,7 +30,7 @@ int bb_CRYPTO_num_locks(void);
 int CRYPTO_num_locks(void) 
 {
     printf("CRYPTO_num_locks called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_CRYPTO_num_locks();
     else {
         int (*orig_CRYPTO_num_locks)(void);

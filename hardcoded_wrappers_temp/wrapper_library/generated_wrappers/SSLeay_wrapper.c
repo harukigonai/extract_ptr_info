@@ -30,7 +30,7 @@ unsigned long bb_SSLeay(void);
 unsigned long SSLeay(void) 
 {
     printf("SSLeay called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_SSLeay();
     else {
         unsigned long (*orig_SSLeay)(void);

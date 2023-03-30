@@ -30,7 +30,7 @@ EC_KEY * bb_EC_KEY_new_by_curve_name(int arg_a);
 EC_KEY * EC_KEY_new_by_curve_name(int arg_a) 
 {
     printf("EC_KEY_new_by_curve_name called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_EC_KEY_new_by_curve_name(arg_a);
     else {
         EC_KEY * (*orig_EC_KEY_new_by_curve_name)(int);

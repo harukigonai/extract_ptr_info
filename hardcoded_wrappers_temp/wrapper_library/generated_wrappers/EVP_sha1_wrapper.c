@@ -30,7 +30,7 @@ const EVP_MD * bb_EVP_sha1(void);
 const EVP_MD * EVP_sha1(void) 
 {
     printf("EVP_sha1 called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_EVP_sha1();
     else {
         const EVP_MD * (*orig_EVP_sha1)(void);

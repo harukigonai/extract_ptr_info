@@ -30,7 +30,7 @@ int bb_X509_STORE_CTX_get1_issuer(X509 ** arg_a,X509_STORE_CTX * arg_b,X509 * ar
 int X509_STORE_CTX_get1_issuer(X509 ** arg_a,X509_STORE_CTX * arg_b,X509 * arg_c) 
 {
     printf("X509_STORE_CTX_get1_issuer called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_X509_STORE_CTX_get1_issuer(arg_a,arg_b,arg_c);
     else {
         int (*orig_X509_STORE_CTX_get1_issuer)(X509 **,X509_STORE_CTX *,X509 *);

@@ -30,7 +30,7 @@ DH * bb_DH_new(void);
 DH * DH_new(void) 
 {
     printf("DH_new called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_DH_new();
     else {
         DH * (*orig_DH_new)(void);

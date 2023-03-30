@@ -30,7 +30,7 @@ void bb_SSL_set_bio(SSL * arg_a,BIO * arg_b,BIO * arg_c);
 void SSL_set_bio(SSL * arg_a,BIO * arg_b,BIO * arg_c) 
 {
     printf("SSL_set_bio called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_SSL_set_bio(arg_a,arg_b,arg_c);
     else {
         void (*orig_SSL_set_bio)(SSL *,BIO *,BIO *);

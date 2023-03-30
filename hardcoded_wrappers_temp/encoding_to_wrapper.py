@@ -104,7 +104,7 @@ def generate_function_wrapper(func_dict, wrapper_output_dir, ent_metadata_dir):
     func_text +=  "{\n"
     # add print for debugging (remove later)
     func_text += f"    printf(\"{func_name} called\\n\");\n"
-    func_text +=  "    if (syscall(890))\n"
+    func_text +=  "    if (!syscall(890))\n"
 
     if ret_type != "void":
         func_text += f"        return bb_{func_name}({args_to_pass_in});\n"

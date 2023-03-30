@@ -30,7 +30,7 @@ void bb_CONF_modules_free(void);
 void CONF_modules_free(void) 
 {
     printf("CONF_modules_free called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_CONF_modules_free();
     else {
         void (*orig_CONF_modules_free)(void);

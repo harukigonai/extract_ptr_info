@@ -30,7 +30,7 @@ int bb_CRYPTO_THREADID_set_callback(void (*arg_a)(CRYPTO_THREADID *));
 int CRYPTO_THREADID_set_callback(void (*arg_a)(CRYPTO_THREADID *)) 
 {
     printf("CRYPTO_THREADID_set_callback called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_CRYPTO_THREADID_set_callback(arg_a);
     else {
         int (*orig_CRYPTO_THREADID_set_callback)(void (*)(CRYPTO_THREADID *));

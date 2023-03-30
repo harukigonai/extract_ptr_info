@@ -30,7 +30,7 @@ BIO_METHOD * bb_BIO_s_mem(void);
 BIO_METHOD * BIO_s_mem(void) 
 {
     printf("BIO_s_mem called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_BIO_s_mem();
     else {
         BIO_METHOD * (*orig_BIO_s_mem)(void);

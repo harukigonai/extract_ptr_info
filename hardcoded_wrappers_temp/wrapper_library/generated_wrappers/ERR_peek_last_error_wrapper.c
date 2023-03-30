@@ -30,7 +30,7 @@ unsigned long bb_ERR_peek_last_error(void);
 unsigned long ERR_peek_last_error(void) 
 {
     printf("ERR_peek_last_error called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_ERR_peek_last_error();
     else {
         unsigned long (*orig_ERR_peek_last_error)(void);

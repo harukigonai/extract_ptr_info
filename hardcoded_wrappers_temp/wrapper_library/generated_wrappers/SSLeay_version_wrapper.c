@@ -30,7 +30,7 @@ const char * bb_SSLeay_version(int arg_a);
 const char * SSLeay_version(int arg_a) 
 {
     printf("SSLeay_version called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_SSLeay_version(arg_a);
     else {
         const char * (*orig_SSLeay_version)(int);

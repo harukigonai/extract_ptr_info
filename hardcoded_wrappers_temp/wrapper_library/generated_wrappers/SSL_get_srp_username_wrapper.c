@@ -30,7 +30,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a);
 char * SSL_get_srp_username(SSL * arg_a) 
 {
     printf("SSL_get_srp_username called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_SSL_get_srp_username(arg_a);
     else {
         char * (*orig_SSL_get_srp_username)(SSL *);

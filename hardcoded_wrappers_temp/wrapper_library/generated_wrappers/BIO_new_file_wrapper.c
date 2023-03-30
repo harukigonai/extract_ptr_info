@@ -30,7 +30,7 @@ BIO * bb_BIO_new_file(const char * arg_a,const char * arg_b);
 BIO * BIO_new_file(const char * arg_a,const char * arg_b) 
 {
     printf("BIO_new_file called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_BIO_new_file(arg_a,arg_b);
     else {
         BIO * (*orig_BIO_new_file)(const char *,const char *);

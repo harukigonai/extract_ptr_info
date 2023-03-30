@@ -30,7 +30,7 @@ void bb_ENGINE_cleanup(void);
 void ENGINE_cleanup(void) 
 {
     printf("ENGINE_cleanup called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_ENGINE_cleanup();
     else {
         void (*orig_ENGINE_cleanup)(void);

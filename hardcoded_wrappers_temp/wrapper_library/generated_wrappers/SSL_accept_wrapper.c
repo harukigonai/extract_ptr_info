@@ -30,7 +30,7 @@ int bb_SSL_accept(SSL * arg_a);
 int SSL_accept(SSL * arg_a) 
 {
     printf("SSL_accept called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_SSL_accept(arg_a);
     else {
         int (*orig_SSL_accept)(SSL *);

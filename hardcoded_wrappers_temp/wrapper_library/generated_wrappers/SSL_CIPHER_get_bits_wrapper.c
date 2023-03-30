@@ -30,7 +30,7 @@ int bb_SSL_CIPHER_get_bits(const SSL_CIPHER * arg_a,int * arg_b);
 int SSL_CIPHER_get_bits(const SSL_CIPHER * arg_a,int * arg_b) 
 {
     printf("SSL_CIPHER_get_bits called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_SSL_CIPHER_get_bits(arg_a,arg_b);
     else {
         int (*orig_SSL_CIPHER_get_bits)(const SSL_CIPHER *,int *);

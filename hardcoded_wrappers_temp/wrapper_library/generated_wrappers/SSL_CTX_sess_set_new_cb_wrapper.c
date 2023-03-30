@@ -30,7 +30,7 @@ void bb_SSL_CTX_sess_set_new_cb(SSL_CTX * arg_a,int (*arg_b)(struct ssl_st *, SS
 void SSL_CTX_sess_set_new_cb(SSL_CTX * arg_a,int (*arg_b)(struct ssl_st *, SSL_SESSION *)) 
 {
     printf("SSL_CTX_sess_set_new_cb called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_SSL_CTX_sess_set_new_cb(arg_a,arg_b);
     else {
         void (*orig_SSL_CTX_sess_set_new_cb)(SSL_CTX *,int (*)(struct ssl_st *, SSL_SESSION *));

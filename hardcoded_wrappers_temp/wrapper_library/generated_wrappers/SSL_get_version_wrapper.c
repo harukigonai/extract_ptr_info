@@ -30,7 +30,7 @@ const char * bb_SSL_get_version(const SSL * arg_a);
 const char * SSL_get_version(const SSL * arg_a) 
 {
     printf("SSL_get_version called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_SSL_get_version(arg_a);
     else {
         const char * (*orig_SSL_get_version)(const SSL *);

@@ -30,7 +30,7 @@ void bb_SSL_load_error_strings(void);
 void SSL_load_error_strings(void) 
 {
     printf("SSL_load_error_strings called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_SSL_load_error_strings();
     else {
         void (*orig_SSL_load_error_strings)(void);

@@ -30,7 +30,7 @@ void bb_DH_free(DH * arg_a);
 void DH_free(DH * arg_a) 
 {
     printf("DH_free called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_DH_free(arg_a);
     else {
         void (*orig_DH_free)(DH *);

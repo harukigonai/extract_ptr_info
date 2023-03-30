@@ -30,7 +30,7 @@ BIO_METHOD * bb_BIO_s_file(void);
 BIO_METHOD * BIO_s_file(void) 
 {
     printf("BIO_s_file called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_BIO_s_file();
     else {
         BIO_METHOD * (*orig_BIO_s_file)(void);

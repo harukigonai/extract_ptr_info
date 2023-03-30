@@ -30,7 +30,7 @@ void bb_ERR_remove_thread_state(const CRYPTO_THREADID * arg_a);
 void ERR_remove_thread_state(const CRYPTO_THREADID * arg_a) 
 {
     printf("ERR_remove_thread_state called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_ERR_remove_thread_state(arg_a);
     else {
         void (*orig_ERR_remove_thread_state)(const CRYPTO_THREADID *);

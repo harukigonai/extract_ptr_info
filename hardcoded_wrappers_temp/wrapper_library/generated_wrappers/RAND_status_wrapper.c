@@ -30,7 +30,7 @@ int bb_RAND_status(void);
 int RAND_status(void) 
 {
     printf("RAND_status called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_RAND_status();
     else {
         int (*orig_RAND_status)(void);

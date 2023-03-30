@@ -30,7 +30,7 @@ SSL * bb_SSL_new(SSL_CTX * arg_a);
 SSL * SSL_new(SSL_CTX * arg_a) 
 {
     printf("SSL_new called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_SSL_new(arg_a);
     else {
         SSL * (*orig_SSL_new)(SSL_CTX *);

@@ -30,7 +30,7 @@ void bb_CRYPTO_set_dynlock_lock_callback(void (*arg_a)(int, struct CRYPTO_dynloc
 void CRYPTO_set_dynlock_lock_callback(void (*arg_a)(int, struct CRYPTO_dynlock_value *, const char *, int)) 
 {
     printf("CRYPTO_set_dynlock_lock_callback called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_CRYPTO_set_dynlock_lock_callback(arg_a);
     else {
         void (*orig_CRYPTO_set_dynlock_lock_callback)(void (*)(int, struct CRYPTO_dynlock_value *, const char *, int));

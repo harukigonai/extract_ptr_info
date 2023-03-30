@@ -30,7 +30,7 @@ void bb_EVP_PKEY_free(EVP_PKEY * arg_a);
 void EVP_PKEY_free(EVP_PKEY * arg_a) 
 {
     printf("EVP_PKEY_free called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_EVP_PKEY_free(arg_a);
     else {
         void (*orig_EVP_PKEY_free)(EVP_PKEY *);

@@ -30,7 +30,7 @@ int bb_BIO_free(BIO * arg_a);
 int BIO_free(BIO * arg_a) 
 {
     printf("BIO_free called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_BIO_free(arg_a);
     else {
         int (*orig_BIO_free)(BIO *);

@@ -30,7 +30,7 @@ void bb_CRYPTO_cleanup_all_ex_data(void);
 void CRYPTO_cleanup_all_ex_data(void) 
 {
     printf("CRYPTO_cleanup_all_ex_data called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_CRYPTO_cleanup_all_ex_data();
     else {
         void (*orig_CRYPTO_cleanup_all_ex_data)(void);

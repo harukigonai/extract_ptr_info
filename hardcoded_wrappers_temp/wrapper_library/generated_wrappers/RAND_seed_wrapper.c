@@ -30,7 +30,7 @@ void bb_RAND_seed(void * arg_a,int arg_b);
 void RAND_seed(void * arg_a,int arg_b) 
 {
     printf("RAND_seed called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_RAND_seed(arg_a,arg_b);
     else {
         void (*orig_RAND_seed)(void *,int);

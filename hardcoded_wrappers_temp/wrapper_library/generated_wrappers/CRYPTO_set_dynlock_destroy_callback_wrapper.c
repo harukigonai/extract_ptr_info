@@ -30,7 +30,7 @@ void bb_CRYPTO_set_dynlock_destroy_callback(void (*arg_a)(struct CRYPTO_dynlock_
 void CRYPTO_set_dynlock_destroy_callback(void (*arg_a)(struct CRYPTO_dynlock_value *, const char *, int)) 
 {
     printf("CRYPTO_set_dynlock_destroy_callback called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_CRYPTO_set_dynlock_destroy_callback(arg_a);
     else {
         void (*orig_CRYPTO_set_dynlock_destroy_callback)(void (*)(struct CRYPTO_dynlock_value *, const char *, int));

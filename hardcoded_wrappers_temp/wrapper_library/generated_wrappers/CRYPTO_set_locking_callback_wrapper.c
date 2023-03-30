@@ -30,7 +30,7 @@ void bb_CRYPTO_set_locking_callback(void (*arg_a)(int, int, const char *, int));
 void CRYPTO_set_locking_callback(void (*arg_a)(int, int, const char *, int)) 
 {
     printf("CRYPTO_set_locking_callback called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_CRYPTO_set_locking_callback(arg_a);
     else {
         void (*orig_CRYPTO_set_locking_callback)(void (*)(int, int, const char *, int));

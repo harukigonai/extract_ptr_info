@@ -30,7 +30,7 @@ BIGNUM * bb_BN_new(void);
 BIGNUM * BN_new(void) 
 {
     printf("BN_new called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_BN_new();
     else {
         BIGNUM * (*orig_BN_new)(void);

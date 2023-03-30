@@ -30,7 +30,7 @@ int bb_EVP_DigestUpdate(EVP_MD_CTX * arg_a, const void * arg_b,size_t arg_c);
 int EVP_DigestUpdate(EVP_MD_CTX * arg_a, const void * arg_b,size_t arg_c) 
 {
     printf("EVP_DigestUpdate called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_EVP_DigestUpdate(arg_a,arg_b,arg_c);
     else {
         int (*orig_EVP_DigestUpdate)(EVP_MD_CTX *, const void *,size_t);

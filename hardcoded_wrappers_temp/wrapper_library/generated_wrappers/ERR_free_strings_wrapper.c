@@ -30,7 +30,7 @@ void bb_ERR_free_strings(void);
 void ERR_free_strings(void) 
 {
     printf("ERR_free_strings called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_ERR_free_strings();
     else {
         void (*orig_ERR_free_strings)(void);

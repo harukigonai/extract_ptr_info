@@ -30,7 +30,7 @@ int bb_SSL_set_session_id_context(SSL * arg_a,const unsigned char * arg_b,unsign
 int SSL_set_session_id_context(SSL * arg_a,const unsigned char * arg_b,unsigned int arg_c) 
 {
     printf("SSL_set_session_id_context called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_SSL_set_session_id_context(arg_a,arg_b,arg_c);
     else {
         int (*orig_SSL_set_session_id_context)(SSL *,const unsigned char *,unsigned int);

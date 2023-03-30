@@ -30,7 +30,7 @@ void bb_SSL_set_shutdown(SSL * arg_a,int arg_b);
 void SSL_set_shutdown(SSL * arg_a,int arg_b) 
 {
     printf("SSL_set_shutdown called\n");
-    if (syscall(890))
+    if (!syscall(890))
         bb_SSL_set_shutdown(arg_a,arg_b);
     else {
         void (*orig_SSL_set_shutdown)(SSL *,int);

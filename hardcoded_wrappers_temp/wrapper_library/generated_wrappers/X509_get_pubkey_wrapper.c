@@ -30,7 +30,7 @@ EVP_PKEY * bb_X509_get_pubkey(X509 * arg_a);
 EVP_PKEY * X509_get_pubkey(X509 * arg_a) 
 {
     printf("X509_get_pubkey called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_X509_get_pubkey(arg_a);
     else {
         EVP_PKEY * (*orig_X509_get_pubkey)(X509 *);

@@ -30,7 +30,7 @@ long bb_SSL_get_verify_result(const SSL * arg_a);
 long SSL_get_verify_result(const SSL * arg_a) 
 {
     printf("SSL_get_verify_result called\n");
-    if (syscall(890))
+    if (!syscall(890))
         return bb_SSL_get_verify_result(arg_a);
     else {
         long (*orig_SSL_get_verify_result)(const SSL *);
