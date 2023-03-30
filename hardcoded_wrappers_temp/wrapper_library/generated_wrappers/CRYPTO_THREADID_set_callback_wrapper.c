@@ -48,10 +48,10 @@ int bb_CRYPTO_THREADID_set_callback(void (*arg_a)(CRYPTO_THREADID *))
         .entity_metadata = {
             0, 0, 0, /* 0: func */
             0, 8, 0, /* 3: pointer.func */
-            0, 4, 0, /* 8: int */
+            0, 4, 0, /* 6: int */
         },
         .arg_entity_index = { 3, },
-        .ret_entity_index = 8,
+        .ret_entity_index = 6,
     };
     struct lib_enter_args *args_addr = &args;
     populate_arg(args_addr, arg_a);

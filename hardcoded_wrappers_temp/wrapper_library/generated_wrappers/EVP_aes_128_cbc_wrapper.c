@@ -49,33 +49,22 @@ const EVP_CIPHER * bb_EVP_aes_128_cbc(void)
             0, 0, 0, /* 0: func */
             1, 8, 1, /* 3: pointer.struct.evp_cipher_st.2256 */
             	8, 0,
-            0, 88, 7, /* 8: struct.evp_cipher_st.2256 */
-            	25, 24,
-            	33, 32,
-            	41, 40,
-            	49, 56,
-            	49, 64,
-            	57, 72,
-            	62, 80,
-            1, 8, 1, /* 25: pointer.func */
-            	30, 0,
-            0, 0, 0, /* 30: func */
-            1, 8, 1, /* 33: pointer.func */
-            	38, 0,
-            0, 0, 0, /* 38: func */
-            1, 8, 1, /* 41: pointer.func */
-            	46, 0,
-            0, 0, 0, /* 46: func */
-            1, 8, 1, /* 49: pointer.func */
-            	54, 0,
-            0, 0, 0, /* 54: func */
-            1, 8, 1, /* 57: pointer.func */
-            	0, 0,
-            1, 8, 1, /* 62: pointer.char */
-            	67, 0,
-            0, 1, 0, /* 67: char */
-            0, 8, 0, /* 70: long */
-            0, 4, 0, /* 73: int */
+            0, 88, 1, /* 8: struct.evp_cipher_st.2256 */
+            	13, 80,
+            1, 8, 1, /* 13: pointer.char */
+            	18, 0,
+            0, 1, 0, /* 18: char */
+            0, 8, 0, /* 21: pointer.func */
+            0, 8, 0, /* 24: long */
+            0, 4, 0, /* 27: int */
+            0, 8, 0, /* 30: pointer.func */
+            0, 8, 0, /* 33: pointer.func */
+            0, 8, 0, /* 36: pointer.func */
+            0, 0, 0, /* 39: func */
+            0, 0, 0, /* 42: func */
+            0, 0, 0, /* 45: func */
+            0, 0, 0, /* 48: func */
+            0, 8, 0, /* 51: pointer.func */
         },
         .arg_entity_index = { -1 },
         .ret_entity_index = 3,
