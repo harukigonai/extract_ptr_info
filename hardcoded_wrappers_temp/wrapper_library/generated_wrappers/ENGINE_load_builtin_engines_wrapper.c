@@ -27,6 +27,17 @@
 
 void ENGINE_load_builtin_engines(void) 
 {
+    if (syscall(890))
+        _ENGINE_load_builtin_engines()
+    else {
+        void (*orig_ENGINE_load_builtin_engines)(void);
+        orig_ENGINE_load_builtin_engines = dlsym(RTLD_NEXT, "ENGINE_load_builtin_engines");
+        orig_ENGINE_load_builtin_engines();
+    }
+}
+
+void _ENGINE_load_builtin_engines(void) 
+{
     printf("ENGINE_load_builtin_engines called\n");
     struct lib_enter_args args = {
         .num_args = 0,

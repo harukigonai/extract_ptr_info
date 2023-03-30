@@ -27,6 +27,17 @@
 
 SSL * SSL_new(SSL_CTX * arg_a) 
 {
+    if (syscall(890))
+        return _SSL_new(arg_a)
+    else {
+        SSL * (*orig_SSL_new)(SSL_CTX *);
+        orig_SSL_new = dlsym(RTLD_NEXT, "SSL_new");
+        return orig_SSL_new(arg_a);
+    }
+}
+
+SSL * _SSL_new(SSL_CTX * arg_a) 
+{
     printf("SSL_new called\n");
     SSL * ret;
 

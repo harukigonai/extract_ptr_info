@@ -27,6 +27,17 @@
 
 void SSL_load_error_strings(void) 
 {
+    if (syscall(890))
+        _SSL_load_error_strings()
+    else {
+        void (*orig_SSL_load_error_strings)(void);
+        orig_SSL_load_error_strings = dlsym(RTLD_NEXT, "SSL_load_error_strings");
+        orig_SSL_load_error_strings();
+    }
+}
+
+void _SSL_load_error_strings(void) 
+{
     printf("SSL_load_error_strings called\n");
     struct lib_enter_args args = {
         .num_args = 0,

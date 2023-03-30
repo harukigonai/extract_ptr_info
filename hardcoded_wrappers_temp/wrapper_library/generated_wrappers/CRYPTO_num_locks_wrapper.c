@@ -27,6 +27,17 @@
 
 int CRYPTO_num_locks(void) 
 {
+    if (syscall(890))
+        return _CRYPTO_num_locks()
+    else {
+        int (*orig_CRYPTO_num_locks)(void);
+        orig_CRYPTO_num_locks = dlsym(RTLD_NEXT, "CRYPTO_num_locks");
+        return orig_CRYPTO_num_locks();
+    }
+}
+
+int _CRYPTO_num_locks(void) 
+{
     printf("CRYPTO_num_locks called\n");
     int ret;
 

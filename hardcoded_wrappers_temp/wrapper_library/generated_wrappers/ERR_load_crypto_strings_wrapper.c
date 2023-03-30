@@ -27,6 +27,17 @@
 
 void ERR_load_crypto_strings(void) 
 {
+    if (syscall(890))
+        _ERR_load_crypto_strings()
+    else {
+        void (*orig_ERR_load_crypto_strings)(void);
+        orig_ERR_load_crypto_strings = dlsym(RTLD_NEXT, "ERR_load_crypto_strings");
+        orig_ERR_load_crypto_strings();
+    }
+}
+
+void _ERR_load_crypto_strings(void) 
+{
     printf("ERR_load_crypto_strings called\n");
     struct lib_enter_args args = {
         .num_args = 0,

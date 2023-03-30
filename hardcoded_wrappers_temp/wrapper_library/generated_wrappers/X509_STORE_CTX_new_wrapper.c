@@ -27,6 +27,17 @@
 
 X509_STORE_CTX * X509_STORE_CTX_new(void) 
 {
+    if (syscall(890))
+        return _X509_STORE_CTX_new()
+    else {
+        X509_STORE_CTX * (*orig_X509_STORE_CTX_new)(void);
+        orig_X509_STORE_CTX_new = dlsym(RTLD_NEXT, "X509_STORE_CTX_new");
+        return orig_X509_STORE_CTX_new();
+    }
+}
+
+X509_STORE_CTX * _X509_STORE_CTX_new(void) 
+{
     printf("X509_STORE_CTX_new called\n");
     X509_STORE_CTX * ret;
 

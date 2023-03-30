@@ -27,6 +27,17 @@
 
 void EVP_cleanup(void) 
 {
+    if (syscall(890))
+        _EVP_cleanup()
+    else {
+        void (*orig_EVP_cleanup)(void);
+        orig_EVP_cleanup = dlsym(RTLD_NEXT, "EVP_cleanup");
+        orig_EVP_cleanup();
+    }
+}
+
+void _EVP_cleanup(void) 
+{
     printf("EVP_cleanup called\n");
     struct lib_enter_args args = {
         .num_args = 0,

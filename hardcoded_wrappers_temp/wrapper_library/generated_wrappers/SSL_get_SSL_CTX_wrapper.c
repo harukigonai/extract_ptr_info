@@ -27,6 +27,17 @@
 
 SSL_CTX * SSL_get_SSL_CTX(const SSL * arg_a) 
 {
+    if (syscall(890))
+        return _SSL_get_SSL_CTX(arg_a)
+    else {
+        SSL_CTX * (*orig_SSL_get_SSL_CTX)(const SSL *);
+        orig_SSL_get_SSL_CTX = dlsym(RTLD_NEXT, "SSL_get_SSL_CTX");
+        return orig_SSL_get_SSL_CTX(arg_a);
+    }
+}
+
+SSL_CTX * _SSL_get_SSL_CTX(const SSL * arg_a) 
+{
     printf("SSL_get_SSL_CTX called\n");
     SSL_CTX * ret;
 

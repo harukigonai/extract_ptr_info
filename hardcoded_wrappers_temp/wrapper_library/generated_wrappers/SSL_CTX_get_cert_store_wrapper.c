@@ -27,6 +27,17 @@
 
 X509_STORE * SSL_CTX_get_cert_store(const SSL_CTX * arg_a) 
 {
+    if (syscall(890))
+        return _SSL_CTX_get_cert_store(arg_a)
+    else {
+        X509_STORE * (*orig_SSL_CTX_get_cert_store)(const SSL_CTX *);
+        orig_SSL_CTX_get_cert_store = dlsym(RTLD_NEXT, "SSL_CTX_get_cert_store");
+        return orig_SSL_CTX_get_cert_store(arg_a);
+    }
+}
+
+X509_STORE * _SSL_CTX_get_cert_store(const SSL_CTX * arg_a) 
+{
     printf("SSL_CTX_get_cert_store called\n");
     X509_STORE * ret;
 

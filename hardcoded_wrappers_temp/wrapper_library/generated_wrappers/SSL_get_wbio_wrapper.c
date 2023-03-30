@@ -27,6 +27,17 @@
 
 BIO * SSL_get_wbio(const SSL * arg_a) 
 {
+    if (syscall(890))
+        return _SSL_get_wbio(arg_a)
+    else {
+        BIO * (*orig_SSL_get_wbio)(const SSL *);
+        orig_SSL_get_wbio = dlsym(RTLD_NEXT, "SSL_get_wbio");
+        return orig_SSL_get_wbio(arg_a);
+    }
+}
+
+BIO * _SSL_get_wbio(const SSL * arg_a) 
+{
     printf("SSL_get_wbio called\n");
     BIO * ret;
 

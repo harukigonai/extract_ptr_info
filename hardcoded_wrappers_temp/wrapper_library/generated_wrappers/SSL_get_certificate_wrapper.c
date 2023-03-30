@@ -27,6 +27,17 @@
 
 X509 * SSL_get_certificate(const SSL * arg_a) 
 {
+    if (syscall(890))
+        return _SSL_get_certificate(arg_a)
+    else {
+        X509 * (*orig_SSL_get_certificate)(const SSL *);
+        orig_SSL_get_certificate = dlsym(RTLD_NEXT, "SSL_get_certificate");
+        return orig_SSL_get_certificate(arg_a);
+    }
+}
+
+X509 * _SSL_get_certificate(const SSL * arg_a) 
+{
     printf("SSL_get_certificate called\n");
     X509 * ret;
 

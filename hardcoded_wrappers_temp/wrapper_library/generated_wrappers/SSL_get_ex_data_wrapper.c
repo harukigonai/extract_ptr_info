@@ -27,6 +27,17 @@
 
 void * SSL_get_ex_data(const SSL * arg_a,int arg_b) 
 {
+    if (syscall(890))
+        return _SSL_get_ex_data(arg_a,arg_b)
+    else {
+        void * (*orig_SSL_get_ex_data)(const SSL *,int);
+        orig_SSL_get_ex_data = dlsym(RTLD_NEXT, "SSL_get_ex_data");
+        return orig_SSL_get_ex_data(arg_a,arg_b);
+    }
+}
+
+void * _SSL_get_ex_data(const SSL * arg_a,int arg_b) 
+{
     printf("SSL_get_ex_data called\n");
     void * ret;
 

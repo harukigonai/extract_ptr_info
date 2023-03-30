@@ -27,6 +27,17 @@
 
 void OBJ_cleanup(void) 
 {
+    if (syscall(890))
+        _OBJ_cleanup()
+    else {
+        void (*orig_OBJ_cleanup)(void);
+        orig_OBJ_cleanup = dlsym(RTLD_NEXT, "OBJ_cleanup");
+        orig_OBJ_cleanup();
+    }
+}
+
+void _OBJ_cleanup(void) 
+{
     printf("OBJ_cleanup called\n");
     struct lib_enter_args args = {
         .num_args = 0,

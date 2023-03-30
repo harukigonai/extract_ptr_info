@@ -27,6 +27,17 @@
 
 const EVP_MD * EVP_sha256(void) 
 {
+    if (syscall(890))
+        return _EVP_sha256()
+    else {
+        const EVP_MD * (*orig_EVP_sha256)(void);
+        orig_EVP_sha256 = dlsym(RTLD_NEXT, "EVP_sha256");
+        return orig_EVP_sha256();
+    }
+}
+
+const EVP_MD * _EVP_sha256(void) 
+{
     printf("EVP_sha256 called\n");
     const EVP_MD * ret;
 

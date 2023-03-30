@@ -27,6 +27,17 @@
 
 void CRYPTO_set_dynlock_lock_callback(void (*arg_a)(int, struct CRYPTO_dynlock_value *, const char *, int)) 
 {
+    if (syscall(890))
+        _CRYPTO_set_dynlock_lock_callback(arg_a)
+    else {
+        void (*orig_CRYPTO_set_dynlock_lock_callback)(void (*)(int, struct CRYPTO_dynlock_value *, const char *, int));
+        orig_CRYPTO_set_dynlock_lock_callback = dlsym(RTLD_NEXT, "CRYPTO_set_dynlock_lock_callback");
+        orig_CRYPTO_set_dynlock_lock_callback(arg_a);
+    }
+}
+
+void _CRYPTO_set_dynlock_lock_callback(void (*arg_a)(int, struct CRYPTO_dynlock_value *, const char *, int)) 
+{
     printf("CRYPTO_set_dynlock_lock_callback called\n");
     struct lib_enter_args args = {
         .num_args = 0,

@@ -27,6 +27,17 @@
 
 void SSL_set_connect_state(SSL * arg_a) 
 {
+    if (syscall(890))
+        _SSL_set_connect_state(arg_a)
+    else {
+        void (*orig_SSL_set_connect_state)(SSL *);
+        orig_SSL_set_connect_state = dlsym(RTLD_NEXT, "SSL_set_connect_state");
+        orig_SSL_set_connect_state(arg_a);
+    }
+}
+
+void _SSL_set_connect_state(SSL * arg_a) 
+{
     printf("SSL_set_connect_state called\n");
     struct lib_enter_args args = {
         .num_args = 0,

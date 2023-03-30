@@ -27,6 +27,17 @@
 
 int SSL_CTX_check_private_key(const SSL_CTX * arg_a) 
 {
+    if (syscall(890))
+        return _SSL_CTX_check_private_key(arg_a)
+    else {
+        int (*orig_SSL_CTX_check_private_key)(const SSL_CTX *);
+        orig_SSL_CTX_check_private_key = dlsym(RTLD_NEXT, "SSL_CTX_check_private_key");
+        return orig_SSL_CTX_check_private_key(arg_a);
+    }
+}
+
+int _SSL_CTX_check_private_key(const SSL_CTX * arg_a) 
+{
     printf("SSL_CTX_check_private_key called\n");
     int ret;
 

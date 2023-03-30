@@ -27,6 +27,17 @@
 
 void * X509_get_ext_d2i(X509 * arg_a,int arg_b,int * arg_c,int * arg_d) 
 {
+    if (syscall(890))
+        return _X509_get_ext_d2i(arg_a,arg_b,arg_c,arg_d)
+    else {
+        void * (*orig_X509_get_ext_d2i)(X509 *,int,int *,int *);
+        orig_X509_get_ext_d2i = dlsym(RTLD_NEXT, "X509_get_ext_d2i");
+        return orig_X509_get_ext_d2i(arg_a,arg_b,arg_c,arg_d);
+    }
+}
+
+void * _X509_get_ext_d2i(X509 * arg_a,int arg_b,int * arg_c,int * arg_d) 
+{
     printf("X509_get_ext_d2i called\n");
     void * ret;
 

@@ -27,6 +27,17 @@
 
 int OBJ_txt2nid(const char * arg_a) 
 {
+    if (syscall(890))
+        return _OBJ_txt2nid(arg_a)
+    else {
+        int (*orig_OBJ_txt2nid)(const char *);
+        orig_OBJ_txt2nid = dlsym(RTLD_NEXT, "OBJ_txt2nid");
+        return orig_OBJ_txt2nid(arg_a);
+    }
+}
+
+int _OBJ_txt2nid(const char * arg_a) 
+{
     printf("OBJ_txt2nid called\n");
     int ret;
 

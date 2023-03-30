@@ -27,6 +27,17 @@
 
 void ERR_free_strings(void) 
 {
+    if (syscall(890))
+        _ERR_free_strings()
+    else {
+        void (*orig_ERR_free_strings)(void);
+        orig_ERR_free_strings = dlsym(RTLD_NEXT, "ERR_free_strings");
+        orig_ERR_free_strings();
+    }
+}
+
+void _ERR_free_strings(void) 
+{
     printf("ERR_free_strings called\n");
     struct lib_enter_args args = {
         .num_args = 0,

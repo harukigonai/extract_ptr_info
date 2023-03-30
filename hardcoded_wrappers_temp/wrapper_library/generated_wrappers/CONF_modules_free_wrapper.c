@@ -27,6 +27,17 @@
 
 void CONF_modules_free(void) 
 {
+    if (syscall(890))
+        _CONF_modules_free()
+    else {
+        void (*orig_CONF_modules_free)(void);
+        orig_CONF_modules_free = dlsym(RTLD_NEXT, "CONF_modules_free");
+        orig_CONF_modules_free();
+    }
+}
+
+void _CONF_modules_free(void) 
+{
     printf("CONF_modules_free called\n");
     struct lib_enter_args args = {
         .num_args = 0,

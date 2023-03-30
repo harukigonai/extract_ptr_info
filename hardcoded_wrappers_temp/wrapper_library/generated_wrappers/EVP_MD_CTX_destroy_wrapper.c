@@ -27,6 +27,17 @@
 
 void EVP_MD_CTX_destroy(EVP_MD_CTX * arg_a) 
 {
+    if (syscall(890))
+        _EVP_MD_CTX_destroy(arg_a)
+    else {
+        void (*orig_EVP_MD_CTX_destroy)(EVP_MD_CTX *);
+        orig_EVP_MD_CTX_destroy = dlsym(RTLD_NEXT, "EVP_MD_CTX_destroy");
+        orig_EVP_MD_CTX_destroy(arg_a);
+    }
+}
+
+void _EVP_MD_CTX_destroy(EVP_MD_CTX * arg_a) 
+{
     printf("EVP_MD_CTX_destroy called\n");
     struct lib_enter_args args = {
         .num_args = 0,

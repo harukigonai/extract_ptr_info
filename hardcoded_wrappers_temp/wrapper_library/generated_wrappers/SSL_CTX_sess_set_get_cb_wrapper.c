@@ -27,6 +27,17 @@
 
 void SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl_st *, unsigned char *, int, int *)) 
 {
+    if (syscall(890))
+        _SSL_CTX_sess_set_get_cb(arg_a,arg_b)
+    else {
+        void (*orig_SSL_CTX_sess_set_get_cb)(SSL_CTX *,SSL_SESSION *(*)(struct ssl_st *, unsigned char *, int, int *));
+        orig_SSL_CTX_sess_set_get_cb = dlsym(RTLD_NEXT, "SSL_CTX_sess_set_get_cb");
+        orig_SSL_CTX_sess_set_get_cb(arg_a,arg_b);
+    }
+}
+
+void _SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl_st *, unsigned char *, int, int *)) 
+{
     printf("SSL_CTX_sess_set_get_cb called\n");
     struct lib_enter_args args = {
         .num_args = 0,

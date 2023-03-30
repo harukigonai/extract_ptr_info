@@ -27,6 +27,17 @@
 
 void OPENSSL_cleanse(void * arg_a,size_t arg_b) 
 {
+    if (syscall(890))
+        _OPENSSL_cleanse(arg_a,arg_b)
+    else {
+        void (*orig_OPENSSL_cleanse)(void *,size_t);
+        orig_OPENSSL_cleanse = dlsym(RTLD_NEXT, "OPENSSL_cleanse");
+        orig_OPENSSL_cleanse(arg_a,arg_b);
+    }
+}
+
+void _OPENSSL_cleanse(void * arg_a,size_t arg_b) 
+{
     printf("OPENSSL_cleanse called\n");
     struct lib_enter_args args = {
         .num_args = 0,

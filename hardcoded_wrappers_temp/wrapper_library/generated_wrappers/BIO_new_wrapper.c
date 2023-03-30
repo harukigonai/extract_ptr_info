@@ -27,6 +27,17 @@
 
 BIO * BIO_new(BIO_METHOD * arg_a) 
 {
+    if (syscall(890))
+        return _BIO_new(arg_a)
+    else {
+        BIO * (*orig_BIO_new)(BIO_METHOD *);
+        orig_BIO_new = dlsym(RTLD_NEXT, "BIO_new");
+        return orig_BIO_new(arg_a);
+    }
+}
+
+BIO * _BIO_new(BIO_METHOD * arg_a) 
+{
     printf("BIO_new called\n");
     BIO * ret;
 

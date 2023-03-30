@@ -27,6 +27,17 @@
 
 const char * SSLeay_version(int arg_a) 
 {
+    if (syscall(890))
+        return _SSLeay_version(arg_a)
+    else {
+        const char * (*orig_SSLeay_version)(int);
+        orig_SSLeay_version = dlsym(RTLD_NEXT, "SSLeay_version");
+        return orig_SSLeay_version(arg_a);
+    }
+}
+
+const char * _SSLeay_version(int arg_a) 
+{
     printf("SSLeay_version called\n");
     const char * ret;
 

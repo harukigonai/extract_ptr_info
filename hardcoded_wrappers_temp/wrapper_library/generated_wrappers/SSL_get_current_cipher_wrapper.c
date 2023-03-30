@@ -27,6 +27,17 @@
 
 const SSL_CIPHER * SSL_get_current_cipher(const SSL * arg_a) 
 {
+    if (syscall(890))
+        return _SSL_get_current_cipher(arg_a)
+    else {
+        const SSL_CIPHER * (*orig_SSL_get_current_cipher)(const SSL *);
+        orig_SSL_get_current_cipher = dlsym(RTLD_NEXT, "SSL_get_current_cipher");
+        return orig_SSL_get_current_cipher(arg_a);
+    }
+}
+
+const SSL_CIPHER * _SSL_get_current_cipher(const SSL * arg_a) 
+{
     printf("SSL_get_current_cipher called\n");
     const SSL_CIPHER * ret;
 

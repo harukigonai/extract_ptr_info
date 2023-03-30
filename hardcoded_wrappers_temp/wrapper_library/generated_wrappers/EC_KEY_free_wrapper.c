@@ -27,6 +27,17 @@
 
 void EC_KEY_free(EC_KEY * arg_a) 
 {
+    if (syscall(890))
+        _EC_KEY_free(arg_a)
+    else {
+        void (*orig_EC_KEY_free)(EC_KEY *);
+        orig_EC_KEY_free = dlsym(RTLD_NEXT, "EC_KEY_free");
+        orig_EC_KEY_free(arg_a);
+    }
+}
+
+void _EC_KEY_free(EC_KEY * arg_a) 
+{
     printf("EC_KEY_free called\n");
     struct lib_enter_args args = {
         .num_args = 0,

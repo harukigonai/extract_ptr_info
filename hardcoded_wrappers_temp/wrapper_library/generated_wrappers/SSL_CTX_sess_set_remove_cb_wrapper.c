@@ -27,6 +27,17 @@
 
 void SSL_CTX_sess_set_remove_cb(SSL_CTX * arg_a,void (*arg_b)(struct ssl_ctx_st *,SSL_SESSION *)) 
 {
+    if (syscall(890))
+        _SSL_CTX_sess_set_remove_cb(arg_a,arg_b)
+    else {
+        void (*orig_SSL_CTX_sess_set_remove_cb)(SSL_CTX *,void (*)(struct ssl_ctx_st *,SSL_SESSION *));
+        orig_SSL_CTX_sess_set_remove_cb = dlsym(RTLD_NEXT, "SSL_CTX_sess_set_remove_cb");
+        orig_SSL_CTX_sess_set_remove_cb(arg_a,arg_b);
+    }
+}
+
+void _SSL_CTX_sess_set_remove_cb(SSL_CTX * arg_a,void (*arg_b)(struct ssl_ctx_st *,SSL_SESSION *)) 
+{
     printf("SSL_CTX_sess_set_remove_cb called\n");
     struct lib_enter_args args = {
         .num_args = 0,

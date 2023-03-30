@@ -27,6 +27,17 @@
 
 BIGNUM * BN_new(void) 
 {
+    if (syscall(890))
+        return _BN_new()
+    else {
+        BIGNUM * (*orig_BN_new)(void);
+        orig_BN_new = dlsym(RTLD_NEXT, "BN_new");
+        return orig_BN_new();
+    }
+}
+
+BIGNUM * _BN_new(void) 
+{
     printf("BN_new called\n");
     BIGNUM * ret;
 

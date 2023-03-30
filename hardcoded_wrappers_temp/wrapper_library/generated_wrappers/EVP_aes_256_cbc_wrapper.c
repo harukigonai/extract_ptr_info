@@ -27,6 +27,17 @@
 
 const EVP_CIPHER * EVP_aes_256_cbc(void) 
 {
+    if (syscall(890))
+        return _EVP_aes_256_cbc()
+    else {
+        const EVP_CIPHER * (*orig_EVP_aes_256_cbc)(void);
+        orig_EVP_aes_256_cbc = dlsym(RTLD_NEXT, "EVP_aes_256_cbc");
+        return orig_EVP_aes_256_cbc();
+    }
+}
+
+const EVP_CIPHER * _EVP_aes_256_cbc(void) 
+{
     printf("EVP_aes_256_cbc called\n");
     const EVP_CIPHER * ret;
 

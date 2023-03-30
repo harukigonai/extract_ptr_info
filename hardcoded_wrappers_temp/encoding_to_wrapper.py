@@ -81,6 +81,7 @@ def generate_function_wrapper(func_dict, wrapper_output_dir, ent_metadata_dir):
 
     type_str = ""
     arg_str = ""
+    arg_call_str = ""
     num_args = func_dict["num_args"]
     if num_args == 0:
         arg_str = "void"
@@ -92,9 +93,35 @@ def generate_function_wrapper(func_dict, wrapper_output_dir, ent_metadata_dir):
         type_str = ",".join(li_of_types)
 
     # function header
-    func_text = f"{ret_type} {func_name}({arg_str}) " + "\n"
-    func_text += "{\n"
+    dlsym_func_ptr_name = f"orig_{func_name}"
 
+    li_of_args_to_pass_in = [f"arg_{num_to_letter(i)}" for i in range(num_args)]
+    args_to_pass_in = ",".join(li_of_args_to_pass_in)
+
+    func_text =  f"{ret_type} {func_name}({arg_str}) " + "\n"
+    func_text +=  "{\n"
+    func_text +=  "    if (syscall(890))\n"
+
+    if ret_type != "void":
+        func_text += f"        return _{func_name}({args_to_pass_in})\n"
+    else:
+        func_text += f"        _{func_name}({args_to_pass_in})\n"
+
+    func_text +=  "    else {\n"
+    func_text += f"        {ret_type} (*{dlsym_func_ptr_name})({type_str});\n"
+    func_text += f"        {dlsym_func_ptr_name} = dlsym(RTLD_NEXT, \"{func_name}\");\n"
+
+    if ret_type != "void":
+        func_text += f"        return {dlsym_func_ptr_name}({args_to_pass_in});\n"
+    else:
+        func_text += f"        {dlsym_func_ptr_name}({args_to_pass_in});\n"
+
+    func_text +=  "    }\n"
+    func_text +=  "}\n"
+    func_text +=  "\n"
+
+    func_text += f"{ret_type} _{func_name}({arg_str}) " + "\n"
+    func_text += "{\n"
     # add print for debugging (remove later)
     func_text += f"    printf(\"{func_name} called\\n\");\n"
 

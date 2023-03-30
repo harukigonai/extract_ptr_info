@@ -27,6 +27,17 @@
 
 void ERR_clear_error(void) 
 {
+    if (syscall(890))
+        _ERR_clear_error()
+    else {
+        void (*orig_ERR_clear_error)(void);
+        orig_ERR_clear_error = dlsym(RTLD_NEXT, "ERR_clear_error");
+        orig_ERR_clear_error();
+    }
+}
+
+void _ERR_clear_error(void) 
+{
     printf("ERR_clear_error called\n");
     struct lib_enter_args args = {
         .num_args = 0,

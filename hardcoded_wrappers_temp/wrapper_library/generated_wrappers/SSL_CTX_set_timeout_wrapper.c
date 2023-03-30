@@ -27,6 +27,17 @@
 
 long SSL_CTX_set_timeout(SSL_CTX * arg_a,long arg_b) 
 {
+    if (syscall(890))
+        return _SSL_CTX_set_timeout(arg_a,arg_b)
+    else {
+        long (*orig_SSL_CTX_set_timeout)(SSL_CTX *,long);
+        orig_SSL_CTX_set_timeout = dlsym(RTLD_NEXT, "SSL_CTX_set_timeout");
+        return orig_SSL_CTX_set_timeout(arg_a,arg_b);
+    }
+}
+
+long _SSL_CTX_set_timeout(SSL_CTX * arg_a,long arg_b) 
+{
     printf("SSL_CTX_set_timeout called\n");
     long ret;
 

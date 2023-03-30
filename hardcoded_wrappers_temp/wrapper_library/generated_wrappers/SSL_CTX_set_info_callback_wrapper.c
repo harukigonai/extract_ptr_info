@@ -27,6 +27,17 @@
 
 void SSL_CTX_set_info_callback(SSL_CTX *arg_a, void (*arg_b)(const SSL *,int,int)) 
 {
+    if (syscall(890))
+        _SSL_CTX_set_info_callback(arg_a,arg_b)
+    else {
+        void (*orig_SSL_CTX_set_info_callback)(SSL_CTX *, void (*)(const SSL *,int,int));
+        orig_SSL_CTX_set_info_callback = dlsym(RTLD_NEXT, "SSL_CTX_set_info_callback");
+        orig_SSL_CTX_set_info_callback(arg_a,arg_b);
+    }
+}
+
+void _SSL_CTX_set_info_callback(SSL_CTX *arg_a, void (*arg_b)(const SSL *,int,int)) 
+{
     printf("SSL_CTX_set_info_callback called\n");
     struct lib_enter_args args = {
         .num_args = 0,

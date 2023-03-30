@@ -27,6 +27,17 @@
 
 void SSL_set_shutdown(SSL * arg_a,int arg_b) 
 {
+    if (syscall(890))
+        _SSL_set_shutdown(arg_a,arg_b)
+    else {
+        void (*orig_SSL_set_shutdown)(SSL *,int);
+        orig_SSL_set_shutdown = dlsym(RTLD_NEXT, "SSL_set_shutdown");
+        orig_SSL_set_shutdown(arg_a,arg_b);
+    }
+}
+
+void _SSL_set_shutdown(SSL * arg_a,int arg_b) 
+{
     printf("SSL_set_shutdown called\n");
     struct lib_enter_args args = {
         .num_args = 0,

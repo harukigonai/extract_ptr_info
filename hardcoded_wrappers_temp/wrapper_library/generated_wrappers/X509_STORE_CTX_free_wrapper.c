@@ -27,6 +27,17 @@
 
 void X509_STORE_CTX_free(X509_STORE_CTX * arg_a) 
 {
+    if (syscall(890))
+        _X509_STORE_CTX_free(arg_a)
+    else {
+        void (*orig_X509_STORE_CTX_free)(X509_STORE_CTX *);
+        orig_X509_STORE_CTX_free = dlsym(RTLD_NEXT, "X509_STORE_CTX_free");
+        orig_X509_STORE_CTX_free(arg_a);
+    }
+}
+
+void _X509_STORE_CTX_free(X509_STORE_CTX * arg_a) 
+{
     printf("X509_STORE_CTX_free called\n");
     struct lib_enter_args args = {
         .num_args = 0,

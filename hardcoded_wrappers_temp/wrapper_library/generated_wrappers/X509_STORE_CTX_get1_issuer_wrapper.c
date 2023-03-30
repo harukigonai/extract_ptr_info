@@ -27,6 +27,17 @@
 
 int X509_STORE_CTX_get1_issuer(X509 ** arg_a,X509_STORE_CTX * arg_b,X509 * arg_c) 
 {
+    if (syscall(890))
+        return _X509_STORE_CTX_get1_issuer(arg_a,arg_b,arg_c)
+    else {
+        int (*orig_X509_STORE_CTX_get1_issuer)(X509 **,X509_STORE_CTX *,X509 *);
+        orig_X509_STORE_CTX_get1_issuer = dlsym(RTLD_NEXT, "X509_STORE_CTX_get1_issuer");
+        return orig_X509_STORE_CTX_get1_issuer(arg_a,arg_b,arg_c);
+    }
+}
+
+int _X509_STORE_CTX_get1_issuer(X509 ** arg_a,X509_STORE_CTX * arg_b,X509 * arg_c) 
+{
     printf("X509_STORE_CTX_get1_issuer called\n");
     int ret;
 

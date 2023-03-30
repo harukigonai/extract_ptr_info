@@ -27,6 +27,17 @@
 
 void DH_free(DH * arg_a) 
 {
+    if (syscall(890))
+        _DH_free(arg_a)
+    else {
+        void (*orig_DH_free)(DH *);
+        orig_DH_free = dlsym(RTLD_NEXT, "DH_free");
+        orig_DH_free(arg_a);
+    }
+}
+
+void _DH_free(DH * arg_a) 
+{
     printf("DH_free called\n");
     struct lib_enter_args args = {
         .num_args = 0,

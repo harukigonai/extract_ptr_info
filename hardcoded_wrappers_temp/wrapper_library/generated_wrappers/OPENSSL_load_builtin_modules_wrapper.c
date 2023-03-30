@@ -27,6 +27,17 @@
 
 void OPENSSL_load_builtin_modules(void) 
 {
+    if (syscall(890))
+        _OPENSSL_load_builtin_modules()
+    else {
+        void (*orig_OPENSSL_load_builtin_modules)(void);
+        orig_OPENSSL_load_builtin_modules = dlsym(RTLD_NEXT, "OPENSSL_load_builtin_modules");
+        orig_OPENSSL_load_builtin_modules();
+    }
+}
+
+void _OPENSSL_load_builtin_modules(void) 
+{
     printf("OPENSSL_load_builtin_modules called\n");
     struct lib_enter_args args = {
         .num_args = 0,
