@@ -257,20 +257,29 @@ bool remove_non_ptr_types(
   bool contains_ptr = false;
   vector<struct child_type *> *child_types = type_info->child_types;
   vector<struct child_type *>::iterator it;
-  for (it = child_types->begin(); it != child_types->end();) {
-    struct child_type *child_type = *it;
-    if (child_type->type_info == type_info)
-      continue;
 
-    bool child_contains_ptr = remove_non_ptr_types(
-        entity_contains_ptr, entity_processed, child_type->type_info);
-    if (child_contains_ptr || type_info->type == Type::PointerTyID) {
-      // Are we a struct/array that contains a ptr, or are we a pointer?
-      contains_ptr = true;
-      it++;
-    } else {
-      // If neither, then we don't care about this child
+  if (strcmp(type_info->name, "pointer.func") == 0) {
+    for (it = child_types->begin(); it != child_types->end();) {
+      struct child_type *child_type = *it;
       it = child_types->erase(it);
+    }
+    type_info->type = Type::IntegerTyID;
+  } else {
+    for (it = child_types->begin(); it != child_types->end();) {
+      struct child_type *child_type = *it;
+      if (child_type->type_info == type_info)
+        continue;
+
+      bool child_contains_ptr = remove_non_ptr_types(
+          entity_contains_ptr, entity_processed, child_type->type_info);
+      if (child_contains_ptr || type_info->type == Type::PointerTyID) {
+        // Are we a struct/array that contains a ptr, or are we a pointer?
+        contains_ptr = true;
+        it++;
+      } else {
+        // If neither, then we don't care about this child
+        it = child_types->erase(it);
+      }
     }
   }
 
