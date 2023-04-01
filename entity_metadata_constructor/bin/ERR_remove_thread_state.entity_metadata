@@ -1,8 +1,8 @@
 0, 8, 0, /* 0: long */
-1, 8, 1, /* 3: pointer.char */
-	8, 0,
-0, 1, 0, /* 8: char */
-0, 16, 1, /* 11: struct.iovec */
-	3, 0,
-1, 8, 1, /* 16: pointer.struct.iovec */
+0, 1, 0, /* 3: char */
+0, 16, 1, /* 6: struct.iovec */
 	11, 0,
+1, 8, 1, /* 11: pointer.char */
+	4096, 0,
+1, 8, 1, /* 16: pointer.struct.iovec */
+	6, 0,

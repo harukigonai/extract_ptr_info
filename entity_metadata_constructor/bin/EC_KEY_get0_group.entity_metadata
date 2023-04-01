@@ -1,96 +1,96 @@
-1, 8, 1, /* 0: pointer.struct.bignum_st */
-	5, 0,
-0, 24, 1, /* 5: struct.bignum_st */
-	10, 0,
-1, 8, 1, /* 10: pointer.int */
-	15, 0,
-0, 4, 0, /* 15: int */
-0, 56, 4, /* 18: struct.ec_key_st.284 */
-	29, 8,
-	67, 16,
-	0, 24,
-	91, 48,
-1, 8, 1, /* 29: pointer.struct.ec_group_st */
-	34, 0,
-0, 232, 11, /* 34: struct.ec_group_st */
-	59, 0,
-	67, 8,
-	5, 16,
-	5, 40,
-	83, 80,
-	91, 96,
-	5, 104,
-	5, 152,
-	5, 176,
-	83, 208,
-	83, 216,
-1, 8, 1, /* 59: pointer.struct.ec_method_st */
-	64, 0,
-0, 304, 0, /* 64: struct.ec_method_st */
-1, 8, 1, /* 67: pointer.struct.ec_point_st */
-	72, 0,
-0, 88, 4, /* 72: struct.ec_point_st */
-	59, 0,
-	5, 8,
-	5, 32,
-	5, 56,
-1, 8, 1, /* 83: pointer.char */
+0, 56, 4, /* 0: struct.ec_key_st.284 */
+	11, 8,
+	49, 16,
+	95, 24,
+	83, 48,
+1, 8, 1, /* 11: pointer.struct.ec_group_st */
+	16, 0,
+0, 232, 11, /* 16: struct.ec_group_st */
+	41, 0,
+	49, 8,
+	65, 16,
+	65, 40,
+	78, 80,
+	83, 96,
+	65, 104,
+	65, 152,
+	65, 176,
+	78, 208,
+	78, 216,
+1, 8, 1, /* 41: pointer.struct.ec_method_st */
+	46, 0,
+0, 304, 0, /* 46: struct.ec_method_st */
+1, 8, 1, /* 49: pointer.struct.ec_point_st */
+	54, 0,
+0, 88, 4, /* 54: struct.ec_point_st */
+	41, 0,
+	65, 8,
+	65, 32,
+	65, 56,
+0, 24, 1, /* 65: struct.bignum_st */
+	70, 0,
+1, 8, 1, /* 70: pointer.int */
+	75, 0,
+0, 4, 0, /* 75: int */
+1, 8, 1, /* 78: pointer.char */
+	4096, 0,
+1, 8, 1, /* 83: pointer.struct.ec_extra_data_st */
 	88, 0,
-0, 1, 0, /* 88: char */
-1, 8, 1, /* 91: pointer.struct.ec_extra_data_st */
-	96, 0,
-0, 40, 2, /* 96: struct.ec_extra_data_st */
-	91, 0,
-	83, 8,
-0, 0, 0, /* 103: func */
-0, 8, 0, /* 106: pointer.func */
-0, 0, 0, /* 109: func */
-0, 8, 0, /* 112: pointer.func */
-0, 0, 0, /* 115: func */
-0, 0, 0, /* 118: func */
-0, 8, 0, /* 121: pointer.func */
-0, 0, 0, /* 124: func */
-0, 8, 0, /* 127: pointer.func */
-0, 8, 0, /* 130: pointer.func */
-0, 0, 0, /* 133: func */
-0, 0, 0, /* 136: func */
-0, 8, 0, /* 139: pointer.func */
-0, 8, 0, /* 142: pointer.func */
-0, 0, 0, /* 145: func */
-0, 0, 0, /* 148: func */
-0, 8, 0, /* 151: pointer.func */
-0, 8, 0, /* 154: pointer.func */
-0, 8, 0, /* 157: pointer.func */
-1, 8, 1, /* 160: pointer.struct.ec_key_st.284 */
-	18, 0,
-0, 8, 0, /* 165: pointer.func */
-0, 8, 0, /* 168: pointer.func */
-0, 0, 0, /* 171: func */
-0, 0, 0, /* 174: func */
-0, 8, 0, /* 177: pointer.func */
-0, 0, 0, /* 180: func */
+0, 40, 2, /* 88: struct.ec_extra_data_st */
+	83, 0,
+	78, 8,
+1, 8, 1, /* 95: pointer.struct.bignum_st */
+	65, 0,
+1, 8, 1, /* 100: pointer.struct.ec_key_st.284 */
+	0, 0,
+0, 0, 0, /* 105: func */
+4097, 0, 0, /* 108: pointer.func */
+0, 24, 0, /* 111: array[6].int */
+4097, 0, 0, /* 114: pointer.func */
+0, 0, 0, /* 117: func */
+0, 0, 0, /* 120: func */
+4097, 0, 0, /* 123: pointer.func */
+4097, 0, 0, /* 126: pointer.func */
+0, 0, 0, /* 129: func */
+4097, 0, 0, /* 132: pointer.func */
+0, 0, 0, /* 135: func */
+0, 0, 0, /* 138: func */
+4097, 0, 0, /* 141: pointer.func */
+0, 0, 0, /* 144: func */
+0, 0, 0, /* 147: func */
+4097, 0, 0, /* 150: pointer.func */
+0, 0, 0, /* 153: func */
+4097, 0, 0, /* 156: pointer.func */
+4097, 0, 0, /* 159: pointer.func */
+4097, 0, 0, /* 162: pointer.func */
+0, 0, 0, /* 165: func */
+0, 0, 0, /* 168: func */
+4097, 0, 0, /* 171: pointer.func */
+4097, 0, 0, /* 174: pointer.func */
+4097, 0, 0, /* 177: pointer.func */
+4097, 0, 0, /* 180: pointer.func */
 0, 0, 0, /* 183: func */
-0, 8, 0, /* 186: pointer.func */
+0, 0, 0, /* 186: func */
 0, 0, 0, /* 189: func */
-0, 8, 0, /* 192: pointer.func */
-0, 8, 0, /* 195: pointer.func */
-0, 0, 0, /* 198: func */
-0, 8, 0, /* 201: pointer.func */
-0, 8, 0, /* 204: pointer.func */
+0, 0, 0, /* 192: func */
+0, 0, 0, /* 195: func */
+4097, 0, 0, /* 198: pointer.func */
+0, 0, 0, /* 201: func */
+4097, 0, 0, /* 204: pointer.func */
 0, 0, 0, /* 207: func */
-0, 8, 0, /* 210: pointer.func */
-0, 24, 0, /* 213: array[6].int */
-0, 0, 0, /* 216: func */
-0, 8, 0, /* 219: pointer.func */
-0, 8, 0, /* 222: pointer.func */
-0, 8, 0, /* 225: long */
-0, 0, 0, /* 228: func */
-0, 0, 0, /* 231: func */
-0, 8, 0, /* 234: pointer.func */
-0, 8, 0, /* 237: pointer.func */
-0, 0, 0, /* 240: func */
+4097, 0, 0, /* 210: pointer.func */
+0, 0, 0, /* 213: func */
+4097, 0, 0, /* 216: pointer.func */
+4097, 0, 0, /* 219: pointer.func */
+0, 0, 0, /* 222: func */
+4097, 0, 0, /* 225: pointer.func */
+0, 1, 0, /* 228: char */
+4097, 0, 0, /* 231: pointer.func */
+0, 0, 0, /* 234: func */
+0, 0, 0, /* 237: func */
+4097, 0, 0, /* 240: pointer.func */
 0, 0, 0, /* 243: func */
-0, 0, 0, /* 246: func */
-0, 8, 0, /* 249: pointer.func */
+0, 8, 0, /* 246: long */
+4097, 0, 0, /* 249: pointer.func */
 0, 0, 0, /* 252: func */
-0, 0, 0, /* 255: func */
+4097, 0, 0, /* 255: pointer.func */

@@ -425,6 +425,11 @@ int main(int argc, char **argv) {
       StringRef name = lib_func.getName();
       string name_as_str = string(name.data());
 
+      /* Debugging tool to only generate for one func */
+      // if (strcmp("SSL_free", name.data()) != 0) {
+      //   continue;
+      // }
+
       const bool is_in = funcs_we_care_about.find(name_as_str) !=
         funcs_we_care_about.end();
       if (!is_in) {
