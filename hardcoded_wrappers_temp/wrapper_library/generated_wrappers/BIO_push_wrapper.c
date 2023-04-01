@@ -64,8 +64,8 @@ BIO * bb_BIO_push(BIO * arg_a,BIO * arg_b)
             0, 0, 0, /* 36: func */
             0, 0, 0, /* 39: func */
             0, 0, 0, /* 42: func */
-            4097, 0, 0, /* 45: pointer.func */
-            4097, 0, 0, /* 48: pointer.func */
+            4097, 8, 0, /* 45: pointer.func */
+            4097, 8, 0, /* 48: pointer.func */
             1, 8, 1, /* 51: pointer.struct.bio_st */
             	56, 0,
             0, 112, 6, /* 56: struct.bio_st */
@@ -81,14 +81,14 @@ BIO * bb_BIO_push(BIO * arg_a,BIO * arg_b)
             	13, 8,
             0, 4, 0, /* 81: int */
             0, 0, 0, /* 84: func */
-            4097, 0, 0, /* 87: pointer.func */
+            4097, 8, 0, /* 87: pointer.func */
             0, 1, 0, /* 90: char */
-            4097, 0, 0, /* 93: pointer.func */
-            4097, 0, 0, /* 96: pointer.func */
+            4097, 8, 0, /* 93: pointer.func */
+            4097, 8, 0, /* 96: pointer.func */
             0, 0, 0, /* 99: func */
-            4097, 0, 0, /* 102: pointer.func */
+            4097, 8, 0, /* 102: pointer.func */
             0, 0, 0, /* 105: func */
-            4097, 0, 0, /* 108: pointer.func */
+            4097, 8, 0, /* 108: pointer.func */
         },
         .arg_entity_index = { 51, 51, },
         .ret_entity_index = 51,

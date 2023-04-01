@@ -69,10 +69,9 @@ int bb_X509_NAME_get_index_by_NID(X509_NAME * arg_a,int arg_b,int arg_c)
             0, 24, 1, /* 47: struct.buf_mem_st */
             	3, 8,
             0, 1, 0, /* 52: char */
-            4097, 94396186125840, 94396186129968, /* 55: pointer.func */
-            	0, 4,
-            	0, 0,
-            	0, 0,
+            4097, 8, 0, /* 55: pointer.func */
+            0, 4, 0, /* 58: int */
+            0, 0, 0, /* 61: func */
         },
         .arg_entity_index = { 8, 58, 58, },
         .ret_entity_index = 58,

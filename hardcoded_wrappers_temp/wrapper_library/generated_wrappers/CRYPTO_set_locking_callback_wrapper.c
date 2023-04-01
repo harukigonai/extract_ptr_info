@@ -46,7 +46,7 @@ void bb_CRYPTO_set_locking_callback(void (*arg_a)(int, int, const char *, int))
         .num_args = 0,
         .entity_metadata = {
             0, 0, 0, /* 0: func */
-            4097, 94416506781876, 511, /* 3: pointer.func */
+            4097, 8, 0, /* 3: pointer.func */
         },
         .arg_entity_index = { 3, },
         .ret_entity_index = -1,

@@ -46,7 +46,7 @@ void bb_CRYPTO_set_dynlock_lock_callback(void (*arg_a)(int, struct CRYPTO_dynloc
         .num_args = 0,
         .entity_metadata = {
             0, 0, 0, /* 0: func */
-            4097, 94396172891984, 140423955742936, /* 3: pointer.func */
+            4097, 8, 0, /* 3: pointer.func */
         },
         .arg_entity_index = { 3, },
         .ret_entity_index = -1,

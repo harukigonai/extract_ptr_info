@@ -48,9 +48,8 @@ int bb_CRYPTO_THREADID_set_callback(void (*arg_a)(CRYPTO_THREADID *))
         .num_args = 0,
         .entity_metadata = {
             0, 0, 0, /* 0: func */
-            4097, 94396099097568, 28, /* 3: pointer.func */
-            	0, 4,
-            	0, 49,
+            4097, 8, 0, /* 3: pointer.func */
+            0, 4, 0, /* 6: int */
         },
         .arg_entity_index = { 3, },
         .ret_entity_index = 6,

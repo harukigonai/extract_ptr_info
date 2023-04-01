@@ -47,22 +47,17 @@ int bb_SSL_get_ex_new_index(long arg_a,void * arg_b,CRYPTO_EX_new * arg_c,CRYPTO
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            4097, 0, 94396479109104, /* 0: pointer.func */
-            	0, 0,
-            	0, 0,
-            	0, 0,
-            	4097, 94396479340416,
-            	94396479356928, 0,
-            	0, 0,
-            	0, 1,
-            	0, 4097,
-            	94396479489168, 94396479493296,
-            	0, 8,
-            	0, 1,
-            	8, 1,
+            4097, 8, 0, /* 0: pointer.func */
+            0, 0, 0, /* 3: func */
+            0, 0, 0, /* 6: func */
+            4097, 8, 0, /* 9: pointer.func */
+            0, 0, 0, /* 12: func */
+            0, 1, 0, /* 15: char */
+            4097, 8, 0, /* 18: pointer.func */
+            0, 8, 0, /* 21: long */
+            1, 8, 1, /* 24: pointer.char */
             	4096, 0,
-            	0, 4,
-            	0, 0,
+            0, 4, 0, /* 29: int */
         },
         .arg_entity_index = { 21, 24, 9, 18, 0, },
         .ret_entity_index = 29,

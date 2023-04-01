@@ -93,56 +93,56 @@ const EC_GROUP * bb_EC_KEY_get0_group(const EC_KEY * arg_a)
             1, 8, 1, /* 100: pointer.struct.ec_key_st.284 */
             	0, 0,
             0, 0, 0, /* 105: func */
-            4097, 0, 0, /* 108: pointer.func */
+            4097, 8, 0, /* 108: pointer.func */
             0, 24, 0, /* 111: array[6].int */
-            4097, 0, 0, /* 114: pointer.func */
+            4097, 8, 0, /* 114: pointer.func */
             0, 0, 0, /* 117: func */
             0, 0, 0, /* 120: func */
-            4097, 0, 0, /* 123: pointer.func */
-            4097, 0, 0, /* 126: pointer.func */
+            4097, 8, 0, /* 123: pointer.func */
+            4097, 8, 0, /* 126: pointer.func */
             0, 0, 0, /* 129: func */
-            4097, 0, 0, /* 132: pointer.func */
+            4097, 8, 0, /* 132: pointer.func */
             0, 0, 0, /* 135: func */
             0, 0, 0, /* 138: func */
-            4097, 0, 0, /* 141: pointer.func */
+            4097, 8, 0, /* 141: pointer.func */
             0, 0, 0, /* 144: func */
             0, 0, 0, /* 147: func */
-            4097, 0, 0, /* 150: pointer.func */
+            4097, 8, 0, /* 150: pointer.func */
             0, 0, 0, /* 153: func */
-            4097, 0, 0, /* 156: pointer.func */
-            4097, 0, 0, /* 159: pointer.func */
-            4097, 0, 0, /* 162: pointer.func */
+            4097, 8, 0, /* 156: pointer.func */
+            4097, 8, 0, /* 159: pointer.func */
+            4097, 8, 0, /* 162: pointer.func */
             0, 0, 0, /* 165: func */
             0, 0, 0, /* 168: func */
-            4097, 0, 0, /* 171: pointer.func */
-            4097, 0, 0, /* 174: pointer.func */
-            4097, 0, 0, /* 177: pointer.func */
-            4097, 0, 0, /* 180: pointer.func */
+            4097, 8, 0, /* 171: pointer.func */
+            4097, 8, 0, /* 174: pointer.func */
+            4097, 8, 0, /* 177: pointer.func */
+            4097, 8, 0, /* 180: pointer.func */
             0, 0, 0, /* 183: func */
             0, 0, 0, /* 186: func */
             0, 0, 0, /* 189: func */
             0, 0, 0, /* 192: func */
             0, 0, 0, /* 195: func */
-            4097, 0, 0, /* 198: pointer.func */
+            4097, 8, 0, /* 198: pointer.func */
             0, 0, 0, /* 201: func */
-            4097, 0, 0, /* 204: pointer.func */
+            4097, 8, 0, /* 204: pointer.func */
             0, 0, 0, /* 207: func */
-            4097, 0, 0, /* 210: pointer.func */
+            4097, 8, 0, /* 210: pointer.func */
             0, 0, 0, /* 213: func */
-            4097, 0, 0, /* 216: pointer.func */
-            4097, 0, 0, /* 219: pointer.func */
+            4097, 8, 0, /* 216: pointer.func */
+            4097, 8, 0, /* 219: pointer.func */
             0, 0, 0, /* 222: func */
-            4097, 0, 0, /* 225: pointer.func */
+            4097, 8, 0, /* 225: pointer.func */
             0, 1, 0, /* 228: char */
-            4097, 0, 0, /* 231: pointer.func */
+            4097, 8, 0, /* 231: pointer.func */
             0, 0, 0, /* 234: func */
             0, 0, 0, /* 237: func */
-            4097, 0, 0, /* 240: pointer.func */
+            4097, 8, 0, /* 240: pointer.func */
             0, 0, 0, /* 243: func */
             0, 8, 0, /* 246: long */
-            4097, 0, 0, /* 249: pointer.func */
+            4097, 8, 0, /* 249: pointer.func */
             0, 0, 0, /* 252: func */
-            4097, 0, 0, /* 255: pointer.func */
+            4097, 8, 0, /* 255: pointer.func */
         },
         .arg_entity_index = { 100, },
         .ret_entity_index = 11,

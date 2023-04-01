@@ -47,12 +47,12 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            4097, 0, 0, /* 0: pointer.func */
+            4097, 8, 0, /* 0: pointer.func */
             0, 16, 1, /* 3: struct.tls_session_ticket_ext_st */
             	8, 8,
             1, 8, 1, /* 8: pointer.char */
             	4096, 0,
-            4097, 0, 0, /* 13: pointer.func */
+            4097, 8, 0, /* 13: pointer.func */
             0, 0, 0, /* 16: func */
             0, 0, 0, /* 19: func */
             0, 8, 1, /* 22: struct.ssl3_buf_freelist_entry_st */
@@ -64,22 +64,22 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             0, 24, 1, /* 37: struct.ssl3_buf_freelist_st */
             	27, 16,
             0, 0, 0, /* 42: func */
-            4097, 0, 0, /* 45: pointer.func */
-            4097, 0, 0, /* 48: pointer.func */
-            4097, 0, 0, /* 51: pointer.func */
-            4097, 0, 0, /* 54: pointer.func */
+            4097, 8, 0, /* 45: pointer.func */
+            4097, 8, 0, /* 48: pointer.func */
+            4097, 8, 0, /* 51: pointer.func */
+            4097, 8, 0, /* 54: pointer.func */
             0, 0, 0, /* 57: func */
-            4097, 0, 0, /* 60: pointer.func */
+            4097, 8, 0, /* 60: pointer.func */
             0, 44, 0, /* 63: struct.apr_time_exp_t */
             0, 0, 0, /* 66: func */
             0, 0, 0, /* 69: func */
-            4097, 0, 0, /* 72: pointer.func */
+            4097, 8, 0, /* 72: pointer.func */
             1, 8, 1, /* 75: pointer.struct.in_addr */
             	80, 0,
             0, 4, 0, /* 80: struct.in_addr */
-            4097, 0, 0, /* 83: pointer.func */
+            4097, 8, 0, /* 83: pointer.func */
             0, 0, 0, /* 86: func */
-            4097, 0, 0, /* 89: pointer.func */
+            4097, 8, 0, /* 89: pointer.func */
             0, 736, 30, /* 92: struct.ssl_ctx_st */
             	155, 0,
             	177, 8,
@@ -479,15 +479,15 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             	8, 104,
             1, 8, 1, /* 993: pointer.struct.ssl_ctx_st */
             	92, 0,
-            4097, 0, 0, /* 998: pointer.func */
+            4097, 8, 0, /* 998: pointer.func */
             0, 0, 0, /* 1001: func */
-            4097, 0, 0, /* 1004: pointer.func */
-            4097, 0, 0, /* 1007: pointer.func */
-            4097, 0, 0, /* 1010: pointer.func */
+            4097, 8, 0, /* 1004: pointer.func */
+            4097, 8, 0, /* 1007: pointer.func */
+            4097, 8, 0, /* 1010: pointer.func */
             0, 0, 0, /* 1013: func */
-            4097, 0, 0, /* 1016: pointer.func */
+            4097, 8, 0, /* 1016: pointer.func */
             0, 0, 0, /* 1019: func */
-            4097, 0, 0, /* 1022: pointer.func */
+            4097, 8, 0, /* 1022: pointer.func */
             0, 12, 0, /* 1025: struct.ap_unix_identity_t */
             0, 56, 2, /* 1028: struct.comp_ctx_st */
             	1035, 0,
@@ -499,7 +499,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             0, 0, 0, /* 1045: func */
             1, 8, 1, /* 1048: pointer.struct.comp_ctx_st */
             	1028, 0,
-            4097, 0, 0, /* 1053: pointer.func */
+            4097, 8, 0, /* 1053: pointer.func */
             0, 168, 4, /* 1056: struct.evp_cipher_ctx_st */
             	1067, 0,
             	503, 8,
@@ -574,56 +574,56 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             	227, 176,
             0, 0, 0, /* 1222: func */
             0, 0, 0, /* 1225: func */
-            4097, 0, 0, /* 1228: pointer.func */
-            4097, 0, 0, /* 1231: pointer.func */
+            4097, 8, 0, /* 1228: pointer.func */
+            4097, 8, 0, /* 1231: pointer.func */
             0, 24, 2, /* 1234: struct.ssl_comp_st */
             	8, 8,
             	1035, 16,
             0, 0, 0, /* 1241: func */
-            4097, 0, 0, /* 1244: pointer.func */
-            4097, 0, 0, /* 1247: pointer.func */
+            4097, 8, 0, /* 1244: pointer.func */
+            4097, 8, 0, /* 1247: pointer.func */
             0, 0, 0, /* 1250: func */
             0, 0, 0, /* 1253: func */
-            4097, 0, 0, /* 1256: pointer.func */
+            4097, 8, 0, /* 1256: pointer.func */
             0, 0, 0, /* 1259: func */
-            4097, 0, 0, /* 1262: pointer.func */
+            4097, 8, 0, /* 1262: pointer.func */
             0, 0, 0, /* 1265: func */
-            4097, 0, 0, /* 1268: pointer.func */
+            4097, 8, 0, /* 1268: pointer.func */
             0, 9, 0, /* 1271: array[9].char */
             0, 0, 0, /* 1274: func */
-            4097, 0, 0, /* 1277: pointer.func */
+            4097, 8, 0, /* 1277: pointer.func */
             0, 0, 0, /* 1280: func */
             0, 0, 0, /* 1283: func */
             0, 0, 0, /* 1286: func */
-            4097, 0, 0, /* 1289: pointer.func */
-            4097, 0, 0, /* 1292: pointer.func */
+            4097, 8, 0, /* 1289: pointer.func */
+            4097, 8, 0, /* 1292: pointer.func */
             0, 0, 0, /* 1295: func */
-            4097, 0, 0, /* 1298: pointer.func */
+            4097, 8, 0, /* 1298: pointer.func */
             0, 0, 0, /* 1301: func */
-            4097, 0, 0, /* 1304: pointer.func */
+            4097, 8, 0, /* 1304: pointer.func */
             0, 0, 0, /* 1307: func */
-            4097, 0, 0, /* 1310: pointer.func */
+            4097, 8, 0, /* 1310: pointer.func */
             0, 0, 0, /* 1313: func */
-            4097, 0, 0, /* 1316: pointer.func */
+            4097, 8, 0, /* 1316: pointer.func */
             0, 0, 0, /* 1319: func */
             0, 0, 0, /* 1322: func */
-            4097, 0, 0, /* 1325: pointer.func */
+            4097, 8, 0, /* 1325: pointer.func */
             0, 0, 0, /* 1328: func */
-            4097, 0, 0, /* 1331: pointer.func */
+            4097, 8, 0, /* 1331: pointer.func */
             0, 0, 0, /* 1334: func */
-            4097, 0, 0, /* 1337: pointer.func */
+            4097, 8, 0, /* 1337: pointer.func */
             0, 0, 0, /* 1340: func */
             0, 0, 0, /* 1343: func */
-            4097, 0, 0, /* 1346: pointer.func */
+            4097, 8, 0, /* 1346: pointer.func */
             0, 0, 0, /* 1349: func */
             0, 0, 0, /* 1352: func */
             0, 0, 0, /* 1355: func */
-            4097, 0, 0, /* 1358: pointer.func */
+            4097, 8, 0, /* 1358: pointer.func */
             0, 0, 0, /* 1361: func */
             0, 0, 0, /* 1364: func */
             0, 8, 0, /* 1367: array[2].int */
-            4097, 0, 0, /* 1370: pointer.func */
-            4097, 0, 0, /* 1373: pointer.func */
+            4097, 8, 0, /* 1370: pointer.func */
+            4097, 8, 0, /* 1373: pointer.func */
             0, 12, 0, /* 1376: array[12].char */
             0, 128, 0, /* 1379: array[128].char */
             0, 528, 8, /* 1382: struct.anon.0 */
@@ -638,26 +638,26 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             1, 8, 1, /* 1401: pointer.struct.ssl_comp_st */
             	1234, 0,
             0, 24, 0, /* 1406: array[6].int */
-            4097, 0, 0, /* 1409: pointer.func */
+            4097, 8, 0, /* 1409: pointer.func */
             0, 0, 0, /* 1412: func */
             0, 0, 0, /* 1415: func */
-            4097, 0, 0, /* 1418: pointer.func */
+            4097, 8, 0, /* 1418: pointer.func */
             0, 0, 0, /* 1421: func */
-            4097, 0, 0, /* 1424: pointer.func */
+            4097, 8, 0, /* 1424: pointer.func */
             0, 0, 0, /* 1427: func */
-            4097, 0, 0, /* 1430: pointer.func */
+            4097, 8, 0, /* 1430: pointer.func */
             0, 0, 0, /* 1433: func */
-            4097, 0, 0, /* 1436: pointer.func */
-            4097, 0, 0, /* 1439: pointer.func */
+            4097, 8, 0, /* 1436: pointer.func */
+            4097, 8, 0, /* 1439: pointer.func */
             0, 0, 0, /* 1442: func */
-            4097, 0, 0, /* 1445: pointer.func */
-            4097, 0, 0, /* 1448: pointer.func */
+            4097, 8, 0, /* 1445: pointer.func */
+            4097, 8, 0, /* 1448: pointer.func */
             0, 0, 0, /* 1451: func */
             0, 0, 0, /* 1454: func */
             0, 0, 0, /* 1457: func */
             0, 0, 0, /* 1460: func */
-            4097, 0, 0, /* 1463: pointer.func */
-            4097, 0, 0, /* 1466: pointer.func */
+            4097, 8, 0, /* 1463: pointer.func */
+            4097, 8, 0, /* 1466: pointer.func */
             0, 16, 0, /* 1469: array[16].char */
             0, 0, 0, /* 1472: func */
             1, 8, 1, /* 1475: pointer.pointer.struct.env_md_ctx_st */
@@ -699,7 +699,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             	1563, 0,
             0, 80, 1, /* 1563: struct.bio_method_st */
             	8, 8,
-            4097, 0, 0, /* 1568: pointer.func */
+            4097, 8, 0, /* 1568: pointer.func */
             0, 0, 0, /* 1571: func */
             0, 344, 9, /* 1574: struct.ssl2_state_st */
             	8, 24,
@@ -711,78 +711,78 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             	8, 120,
             	8, 128,
             	8, 136,
-            4097, 0, 0, /* 1595: pointer.func */
-            4097, 0, 0, /* 1598: pointer.func */
-            4097, 0, 0, /* 1601: pointer.func */
+            4097, 8, 0, /* 1595: pointer.func */
+            4097, 8, 0, /* 1598: pointer.func */
+            4097, 8, 0, /* 1601: pointer.func */
             0, 0, 0, /* 1604: func */
-            4097, 0, 0, /* 1607: pointer.func */
+            4097, 8, 0, /* 1607: pointer.func */
             0, 0, 0, /* 1610: func */
             0, 0, 0, /* 1613: func */
             0, 8, 0, /* 1616: long */
-            4097, 0, 0, /* 1619: pointer.func */
-            4097, 0, 0, /* 1622: pointer.func */
+            4097, 8, 0, /* 1619: pointer.func */
+            4097, 8, 0, /* 1622: pointer.func */
             0, 0, 0, /* 1625: func */
             0, 0, 0, /* 1628: func */
             0, 0, 0, /* 1631: func */
             0, 0, 0, /* 1634: func */
-            4097, 0, 0, /* 1637: pointer.func */
+            4097, 8, 0, /* 1637: pointer.func */
             0, 0, 0, /* 1640: func */
-            4097, 0, 0, /* 1643: pointer.func */
-            4097, 0, 0, /* 1646: pointer.func */
+            4097, 8, 0, /* 1643: pointer.func */
+            4097, 8, 0, /* 1646: pointer.func */
             0, 0, 0, /* 1649: func */
             0, 0, 0, /* 1652: func */
             0, 0, 0, /* 1655: func */
             0, 0, 0, /* 1658: func */
-            4097, 0, 0, /* 1661: pointer.func */
+            4097, 8, 0, /* 1661: pointer.func */
             0, 0, 0, /* 1664: func */
-            4097, 0, 0, /* 1667: pointer.func */
-            4097, 0, 0, /* 1670: pointer.func */
+            4097, 8, 0, /* 1667: pointer.func */
+            4097, 8, 0, /* 1670: pointer.func */
             0, 0, 0, /* 1673: func */
             0, 0, 0, /* 1676: func */
             0, 0, 0, /* 1679: func */
             0, 0, 0, /* 1682: func */
-            4097, 0, 0, /* 1685: pointer.func */
-            4097, 0, 0, /* 1688: pointer.func */
+            4097, 8, 0, /* 1685: pointer.func */
+            4097, 8, 0, /* 1688: pointer.func */
             0, 0, 0, /* 1691: func */
             0, 0, 0, /* 1694: func */
             0, 4, 0, /* 1697: array[4].char */
-            4097, 0, 0, /* 1700: pointer.func */
+            4097, 8, 0, /* 1700: pointer.func */
             0, 0, 0, /* 1703: func */
             0, 0, 0, /* 1706: func */
             0, 0, 0, /* 1709: func */
             0, 0, 0, /* 1712: func */
-            4097, 0, 0, /* 1715: pointer.func */
-            4097, 0, 0, /* 1718: pointer.func */
+            4097, 8, 0, /* 1715: pointer.func */
+            4097, 8, 0, /* 1718: pointer.func */
             0, 20, 0, /* 1721: array[5].int */
             0, 1, 0, /* 1724: char */
             0, 0, 0, /* 1727: func */
             0, 0, 0, /* 1730: func */
             0, 0, 0, /* 1733: func */
-            4097, 0, 0, /* 1736: pointer.func */
+            4097, 8, 0, /* 1736: pointer.func */
             0, 0, 0, /* 1739: func */
             0, 0, 0, /* 1742: func */
-            4097, 0, 0, /* 1745: pointer.func */
-            4097, 0, 0, /* 1748: pointer.func */
+            4097, 8, 0, /* 1745: pointer.func */
+            4097, 8, 0, /* 1748: pointer.func */
             0, 0, 0, /* 1751: func */
-            4097, 0, 0, /* 1754: pointer.func */
+            4097, 8, 0, /* 1754: pointer.func */
             0, 0, 0, /* 1757: func */
             0, 0, 0, /* 1760: func */
             0, 0, 0, /* 1763: func */
             0, 0, 0, /* 1766: func */
-            4097, 0, 0, /* 1769: pointer.func */
-            4097, 0, 0, /* 1772: pointer.func */
+            4097, 8, 0, /* 1769: pointer.func */
+            4097, 8, 0, /* 1772: pointer.func */
             0, 0, 0, /* 1775: func */
             0, 0, 0, /* 1778: func */
             0, 0, 0, /* 1781: func */
             0, 0, 0, /* 1784: func */
-            4097, 0, 0, /* 1787: pointer.func */
+            4097, 8, 0, /* 1787: pointer.func */
             0, 0, 0, /* 1790: func */
             0, 8, 0, /* 1793: array[8].char */
             0, 0, 0, /* 1796: func */
-            4097, 0, 0, /* 1799: pointer.func */
+            4097, 8, 0, /* 1799: pointer.func */
             0, 0, 0, /* 1802: func */
-            4097, 0, 0, /* 1805: pointer.func */
-            4097, 0, 0, /* 1808: pointer.func */
+            4097, 8, 0, /* 1805: pointer.func */
+            4097, 8, 0, /* 1808: pointer.func */
             1, 8, 1, /* 1811: pointer.struct.ssl2_state_st */
             	1574, 0,
             1, 8, 1, /* 1816: pointer.struct.ssl_st */
@@ -839,130 +839,130 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             0, 0, 0, /* 1923: func */
             0, 0, 0, /* 1926: func */
             0, 32, 0, /* 1929: array[32].char */
-            4097, 0, 0, /* 1932: pointer.func */
-            4097, 0, 0, /* 1935: pointer.func */
-            4097, 0, 0, /* 1938: pointer.func */
-            4097, 0, 0, /* 1941: pointer.func */
-            4097, 0, 0, /* 1944: pointer.func */
+            4097, 8, 0, /* 1932: pointer.func */
+            4097, 8, 0, /* 1935: pointer.func */
+            4097, 8, 0, /* 1938: pointer.func */
+            4097, 8, 0, /* 1941: pointer.func */
+            4097, 8, 0, /* 1944: pointer.func */
             0, 0, 0, /* 1947: func */
-            4097, 0, 0, /* 1950: pointer.func */
+            4097, 8, 0, /* 1950: pointer.func */
             0, 0, 0, /* 1953: func */
             0, 0, 0, /* 1956: func */
-            4097, 0, 0, /* 1959: pointer.func */
-            4097, 0, 0, /* 1962: pointer.func */
+            4097, 8, 0, /* 1959: pointer.func */
+            4097, 8, 0, /* 1962: pointer.func */
             0, 0, 0, /* 1965: func */
-            4097, 0, 0, /* 1968: pointer.func */
-            4097, 0, 0, /* 1971: pointer.func */
-            4097, 0, 0, /* 1974: pointer.func */
-            4097, 0, 0, /* 1977: pointer.func */
-            4097, 0, 0, /* 1980: pointer.func */
-            4097, 0, 0, /* 1983: pointer.func */
-            4097, 0, 0, /* 1986: pointer.func */
-            4097, 0, 0, /* 1989: pointer.func */
-            4097, 0, 0, /* 1992: pointer.func */
-            4097, 0, 0, /* 1995: pointer.func */
+            4097, 8, 0, /* 1968: pointer.func */
+            4097, 8, 0, /* 1971: pointer.func */
+            4097, 8, 0, /* 1974: pointer.func */
+            4097, 8, 0, /* 1977: pointer.func */
+            4097, 8, 0, /* 1980: pointer.func */
+            4097, 8, 0, /* 1983: pointer.func */
+            4097, 8, 0, /* 1986: pointer.func */
+            4097, 8, 0, /* 1989: pointer.func */
+            4097, 8, 0, /* 1992: pointer.func */
+            4097, 8, 0, /* 1995: pointer.func */
             0, 0, 0, /* 1998: func */
-            4097, 0, 0, /* 2001: pointer.func */
-            4097, 0, 0, /* 2004: pointer.func */
-            4097, 0, 0, /* 2007: pointer.func */
-            4097, 0, 0, /* 2010: pointer.func */
-            4097, 0, 0, /* 2013: pointer.func */
+            4097, 8, 0, /* 2001: pointer.func */
+            4097, 8, 0, /* 2004: pointer.func */
+            4097, 8, 0, /* 2007: pointer.func */
+            4097, 8, 0, /* 2010: pointer.func */
+            4097, 8, 0, /* 2013: pointer.func */
             0, 0, 0, /* 2016: func */
             0, 0, 0, /* 2019: func */
             0, 0, 0, /* 2022: func */
-            4097, 0, 0, /* 2025: pointer.func */
-            4097, 0, 0, /* 2028: pointer.func */
+            4097, 8, 0, /* 2025: pointer.func */
+            4097, 8, 0, /* 2028: pointer.func */
             0, 0, 0, /* 2031: func */
-            4097, 0, 0, /* 2034: pointer.func */
-            4097, 0, 0, /* 2037: pointer.func */
-            4097, 0, 0, /* 2040: pointer.func */
-            4097, 0, 0, /* 2043: pointer.func */
-            4097, 0, 0, /* 2046: pointer.func */
-            4097, 0, 0, /* 2049: pointer.func */
-            4097, 0, 0, /* 2052: pointer.func */
+            4097, 8, 0, /* 2034: pointer.func */
+            4097, 8, 0, /* 2037: pointer.func */
+            4097, 8, 0, /* 2040: pointer.func */
+            4097, 8, 0, /* 2043: pointer.func */
+            4097, 8, 0, /* 2046: pointer.func */
+            4097, 8, 0, /* 2049: pointer.func */
+            4097, 8, 0, /* 2052: pointer.func */
             0, 0, 0, /* 2055: func */
             0, 0, 0, /* 2058: func */
-            4097, 0, 0, /* 2061: pointer.func */
+            4097, 8, 0, /* 2061: pointer.func */
             0, 0, 0, /* 2064: func */
             0, 0, 0, /* 2067: func */
-            4097, 0, 0, /* 2070: pointer.func */
+            4097, 8, 0, /* 2070: pointer.func */
             0, 0, 0, /* 2073: func */
             0, 0, 0, /* 2076: func */
-            4097, 0, 0, /* 2079: pointer.func */
-            4097, 0, 0, /* 2082: pointer.func */
+            4097, 8, 0, /* 2079: pointer.func */
+            4097, 8, 0, /* 2082: pointer.func */
             0, 0, 0, /* 2085: func */
-            4097, 0, 0, /* 2088: pointer.func */
-            4097, 0, 0, /* 2091: pointer.func */
+            4097, 8, 0, /* 2088: pointer.func */
+            4097, 8, 0, /* 2091: pointer.func */
             0, 0, 0, /* 2094: func */
-            4097, 0, 0, /* 2097: pointer.func */
+            4097, 8, 0, /* 2097: pointer.func */
             0, 0, 0, /* 2100: func */
-            4097, 0, 0, /* 2103: pointer.func */
+            4097, 8, 0, /* 2103: pointer.func */
             0, 0, 0, /* 2106: func */
             0, 0, 0, /* 2109: func */
-            4097, 0, 0, /* 2112: pointer.func */
+            4097, 8, 0, /* 2112: pointer.func */
             0, 0, 0, /* 2115: func */
             0, 64, 0, /* 2118: array[64].char */
-            4097, 0, 0, /* 2121: pointer.func */
-            4097, 0, 0, /* 2124: pointer.func */
-            4097, 0, 0, /* 2127: pointer.func */
-            4097, 0, 0, /* 2130: pointer.func */
-            4097, 0, 0, /* 2133: pointer.func */
+            4097, 8, 0, /* 2121: pointer.func */
+            4097, 8, 0, /* 2124: pointer.func */
+            4097, 8, 0, /* 2127: pointer.func */
+            4097, 8, 0, /* 2130: pointer.func */
+            4097, 8, 0, /* 2133: pointer.func */
             0, 0, 0, /* 2136: func */
             0, 0, 0, /* 2139: func */
-            4097, 0, 0, /* 2142: pointer.func */
+            4097, 8, 0, /* 2142: pointer.func */
             0, 0, 0, /* 2145: func */
             0, 0, 0, /* 2148: func */
-            4097, 0, 0, /* 2151: pointer.func */
+            4097, 8, 0, /* 2151: pointer.func */
             0, 0, 0, /* 2154: func */
             0, 0, 0, /* 2157: func */
             0, 0, 0, /* 2160: func */
-            4097, 0, 0, /* 2163: pointer.func */
+            4097, 8, 0, /* 2163: pointer.func */
             0, 0, 0, /* 2166: func */
-            4097, 0, 0, /* 2169: pointer.func */
+            4097, 8, 0, /* 2169: pointer.func */
             0, 20, 0, /* 2172: array[20].char */
-            4097, 0, 0, /* 2175: pointer.func */
+            4097, 8, 0, /* 2175: pointer.func */
             0, 0, 0, /* 2178: func */
-            4097, 0, 0, /* 2181: pointer.func */
-            4097, 0, 0, /* 2184: pointer.func */
-            4097, 0, 0, /* 2187: pointer.func */
-            4097, 0, 0, /* 2190: pointer.func */
+            4097, 8, 0, /* 2181: pointer.func */
+            4097, 8, 0, /* 2184: pointer.func */
+            4097, 8, 0, /* 2187: pointer.func */
+            4097, 8, 0, /* 2190: pointer.func */
             0, 0, 0, /* 2193: func */
-            4097, 0, 0, /* 2196: pointer.func */
-            4097, 0, 0, /* 2199: pointer.func */
+            4097, 8, 0, /* 2196: pointer.func */
+            4097, 8, 0, /* 2199: pointer.func */
             0, 0, 0, /* 2202: func */
-            4097, 0, 0, /* 2205: pointer.func */
-            4097, 0, 0, /* 2208: pointer.func */
+            4097, 8, 0, /* 2205: pointer.func */
+            4097, 8, 0, /* 2208: pointer.func */
             0, 0, 0, /* 2211: func */
             0, 0, 0, /* 2214: func */
-            4097, 0, 0, /* 2217: pointer.func */
+            4097, 8, 0, /* 2217: pointer.func */
             0, 0, 0, /* 2220: func */
-            4097, 0, 0, /* 2223: pointer.func */
+            4097, 8, 0, /* 2223: pointer.func */
             0, 0, 0, /* 2226: func */
             0, 0, 0, /* 2229: func */
-            4097, 0, 0, /* 2232: pointer.func */
-            4097, 0, 0, /* 2235: pointer.func */
+            4097, 8, 0, /* 2232: pointer.func */
+            4097, 8, 0, /* 2235: pointer.func */
             0, 0, 0, /* 2238: func */
-            4097, 0, 0, /* 2241: pointer.func */
+            4097, 8, 0, /* 2241: pointer.func */
             0, 0, 0, /* 2244: func */
             0, 0, 0, /* 2247: func */
-            4097, 0, 0, /* 2250: pointer.func */
-            4097, 0, 0, /* 2253: pointer.func */
+            4097, 8, 0, /* 2250: pointer.func */
+            4097, 8, 0, /* 2253: pointer.func */
             0, 0, 0, /* 2256: func */
             0, 0, 0, /* 2259: func */
-            4097, 0, 0, /* 2262: pointer.func */
+            4097, 8, 0, /* 2262: pointer.func */
             0, 16, 0, /* 2265: struct.rlimit */
             0, 0, 0, /* 2268: func */
             0, 0, 0, /* 2271: func */
-            4097, 0, 0, /* 2274: pointer.func */
-            4097, 0, 0, /* 2277: pointer.func */
+            4097, 8, 0, /* 2274: pointer.func */
+            4097, 8, 0, /* 2277: pointer.func */
             0, 0, 0, /* 2280: func */
-            4097, 0, 0, /* 2283: pointer.func */
+            4097, 8, 0, /* 2283: pointer.func */
             0, 0, 0, /* 2286: func */
             0, 0, 0, /* 2289: func */
-            4097, 0, 0, /* 2292: pointer.func */
+            4097, 8, 0, /* 2292: pointer.func */
             0, 0, 0, /* 2295: func */
             0, 0, 0, /* 2298: func */
-            4097, 0, 0, /* 2301: pointer.func */
+            4097, 8, 0, /* 2301: pointer.func */
             0, 0, 0, /* 2304: func */
             0, 0, 0, /* 2307: func */
             0, 0, 0, /* 2310: func */
@@ -972,17 +972,17 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             0, 0, 0, /* 2322: func */
             0, 0, 0, /* 2325: func */
             0, 0, 0, /* 2328: func */
-            4097, 0, 0, /* 2331: pointer.func */
-            4097, 0, 0, /* 2334: pointer.func */
-            4097, 0, 0, /* 2337: pointer.func */
-            4097, 0, 0, /* 2340: pointer.func */
-            4097, 0, 0, /* 2343: pointer.func */
+            4097, 8, 0, /* 2331: pointer.func */
+            4097, 8, 0, /* 2334: pointer.func */
+            4097, 8, 0, /* 2337: pointer.func */
+            4097, 8, 0, /* 2340: pointer.func */
+            4097, 8, 0, /* 2343: pointer.func */
             0, 0, 0, /* 2346: func */
             0, 0, 0, /* 2349: func */
-            4097, 0, 0, /* 2352: pointer.func */
+            4097, 8, 0, /* 2352: pointer.func */
             0, 0, 0, /* 2355: func */
-            4097, 0, 0, /* 2358: pointer.func */
-            4097, 0, 0, /* 2361: pointer.func */
+            4097, 8, 0, /* 2358: pointer.func */
+            4097, 8, 0, /* 2361: pointer.func */
         },
         .arg_entity_index = { 1816, },
         .ret_entity_index = 8,

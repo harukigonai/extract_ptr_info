@@ -56,62 +56,62 @@ int bb_EVP_EncryptInit_ex(EVP_CIPHER_CTX * arg_a,const EVP_CIPHER * arg_b,ENGINE
             	4096, 0,
             0, 0, 0, /* 17: func */
             0, 0, 0, /* 20: func */
-            4097, 0, 0, /* 23: pointer.func */
+            4097, 8, 0, /* 23: pointer.func */
             0, 0, 0, /* 26: func */
-            4097, 0, 0, /* 29: pointer.func */
+            4097, 8, 0, /* 29: pointer.func */
             0, 0, 0, /* 32: struct.unnamed */
-            4097, 0, 0, /* 35: pointer.func */
+            4097, 8, 0, /* 35: pointer.func */
             0, 0, 0, /* 38: struct.store_method_st */
             1, 8, 1, /* 41: pointer.struct.store_method_st */
             	38, 0,
             0, 0, 0, /* 46: func */
-            4097, 0, 0, /* 49: pointer.func */
+            4097, 8, 0, /* 49: pointer.func */
             0, 32, 0, /* 52: array[32].char */
             0, 0, 0, /* 55: func */
             1, 8, 1, /* 58: pointer.struct.rand_meth_st */
             	63, 0,
             0, 48, 0, /* 63: struct.rand_meth_st */
             0, 0, 0, /* 66: func */
-            4097, 0, 0, /* 69: pointer.func */
+            4097, 8, 0, /* 69: pointer.func */
             0, 0, 0, /* 72: func */
-            4097, 0, 0, /* 75: pointer.func */
+            4097, 8, 0, /* 75: pointer.func */
             0, 0, 0, /* 78: func */
-            4097, 0, 0, /* 81: pointer.func */
+            4097, 8, 0, /* 81: pointer.func */
             0, 48, 2, /* 84: struct.ecdsa_method */
             	12, 0,
             	12, 40,
             1, 8, 1, /* 91: pointer.struct.ecdsa_method */
             	84, 0,
-            4097, 0, 0, /* 96: pointer.func */
+            4097, 8, 0, /* 96: pointer.func */
             0, 0, 0, /* 99: func */
             1, 8, 1, /* 102: pointer.struct.ecdh_method */
             	107, 0,
             0, 32, 2, /* 107: struct.ecdh_method */
             	12, 0,
             	12, 24,
-            4097, 0, 0, /* 114: pointer.func */
+            4097, 8, 0, /* 114: pointer.func */
             0, 0, 0, /* 117: func */
-            4097, 0, 0, /* 120: pointer.func */
+            4097, 8, 0, /* 120: pointer.func */
             1, 8, 1, /* 123: pointer.struct.rsa_meth_st.1132 */
             	128, 0,
             0, 112, 2, /* 128: struct.rsa_meth_st.1132 */
             	12, 0,
             	12, 80,
-            4097, 0, 0, /* 135: pointer.func */
+            4097, 8, 0, /* 135: pointer.func */
             1, 8, 1, /* 138: pointer.struct.unnamed */
             	32, 0,
             0, 0, 0, /* 143: func */
-            4097, 0, 0, /* 146: pointer.func */
-            4097, 0, 0, /* 149: pointer.func */
+            4097, 8, 0, /* 146: pointer.func */
+            4097, 8, 0, /* 149: pointer.func */
             0, 0, 0, /* 152: func */
             0, 0, 0, /* 155: func */
             0, 32, 1, /* 158: struct.stack_st */
             	163, 8,
             1, 8, 1, /* 163: pointer.pointer.char */
             	12, 0,
-            4097, 0, 0, /* 168: pointer.func */
-            4097, 0, 0, /* 171: pointer.func */
-            4097, 0, 0, /* 174: pointer.func */
+            4097, 8, 0, /* 168: pointer.func */
+            4097, 8, 0, /* 171: pointer.func */
+            4097, 8, 0, /* 174: pointer.func */
             0, 16, 1, /* 177: struct.crypto_ex_data_st */
             	182, 0,
             1, 8, 1, /* 182: pointer.struct.stack_st_OPENSSL_STRING */
@@ -120,7 +120,7 @@ int bb_EVP_EncryptInit_ex(EVP_CIPHER_CTX * arg_a,const EVP_CIPHER * arg_b,ENGINE
             	158, 0,
             0, 0, 0, /* 192: func */
             0, 0, 0, /* 195: func */
-            4097, 0, 0, /* 198: pointer.func */
+            4097, 8, 0, /* 198: pointer.func */
             0, 0, 0, /* 201: func */
             0, 4, 0, /* 204: int */
             0, 0, 0, /* 207: func */
@@ -164,54 +164,54 @@ int bb_EVP_EncryptInit_ex(EVP_CIPHER_CTX * arg_a,const EVP_CIPHER * arg_b,ENGINE
             0, 72, 2, /* 293: struct.dh_method.1137 */
             	12, 0,
             	12, 56,
-            4097, 0, 0, /* 300: pointer.func */
+            4097, 8, 0, /* 300: pointer.func */
             0, 0, 0, /* 303: func */
-            4097, 0, 0, /* 306: pointer.func */
+            4097, 8, 0, /* 306: pointer.func */
             0, 0, 0, /* 309: func */
-            4097, 0, 0, /* 312: pointer.func */
+            4097, 8, 0, /* 312: pointer.func */
             0, 0, 0, /* 315: func */
             0, 0, 0, /* 318: func */
-            4097, 0, 0, /* 321: pointer.func */
+            4097, 8, 0, /* 321: pointer.func */
             0, 0, 0, /* 324: func */
-            4097, 0, 0, /* 327: pointer.func */
-            4097, 0, 0, /* 330: pointer.func */
-            4097, 0, 0, /* 333: pointer.func */
-            4097, 0, 0, /* 336: pointer.func */
+            4097, 8, 0, /* 327: pointer.func */
+            4097, 8, 0, /* 330: pointer.func */
+            4097, 8, 0, /* 333: pointer.func */
+            4097, 8, 0, /* 336: pointer.func */
             0, 0, 0, /* 339: func */
             0, 0, 0, /* 342: func */
             0, 0, 0, /* 345: func */
             0, 0, 0, /* 348: func */
-            4097, 0, 0, /* 351: pointer.func */
+            4097, 8, 0, /* 351: pointer.func */
             0, 0, 0, /* 354: func */
             0, 1, 0, /* 357: char */
             0, 0, 0, /* 360: func */
             0, 8, 0, /* 363: long */
             0, 16, 0, /* 366: array[16].char */
-            4097, 0, 0, /* 369: pointer.func */
+            4097, 8, 0, /* 369: pointer.func */
             0, 0, 0, /* 372: func */
-            4097, 0, 0, /* 375: pointer.func */
-            4097, 0, 0, /* 378: pointer.func */
-            4097, 0, 0, /* 381: pointer.func */
-            4097, 0, 0, /* 384: pointer.func */
+            4097, 8, 0, /* 375: pointer.func */
+            4097, 8, 0, /* 378: pointer.func */
+            4097, 8, 0, /* 381: pointer.func */
+            4097, 8, 0, /* 384: pointer.func */
             0, 0, 0, /* 387: func */
             0, 0, 0, /* 390: func */
             0, 0, 0, /* 393: func */
-            4097, 0, 0, /* 396: pointer.func */
+            4097, 8, 0, /* 396: pointer.func */
             0, 0, 0, /* 399: func */
-            4097, 0, 0, /* 402: pointer.func */
-            4097, 0, 0, /* 405: pointer.func */
+            4097, 8, 0, /* 402: pointer.func */
+            4097, 8, 0, /* 405: pointer.func */
             0, 0, 0, /* 408: func */
             0, 0, 0, /* 411: func */
-            4097, 0, 0, /* 414: pointer.func */
+            4097, 8, 0, /* 414: pointer.func */
             0, 0, 0, /* 417: func */
-            4097, 0, 0, /* 420: pointer.func */
-            4097, 0, 0, /* 423: pointer.func */
-            4097, 0, 0, /* 426: pointer.func */
+            4097, 8, 0, /* 420: pointer.func */
+            4097, 8, 0, /* 423: pointer.func */
+            4097, 8, 0, /* 426: pointer.func */
             0, 0, 0, /* 429: func */
             0, 0, 0, /* 432: func */
-            4097, 0, 0, /* 435: pointer.func */
+            4097, 8, 0, /* 435: pointer.func */
             0, 0, 0, /* 438: func */
-            4097, 0, 0, /* 441: pointer.func */
+            4097, 8, 0, /* 441: pointer.func */
             0, 0, 0, /* 444: func */
         },
         .arg_entity_index = { 210, 226, 236, 12, 12, },

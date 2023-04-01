@@ -64,8 +64,8 @@ int bb_BIO_read(BIO * arg_a,void * arg_b,int arg_c)
             0, 0, 0, /* 36: func */
             0, 0, 0, /* 39: func */
             0, 0, 0, /* 42: func */
-            4097, 0, 0, /* 45: pointer.func */
-            4097, 0, 0, /* 48: pointer.func */
+            4097, 8, 0, /* 45: pointer.func */
+            4097, 8, 0, /* 48: pointer.func */
             0, 4, 0, /* 51: int */
             1, 8, 1, /* 54: pointer.struct.bio_st */
             	59, 0,
@@ -81,14 +81,14 @@ int bb_BIO_read(BIO * arg_a,void * arg_b,int arg_c)
             0, 80, 1, /* 79: struct.bio_method_st */
             	13, 8,
             0, 0, 0, /* 84: func */
-            4097, 0, 0, /* 87: pointer.func */
+            4097, 8, 0, /* 87: pointer.func */
             0, 1, 0, /* 90: char */
-            4097, 0, 0, /* 93: pointer.func */
-            4097, 0, 0, /* 96: pointer.func */
+            4097, 8, 0, /* 93: pointer.func */
+            4097, 8, 0, /* 96: pointer.func */
             0, 0, 0, /* 99: func */
-            4097, 0, 0, /* 102: pointer.func */
+            4097, 8, 0, /* 102: pointer.func */
             0, 0, 0, /* 105: func */
-            4097, 0, 0, /* 108: pointer.func */
+            4097, 8, 0, /* 108: pointer.func */
         },
         .arg_entity_index = { 54, 13, 51, },
         .ret_entity_index = 51,
