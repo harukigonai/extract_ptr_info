@@ -106,7 +106,7 @@ def generate_function_wrapper(func_dict, wrapper_output_dir, ent_metadata_dir):
     func_text +=  "    unsigned long in_lib = syscall(890);\n"
     # func_text += f"    printf(\"{func_name} called\\n\");\n"
     # func_text +=  "    if (!syscall(890))\n"
-    func_text += f"    printf(\"{func_name} called %x\\n\", in_lib);\n"
+    func_text += f"    printf(\"{func_name} called %lu\\n\", in_lib);\n"
     func_text +=  "    if (!in_lib)\n"
 
     if ret_type != "void":
