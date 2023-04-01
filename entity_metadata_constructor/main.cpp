@@ -19,6 +19,7 @@
 #include <llvm/ADT/Triple.h>
 #include <llvm/IR/Module.h>
 #include <llvm/IR/Type.h>
+#include <llvm/IR/DebugInfoMetadata.h>
 // #include <clang/AST/Type.h>
 
 using std::cout;
@@ -54,6 +55,19 @@ using llvm::TargetLibraryInfo;
 using llvm::TargetLibraryInfoImpl;
 using llvm::Triple;
 using llvm::Type;
+using llvm::DISubprogram;
+using llvm::Metadata;
+using llvm::DISubroutineType;
+using llvm::DITypeRefArray;
+using llvm::DIType;
+using llvm::DIDerivedType;
+using llvm::SmallVector;
+using llvm::MDNode;
+using llvm::DICompositeType;
+using llvm::dyn_cast;
+using llvm::dyn_cast_or_null;
+using llvm::DINodeArray;
+using llvm::DINode;
 
 void print_types_helper(set<struct type_info *> &entity_processed,
                         struct type_info *type_info) {
@@ -127,6 +141,8 @@ extract_types(DataLayout &dataLayout,
 
   type_info->child_types = new vector<struct child_type *>();
   vector<struct child_type *> *child_types = type_info->child_types;
+
+  type_info->type_ptr = type;
 
   // Add type to types
   types[type] = type_info;
@@ -299,6 +315,32 @@ void extract_ptr_types(unordered_map<Type *, struct type_info *> &structs) {
   }
 }
 
+void detail_void_ptr_types(
+  const Function &lib_func,
+  struct type_info *void_ptr_type_info,
+  unordered_map<Type *, struct type_info *> &structs)
+{
+  SmallVector<std::pair<unsigned, MDNode *>, 20> MDs;
+  lib_func.getAllMetadata(MDs);
+
+  for (auto &MD : MDs) {
+    if (MDNode *N = MD.second) {
+      DICompositeType *compos_type = dyn_cast<DICompositeType>(N);
+      if (compos_type) {
+        DINodeArray di_node_arr = compos_type->getElements();
+        for (int i = 0; i < di_node_arr.size(); i++) {
+          DINode *di_node = di_node_arr[i];
+          DIDerivedType *di_derived_type = dyn_cast_or_null<DIDerivedType>(di_node);
+          if (di_derived_type && di_derived_type->getTag() == 15 && !di_derived_type->getBaseType()) {
+            // index = ent_to_index->find(void_ptr_type_info)->second;
+            // fprintf(f, "%d", index);
+          }
+        }
+      }
+    }
+  }
+}
+
 /*
  * Determine how many bytes we need for the entity_metadata array
  */
@@ -350,7 +392,12 @@ int setEntInArray(uint64_t *ent_array,
   size_t child_types_size = type_info->child_types->size();
   int local_ind = ind;
 
-  if (strcmp(type_info->name, "pointer.func") == 0) {
+  if (strcmp(type_info->name, "pointer.void") == 0) {
+    ind += 3;
+    ent_array[local_ind++] = 4098;
+    ent_array[local_ind++] = type_info->size;
+    ent_array[local_ind++] = 0;
+  } else if (strcmp(type_info->name, "pointer.func") == 0) {
     ind += 3;
     ent_array[local_ind++] = 4097;
     ent_array[local_ind++] = type_info->size;
@@ -427,10 +474,10 @@ int main(int argc, char **argv) {
       StringRef name = lib_func.getName();
       string name_as_str = string(name.data());
 
-      // /* Debugging tool to only generate for one func */
-      // if (strcmp("CRYPTO_set_locking_callback", name.data()) != 0) {
-      //   continue;
-      // }
+      /* Debugging tool to only generate for one func */
+      if (strcmp("BIO_read", name.data()) != 0) {
+        continue;
+      }
 
       const bool is_in = funcs_we_care_about.find(name_as_str) !=
         funcs_we_care_about.end();
@@ -459,6 +506,17 @@ int main(int argc, char **argv) {
       detail_types(types);
 
       extract_ptr_types(types);
+
+      struct type_info *void_ptr_type_info = new struct type_info;
+      void_ptr_type_info->type = 4098; // arbitrary, but stands for void *
+      memset(void_ptr_type_info->name, 0, 4096);
+      strcpy(void_ptr_type_info->name, "pointer.void");
+      void_ptr_type_info->size = 8;
+      void_ptr_type_info->child_types = new vector<struct child_type *>();
+      void_ptr_type_info->type_ptr = (Type *)4097;
+      types[(Type *)4097] = void_ptr_type_info;
+
+      detail_void_ptr_types(lib_func, void_ptr_type_info, types);
 
       size_t arr_size = compute_arr_size(types);
 
@@ -513,34 +571,55 @@ int main(int argc, char **argv) {
 
       fclose(f);
 
-      struct type_info *type_info;
       int index;
+
+      DISubprogram *sub = lib_func.getSubprogram();
+      // Metadata *type = sub->Type;
+      DISubroutineType *sub_routine_type = sub->getType();
+      DITypeRefArray sub_routine_type_arr = sub_routine_type->getTypeArray();
+
+      printf("1\n");
 
       sprintf(filename, "bin/%s.ret_entity_index", name.data());
       f = fopen(filename, "w");
+      DIDerivedType *ret_type = dyn_cast_or_null<DIDerivedType>(sub_routine_type_arr[0]);
       if (!returnType->isVoidTy()) {
-        type_info = types.find(returnType)->second;
-        index = ent_to_index->find(type_info)->second;
-        fprintf(f, "%d", index);
+        if (ret_type && ret_type->getTag() == 15 && !ret_type->getBaseType()) {
+          index = ent_to_index->find(void_ptr_type_info)->second;
+          fprintf(f, "%d", index);
+        } else {
+          struct type_info *type_info = types.find(returnType)->second;
+          index = ent_to_index->find(type_info)->second;
+          fprintf(f, "%d", index);
+        }
       } else {
         fprintf(f, "-1");
       }
       fclose(f);
 
+      printf("2\n");
+
       sprintf(filename, "bin/%s.arg_entity_index", name.data());
       f = fopen(filename, "w");
       if (paramTypes.size()) {
+        int i = 1;
         for (Type *paramType : paramTypes) {
-          if (!paramType->isVoidTy()) {
-            type_info = types.find(paramType)->second;
+          DIDerivedType *param_type = dyn_cast_or_null<DIDerivedType>(sub_routine_type_arr[i]);
+          if (param_type && param_type->getTag() == 15 && !param_type->getBaseType()) {
+            printf("4\n");
+            index = ent_to_index->find(void_ptr_type_info)->second;
+            printf("5\n");
+            fprintf(f, "%d, ", index);
+          } else {
+            struct type_info *type_info = types.find(paramType)->second;
             index = ent_to_index->find(type_info)->second;
             fprintf(f, "%d, ", index);
           }
+          i++;
         }
       } else {
         fprintf(f, "-1");
       }
-
       fclose(f);
     }
   }

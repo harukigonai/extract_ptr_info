@@ -58,8 +58,9 @@ struct child_type {
 
 struct type_info {
     char name[4096];
-    Type::TypeID type;
+    int type;
     size_t size;
+    Type *type_ptr;
     vector<struct child_type *> *child_types;
 };
 
