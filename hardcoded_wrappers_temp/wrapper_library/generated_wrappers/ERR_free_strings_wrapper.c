@@ -29,8 +29,9 @@ void bb_ERR_free_strings(void);
 
 void ERR_free_strings(void) 
 {
-    printf("ERR_free_strings called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("ERR_free_strings called %lu\n", in_lib);
+    if (!in_lib)
         bb_ERR_free_strings();
     else {
         void (*orig_ERR_free_strings)(void);

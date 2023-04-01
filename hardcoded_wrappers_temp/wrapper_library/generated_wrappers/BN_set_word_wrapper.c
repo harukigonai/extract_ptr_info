@@ -29,8 +29,9 @@ int bb_BN_set_word(BIGNUM * arg_a,BN_ULONG arg_b);
 
 int BN_set_word(BIGNUM * arg_a,BN_ULONG arg_b) 
 {
-    printf("BN_set_word called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("BN_set_word called %lu\n", in_lib);
+    if (!in_lib)
         return bb_BN_set_word(arg_a,arg_b);
     else {
         int (*orig_BN_set_word)(BIGNUM *,BN_ULONG);
@@ -46,16 +47,16 @@ int bb_BN_set_word(BIGNUM * arg_a,BN_ULONG arg_b)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            0, 24, 1, /* 0: struct.bignum_st */
+            1, 8, 1, /* 0: pointer.int */
             	5, 0,
-            1, 8, 1, /* 5: pointer.int */
-            	10, 0,
-            0, 4, 0, /* 10: int */
-            1, 8, 1, /* 13: pointer.struct.bignum_st */
+            0, 4, 0, /* 5: int */
+            0, 24, 1, /* 8: struct.bignum_st */
             	0, 0,
+            1, 8, 1, /* 13: pointer.struct.bignum_st */
+            	8, 0,
         },
-        .arg_entity_index = { 13, 10, },
-        .ret_entity_index = 10,
+        .arg_entity_index = { 13, 5, },
+        .ret_entity_index = 5,
     };
     struct lib_enter_args *args_addr = &args;
     populate_arg(args_addr, arg_a);

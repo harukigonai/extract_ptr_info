@@ -29,8 +29,9 @@ void bb_OBJ_cleanup(void);
 
 void OBJ_cleanup(void) 
 {
-    printf("OBJ_cleanup called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("OBJ_cleanup called %lu\n", in_lib);
+    if (!in_lib)
         bb_OBJ_cleanup();
     else {
         void (*orig_OBJ_cleanup)(void);

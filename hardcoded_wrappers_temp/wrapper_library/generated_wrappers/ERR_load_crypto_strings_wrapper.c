@@ -29,8 +29,9 @@ void bb_ERR_load_crypto_strings(void);
 
 void ERR_load_crypto_strings(void) 
 {
-    printf("ERR_load_crypto_strings called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("ERR_load_crypto_strings called %lu\n", in_lib);
+    if (!in_lib)
         bb_ERR_load_crypto_strings();
     else {
         void (*orig_ERR_load_crypto_strings)(void);

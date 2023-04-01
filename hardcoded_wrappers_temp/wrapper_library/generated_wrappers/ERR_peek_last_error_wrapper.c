@@ -29,8 +29,9 @@ unsigned long bb_ERR_peek_last_error(void);
 
 unsigned long ERR_peek_last_error(void) 
 {
-    printf("ERR_peek_last_error called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("ERR_peek_last_error called %lu\n", in_lib);
+    if (!in_lib)
         return bb_ERR_peek_last_error();
     else {
         unsigned long (*orig_ERR_peek_last_error)(void);

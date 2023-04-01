@@ -29,8 +29,9 @@ void bb_ENGINE_cleanup(void);
 
 void ENGINE_cleanup(void) 
 {
-    printf("ENGINE_cleanup called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("ENGINE_cleanup called %lu\n", in_lib);
+    if (!in_lib)
         bb_ENGINE_cleanup();
     else {
         void (*orig_ENGINE_cleanup)(void);

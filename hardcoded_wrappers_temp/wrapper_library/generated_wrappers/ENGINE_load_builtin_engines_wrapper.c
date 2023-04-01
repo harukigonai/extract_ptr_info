@@ -29,8 +29,9 @@ void bb_ENGINE_load_builtin_engines(void);
 
 void ENGINE_load_builtin_engines(void) 
 {
-    printf("ENGINE_load_builtin_engines called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("ENGINE_load_builtin_engines called %lu\n", in_lib);
+    if (!in_lib)
         bb_ENGINE_load_builtin_engines();
     else {
         void (*orig_ENGINE_load_builtin_engines)(void);

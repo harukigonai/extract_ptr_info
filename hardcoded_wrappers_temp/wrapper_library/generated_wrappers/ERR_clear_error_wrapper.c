@@ -29,8 +29,9 @@ void bb_ERR_clear_error(void);
 
 void ERR_clear_error(void) 
 {
-    printf("ERR_clear_error called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("ERR_clear_error called %lu\n", in_lib);
+    if (!in_lib)
         bb_ERR_clear_error();
     else {
         void (*orig_ERR_clear_error)(void);

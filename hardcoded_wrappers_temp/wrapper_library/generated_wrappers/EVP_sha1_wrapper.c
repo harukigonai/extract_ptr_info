@@ -29,8 +29,9 @@ const EVP_MD * bb_EVP_sha1(void);
 
 const EVP_MD * EVP_sha1(void) 
 {
-    printf("EVP_sha1 called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("EVP_sha1 called %lu\n", in_lib);
+    if (!in_lib)
         return bb_EVP_sha1();
     else {
         const EVP_MD * (*orig_EVP_sha1)(void);
@@ -47,28 +48,35 @@ const EVP_MD * bb_EVP_sha1(void)
         .num_args = 0,
         .entity_metadata = {
             0, 0, 0, /* 0: func */
-            0, 8, 0, /* 3: pointer.func */
+            4097, 0, 0, /* 3: pointer.func */
             0, 20, 0, /* 6: array[5].int */
             0, 0, 0, /* 9: func */
-            0, 8, 0, /* 12: pointer.func */
-            0, 0, 0, /* 15: func */
-            0, 120, 0, /* 18: struct.env_md_st */
-            0, 0, 0, /* 21: func */
-            0, 8, 0, /* 24: pointer.func */
-            1, 8, 1, /* 27: pointer.struct.env_md_st */
-            	18, 0,
-            0, 8, 0, /* 32: long */
-            0, 8, 0, /* 35: pointer.func */
-            0, 8, 0, /* 38: pointer.func */
-            0, 0, 0, /* 41: func */
-            0, 0, 0, /* 44: func */
-            0, 8, 0, /* 47: pointer.func */
-            0, 4, 0, /* 50: int */
-            0, 8, 0, /* 53: pointer.func */
-            0, 0, 0, /* 56: func */
+            4097, 140425329649312, 4294967295, /* 12: pointer.func */
+            	0, 0,
+            	0, 1,
+            	8, 1,
+            	23, 0,
+            	0, 120,
+            	0, 0,
+            	0, 0,
+            	0, 4,
+            	0, 4097,
+            	0, 0,
+            	4097, 0,
+            	0, 0,
+            	0, 0,
+            	0, 0,
+            	0, 0,
+            	8, 0,
+            	4097, 0,
+            	0, 4097,
+            	0, 0,
+            	0, 0,
+            	0, 4097,
+            	0, 140425329631424,
         },
         .arg_entity_index = { -1 },
-        .ret_entity_index = 27,
+        .ret_entity_index = 18,
     };
     struct lib_enter_args *args_addr = &args;
     populate_ret(args_addr, ret);

@@ -29,8 +29,9 @@ int bb_SSL_library_init(void);
 
 int SSL_library_init(void) 
 {
-    printf("SSL_library_init called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("SSL_library_init called %lu\n", in_lib);
+    if (!in_lib)
         return bb_SSL_library_init();
     else {
         int (*orig_SSL_library_init)(void);

@@ -29,8 +29,9 @@ void bb_OPENSSL_load_builtin_modules(void);
 
 void OPENSSL_load_builtin_modules(void) 
 {
-    printf("OPENSSL_load_builtin_modules called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("OPENSSL_load_builtin_modules called %lu\n", in_lib);
+    if (!in_lib)
         bb_OPENSSL_load_builtin_modules();
     else {
         void (*orig_OPENSSL_load_builtin_modules)(void);

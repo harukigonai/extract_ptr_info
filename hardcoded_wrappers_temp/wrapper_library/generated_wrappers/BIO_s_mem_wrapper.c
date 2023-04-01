@@ -29,8 +29,9 @@ BIO_METHOD * bb_BIO_s_mem(void);
 
 BIO_METHOD * BIO_s_mem(void) 
 {
-    printf("BIO_s_mem called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("BIO_s_mem called %lu\n", in_lib);
+    if (!in_lib)
         return bb_BIO_s_mem();
     else {
         BIO_METHOD * (*orig_BIO_s_mem)(void);
@@ -50,20 +51,24 @@ BIO_METHOD * bb_BIO_s_mem(void)
             0, 80, 1, /* 3: struct.bio_method_st */
             	8, 8,
             1, 8, 1, /* 8: pointer.char */
-            	13, 0,
-            0, 1, 0, /* 13: char */
+            	4096, 0,
+            0, 4, 0, /* 13: int */
             0, 0, 0, /* 16: func */
-            0, 4, 0, /* 19: int */
-            0, 8, 0, /* 22: pointer.func */
-            0, 0, 0, /* 25: func */
-            0, 8, 0, /* 28: pointer.func */
-            0, 8, 0, /* 31: pointer.func */
-            0, 8, 0, /* 34: pointer.func */
-            0, 0, 0, /* 37: func */
-            0, 0, 0, /* 40: func */
-            1, 8, 1, /* 43: pointer.struct.bio_method_st */
-            	3, 0,
-            0, 8, 0, /* 48: pointer.func */
+            0, 1, 0, /* 19: char */
+            4097, 48, 94416502371640, /* 22: pointer.func */
+            	0, 0,
+            	0, 4097,
+            	48, 94416502369144,
+            	4097, 0,
+            	0, 4097,
+            	193, 94396195311776,
+            	0, 0,
+            	0, 0,
+            	0, 0,
+            	1, 8,
+            	1, 3,
+            	0, 4097,
+            	94396196026832, 0,
         },
         .arg_entity_index = { -1 },
         .ret_entity_index = 43,

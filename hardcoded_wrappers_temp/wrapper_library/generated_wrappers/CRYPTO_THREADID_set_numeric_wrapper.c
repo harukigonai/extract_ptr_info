@@ -29,8 +29,9 @@ void bb_CRYPTO_THREADID_set_numeric(CRYPTO_THREADID * arg_a,unsigned long arg_b)
 
 void CRYPTO_THREADID_set_numeric(CRYPTO_THREADID * arg_a,unsigned long arg_b) 
 {
-    printf("CRYPTO_THREADID_set_numeric called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("CRYPTO_THREADID_set_numeric called %lu\n", in_lib);
+    if (!in_lib)
         bb_CRYPTO_THREADID_set_numeric(arg_a,arg_b);
     else {
         void (*orig_CRYPTO_THREADID_set_numeric)(CRYPTO_THREADID *,unsigned long);
@@ -45,13 +46,13 @@ void bb_CRYPTO_THREADID_set_numeric(CRYPTO_THREADID * arg_a,unsigned long arg_b)
         .num_args = 0,
         .entity_metadata = {
             0, 8, 0, /* 0: long */
-            1, 8, 1, /* 3: pointer.char */
-            	8, 0,
-            0, 1, 0, /* 8: char */
-            0, 16, 1, /* 11: struct.iovec */
-            	3, 0,
-            1, 8, 1, /* 16: pointer.struct.iovec */
+            0, 1, 0, /* 3: char */
+            0, 16, 1, /* 6: struct.iovec */
             	11, 0,
+            1, 8, 1, /* 11: pointer.char */
+            	4096, 0,
+            1, 8, 1, /* 16: pointer.struct.iovec */
+            	6, 0,
         },
         .arg_entity_index = { 16, 0, },
         .ret_entity_index = -1,

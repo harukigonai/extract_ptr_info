@@ -29,8 +29,9 @@ int bb_RAND_status(void);
 
 int RAND_status(void) 
 {
-    printf("RAND_status called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("RAND_status called %lu\n", in_lib);
+    if (!in_lib)
         return bb_RAND_status();
     else {
         int (*orig_RAND_status)(void);

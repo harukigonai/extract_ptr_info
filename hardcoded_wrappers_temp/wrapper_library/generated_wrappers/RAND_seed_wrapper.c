@@ -29,8 +29,9 @@ void bb_RAND_seed(void * arg_a,int arg_b);
 
 void RAND_seed(void * arg_a,int arg_b) 
 {
-    printf("RAND_seed called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("RAND_seed called %lu\n", in_lib);
+    if (!in_lib)
         bb_RAND_seed(arg_a,arg_b);
     else {
         void (*orig_RAND_seed)(void *,int);
@@ -44,12 +45,12 @@ void bb_RAND_seed(void * arg_a,int arg_b)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            0, 4, 0, /* 0: int */
-            0, 1, 0, /* 3: char */
+            0, 1, 0, /* 0: char */
+            0, 4, 0, /* 3: int */
             1, 8, 1, /* 6: pointer.char */
-            	3, 0,
+            	4096, 0,
         },
-        .arg_entity_index = { 6, 0, },
+        .arg_entity_index = { 6, 3, },
         .ret_entity_index = -1,
     };
     struct lib_enter_args *args_addr = &args;

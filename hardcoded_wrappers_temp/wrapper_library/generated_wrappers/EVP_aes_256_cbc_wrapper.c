@@ -29,8 +29,9 @@ const EVP_CIPHER * bb_EVP_aes_256_cbc(void);
 
 const EVP_CIPHER * EVP_aes_256_cbc(void) 
 {
-    printf("EVP_aes_256_cbc called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("EVP_aes_256_cbc called %lu\n", in_lib);
+    if (!in_lib)
         return bb_EVP_aes_256_cbc();
     else {
         const EVP_CIPHER * (*orig_EVP_aes_256_cbc)(void);
@@ -52,19 +53,19 @@ const EVP_CIPHER * bb_EVP_aes_256_cbc(void)
             0, 88, 1, /* 8: struct.evp_cipher_st.2256 */
             	13, 80,
             1, 8, 1, /* 13: pointer.char */
-            	18, 0,
-            0, 1, 0, /* 18: char */
-            0, 8, 0, /* 21: pointer.func */
+            	4096, 0,
+            4097, 0, 0, /* 18: pointer.func */
+            0, 4, 0, /* 21: int */
             0, 8, 0, /* 24: long */
-            0, 4, 0, /* 27: int */
-            0, 8, 0, /* 30: pointer.func */
-            0, 8, 0, /* 33: pointer.func */
-            0, 8, 0, /* 36: pointer.func */
+            0, 1, 0, /* 27: char */
+            4097, 0, 0, /* 30: pointer.func */
+            4097, 0, 0, /* 33: pointer.func */
+            4097, 0, 0, /* 36: pointer.func */
             0, 0, 0, /* 39: func */
             0, 0, 0, /* 42: func */
             0, 0, 0, /* 45: func */
             0, 0, 0, /* 48: func */
-            0, 8, 0, /* 51: pointer.func */
+            4097, 0, 0, /* 51: pointer.func */
         },
         .arg_entity_index = { -1 },
         .ret_entity_index = 3,

@@ -29,8 +29,9 @@ void bb_SSL_load_error_strings(void);
 
 void SSL_load_error_strings(void) 
 {
-    printf("SSL_load_error_strings called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("SSL_load_error_strings called %lu\n", in_lib);
+    if (!in_lib)
         bb_SSL_load_error_strings();
     else {
         void (*orig_SSL_load_error_strings)(void);

@@ -29,8 +29,9 @@ void bb_CONF_modules_free(void);
 
 void CONF_modules_free(void) 
 {
-    printf("CONF_modules_free called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("CONF_modules_free called %lu\n", in_lib);
+    if (!in_lib)
         bb_CONF_modules_free();
     else {
         void (*orig_CONF_modules_free)(void);

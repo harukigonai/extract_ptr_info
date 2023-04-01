@@ -29,8 +29,9 @@ int bb_CRYPTO_num_locks(void);
 
 int CRYPTO_num_locks(void) 
 {
-    printf("CRYPTO_num_locks called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("CRYPTO_num_locks called %lu\n", in_lib);
+    if (!in_lib)
         return bb_CRYPTO_num_locks();
     else {
         int (*orig_CRYPTO_num_locks)(void);

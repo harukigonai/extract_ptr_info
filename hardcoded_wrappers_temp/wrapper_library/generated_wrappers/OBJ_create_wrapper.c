@@ -29,8 +29,9 @@ int bb_OBJ_create(const char * arg_a,const char * arg_b,const char * arg_c);
 
 int OBJ_create(const char * arg_a,const char * arg_b,const char * arg_c) 
 {
-    printf("OBJ_create called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("OBJ_create called %lu\n", in_lib);
+    if (!in_lib)
         return bb_OBJ_create(arg_a,arg_b,arg_c);
     else {
         int (*orig_OBJ_create)(const char *,const char *,const char *);
@@ -48,7 +49,7 @@ int bb_OBJ_create(const char * arg_a,const char * arg_b,const char * arg_c)
         .entity_metadata = {
             0, 1, 0, /* 0: char */
             1, 8, 1, /* 3: pointer.char */
-            	0, 0,
+            	4096, 0,
             0, 4, 0, /* 8: int */
         },
         .arg_entity_index = { 3, 3, 3, },

@@ -29,8 +29,9 @@ void bb_CRYPTO_cleanup_all_ex_data(void);
 
 void CRYPTO_cleanup_all_ex_data(void) 
 {
-    printf("CRYPTO_cleanup_all_ex_data called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("CRYPTO_cleanup_all_ex_data called %lu\n", in_lib);
+    if (!in_lib)
         bb_CRYPTO_cleanup_all_ex_data();
     else {
         void (*orig_CRYPTO_cleanup_all_ex_data)(void);

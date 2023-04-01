@@ -29,8 +29,9 @@ int bb_CRYPTO_THREADID_set_callback(void (*arg_a)(CRYPTO_THREADID *));
 
 int CRYPTO_THREADID_set_callback(void (*arg_a)(CRYPTO_THREADID *)) 
 {
-    printf("CRYPTO_THREADID_set_callback called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("CRYPTO_THREADID_set_callback called %lu\n", in_lib);
+    if (!in_lib)
         return bb_CRYPTO_THREADID_set_callback(arg_a);
     else {
         int (*orig_CRYPTO_THREADID_set_callback)(void (*)(CRYPTO_THREADID *));
@@ -47,8 +48,9 @@ int bb_CRYPTO_THREADID_set_callback(void (*arg_a)(CRYPTO_THREADID *))
         .num_args = 0,
         .entity_metadata = {
             0, 0, 0, /* 0: func */
-            0, 8, 0, /* 3: pointer.func */
-            0, 4, 0, /* 6: int */
+            4097, 94396099097568, 28, /* 3: pointer.func */
+            	0, 4,
+            	0, 49,
         },
         .arg_entity_index = { 3, },
         .ret_entity_index = 6,

@@ -29,8 +29,9 @@ int bb_SSL_get_ex_new_index(long arg_a,void * arg_b,CRYPTO_EX_new * arg_c,CRYPTO
 
 int SSL_get_ex_new_index(long arg_a,void * arg_b,CRYPTO_EX_new * arg_c,CRYPTO_EX_dup * arg_d,CRYPTO_EX_free * arg_e) 
 {
-    printf("SSL_get_ex_new_index called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("SSL_get_ex_new_index called %lu\n", in_lib);
+    if (!in_lib)
         return bb_SSL_get_ex_new_index(arg_a,arg_b,arg_c,arg_d,arg_e);
     else {
         int (*orig_SSL_get_ex_new_index)(long,void *,CRYPTO_EX_new *,CRYPTO_EX_dup *,CRYPTO_EX_free *);
@@ -46,19 +47,24 @@ int bb_SSL_get_ex_new_index(long arg_a,void * arg_b,CRYPTO_EX_new * arg_c,CRYPTO
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            0, 0, 0, /* 0: func */
-            0, 0, 0, /* 3: func */
-            0, 8, 0, /* 6: pointer.func */
-            0, 8, 0, /* 9: pointer.func */
-            0, 8, 0, /* 12: pointer.func */
-            0, 1, 0, /* 15: char */
-            0, 0, 0, /* 18: func */
-            1, 8, 1, /* 21: pointer.char */
-            	15, 0,
-            0, 8, 0, /* 26: long */
-            0, 4, 0, /* 29: int */
+            4097, 0, 94396479109104, /* 0: pointer.func */
+            	0, 0,
+            	0, 0,
+            	0, 0,
+            	4097, 94396479340416,
+            	94396479356928, 0,
+            	0, 0,
+            	0, 1,
+            	0, 4097,
+            	94396479489168, 94396479493296,
+            	0, 8,
+            	0, 1,
+            	8, 1,
+            	4096, 0,
+            	0, 4,
+            	0, 0,
         },
-        .arg_entity_index = { 26, 21, 9, 6, 12, },
+        .arg_entity_index = { 21, 24, 9, 18, 0, },
         .ret_entity_index = 29,
     };
     struct lib_enter_args *args_addr = &args;

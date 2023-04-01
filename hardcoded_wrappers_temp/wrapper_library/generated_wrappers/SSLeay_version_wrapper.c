@@ -29,8 +29,9 @@ const char * bb_SSLeay_version(int arg_a);
 
 const char * SSLeay_version(int arg_a) 
 {
-    printf("SSLeay_version called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("SSLeay_version called %lu\n", in_lib);
+    if (!in_lib)
         return bb_SSLeay_version(arg_a);
     else {
         const char * (*orig_SSLeay_version)(int);
@@ -46,12 +47,12 @@ const char * bb_SSLeay_version(int arg_a)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            0, 4, 0, /* 0: int */
-            0, 1, 0, /* 3: char */
+            0, 1, 0, /* 0: char */
+            0, 4, 0, /* 3: int */
             1, 8, 1, /* 6: pointer.char */
             	4096, 0,
         },
-        .arg_entity_index = { 0, },
+        .arg_entity_index = { 3, },
         .ret_entity_index = 6,
     };
     struct lib_enter_args *args_addr = &args;

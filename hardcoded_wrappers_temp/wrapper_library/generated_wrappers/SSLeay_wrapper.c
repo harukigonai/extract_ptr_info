@@ -29,8 +29,9 @@ unsigned long bb_SSLeay(void);
 
 unsigned long SSLeay(void) 
 {
-    printf("SSLeay called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("SSLeay called %lu\n", in_lib);
+    if (!in_lib)
         return bb_SSLeay();
     else {
         unsigned long (*orig_SSLeay)(void);

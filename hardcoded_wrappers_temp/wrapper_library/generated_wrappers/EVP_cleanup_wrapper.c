@@ -29,8 +29,9 @@ void bb_EVP_cleanup(void);
 
 void EVP_cleanup(void) 
 {
-    printf("EVP_cleanup called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("EVP_cleanup called %lu\n", in_lib);
+    if (!in_lib)
         bb_EVP_cleanup();
     else {
         void (*orig_EVP_cleanup)(void);

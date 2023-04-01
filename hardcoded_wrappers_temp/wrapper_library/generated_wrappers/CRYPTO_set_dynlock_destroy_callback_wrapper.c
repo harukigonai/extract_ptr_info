@@ -29,8 +29,9 @@ void bb_CRYPTO_set_dynlock_destroy_callback(void (*arg_a)(struct CRYPTO_dynlock_
 
 void CRYPTO_set_dynlock_destroy_callback(void (*arg_a)(struct CRYPTO_dynlock_value *, const char *, int)) 
 {
-    printf("CRYPTO_set_dynlock_destroy_callback called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("CRYPTO_set_dynlock_destroy_callback called %lu\n", in_lib);
+    if (!in_lib)
         bb_CRYPTO_set_dynlock_destroy_callback(arg_a);
     else {
         void (*orig_CRYPTO_set_dynlock_destroy_callback)(void (*)(struct CRYPTO_dynlock_value *, const char *, int));
@@ -45,7 +46,7 @@ void bb_CRYPTO_set_dynlock_destroy_callback(void (*arg_a)(struct CRYPTO_dynlock_
         .num_args = 0,
         .entity_metadata = {
             0, 0, 0, /* 0: func */
-            0, 8, 0, /* 3: pointer.func */
+            4097, 3258409517414101553, 5993504086609245038, /* 3: pointer.func */
         },
         .arg_entity_index = { 3, },
         .ret_entity_index = -1,

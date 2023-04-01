@@ -29,8 +29,9 @@ void bb_ERR_remove_thread_state(const CRYPTO_THREADID * arg_a);
 
 void ERR_remove_thread_state(const CRYPTO_THREADID * arg_a) 
 {
-    printf("ERR_remove_thread_state called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("ERR_remove_thread_state called %lu\n", in_lib);
+    if (!in_lib)
         bb_ERR_remove_thread_state(arg_a);
     else {
         void (*orig_ERR_remove_thread_state)(const CRYPTO_THREADID *);
@@ -45,13 +46,13 @@ void bb_ERR_remove_thread_state(const CRYPTO_THREADID * arg_a)
         .num_args = 0,
         .entity_metadata = {
             0, 8, 0, /* 0: long */
-            1, 8, 1, /* 3: pointer.char */
-            	8, 0,
-            0, 1, 0, /* 8: char */
-            0, 16, 1, /* 11: struct.iovec */
-            	3, 0,
-            1, 8, 1, /* 16: pointer.struct.iovec */
+            0, 1, 0, /* 3: char */
+            0, 16, 1, /* 6: struct.iovec */
             	11, 0,
+            1, 8, 1, /* 11: pointer.char */
+            	4096, 0,
+            1, 8, 1, /* 16: pointer.struct.iovec */
+            	6, 0,
         },
         .arg_entity_index = { 16, },
         .ret_entity_index = -1,

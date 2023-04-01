@@ -29,8 +29,9 @@ int bb_RAND_bytes(unsigned char * arg_a,int arg_b);
 
 int RAND_bytes(unsigned char * arg_a,int arg_b) 
 {
-    printf("RAND_bytes called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("RAND_bytes called %lu\n", in_lib);
+    if (!in_lib)
         return bb_RAND_bytes(arg_a,arg_b);
     else {
         int (*orig_RAND_bytes)(unsigned char *,int);
@@ -48,7 +49,7 @@ int bb_RAND_bytes(unsigned char * arg_a,int arg_b)
         .entity_metadata = {
             0, 1, 0, /* 0: char */
             1, 8, 1, /* 3: pointer.char */
-            	0, 0,
+            	4096, 0,
             0, 4, 0, /* 8: int */
         },
         .arg_entity_index = { 3, 8, },

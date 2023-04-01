@@ -29,8 +29,9 @@ void bb_BN_free(BIGNUM * arg_a);
 
 void BN_free(BIGNUM * arg_a) 
 {
-    printf("BN_free called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("BN_free called %lu\n", in_lib);
+    if (!in_lib)
         bb_BN_free(arg_a);
     else {
         void (*orig_BN_free)(BIGNUM *);

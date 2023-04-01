@@ -29,8 +29,9 @@ int bb_X509_NAME_get_index_by_NID(X509_NAME * arg_a,int arg_b,int arg_c);
 
 int X509_NAME_get_index_by_NID(X509_NAME * arg_a,int arg_b,int arg_c) 
 {
-    printf("X509_NAME_get_index_by_NID called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("X509_NAME_get_index_by_NID called %lu\n", in_lib);
+    if (!in_lib)
         return bb_X509_NAME_get_index_by_NID(arg_a,arg_b,arg_c);
     else {
         int (*orig_X509_NAME_get_index_by_NID)(X509_NAME *,int,int);
@@ -47,32 +48,33 @@ int bb_X509_NAME_get_index_by_NID(X509_NAME * arg_a,int arg_b,int arg_c)
         .num_args = 0,
         .entity_metadata = {
             0, 8, 0, /* 0: long */
-            0, 8, 0, /* 3: pointer.func */
-            1, 8, 1, /* 6: pointer.struct.X509_name_st */
-            	11, 0,
-            0, 40, 3, /* 11: struct.X509_name_st */
-            	20, 0,
-            	48, 16,
-            	40, 24,
-            1, 8, 1, /* 20: pointer.struct.stack_st_OPENSSL_STRING */
-            	25, 0,
-            0, 32, 1, /* 25: struct.stack_st_OPENSSL_STRING */
-            	30, 0,
-            0, 32, 1, /* 30: struct.stack_st */
-            	35, 8,
-            1, 8, 1, /* 35: pointer.pointer.char */
-            	40, 0,
-            1, 8, 1, /* 40: pointer.char */
-            	45, 0,
-            0, 1, 0, /* 45: char */
-            1, 8, 1, /* 48: pointer.struct.buf_mem_st */
-            	53, 0,
-            0, 24, 1, /* 53: struct.buf_mem_st */
-            	40, 8,
-            0, 4, 0, /* 58: int */
-            0, 0, 0, /* 61: func */
+            1, 8, 1, /* 3: pointer.char */
+            	4096, 0,
+            1, 8, 1, /* 8: pointer.struct.X509_name_st */
+            	13, 0,
+            0, 40, 3, /* 13: struct.X509_name_st */
+            	22, 0,
+            	42, 16,
+            	3, 24,
+            1, 8, 1, /* 22: pointer.struct.stack_st_OPENSSL_STRING */
+            	27, 0,
+            0, 32, 1, /* 27: struct.stack_st_OPENSSL_STRING */
+            	32, 0,
+            0, 32, 1, /* 32: struct.stack_st */
+            	37, 8,
+            1, 8, 1, /* 37: pointer.pointer.char */
+            	3, 0,
+            1, 8, 1, /* 42: pointer.struct.buf_mem_st */
+            	47, 0,
+            0, 24, 1, /* 47: struct.buf_mem_st */
+            	3, 8,
+            0, 1, 0, /* 52: char */
+            4097, 94396186125840, 94396186129968, /* 55: pointer.func */
+            	0, 4,
+            	0, 0,
+            	0, 0,
         },
-        .arg_entity_index = { 6, 58, 58, },
+        .arg_entity_index = { 8, 58, 58, },
         .ret_entity_index = 58,
     };
     struct lib_enter_args *args_addr = &args;

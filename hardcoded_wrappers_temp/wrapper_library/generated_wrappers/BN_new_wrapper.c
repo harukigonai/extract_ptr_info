@@ -29,8 +29,9 @@ BIGNUM * bb_BN_new(void);
 
 BIGNUM * BN_new(void) 
 {
-    printf("BN_new called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("BN_new called %lu\n", in_lib);
+    if (!in_lib)
         return bb_BN_new();
     else {
         BIGNUM * (*orig_BN_new)(void);

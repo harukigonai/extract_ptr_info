@@ -29,8 +29,9 @@ void bb_OPENSSL_cleanse(void * arg_a,size_t arg_b);
 
 void OPENSSL_cleanse(void * arg_a,size_t arg_b) 
 {
-    printf("OPENSSL_cleanse called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("OPENSSL_cleanse called %lu\n", in_lib);
+    if (!in_lib)
         bb_OPENSSL_cleanse(arg_a,arg_b);
     else {
         void (*orig_OPENSSL_cleanse)(void *,size_t);
@@ -47,7 +48,7 @@ void bb_OPENSSL_cleanse(void * arg_a,size_t arg_b)
             0, 8, 0, /* 0: long */
             0, 1, 0, /* 3: char */
             1, 8, 1, /* 6: pointer.char */
-            	3, 0,
+            	4096, 0,
         },
         .arg_entity_index = { 6, 0, },
         .ret_entity_index = -1,

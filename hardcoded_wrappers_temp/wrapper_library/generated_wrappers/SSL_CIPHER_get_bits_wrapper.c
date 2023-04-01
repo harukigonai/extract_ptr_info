@@ -29,8 +29,9 @@ int bb_SSL_CIPHER_get_bits(const SSL_CIPHER * arg_a,int * arg_b);
 
 int SSL_CIPHER_get_bits(const SSL_CIPHER * arg_a,int * arg_b) 
 {
-    printf("SSL_CIPHER_get_bits called\n");
-    if (!syscall(890))
+    unsigned long in_lib = syscall(890);
+    printf("SSL_CIPHER_get_bits called %lu\n", in_lib);
+    if (!in_lib)
         return bb_SSL_CIPHER_get_bits(arg_a,arg_b);
     else {
         int (*orig_SSL_CIPHER_get_bits)(const SSL_CIPHER *,int *);
@@ -46,20 +47,20 @@ int bb_SSL_CIPHER_get_bits(const SSL_CIPHER * arg_a,int * arg_b)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            0, 8, 0, /* 0: long */
-            0, 1, 0, /* 3: char */
-            1, 8, 1, /* 6: pointer.char */
-            	3, 0,
-            0, 88, 1, /* 11: struct.ssl_cipher_st */
-            	6, 8,
-            1, 8, 1, /* 16: pointer.struct.ssl_cipher_st */
-            	11, 0,
-            1, 8, 1, /* 21: pointer.int */
-            	26, 0,
-            0, 4, 0, /* 26: int */
+            1, 8, 1, /* 0: pointer.int */
+            	5, 0,
+            0, 4, 0, /* 5: int */
+            0, 8, 0, /* 8: long */
+            0, 1, 0, /* 11: char */
+            0, 88, 1, /* 14: struct.ssl_cipher_st */
+            	19, 8,
+            1, 8, 1, /* 19: pointer.char */
+            	4096, 0,
+            1, 8, 1, /* 24: pointer.struct.ssl_cipher_st */
+            	14, 0,
         },
-        .arg_entity_index = { 16, 21, },
-        .ret_entity_index = 26,
+        .arg_entity_index = { 24, 0, },
+        .ret_entity_index = 5,
     };
     struct lib_enter_args *args_addr = &args;
     populate_arg(args_addr, arg_a);
