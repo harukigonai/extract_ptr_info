@@ -328,12 +328,30 @@ void detail_void_ptr_types(
       DICompositeType *compos_type = dyn_cast<DICompositeType>(N);
       if (compos_type) {
         DINodeArray di_node_arr = compos_type->getElements();
+        struct type_info *type_info;
+        struct type_info *type_info_correct = NULL;
+        if (compos_type->getTag() == 0x13) {
+          for (auto &t : structs) {
+            type_info = t.second;
+            if (strcmp(type_info->name, compos_type->getName().data()) == 0) {
+              type_info_correct = type_info;
+              break;
+            }
+          }
+        }
+        if (type_info_correct == NULL) {
+          continue;
+        }
+
         for (int i = 0; i < di_node_arr.size(); i++) {
           DINode *di_node = di_node_arr[i];
           DIDerivedType *di_derived_type = dyn_cast_or_null<DIDerivedType>(di_node);
           if (di_derived_type && di_derived_type->getTag() == 15 && !di_derived_type->getBaseType()) {
             // index = ent_to_index->find(void_ptr_type_info)->second;
             // fprintf(f, "%d", index);
+            // (type_info_correct->child_types)[i];->type_info = void_ptr_type_info;
+            struct child_type *child_type = (*type_info->child_types)[i];
+            child_type->type_info = void_ptr_type_info;
           }
         }
       }
@@ -474,10 +492,10 @@ int main(int argc, char **argv) {
       StringRef name = lib_func.getName();
       string name_as_str = string(name.data());
 
-      /* Debugging tool to only generate for one func */
-      if (strcmp("BIO_read", name.data()) != 0) {
-        continue;
-      }
+      // /* Debugging tool to only generate for one func */
+      // if (strcmp("BIO_read", name.data()) != 0) {
+      //   continue;
+      // }
 
       const bool is_in = funcs_we_care_about.find(name_as_str) !=
         funcs_we_care_about.end();
