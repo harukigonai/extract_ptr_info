@@ -353,6 +353,8 @@ int setEntInArray(uint64_t *ent_array,
   if (strcmp(type_info->name, "pointer.func") == 0) {
     ind += 3;
     ent_array[local_ind++] = 4097;
+    ent_array[local_ind++] = type_info->size;
+    ent_array[local_ind++] = 0;
   } else {
     ind += 3 + 2 * child_types_size;
     // ent_array[local_ind++] = 9999999999999999;
@@ -425,8 +427,8 @@ int main(int argc, char **argv) {
       StringRef name = lib_func.getName();
       string name_as_str = string(name.data());
 
-      /* Debugging tool to only generate for one func */
-      // if (strcmp("SSL_free", name.data()) != 0) {
+      // /* Debugging tool to only generate for one func */
+      // if (strcmp("CRYPTO_set_locking_callback", name.data()) != 0) {
       //   continue;
       // }
 
