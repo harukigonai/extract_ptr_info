@@ -1,5 +1,5 @@
-4097, 0, 0, /* 0: pointer.func */
-4097, 0, 0, /* 3: pointer.func */
+4097, 8, 0, /* 0: pointer.func */
+4097, 8, 0, /* 3: pointer.func */
 0, 0, 0, /* 6: func */
 0, 24, 2, /* 9: struct.DIST_POINT_NAME_st */
 	16, 8,
@@ -79,19 +79,19 @@
 	21, 16,
 	21, 24,
 0, 0, 0, /* 193: func */
-4097, 0, 0, /* 196: pointer.func */
+4097, 8, 0, /* 196: pointer.func */
 0, 0, 0, /* 199: func */
-4097, 0, 0, /* 202: pointer.func */
+4097, 8, 0, /* 202: pointer.func */
 0, 0, 0, /* 205: func */
 0, 0, 0, /* 208: func */
 0, 0, 0, /* 211: func */
-4097, 0, 0, /* 214: pointer.func */
-4097, 0, 0, /* 217: pointer.func */
+4097, 8, 0, /* 214: pointer.func */
+4097, 8, 0, /* 217: pointer.func */
 0, 0, 0, /* 220: func */
 1, 8, 1, /* 223: pointer.struct.x509_crl_method_st */
 	228, 0,
 0, 40, 0, /* 228: struct.x509_crl_method_st */
-4097, 0, 0, /* 231: pointer.func */
+4097, 8, 0, /* 231: pointer.func */
 0, 0, 0, /* 234: func */
 0, 56, 4, /* 237: struct.evp_pkey_st */
 	248, 16,
@@ -238,26 +238,26 @@
 	21, 16,
 	21, 24,
 	21, 32,
-4097, 0, 0, /* 571: pointer.func */
+4097, 8, 0, /* 571: pointer.func */
 0, 20, 0, /* 574: array[20].char */
-4097, 0, 0, /* 577: pointer.func */
+4097, 8, 0, /* 577: pointer.func */
 0, 0, 0, /* 580: func */
 0, 0, 0, /* 583: func */
 0, 0, 0, /* 586: func */
 1, 8, 1, /* 589: pointer.struct.X509_POLICY_TREE_st */
 	560, 0,
 0, 0, 0, /* 594: func */
-4097, 0, 0, /* 597: pointer.func */
+4097, 8, 0, /* 597: pointer.func */
 0, 0, 0, /* 600: func */
-4097, 0, 0, /* 603: pointer.func */
-4097, 0, 0, /* 606: pointer.func */
-4097, 0, 0, /* 609: pointer.func */
-4097, 0, 0, /* 612: pointer.func */
+4097, 8, 0, /* 603: pointer.func */
+4097, 8, 0, /* 606: pointer.func */
+4097, 8, 0, /* 609: pointer.func */
+4097, 8, 0, /* 612: pointer.func */
 0, 0, 0, /* 615: func */
-4097, 0, 0, /* 618: pointer.func */
+4097, 8, 0, /* 618: pointer.func */
 0, 0, 0, /* 621: func */
-4097, 0, 0, /* 624: pointer.func */
-4097, 0, 0, /* 627: pointer.func */
+4097, 8, 0, /* 624: pointer.func */
+4097, 8, 0, /* 627: pointer.func */
 0, 0, 0, /* 630: func */
 1, 8, 1, /* 633: pointer.struct.evp_pkey_asn1_method_st.2928 */
 	638, 0,
@@ -265,13 +265,13 @@
 	41, 16,
 	41, 24,
 0, 0, 0, /* 645: func */
-4097, 0, 0, /* 648: pointer.func */
+4097, 8, 0, /* 648: pointer.func */
 0, 0, 0, /* 651: func */
 0, 0, 0, /* 654: func */
 0, 0, 0, /* 657: func */
 0, 0, 0, /* 660: func */
 0, 0, 0, /* 663: func */
-4097, 0, 0, /* 666: pointer.func */
+4097, 8, 0, /* 666: pointer.func */
 0, 0, 0, /* 669: func */
 0, 0, 0, /* 672: func */
 0, 0, 0, /* 675: func */
@@ -306,7 +306,7 @@
 	695, 16,
 0, 0, 0, /* 744: func */
 0, 4, 0, /* 747: int */
-4097, 0, 0, /* 750: pointer.func */
+4097, 8, 0, /* 750: pointer.func */
 1, 8, 1, /* 753: pointer.struct.x509_st.3164 */
 	758, 0,
 0, 184, 12, /* 758: struct.x509_st.3164 */
@@ -324,10 +324,10 @@
 	523, 176,
 0, 0, 0, /* 785: func */
 0, 0, 0, /* 788: func */
-4097, 0, 0, /* 791: pointer.func */
+4097, 8, 0, /* 791: pointer.func */
 0, 0, 0, /* 794: func */
 0, 0, 0, /* 797: func */
-4097, 0, 0, /* 800: pointer.func */
+4097, 8, 0, /* 800: pointer.func */
 0, 120, 10, /* 803: struct.X509_crl_st */
 	162, 0,
 	116, 8,
@@ -339,13 +339,13 @@
 	21, 96,
 	223, 104,
 	41, 112,
-4097, 0, 0, /* 826: pointer.func */
+4097, 8, 0, /* 826: pointer.func */
 0, 0, 0, /* 829: func */
 0, 0, 0, /* 832: func */
-4097, 0, 0, /* 835: pointer.func */
+4097, 8, 0, /* 835: pointer.func */
 0, 0, 0, /* 838: func */
-4097, 0, 0, /* 841: pointer.func */
-4097, 0, 0, /* 844: pointer.func */
+4097, 8, 0, /* 841: pointer.func */
+4097, 8, 0, /* 844: pointer.func */
 1, 8, 1, /* 847: pointer.struct.x509_store_st.4284 */
 	852, 0,
 0, 144, 7, /* 852: struct.x509_store_st.4284 */
@@ -361,15 +361,15 @@
 0, 56, 2, /* 874: struct.X509_VERIFY_PARAM_st */
 	41, 0,
 	21, 48,
-4097, 0, 0, /* 881: pointer.func */
+4097, 8, 0, /* 881: pointer.func */
 0, 0, 0, /* 884: func */
-4097, 0, 0, /* 887: pointer.func */
+4097, 8, 0, /* 887: pointer.func */
 0, 0, 0, /* 890: func */
 0, 1, 0, /* 893: char */
-4097, 0, 0, /* 896: pointer.func */
+4097, 8, 0, /* 896: pointer.func */
 0, 0, 0, /* 899: func */
-4097, 0, 0, /* 902: pointer.func */
-4097, 0, 0, /* 905: pointer.func */
+4097, 8, 0, /* 902: pointer.func */
+4097, 8, 0, /* 905: pointer.func */
 0, 0, 0, /* 908: func */
 0, 248, 17, /* 911: struct.x509_store_ctx_st.4286 */
 	847, 0,
@@ -394,75 +394,75 @@
 1, 8, 1, /* 953: pointer.struct.x509_store_ctx_st.4286 */
 	911, 0,
 0, 0, 0, /* 958: func */
-4097, 0, 0, /* 961: pointer.func */
+4097, 8, 0, /* 961: pointer.func */
 0, 0, 0, /* 964: func */
-4097, 0, 0, /* 967: pointer.func */
-4097, 0, 0, /* 970: pointer.func */
-4097, 0, 0, /* 973: pointer.func */
-4097, 0, 0, /* 976: pointer.func */
-4097, 0, 0, /* 979: pointer.func */
-4097, 0, 0, /* 982: pointer.func */
-4097, 0, 0, /* 985: pointer.func */
-4097, 0, 0, /* 988: pointer.func */
-4097, 0, 0, /* 991: pointer.func */
+4097, 8, 0, /* 967: pointer.func */
+4097, 8, 0, /* 970: pointer.func */
+4097, 8, 0, /* 973: pointer.func */
+4097, 8, 0, /* 976: pointer.func */
+4097, 8, 0, /* 979: pointer.func */
+4097, 8, 0, /* 982: pointer.func */
+4097, 8, 0, /* 985: pointer.func */
+4097, 8, 0, /* 988: pointer.func */
+4097, 8, 0, /* 991: pointer.func */
 0, 0, 0, /* 994: func */
 0, 0, 0, /* 997: func */
 0, 0, 0, /* 1000: func */
 0, 0, 0, /* 1003: func */
 0, 0, 0, /* 1006: func */
 0, 0, 0, /* 1009: func */
-4097, 0, 0, /* 1012: pointer.func */
+4097, 8, 0, /* 1012: pointer.func */
 0, 0, 0, /* 1015: func */
 0, 0, 0, /* 1018: func */
-4097, 0, 0, /* 1021: pointer.func */
+4097, 8, 0, /* 1021: pointer.func */
 0, 0, 0, /* 1024: func */
-4097, 0, 0, /* 1027: pointer.func */
-4097, 0, 0, /* 1030: pointer.func */
+4097, 8, 0, /* 1027: pointer.func */
+4097, 8, 0, /* 1030: pointer.func */
 0, 0, 0, /* 1033: func */
 0, 0, 0, /* 1036: func */
-4097, 0, 0, /* 1039: pointer.func */
-4097, 0, 0, /* 1042: pointer.func */
+4097, 8, 0, /* 1039: pointer.func */
+4097, 8, 0, /* 1042: pointer.func */
 0, 0, 0, /* 1045: func */
-4097, 0, 0, /* 1048: pointer.func */
-4097, 0, 0, /* 1051: pointer.func */
-4097, 0, 0, /* 1054: pointer.func */
-4097, 0, 0, /* 1057: pointer.func */
+4097, 8, 0, /* 1048: pointer.func */
+4097, 8, 0, /* 1051: pointer.func */
+4097, 8, 0, /* 1054: pointer.func */
+4097, 8, 0, /* 1057: pointer.func */
 0, 0, 0, /* 1060: func */
 0, 0, 0, /* 1063: func */
-4097, 0, 0, /* 1066: pointer.func */
+4097, 8, 0, /* 1066: pointer.func */
 0, 0, 0, /* 1069: func */
-4097, 0, 0, /* 1072: pointer.func */
-4097, 0, 0, /* 1075: pointer.func */
+4097, 8, 0, /* 1072: pointer.func */
+4097, 8, 0, /* 1075: pointer.func */
 0, 0, 0, /* 1078: func */
 0, 0, 0, /* 1081: func */
-4097, 0, 0, /* 1084: pointer.func */
+4097, 8, 0, /* 1084: pointer.func */
 0, 0, 0, /* 1087: func */
 0, 0, 0, /* 1090: func */
-4097, 0, 0, /* 1093: pointer.func */
+4097, 8, 0, /* 1093: pointer.func */
 0, 0, 0, /* 1096: func */
-4097, 0, 0, /* 1099: pointer.func */
+4097, 8, 0, /* 1099: pointer.func */
 0, 0, 0, /* 1102: func */
-4097, 0, 0, /* 1105: pointer.func */
+4097, 8, 0, /* 1105: pointer.func */
 0, 0, 0, /* 1108: func */
 0, 0, 0, /* 1111: func */
-4097, 0, 0, /* 1114: pointer.func */
+4097, 8, 0, /* 1114: pointer.func */
 0, 0, 0, /* 1117: func */
 0, 0, 0, /* 1120: func */
 0, 0, 0, /* 1123: func */
 0, 0, 0, /* 1126: func */
 0, 0, 0, /* 1129: func */
-4097, 0, 0, /* 1132: pointer.func */
-4097, 0, 0, /* 1135: pointer.func */
-4097, 0, 0, /* 1138: pointer.func */
+4097, 8, 0, /* 1132: pointer.func */
+4097, 8, 0, /* 1135: pointer.func */
+4097, 8, 0, /* 1138: pointer.func */
 0, 0, 0, /* 1141: func */
-4097, 0, 0, /* 1144: pointer.func */
-4097, 0, 0, /* 1147: pointer.func */
-4097, 0, 0, /* 1150: pointer.func */
+4097, 8, 0, /* 1144: pointer.func */
+4097, 8, 0, /* 1147: pointer.func */
+4097, 8, 0, /* 1150: pointer.func */
 0, 0, 0, /* 1153: func */
-4097, 0, 0, /* 1156: pointer.func */
-4097, 0, 0, /* 1159: pointer.func */
-4097, 0, 0, /* 1162: pointer.func */
+4097, 8, 0, /* 1156: pointer.func */
+4097, 8, 0, /* 1159: pointer.func */
+4097, 8, 0, /* 1162: pointer.func */
 0, 0, 0, /* 1165: func */
-4097, 0, 0, /* 1168: pointer.func */
-4097, 0, 0, /* 1171: pointer.func */
-4097, 0, 0, /* 1174: pointer.func */
+4097, 8, 0, /* 1168: pointer.func */
+4097, 8, 0, /* 1171: pointer.func */
+4097, 8, 0, /* 1174: pointer.func */

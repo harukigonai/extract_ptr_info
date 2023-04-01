@@ -6,13 +6,13 @@
 0, 4, 0, /* 13: int */
 0, 0, 0, /* 16: func */
 0, 1, 0, /* 19: char */
-4097, 0, 0, /* 22: pointer.func */
+4097, 8, 0, /* 22: pointer.func */
 0, 0, 0, /* 25: func */
-4097, 0, 0, /* 28: pointer.func */
-4097, 0, 0, /* 31: pointer.func */
-4097, 0, 0, /* 34: pointer.func */
+4097, 8, 0, /* 28: pointer.func */
+4097, 8, 0, /* 31: pointer.func */
+4097, 8, 0, /* 34: pointer.func */
 0, 0, 0, /* 37: func */
 0, 0, 0, /* 40: func */
 1, 8, 1, /* 43: pointer.struct.bio_method_st */
 	3, 0,
-4097, 0, 0, /* 48: pointer.func */
+4097, 8, 0, /* 48: pointer.func */
