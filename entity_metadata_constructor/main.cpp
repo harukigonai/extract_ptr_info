@@ -349,23 +349,30 @@ int setEntInArray(uint64_t *ent_array,
 
   size_t child_types_size = type_info->child_types->size();
   int local_ind = ind;
-  ind += 3 + 2 * child_types_size;
 
-  // ent_array[local_ind++] = 9999999999999999;
-  // ent_array[local_ind++] = ent_to_id[type_info];
-  ent_array[local_ind++] = type_info->type == Type::PointerTyID ? 1 : 0;
-  
-  ent_array[local_ind++] = type_info->size;
-  ent_array[local_ind++] = child_types_size;
+  if (strcmp(type_info->name, "pointer.func") == 0) {
+    ind += 3;
+    ent_array[local_ind++] = 4097;
+  } else {
+    ind += 3 + 2 * child_types_size;
+    // ent_array[local_ind++] = 9999999999999999;
+    // ent_array[local_ind++] = ent_to_id[type_info];
+    ent_array[local_ind++] = type_info->type == Type::PointerTyID ? 1 : 0;     
+    ent_array[local_ind++] = type_info->size;
+    ent_array[local_ind++] = child_types_size;
 
-  size_t ent_size = 3 + child_types_size;
-  for (int j = 0; j < child_types_size; j++) {
-    struct child_type *child_type = (*type_info->child_types)[j];
-    ent_array[local_ind++] = setEntInArray(
-        ent_array, ent_to_index, ind, ent_to_id, id, child_type->type_info, ind_to_name);
-    ent_array[local_ind++] = child_type->offset;
+    size_t ent_size = 3 + child_types_size;
+    for (int j = 0; j < child_types_size; j++) {
+      struct child_type *child_type = (*type_info->child_types)[j];
+      if (strcmp(type_info->name, "pointer.char") == 0) {
+        ent_array[local_ind++] = 4096;
+      } else {
+        ent_array[local_ind++] = setEntInArray(
+          ent_array, ent_to_index, ind, ent_to_id, id, child_type->type_info, ind_to_name);
+      }
+      ent_array[local_ind++] = child_type->offset;
+    }
   }
-
   return ent_to_index[type_info];
 }
 
