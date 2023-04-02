@@ -288,7 +288,7 @@ bool remove_non_ptr_types(
 
       bool child_contains_ptr = remove_non_ptr_types(
           entity_contains_ptr, entity_processed, child_type->type_info);
-      if (child_contains_ptr || type_info->type == Type::PointerTyID) {
+      if (child_contains_ptr || type_info->type == Type::PointerTyID || child_type->type_info->type == 4098) {
         // Are we a struct/array that contains a ptr, or are we a pointer?
         contains_ptr = true;
         it++;
@@ -305,13 +305,40 @@ bool remove_non_ptr_types(
   return containsPtr;
 }
 
-void extract_ptr_types(unordered_map<Type *, struct type_info *> &structs) {
+void extract_ptr_types(
+  unordered_map<Type *, struct type_info *> &structs
+) {
   unordered_map<struct type_info *, bool> entity_contains_ptr;
   set<struct type_info *> entity_processed;
   for (auto &t : structs) {
     struct type_info *type_info = t.second;
 
     remove_non_ptr_types(entity_contains_ptr, entity_processed, type_info);
+  }
+}
+
+void get_structs_and_arrays(
+  set<MDNode *> &entity_processed,
+  unordered_map<string, DICompositeType *> &structs_and_arrs,
+  MDNode *m
+) {
+  const bool is_in = entity_processed.find(m) != entity_processed.end();
+  if (is_in)
+    return;
+  entity_processed.insert(m);
+
+  DICompositeType *compos_type = dyn_cast<DICompositeType>(m);
+  if (compos_type) {
+    if (compos_type->getTag() == 0x13) {
+      string str = compos_type->getName().data();
+      structs_and_arrs[str] = compos_type;
+    }    
+  }
+
+  for (unsigned i = 0, e = m->getNumOperands(); i!=e; ++i){
+    if(MDNode *Op = dyn_cast_or_null<MDNode>(m->getOperand(i))){
+      get_structs_and_arrays(entity_processed, structs_and_arrs, Op);
+    }
   }
 }
 
@@ -323,40 +350,167 @@ void detail_void_ptr_types(
   SmallVector<std::pair<unsigned, MDNode *>, 20> MDs;
   lib_func.getAllMetadata(MDs);
 
-  for (auto &MD : MDs) {
-    if (MDNode *N = MD.second) {
-      DICompositeType *compos_type = dyn_cast<DICompositeType>(N);
-      if (compos_type) {
-        DINodeArray di_node_arr = compos_type->getElements();
-        struct type_info *type_info;
-        struct type_info *type_info_correct = NULL;
-        if (compos_type->getTag() == 0x13) {
-          for (auto &t : structs) {
-            type_info = t.second;
-            if (strcmp(type_info->name, compos_type->getName().data()) == 0) {
-              type_info_correct = type_info;
-              break;
-            }
-          }
-        }
-        if (type_info_correct == NULL) {
-          continue;
+  set<MDNode *> entity_processed;
+  unordered_map<string, DICompositeType *> structs_and_arrs;
+  for(unsigned i = 0, e = MDs.size(); i!=e; ++i){
+    MDs[i].second;
+    get_structs_and_arrays(entity_processed, structs_and_arrs, MDs[i].second);
+  }
+
+  for (auto const &pair: structs_and_arrs) {
+    string str = pair.first;
+    DICompositeType *m = pair.second;
+
+    cout << "Attempt to find " + str + "\n";
+
+    struct type_info *type_info_correct = NULL;
+
+    /* Find the corresponding */
+    for (auto &t : structs) {
+      struct type_info *type_info = t.second;
+      if (type_info->type == Type::StructTyID || type_info->type == Type::ArrayTyID) {
+        string temp_str;
+        if (type_info->type == Type::StructTyID) {
+          temp_str = "struct." + str;
+        } else {
+          temp_str = "array." + str;
         }
 
-        for (int i = 0; i < di_node_arr.size(); i++) {
-          DINode *di_node = di_node_arr[i];
-          DIDerivedType *di_derived_type = dyn_cast_or_null<DIDerivedType>(di_node);
-          if (di_derived_type && di_derived_type->getTag() == 15 && !di_derived_type->getBaseType()) {
-            // index = ent_to_index->find(void_ptr_type_info)->second;
-            // fprintf(f, "%d", index);
-            // (type_info_correct->child_types)[i];->type_info = void_ptr_type_info;
-            struct child_type *child_type = (*type_info->child_types)[i];
-            child_type->type_info = void_ptr_type_info;
-          }
+        if (strcmp(temp_str.data(), type_info->name) == 0) {
+          type_info_correct = type_info;
+          break;
         }
       }
     }
+
+    if (!type_info_correct) {
+      continue;
+    }
+
+    DINodeArray di_node_arr = m->getElements();
+    for (int i = 0; i < di_node_arr.size(); i++) {
+      DINode *di_node = di_node_arr[i];
+
+      DIDerivedType *di_derived_type = dyn_cast_or_null<DIDerivedType>(di_node);
+      cout << " " << di_derived_type->getName().data() << " " << di_derived_type->getTag() << " " << di_derived_type->getBaseType() << "\n";
+
+      DIType *di_type_2 = di_derived_type->getBaseType();
+      DIDerivedType *di_derived_type_2 = dyn_cast_or_null<DIDerivedType>(di_type_2);
+      if (di_derived_type_2) {
+        cout << "   Derived type is " << i << " is " << di_derived_type_2->getTag() << " " << di_derived_type_2->getBaseType() << "\n"; 
+        if (di_derived_type_2 && di_derived_type_2->getTag() == 15 &&
+            !di_derived_type_2->getBaseType()) {
+          struct child_type *child_type = (*type_info_correct->child_types)[i];
+          child_type->type_info = void_ptr_type_info;
+        }
+      }
+      // DIMemberType *di_member_type = dyn_cast_or_null<DIMemberType>(di_derived_type);
+
+      // DINodeArray di_node_arr_2 = di_derived_type->getElements();
+      // for (int i = 0; i < di_node_arr.size(); i++) {
+      //   DINode *di_node_2 = di_node_arr[i];
+
+      //   DIDerivedType *di_derived_type_2 = dyn_cast_or_null<DIDerivedType>(di_node_2);
+      //   if (di_derived_type_2 && di_derived_type_2->getTag() == 15 &&
+      //       !di_derived_type_2->getBaseType()) {
+      //     // struct child_type *child_type = (*type_info_correct->child_types)[i];
+      //     // child_type->type_info = void_ptr_type_info;
+      //   }
+      // }
+    }
+
+    cout << "{" << str << ": " << type_info_correct->name << "}\n";
   }
+
+  // struct type_info *type_info;
+
+  // for (auto &t : structs) {
+  //   type_info = t.second;
+
+  //   SmallVector<std::pair<unsigned, MDNode *>, 20> MDs;
+  //   type_info->type_ptr->getAllMetadata(MDs);
+  //   for (auto &MD : MDs) {
+  //     if (!(MDNode *N = MD.second)) {
+  //       continue;
+  //     }
+  //     N->dumpTree();
+
+  //     DICompositeType *compos_type = dyn_cast<DICompositeType>(N);
+  //     if (!compos_type) {
+  //       continue;
+  //     }
+  //     DINodeArray di_node_arr = compos_type->getElements();
+  //     struct type_info *type_info;
+  //     struct type_info *type_info_correct = NULL;
+  //     printf("Name is %s\n", compos_type->getName().data());
+  //     if (compos_type->getTag() == 0x13) {
+  //       for (auto &t : structs) {
+  //         type_info = t.second;
+  //         if (strcmp(type_info->name, compos_type->getName().data()) == 0) {
+  //           type_info_correct = type_info;
+  //           break;
+  //         }
+  //       }
+  //     }
+  //     if (type_info_correct == NULL) {
+  //       continue;
+  //     }
+
+  //     for (int i = 0; i < di_node_arr.size(); i++) {
+  //       DINode *di_node = di_node_arr[i];
+  //       DIDerivedType *di_derived_type = dyn_cast_or_null<DIDerivedType>(di_node);
+  //       if (di_derived_type && di_derived_type->getTag() == 15 && !di_derived_type->getBaseType()) {
+  //         // index = ent_to_index->find(void_ptr_type_info)->second;
+  //         // fprintf(f, "%d", index);
+  //         // (type_info_correct->child_types)[i];->type_info = void_ptr_type_info;
+  //         struct child_type *child_type = (*type_info->child_types)[i];
+  //         child_type->type_info = void_ptr_type_info;
+  //       }
+  //     }
+  //   }
+  // }
+
+  // for (auto &MD : MDs) {
+  //   if (MDNode *N = MD.second) {
+  //     for (unsigned i = 0, e = N->getNumOperands(); i!=e; ++i){
+  //         if(MDNode *Op = dyn_cast_or_null<MDNode>(N->getOperand(i))){
+  //           printf("Found MD\n");
+  //           N->dumpTree();
+  //           DICompositeType *compos_type = dyn_cast<DICompositeType>(N);
+  //           if (compos_type) {
+  //             DINodeArray di_node_arr = compos_type->getElements();
+  //             struct type_info *type_info;
+  //             struct type_info *type_info_correct = NULL;
+  //             printf("Name is %s\n", compos_type->getName().data());
+  //             if (compos_type->getTag() == 0x13) {
+  //               for (auto &t : structs) {
+  //                 type_info = t.second;
+  //                 if (strcmp(type_info->name, compos_type->getName().data()) == 0) {
+  //                   type_info_correct = type_info;
+  //                   break;
+  //                 }
+  //               }
+  //             }
+  //             if (type_info_correct == NULL) {
+  //               continue;
+  //             }
+
+  //             for (int i = 0; i < di_node_arr.size(); i++) {
+  //               DINode *di_node = di_node_arr[i];
+  //               DIDerivedType *di_derived_type = dyn_cast_or_null<DIDerivedType>(di_node);
+  //               if (di_derived_type && di_derived_type->getTag() == 15 && !di_derived_type->getBaseType()) {
+  //                 // index = ent_to_index->find(void_ptr_type_info)->second;
+  //                 // fprintf(f, "%d", index);
+  //                 // (type_info_correct->child_types)[i];->type_info = void_ptr_type_info;
+  //                 struct child_type *child_type = (*type_info->child_types)[i];
+  //                 child_type->type_info = void_ptr_type_info;
+  //               }
+  //             }
+  //           }
+  //         }
+  //     }
+  //   }
+  // }
 }
 
 /*
@@ -492,10 +646,10 @@ int main(int argc, char **argv) {
       StringRef name = lib_func.getName();
       string name_as_str = string(name.data());
 
-      // /* Debugging tool to only generate for one func */
-      // if (strcmp("BIO_read", name.data()) != 0) {
-      //   continue;
-      // }
+      /* Debugging tool to only generate for one func */
+      if (strcmp("BIO_free_all", name.data()) != 0) {
+        continue;
+      }
 
       const bool is_in = funcs_we_care_about.find(name_as_str) !=
         funcs_we_care_about.end();
@@ -521,20 +675,19 @@ int main(int argc, char **argv) {
         }
       }
 
-      detail_types(types);
-
-      extract_ptr_types(types);
-
       struct type_info *void_ptr_type_info = new struct type_info;
       void_ptr_type_info->type = 4098; // arbitrary, but stands for void *
       memset(void_ptr_type_info->name, 0, 4096);
       strcpy(void_ptr_type_info->name, "pointer.void");
       void_ptr_type_info->size = 8;
       void_ptr_type_info->child_types = new vector<struct child_type *>();
-      void_ptr_type_info->type_ptr = (Type *)4097;
-      types[(Type *)4097] = void_ptr_type_info;
-
+      void_ptr_type_info->type_ptr = (Type *)4098;
+      types[(Type *)4098] = void_ptr_type_info;
       detail_void_ptr_types(lib_func, void_ptr_type_info, types);
+
+      detail_types(types);
+
+      extract_ptr_types(types);
 
       size_t arr_size = compute_arr_size(types);
 
@@ -642,8 +795,8 @@ int main(int argc, char **argv) {
     }
   }
 
-  for (string func_not_processed : funcs_we_care_about)
-  {
-    std::cout << "Function " << func_not_processed << " was not found.\n";
-  }
+  // for (string func_not_processed : funcs_we_care_about)
+  // {
+  //   std::cout << "Function " << func_not_processed << " was not found.\n";
+  // }
 }
