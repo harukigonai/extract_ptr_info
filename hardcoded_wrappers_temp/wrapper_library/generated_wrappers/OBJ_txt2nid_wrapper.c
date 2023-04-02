@@ -48,12 +48,13 @@ int bb_OBJ_txt2nid(const char * arg_a)
         .num_args = 0,
         .entity_metadata = {
             0, 1, 0, /* 0: char */
-            1, 8, 1, /* 3: pointer.char */
+            0, 8, 0, /* 3: pointer.void */
+            1, 8, 1, /* 6: pointer.char */
             	4096, 0,
-            0, 4, 0, /* 8: int */
+            0, 4, 0, /* 11: int */
         },
-        .arg_entity_index = { 3, },
-        .ret_entity_index = 8,
+        .arg_entity_index = { 6, },
+        .ret_entity_index = 11,
     };
     struct lib_enter_args *args_addr = &args;
     populate_arg(args_addr, arg_a);

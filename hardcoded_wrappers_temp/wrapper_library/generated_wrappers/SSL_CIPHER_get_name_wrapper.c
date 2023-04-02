@@ -48,17 +48,18 @@ const char * bb_SSL_CIPHER_get_name(const SSL_CIPHER * arg_a)
         .num_args = 0,
         .entity_metadata = {
             0, 8, 0, /* 0: long */
-            0, 88, 1, /* 3: struct.ssl_cipher_st */
-            	8, 8,
-            1, 8, 1, /* 8: pointer.char */
+            0, 4, 0, /* 3: int */
+            1, 8, 1, /* 6: pointer.struct.ssl_cipher_st */
+            	11, 0,
+            0, 88, 1, /* 11: struct.ssl_cipher_st */
+            	16, 8,
+            1, 8, 1, /* 16: pointer.char */
             	4096, 0,
-            1, 8, 1, /* 13: pointer.struct.ssl_cipher_st */
-            	3, 0,
-            0, 1, 0, /* 18: char */
-            0, 4, 0, /* 21: int */
+            0, 1, 0, /* 21: char */
+            0, 8, 0, /* 24: pointer.void */
         },
-        .arg_entity_index = { 13, },
-        .ret_entity_index = 8,
+        .arg_entity_index = { 6, },
+        .ret_entity_index = 16,
     };
     struct lib_enter_args *args_addr = &args;
     populate_arg(args_addr, arg_a);

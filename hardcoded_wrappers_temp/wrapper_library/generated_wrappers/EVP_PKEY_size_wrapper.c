@@ -51,186 +51,257 @@ int bb_EVP_PKEY_size(EVP_PKEY * arg_a)
             	5, 0,
             1, 8, 1, /* 5: pointer.char */
             	4096, 0,
-            0, 0, 0, /* 10: func */
-            4097, 8, 0, /* 13: pointer.func */
-            1, 8, 1, /* 16: pointer.pointer.char */
+            0, 32, 2, /* 10: struct.stack_st */
+            	17, 8,
+            	22, 24,
+            1, 8, 1, /* 17: pointer.pointer.char */
             	5, 0,
-            0, 0, 0, /* 21: func */
-            1, 8, 1, /* 24: pointer.struct.dsa_method.1040 */
-            	29, 0,
-            0, 96, 2, /* 29: struct.dsa_method.1040 */
+            4097, 8, 0, /* 22: pointer.func */
+            0, 0, 0, /* 25: func */
+            1, 8, 1, /* 28: pointer.struct.ENGINE_CMD_DEFN_st */
+            	33, 0,
+            0, 32, 2, /* 33: struct.ENGINE_CMD_DEFN_st */
+            	5, 8,
+            	5, 16,
+            1, 8, 1, /* 40: pointer.struct.evp_pkey_st */
+            	45, 0,
+            0, 56, 4, /* 45: struct.evp_pkey_st */
+            	56, 16,
+            	154, 24,
+            	0, 32,
+            	468, 48,
+            1, 8, 1, /* 56: pointer.struct.evp_pkey_asn1_method_st */
+            	61, 0,
+            0, 208, 24, /* 61: struct.evp_pkey_asn1_method_st */
+            	5, 16,
+            	5, 24,
+            	112, 32,
+            	115, 40,
+            	118, 48,
+            	121, 56,
+            	124, 64,
+            	127, 72,
+            	121, 80,
+            	130, 88,
+            	130, 96,
+            	133, 104,
+            	136, 112,
+            	130, 120,
+            	118, 128,
+            	118, 136,
+            	121, 144,
+            	139, 152,
+            	142, 160,
+            	145, 168,
+            	133, 176,
+            	136, 184,
+            	148, 192,
+            	151, 200,
+            4097, 8, 0, /* 112: pointer.func */
+            4097, 8, 0, /* 115: pointer.func */
+            4097, 8, 0, /* 118: pointer.func */
+            4097, 8, 0, /* 121: pointer.func */
+            4097, 8, 0, /* 124: pointer.func */
+            4097, 8, 0, /* 127: pointer.func */
+            4097, 8, 0, /* 130: pointer.func */
+            4097, 8, 0, /* 133: pointer.func */
+            4097, 8, 0, /* 136: pointer.func */
+            4097, 8, 0, /* 139: pointer.func */
+            4097, 8, 0, /* 142: pointer.func */
+            4097, 8, 0, /* 145: pointer.func */
+            4097, 8, 0, /* 148: pointer.func */
+            4097, 8, 0, /* 151: pointer.func */
+            1, 8, 1, /* 154: pointer.struct.engine_st */
+            	159, 0,
+            0, 216, 24, /* 159: struct.engine_st */
             	5, 0,
-            	5, 72,
-            4097, 8, 0, /* 36: pointer.func */
-            0, 0, 0, /* 39: func */
-            0, 0, 0, /* 42: func */
-            4097, 8, 0, /* 45: pointer.func */
-            0, 112, 2, /* 48: struct.rsa_meth_st */
+            	5, 8,
+            	210, 16,
+            	265, 24,
+            	316, 32,
+            	352, 40,
+            	369, 48,
+            	396, 56,
+            	431, 64,
+            	439, 72,
+            	442, 80,
+            	445, 88,
+            	448, 96,
+            	451, 104,
+            	451, 112,
+            	451, 120,
+            	454, 128,
+            	457, 136,
+            	457, 144,
+            	460, 152,
+            	28, 160,
+            	463, 184,
+            	154, 200,
+            	154, 208,
+            1, 8, 1, /* 210: pointer.struct.rsa_meth_st */
+            	215, 0,
+            0, 112, 13, /* 215: struct.rsa_meth_st */
             	5, 0,
+            	244, 8,
+            	244, 16,
+            	244, 24,
+            	244, 32,
+            	247, 40,
+            	250, 48,
+            	253, 56,
+            	253, 64,
             	5, 80,
-            4097, 8, 0, /* 55: pointer.func */
-            0, 0, 0, /* 58: func */
-            0, 0, 0, /* 61: func */
-            1, 8, 1, /* 64: pointer.struct.ENGINE_CMD_DEFN_st */
-            	69, 0,
-            0, 32, 2, /* 69: struct.ENGINE_CMD_DEFN_st */
-            	5, 8,
-            	5, 16,
-            4097, 8, 0, /* 76: pointer.func */
-            0, 0, 0, /* 79: func */
-            0, 0, 0, /* 82: func */
-            4097, 8, 0, /* 85: pointer.func */
-            0, 0, 0, /* 88: func */
-            0, 48, 2, /* 91: struct.ecdsa_method */
-            	5, 0,
-            	5, 40,
-            4097, 8, 0, /* 98: pointer.func */
-            4097, 8, 0, /* 101: pointer.func */
-            1, 8, 1, /* 104: pointer.struct.engine_st */
-            	109, 0,
-            0, 216, 13, /* 109: struct.engine_st */
-            	5, 0,
-            	5, 8,
-            	138, 16,
-            	24, 24,
-            	143, 32,
-            	155, 40,
-            	167, 48,
-            	172, 56,
-            	180, 64,
-            	64, 160,
-            	188, 184,
-            	104, 200,
-            	104, 208,
-            1, 8, 1, /* 138: pointer.struct.rsa_meth_st */
-            	48, 0,
-            1, 8, 1, /* 143: pointer.struct.dh_method */
-            	148, 0,
-            0, 72, 2, /* 148: struct.dh_method */
-            	5, 0,
-            	5, 56,
-            1, 8, 1, /* 155: pointer.struct.ecdh_method */
-            	160, 0,
-            0, 32, 2, /* 160: struct.ecdh_method */
-            	5, 0,
-            	5, 24,
-            1, 8, 1, /* 167: pointer.struct.ecdsa_method */
-            	91, 0,
-            1, 8, 1, /* 172: pointer.struct.rand_meth_st */
-            	177, 0,
-            0, 48, 0, /* 177: struct.rand_meth_st */
-            1, 8, 1, /* 180: pointer.struct.store_method_st */
-            	185, 0,
-            0, 0, 0, /* 185: struct.store_method_st */
-            0, 16, 1, /* 188: struct.crypto_ex_data_st */
-            	193, 0,
-            1, 8, 1, /* 193: pointer.struct.stack_st_OPENSSL_STRING */
-            	198, 0,
-            0, 32, 1, /* 198: struct.stack_st_OPENSSL_STRING */
-            	203, 0,
-            0, 32, 1, /* 203: struct.stack_st */
-            	16, 8,
-            0, 0, 0, /* 208: func */
-            4097, 8, 0, /* 211: pointer.func */
-            0, 0, 0, /* 214: func */
-            4097, 8, 0, /* 217: pointer.func */
-            0, 0, 0, /* 220: func */
-            4097, 8, 0, /* 223: pointer.func */
-            4097, 8, 0, /* 226: pointer.func */
-            4097, 8, 0, /* 229: pointer.func */
-            4097, 8, 0, /* 232: pointer.func */
-            1, 8, 1, /* 235: pointer.struct.evp_pkey_asn1_method_st.2593 */
-            	240, 0,
-            0, 208, 2, /* 240: struct.evp_pkey_asn1_method_st.2593 */
-            	5, 16,
-            	5, 24,
-            0, 0, 0, /* 247: func */
+            	256, 88,
+            	259, 96,
+            	262, 104,
+            4097, 8, 0, /* 244: pointer.func */
+            4097, 8, 0, /* 247: pointer.func */
             4097, 8, 0, /* 250: pointer.func */
             4097, 8, 0, /* 253: pointer.func */
-            0, 0, 0, /* 256: func */
-            0, 0, 0, /* 259: func */
+            4097, 8, 0, /* 256: pointer.func */
+            4097, 8, 0, /* 259: pointer.func */
             4097, 8, 0, /* 262: pointer.func */
-            0, 0, 0, /* 265: func */
-            4097, 8, 0, /* 268: pointer.func */
-            0, 0, 0, /* 271: func */
-            4097, 8, 0, /* 274: pointer.func */
-            0, 0, 0, /* 277: func */
-            4097, 8, 0, /* 280: pointer.func */
-            4097, 8, 0, /* 283: pointer.func */
-            0, 8, 0, /* 286: long */
-            4097, 8, 0, /* 289: pointer.func */
-            0, 0, 0, /* 292: func */
-            0, 56, 4, /* 295: struct.evp_pkey_st.2595 */
-            	235, 16,
-            	104, 24,
-            	0, 32,
-            	193, 48,
-            1, 8, 1, /* 306: pointer.struct.evp_pkey_st.2595 */
-            	295, 0,
-            4097, 8, 0, /* 311: pointer.func */
-            0, 0, 0, /* 314: func */
-            0, 0, 0, /* 317: func */
-            4097, 8, 0, /* 320: pointer.func */
-            0, 0, 0, /* 323: func */
-            4097, 8, 0, /* 326: pointer.func */
-            0, 0, 0, /* 329: func */
-            4097, 8, 0, /* 332: pointer.func */
-            0, 0, 0, /* 335: func */
-            4097, 8, 0, /* 338: pointer.func */
-            4097, 8, 0, /* 341: pointer.func */
-            4097, 8, 0, /* 344: pointer.func */
-            0, 0, 0, /* 347: func */
-            4097, 8, 0, /* 350: pointer.func */
-            4097, 8, 0, /* 353: pointer.func */
-            4097, 8, 0, /* 356: pointer.func */
-            0, 0, 0, /* 359: func */
-            0, 0, 0, /* 362: func */
-            4097, 8, 0, /* 365: pointer.func */
-            0, 0, 0, /* 368: func */
-            4097, 8, 0, /* 371: pointer.func */
-            0, 0, 0, /* 374: func */
-            0, 0, 0, /* 377: func */
-            4097, 8, 0, /* 380: pointer.func */
-            0, 0, 0, /* 383: func */
-            0, 0, 0, /* 386: func */
-            0, 0, 0, /* 389: func */
-            0, 0, 0, /* 392: func */
-            4097, 8, 0, /* 395: pointer.func */
-            0, 0, 0, /* 398: func */
-            4097, 8, 0, /* 401: pointer.func */
-            4097, 8, 0, /* 404: pointer.func */
-            0, 0, 0, /* 407: func */
-            4097, 8, 0, /* 410: pointer.func */
-            0, 0, 0, /* 413: func */
-            0, 1, 0, /* 416: char */
-            0, 0, 0, /* 419: func */
+            1, 8, 1, /* 265: pointer.struct.dsa_method */
+            	270, 0,
+            0, 96, 11, /* 270: struct.dsa_method */
+            	5, 0,
+            	295, 8,
+            	298, 16,
+            	301, 24,
+            	304, 32,
+            	307, 40,
+            	310, 48,
+            	310, 56,
+            	5, 72,
+            	313, 80,
+            	310, 88,
+            4097, 8, 0, /* 295: pointer.func */
+            4097, 8, 0, /* 298: pointer.func */
+            4097, 8, 0, /* 301: pointer.func */
+            4097, 8, 0, /* 304: pointer.func */
+            4097, 8, 0, /* 307: pointer.func */
+            4097, 8, 0, /* 310: pointer.func */
+            4097, 8, 0, /* 313: pointer.func */
+            1, 8, 1, /* 316: pointer.struct.dh_method */
+            	321, 0,
+            0, 72, 8, /* 321: struct.dh_method */
+            	5, 0,
+            	340, 8,
+            	343, 16,
+            	346, 24,
+            	340, 32,
+            	340, 40,
+            	5, 56,
+            	349, 64,
+            4097, 8, 0, /* 340: pointer.func */
+            4097, 8, 0, /* 343: pointer.func */
+            4097, 8, 0, /* 346: pointer.func */
+            4097, 8, 0, /* 349: pointer.func */
+            1, 8, 1, /* 352: pointer.struct.ecdh_method */
+            	357, 0,
+            0, 32, 3, /* 357: struct.ecdh_method */
+            	5, 0,
+            	366, 8,
+            	5, 24,
+            4097, 8, 0, /* 366: pointer.func */
+            1, 8, 1, /* 369: pointer.struct.ecdsa_method */
+            	374, 0,
+            0, 48, 5, /* 374: struct.ecdsa_method */
+            	5, 0,
+            	387, 8,
+            	390, 16,
+            	393, 24,
+            	5, 40,
+            4097, 8, 0, /* 387: pointer.func */
+            4097, 8, 0, /* 390: pointer.func */
+            4097, 8, 0, /* 393: pointer.func */
+            1, 8, 1, /* 396: pointer.struct.rand_meth_st */
+            	401, 0,
+            0, 48, 6, /* 401: struct.rand_meth_st */
+            	416, 0,
+            	419, 8,
+            	422, 16,
+            	425, 24,
+            	419, 32,
+            	428, 40,
+            4097, 8, 0, /* 416: pointer.func */
+            4097, 8, 0, /* 419: pointer.func */
             4097, 8, 0, /* 422: pointer.func */
-            0, 0, 0, /* 425: func */
+            4097, 8, 0, /* 425: pointer.func */
             4097, 8, 0, /* 428: pointer.func */
-            4097, 8, 0, /* 431: pointer.func */
-            0, 0, 0, /* 434: func */
-            0, 0, 0, /* 437: func */
-            4097, 8, 0, /* 440: pointer.func */
-            4097, 8, 0, /* 443: pointer.func */
-            4097, 8, 0, /* 446: pointer.func */
-            0, 0, 0, /* 449: func */
-            0, 0, 0, /* 452: func */
-            4097, 8, 0, /* 455: pointer.func */
-            0, 0, 0, /* 458: func */
-            4097, 8, 0, /* 461: pointer.func */
-            0, 0, 0, /* 464: func */
-            0, 0, 0, /* 467: func */
-            4097, 8, 0, /* 470: pointer.func */
-            0, 0, 0, /* 473: func */
-            0, 0, 0, /* 476: func */
-            4097, 8, 0, /* 479: pointer.func */
-            0, 4, 0, /* 482: int */
-            0, 0, 0, /* 485: func */
-            4097, 8, 0, /* 488: pointer.func */
-            0, 0, 0, /* 491: func */
+            1, 8, 1, /* 431: pointer.struct.store_method_st */
+            	436, 0,
+            0, 0, 0, /* 436: struct.store_method_st */
+            4097, 8, 0, /* 439: pointer.func */
+            4097, 8, 0, /* 442: pointer.func */
+            4097, 8, 0, /* 445: pointer.func */
+            4097, 8, 0, /* 448: pointer.func */
+            4097, 8, 0, /* 451: pointer.func */
+            4097, 8, 0, /* 454: pointer.func */
+            4097, 8, 0, /* 457: pointer.func */
+            4097, 8, 0, /* 460: pointer.func */
+            0, 16, 1, /* 463: struct.crypto_ex_data_st */
+            	468, 0,
+            1, 8, 1, /* 468: pointer.struct.stack_st_OPENSSL_STRING */
+            	473, 0,
+            0, 32, 1, /* 473: struct.stack_st_OPENSSL_STRING */
+            	10, 0,
+            0, 0, 0, /* 478: func */
+            0, 0, 0, /* 481: func */
+            0, 0, 0, /* 484: func */
+            0, 0, 0, /* 487: func */
+            0, 0, 0, /* 490: func */
+            0, 0, 0, /* 493: func */
+            0, 0, 0, /* 496: func */
+            0, 0, 0, /* 499: func */
+            0, 0, 0, /* 502: func */
+            0, 0, 0, /* 505: func */
+            0, 0, 0, /* 508: func */
+            0, 0, 0, /* 511: func */
+            0, 0, 0, /* 514: func */
+            0, 8, 0, /* 517: long */
+            0, 0, 0, /* 520: func */
+            0, 0, 0, /* 523: func */
+            0, 0, 0, /* 526: func */
+            0, 0, 0, /* 529: func */
+            0, 0, 0, /* 532: func */
+            0, 0, 0, /* 535: func */
+            0, 4, 0, /* 538: int */
+            0, 0, 0, /* 541: func */
+            0, 0, 0, /* 544: func */
+            0, 0, 0, /* 547: func */
+            0, 0, 0, /* 550: func */
+            0, 0, 0, /* 553: func */
+            0, 0, 0, /* 556: func */
+            0, 1, 0, /* 559: char */
+            0, 0, 0, /* 562: func */
+            0, 0, 0, /* 565: func */
+            0, 0, 0, /* 568: func */
+            0, 0, 0, /* 571: func */
+            0, 0, 0, /* 574: func */
+            0, 0, 0, /* 577: func */
+            0, 0, 0, /* 580: func */
+            0, 0, 0, /* 583: func */
+            0, 0, 0, /* 586: func */
+            0, 0, 0, /* 589: func */
+            0, 0, 0, /* 592: func */
+            0, 0, 0, /* 595: func */
+            0, 0, 0, /* 598: func */
+            0, 0, 0, /* 601: func */
+            0, 0, 0, /* 604: func */
+            0, 0, 0, /* 607: func */
+            0, 8, 0, /* 610: pointer.void */
+            0, 0, 0, /* 613: func */
+            0, 0, 0, /* 616: func */
+            0, 0, 0, /* 619: func */
+            0, 0, 0, /* 622: func */
+            0, 0, 0, /* 625: func */
+            0, 0, 0, /* 628: func */
+            0, 0, 0, /* 631: func */
+            0, 0, 0, /* 634: func */
         },
-        .arg_entity_index = { 306, },
-        .ret_entity_index = 482,
+        .arg_entity_index = { 40, },
+        .ret_entity_index = 538,
     };
     struct lib_enter_args *args_addr = &args;
     populate_arg(args_addr, arg_a);

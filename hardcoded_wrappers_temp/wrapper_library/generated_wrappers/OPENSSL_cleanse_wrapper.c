@@ -47,7 +47,8 @@ void bb_OPENSSL_cleanse(void * arg_a,size_t arg_b)
         .entity_metadata = {
             0, 8, 0, /* 0: long */
             0, 1, 0, /* 3: char */
-            1, 8, 1, /* 6: pointer.char */
+            0, 8, 0, /* 6: pointer.void */
+            1, 8, 1, /* 9: pointer.char */
             	4096, 0,
         },
         .arg_entity_index = { 6, 0, },

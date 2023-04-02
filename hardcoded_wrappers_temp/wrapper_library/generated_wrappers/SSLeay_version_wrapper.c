@@ -47,13 +47,14 @@ const char * bb_SSLeay_version(int arg_a)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            0, 1, 0, /* 0: char */
-            0, 4, 0, /* 3: int */
-            1, 8, 1, /* 6: pointer.char */
+            0, 4, 0, /* 0: int */
+            0, 1, 0, /* 3: char */
+            0, 8, 0, /* 6: pointer.void */
+            1, 8, 1, /* 9: pointer.char */
             	4096, 0,
         },
-        .arg_entity_index = { 3, },
-        .ret_entity_index = 6,
+        .arg_entity_index = { 0, },
+        .ret_entity_index = 9,
     };
     struct lib_enter_args *args_addr = &args;
     populate_arg(args_addr, arg_a);

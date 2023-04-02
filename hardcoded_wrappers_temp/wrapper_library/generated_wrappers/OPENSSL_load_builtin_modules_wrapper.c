@@ -45,6 +45,7 @@ void bb_OPENSSL_load_builtin_modules(void)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
+            0, 8, 0, /* 0: pointer.void */
         },
         .arg_entity_index = { -1 },
         .ret_entity_index = -1,

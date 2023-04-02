@@ -47,51 +47,62 @@ int bb_BIO_read(BIO * arg_a,void * arg_b,int arg_c)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            0, 0, 0, /* 0: func */
-            0, 32, 1, /* 3: struct.stack_st */
-            	8, 8,
-            1, 8, 1, /* 8: pointer.pointer.char */
-            	13, 0,
-            1, 8, 1, /* 13: pointer.char */
+            0, 8, 0, /* 0: pointer.void */
+            4097, 8, 0, /* 3: pointer.func */
+            1, 8, 1, /* 6: pointer.pointer.char */
+            	11, 0,
+            1, 8, 1, /* 11: pointer.char */
             	4096, 0,
-            0, 16, 1, /* 18: struct.crypto_ex_data_st */
+            0, 32, 2, /* 16: struct.stack_st */
+            	6, 8,
+            	3, 24,
+            0, 32, 1, /* 23: struct.stack_st_OPENSSL_STRING */
+            	16, 0,
+            1, 8, 1, /* 28: pointer.struct.stack_st_OPENSSL_STRING */
             	23, 0,
-            1, 8, 1, /* 23: pointer.struct.stack_st_OPENSSL_STRING */
+            0, 16, 1, /* 33: struct.crypto_ex_data_st */
             	28, 0,
-            0, 32, 1, /* 28: struct.stack_st_OPENSSL_STRING */
-            	3, 0,
-            0, 8, 0, /* 33: long */
-            0, 0, 0, /* 36: func */
-            0, 0, 0, /* 39: func */
-            0, 0, 0, /* 42: func */
-            4097, 8, 0, /* 45: pointer.func */
-            4097, 8, 0, /* 48: pointer.func */
-            0, 4, 0, /* 51: int */
-            1, 8, 1, /* 54: pointer.struct.bio_st */
-            	59, 0,
-            0, 112, 6, /* 59: struct.bio_st */
+            0, 0, 0, /* 38: func */
+            4097, 8, 0, /* 41: pointer.func */
+            4097, 8, 0, /* 44: pointer.func */
+            1, 8, 1, /* 47: pointer.struct.bio_st */
+            	52, 0,
+            0, 112, 7, /* 52: struct.bio_st */
+            	69, 0,
+            	41, 8,
+            	11, 16,
+            	0, 48,
+            	47, 56,
+            	47, 64,
+            	33, 96,
+            1, 8, 1, /* 69: pointer.struct.bio_method_st */
             	74, 0,
-            	13, 16,
-            	13, 48,
-            	54, 56,
-            	54, 64,
-            	18, 96,
-            1, 8, 1, /* 74: pointer.struct.bio_method_st */
-            	79, 0,
-            0, 80, 1, /* 79: struct.bio_method_st */
-            	13, 8,
-            0, 0, 0, /* 84: func */
-            4097, 8, 0, /* 87: pointer.func */
-            0, 1, 0, /* 90: char */
-            4097, 8, 0, /* 93: pointer.func */
-            4097, 8, 0, /* 96: pointer.func */
-            0, 0, 0, /* 99: func */
-            4097, 8, 0, /* 102: pointer.func */
-            0, 0, 0, /* 105: func */
-            4097, 8, 0, /* 108: pointer.func */
+            0, 80, 9, /* 74: struct.bio_method_st */
+            	11, 8,
+            	95, 16,
+            	95, 24,
+            	98, 32,
+            	95, 40,
+            	101, 48,
+            	44, 56,
+            	44, 64,
+            	104, 72,
+            4097, 8, 0, /* 95: pointer.func */
+            4097, 8, 0, /* 98: pointer.func */
+            4097, 8, 0, /* 101: pointer.func */
+            4097, 8, 0, /* 104: pointer.func */
+            0, 0, 0, /* 107: func */
+            0, 8, 0, /* 110: long */
+            0, 4, 0, /* 113: int */
+            0, 0, 0, /* 116: func */
+            0, 0, 0, /* 119: func */
+            0, 0, 0, /* 122: func */
+            0, 1, 0, /* 125: char */
+            0, 0, 0, /* 128: func */
+            0, 0, 0, /* 131: func */
         },
-        .arg_entity_index = { 54, 13, 51, },
-        .ret_entity_index = 51,
+        .arg_entity_index = { 47, 0, 113, },
+        .ret_entity_index = 113,
     };
     struct lib_enter_args *args_addr = &args;
     populate_arg(args_addr, arg_a);
