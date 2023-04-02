@@ -47,38 +47,38 @@ const EVP_MD * bb_EVP_sha1(void)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            0, 8, 0, /* 0: pointer.void */
-            0, 0, 0, /* 3: func */
-            4097, 8, 0, /* 6: pointer.func */
-            0, 20, 0, /* 9: array[5].int */
-            0, 0, 0, /* 12: func */
-            4097, 8, 0, /* 15: pointer.func */
-            0, 0, 0, /* 18: func */
-            1, 8, 1, /* 21: pointer.struct.env_md_st */
-            	26, 0,
-            0, 120, 8, /* 26: struct.env_md_st */
-            	45, 24,
-            	48, 32,
-            	51, 40,
-            	54, 48,
-            	45, 56,
-            	57, 64,
-            	15, 72,
-            	6, 112,
+            0, 0, 0, /* 0: func */
+            4097, 8, 0, /* 3: pointer.func */
+            0, 20, 0, /* 6: array[5].int */
+            0, 0, 0, /* 9: func */
+            4097, 8, 0, /* 12: pointer.func */
+            0, 0, 0, /* 15: func */
+            0, 8, 1, /* 18: pointer.struct.env_md_st */
+            	23, 0,
+            0, 120, 8, /* 23: struct.env_md_st */
+            	42, 24,
+            	45, 32,
+            	48, 40,
+            	51, 48,
+            	42, 56,
+            	54, 64,
+            	12, 72,
+            	3, 112,
+            4097, 8, 0, /* 42: pointer.func */
             4097, 8, 0, /* 45: pointer.func */
             4097, 8, 0, /* 48: pointer.func */
             4097, 8, 0, /* 51: pointer.func */
             4097, 8, 0, /* 54: pointer.func */
-            4097, 8, 0, /* 57: pointer.func */
-            0, 0, 0, /* 60: func */
-            0, 4, 0, /* 63: int */
-            0, 8, 0, /* 66: long */
+            0, 0, 0, /* 57: func */
+            0, 4, 0, /* 60: int */
+            0, 8, 0, /* 63: long */
+            0, 8, 0, /* 66: pointer.void */
             0, 0, 0, /* 69: func */
             0, 0, 0, /* 72: func */
             0, 0, 0, /* 75: func */
         },
         .arg_entity_index = { -1 },
-        .ret_entity_index = 21,
+        .ret_entity_index = 18,
     };
     struct lib_enter_args *args_addr = &args;
     populate_ret(args_addr, ret);

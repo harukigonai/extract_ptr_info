@@ -48,44 +48,44 @@ void bb_DH_free(DH * arg_a)
             0, 32, 2, /* 0: struct.ENGINE_CMD_DEFN_st */
             	7, 8,
             	7, 16,
-            1, 8, 1, /* 7: pointer.char */
+            0, 8, 1, /* 7: pointer.char */
             	4096, 0,
             4097, 8, 0, /* 12: pointer.func */
             4097, 8, 0, /* 15: pointer.func */
             0, 0, 0, /* 18: func */
-            0, 8, 0, /* 21: pointer.void */
+            4097, 8, 0, /* 21: pointer.func */
             4097, 8, 0, /* 24: pointer.func */
-            4097, 8, 0, /* 27: pointer.func */
-            0, 0, 0, /* 30: func */
-            1, 8, 1, /* 33: pointer.struct.store_method_st */
-            	38, 0,
-            0, 0, 0, /* 38: struct.store_method_st */
-            0, 0, 0, /* 41: func */
-            4097, 8, 0, /* 44: pointer.func */
-            0, 0, 0, /* 47: func */
-            4097, 8, 0, /* 50: pointer.func */
-            0, 48, 6, /* 53: struct.rand_meth_st */
-            	68, 0,
-            	71, 8,
-            	50, 16,
-            	44, 24,
-            	71, 32,
-            	74, 40,
+            0, 0, 0, /* 27: func */
+            0, 8, 1, /* 30: pointer.struct.store_method_st */
+            	35, 0,
+            0, 0, 0, /* 35: struct.store_method_st */
+            0, 0, 0, /* 38: func */
+            4097, 8, 0, /* 41: pointer.func */
+            0, 0, 0, /* 44: func */
+            4097, 8, 0, /* 47: pointer.func */
+            0, 48, 6, /* 50: struct.rand_meth_st */
+            	65, 0,
+            	68, 8,
+            	47, 16,
+            	41, 24,
+            	68, 32,
+            	71, 40,
+            4097, 8, 0, /* 65: pointer.func */
             4097, 8, 0, /* 68: pointer.func */
             4097, 8, 0, /* 71: pointer.func */
-            4097, 8, 0, /* 74: pointer.func */
-            1, 8, 1, /* 77: pointer.struct.rand_meth_st */
-            	53, 0,
-            4097, 8, 0, /* 82: pointer.func */
-            0, 0, 0, /* 85: func */
-            4097, 8, 0, /* 88: pointer.func */
-            0, 32, 3, /* 91: struct.ecdh_method */
+            0, 8, 1, /* 74: pointer.struct.rand_meth_st */
+            	50, 0,
+            4097, 8, 0, /* 79: pointer.func */
+            0, 0, 0, /* 82: func */
+            4097, 8, 0, /* 85: pointer.func */
+            0, 32, 3, /* 88: struct.ecdh_method */
             	7, 0,
-            	88, 8,
+            	85, 8,
             	7, 24,
-            1, 8, 1, /* 100: pointer.struct.ecdh_method */
-            	91, 0,
-            0, 0, 0, /* 105: func */
+            0, 8, 1, /* 97: pointer.struct.ecdh_method */
+            	88, 0,
+            0, 0, 0, /* 102: func */
+            0, 8, 0, /* 105: pointer.void */
             4097, 8, 0, /* 108: pointer.func */
             0, 0, 0, /* 111: func */
             4097, 8, 0, /* 114: pointer.func */
@@ -97,7 +97,7 @@ void bb_DH_free(DH * arg_a)
             	132, 56,
             0, 24, 1, /* 132: struct.bignum_st */
             	137, 0,
-            1, 8, 1, /* 137: pointer.int */
+            0, 8, 1, /* 137: pointer.int */
             	142, 0,
             0, 4, 0, /* 142: int */
             0, 0, 0, /* 145: func */
@@ -108,7 +108,7 @@ void bb_DH_free(DH * arg_a)
             0, 0, 0, /* 160: func */
             0, 0, 0, /* 163: func */
             0, 0, 0, /* 166: func */
-            1, 8, 1, /* 169: pointer.struct.dh_method */
+            0, 8, 1, /* 169: pointer.struct.dh_method */
             	174, 0,
             0, 72, 8, /* 174: struct.dh_method */
             	7, 0,
@@ -122,7 +122,7 @@ void bb_DH_free(DH * arg_a)
             4097, 8, 0, /* 193: pointer.func */
             4097, 8, 0, /* 196: pointer.func */
             4097, 8, 0, /* 199: pointer.func */
-            1, 8, 1, /* 202: pointer.pointer.char */
+            0, 8, 1, /* 202: pointer.pointer.char */
             	7, 0,
             0, 32, 1, /* 207: struct.stack_st_OPENSSL_STRING */
             	212, 0,
@@ -145,15 +145,15 @@ void bb_DH_free(DH * arg_a)
             	265, 112,
             	169, 128,
             	275, 136,
-            1, 8, 1, /* 255: pointer.struct.bignum_st */
+            0, 8, 1, /* 255: pointer.struct.bignum_st */
             	132, 0,
-            1, 8, 1, /* 260: pointer.struct.bn_mont_ctx_st */
+            0, 8, 1, /* 260: pointer.struct.bn_mont_ctx_st */
             	123, 0,
             0, 16, 1, /* 265: struct.crypto_ex_data_st */
             	270, 0,
-            1, 8, 1, /* 270: pointer.struct.stack_st_OPENSSL_STRING */
+            0, 8, 1, /* 270: pointer.struct.stack_st_OPENSSL_STRING */
             	207, 0,
-            1, 8, 1, /* 275: pointer.struct.engine_st */
+            0, 8, 1, /* 275: pointer.struct.engine_st */
             	280, 0,
             0, 216, 24, /* 280: struct.engine_st */
             	7, 0,
@@ -161,18 +161,18 @@ void bb_DH_free(DH * arg_a)
             	331, 16,
             	386, 24,
             	169, 32,
-            	100, 40,
+            	97, 40,
             	428, 48,
-            	77, 56,
-            	33, 64,
+            	74, 56,
+            	30, 64,
             	452, 72,
             	455, 80,
             	458, 88,
             	461, 96,
-            	24, 104,
-            	24, 112,
-            	24, 120,
-            	27, 128,
+            	21, 104,
+            	21, 112,
+            	21, 120,
+            	24, 128,
             	15, 136,
             	15, 144,
             	12, 152,
@@ -180,7 +180,7 @@ void bb_DH_free(DH * arg_a)
             	265, 184,
             	275, 200,
             	275, 208,
-            1, 8, 1, /* 331: pointer.struct.rsa_meth_st */
+            0, 8, 1, /* 331: pointer.struct.rsa_meth_st */
             	336, 0,
             0, 112, 13, /* 336: struct.rsa_meth_st */
             	7, 0,
@@ -203,7 +203,7 @@ void bb_DH_free(DH * arg_a)
             4097, 8, 0, /* 377: pointer.func */
             4097, 8, 0, /* 380: pointer.func */
             4097, 8, 0, /* 383: pointer.func */
-            1, 8, 1, /* 386: pointer.struct.dsa_method */
+            0, 8, 1, /* 386: pointer.struct.dsa_method */
             	391, 0,
             0, 96, 11, /* 391: struct.dsa_method */
             	7, 0,
@@ -221,11 +221,11 @@ void bb_DH_free(DH * arg_a)
             4097, 8, 0, /* 419: pointer.func */
             4097, 8, 0, /* 422: pointer.func */
             4097, 8, 0, /* 425: pointer.func */
-            1, 8, 1, /* 428: pointer.struct.ecdsa_method */
+            0, 8, 1, /* 428: pointer.struct.ecdsa_method */
             	433, 0,
             0, 48, 5, /* 433: struct.ecdsa_method */
             	7, 0,
-            	82, 8,
+            	79, 8,
             	446, 16,
             	449, 24,
             	7, 40,
@@ -235,7 +235,7 @@ void bb_DH_free(DH * arg_a)
             4097, 8, 0, /* 455: pointer.func */
             4097, 8, 0, /* 458: pointer.func */
             4097, 8, 0, /* 461: pointer.func */
-            1, 8, 1, /* 464: pointer.struct.ENGINE_CMD_DEFN_st */
+            0, 8, 1, /* 464: pointer.struct.ENGINE_CMD_DEFN_st */
             	0, 0,
             0, 0, 0, /* 469: func */
             0, 1, 0, /* 472: char */
@@ -246,7 +246,7 @@ void bb_DH_free(DH * arg_a)
             0, 0, 0, /* 487: func */
             0, 0, 0, /* 490: func */
             0, 8, 0, /* 493: long */
-            1, 8, 1, /* 496: pointer.struct.dh_st */
+            0, 8, 1, /* 496: pointer.struct.dh_st */
             	228, 0,
             0, 0, 0, /* 501: func */
             0, 0, 0, /* 504: func */

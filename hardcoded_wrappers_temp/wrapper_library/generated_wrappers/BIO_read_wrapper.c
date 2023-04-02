@@ -47,38 +47,38 @@ int bb_BIO_read(BIO * arg_a,void * arg_b,int arg_c)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            0, 8, 0, /* 0: pointer.void */
-            4097, 8, 0, /* 3: pointer.func */
-            1, 8, 1, /* 6: pointer.pointer.char */
-            	11, 0,
-            1, 8, 1, /* 11: pointer.char */
+            4097, 8, 0, /* 0: pointer.func */
+            0, 8, 1, /* 3: pointer.pointer.char */
+            	8, 0,
+            0, 8, 1, /* 8: pointer.char */
             	4096, 0,
-            0, 32, 2, /* 16: struct.stack_st */
-            	6, 8,
-            	3, 24,
-            0, 32, 1, /* 23: struct.stack_st_OPENSSL_STRING */
-            	16, 0,
-            1, 8, 1, /* 28: pointer.struct.stack_st_OPENSSL_STRING */
-            	23, 0,
-            0, 16, 1, /* 33: struct.crypto_ex_data_st */
-            	28, 0,
-            0, 0, 0, /* 38: func */
+            0, 32, 2, /* 13: struct.stack_st */
+            	3, 8,
+            	0, 24,
+            0, 32, 1, /* 20: struct.stack_st_OPENSSL_STRING */
+            	13, 0,
+            0, 8, 1, /* 25: pointer.struct.stack_st_OPENSSL_STRING */
+            	20, 0,
+            0, 16, 1, /* 30: struct.crypto_ex_data_st */
+            	25, 0,
+            0, 0, 0, /* 35: func */
+            0, 8, 0, /* 38: pointer.void */
             4097, 8, 0, /* 41: pointer.func */
             4097, 8, 0, /* 44: pointer.func */
-            1, 8, 1, /* 47: pointer.struct.bio_st */
+            0, 8, 1, /* 47: pointer.struct.bio_st */
             	52, 0,
             0, 112, 7, /* 52: struct.bio_st */
             	69, 0,
             	41, 8,
-            	11, 16,
-            	0, 48,
+            	8, 16,
+            	38, 48,
             	47, 56,
             	47, 64,
-            	33, 96,
-            1, 8, 1, /* 69: pointer.struct.bio_method_st */
+            	30, 96,
+            0, 8, 1, /* 69: pointer.struct.bio_method_st */
             	74, 0,
             0, 80, 9, /* 74: struct.bio_method_st */
-            	11, 8,
+            	8, 8,
             	95, 16,
             	95, 24,
             	98, 32,
@@ -101,7 +101,7 @@ int bb_BIO_read(BIO * arg_a,void * arg_b,int arg_c)
             0, 0, 0, /* 128: func */
             0, 0, 0, /* 131: func */
         },
-        .arg_entity_index = { 47, 0, 113, },
+        .arg_entity_index = { 47, 38, 113, },
         .ret_entity_index = 113,
     };
     struct lib_enter_args *args_addr = &args;

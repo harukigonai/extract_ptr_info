@@ -3,14 +3,14 @@
 4097, 8, 0, /* 6: pointer.func */
 0, 16, 1, /* 9: struct._pqueue */
 	14, 0,
-1, 8, 1, /* 14: pointer.struct._pitem */
+0, 8, 1, /* 14: pointer.struct._pitem */
 	19, 0,
 0, 24, 2, /* 19: struct._pitem */
 	26, 8,
 	14, 16,
-1, 8, 1, /* 26: pointer.char */
+0, 8, 1, /* 26: pointer.char */
 	4096, 0,
-1, 8, 1, /* 31: pointer.struct.dtls1_state_st */
+0, 8, 1, /* 31: pointer.struct.dtls1_state_st */
 	36, 0,
 0, 888, 7, /* 36: struct.dtls1_state_st */
 	53, 576,
@@ -22,7 +22,7 @@
 	63, 736,
 0, 16, 1, /* 53: struct.record_pqueue_st */
 	58, 8,
-1, 8, 1, /* 58: pointer.struct._pqueue */
+0, 8, 1, /* 58: pointer.struct._pqueue */
 	9, 0,
 0, 88, 1, /* 63: struct.hm_header_st */
 	68, 48,
@@ -31,14 +31,14 @@
 	486, 8,
 	796, 16,
 	842, 24,
-1, 8, 1, /* 79: pointer.struct.evp_cipher_ctx_st */
+0, 8, 1, /* 79: pointer.struct.evp_cipher_ctx_st */
 	84, 0,
 0, 168, 4, /* 84: struct.evp_cipher_ctx_st */
 	95, 0,
 	135, 8,
 	132, 96,
 	132, 120,
-1, 8, 1, /* 95: pointer.struct.evp_cipher_st */
+0, 8, 1, /* 95: pointer.struct.evp_cipher_st */
 	100, 0,
 0, 88, 7, /* 100: struct.evp_cipher_st */
 	117, 24,
@@ -54,7 +54,7 @@
 4097, 8, 0, /* 126: pointer.func */
 4097, 8, 0, /* 129: pointer.func */
 0, 8, 0, /* 132: pointer.void */
-1, 8, 1, /* 135: pointer.struct.engine_st */
+0, 8, 1, /* 135: pointer.struct.engine_st */
 	140, 0,
 0, 216, 24, /* 140: struct.engine_st */
 	26, 0,
@@ -81,7 +81,7 @@
 	456, 184,
 	135, 200,
 	135, 208,
-1, 8, 1, /* 191: pointer.struct.rsa_meth_st */
+0, 8, 1, /* 191: pointer.struct.rsa_meth_st */
 	196, 0,
 0, 112, 13, /* 196: struct.rsa_meth_st */
 	26, 0,
@@ -104,7 +104,7 @@
 4097, 8, 0, /* 237: pointer.func */
 4097, 8, 0, /* 240: pointer.func */
 4097, 8, 0, /* 243: pointer.func */
-1, 8, 1, /* 246: pointer.struct.dsa_method */
+0, 8, 1, /* 246: pointer.struct.dsa_method */
 	251, 0,
 0, 96, 11, /* 251: struct.dsa_method */
 	26, 0,
@@ -125,7 +125,7 @@
 4097, 8, 0, /* 288: pointer.func */
 4097, 8, 0, /* 291: pointer.func */
 4097, 8, 0, /* 294: pointer.func */
-1, 8, 1, /* 297: pointer.struct.dh_method */
+0, 8, 1, /* 297: pointer.struct.dh_method */
 	302, 0,
 0, 72, 8, /* 302: struct.dh_method */
 	26, 0,
@@ -140,14 +140,14 @@
 4097, 8, 0, /* 324: pointer.func */
 4097, 8, 0, /* 327: pointer.func */
 4097, 8, 0, /* 330: pointer.func */
-1, 8, 1, /* 333: pointer.struct.ecdh_method */
+0, 8, 1, /* 333: pointer.struct.ecdh_method */
 	338, 0,
 0, 32, 3, /* 338: struct.ecdh_method */
 	26, 0,
 	347, 8,
 	26, 24,
 4097, 8, 0, /* 347: pointer.func */
-1, 8, 1, /* 350: pointer.struct.ecdsa_method */
+0, 8, 1, /* 350: pointer.struct.ecdsa_method */
 	355, 0,
 0, 48, 5, /* 355: struct.ecdsa_method */
 	26, 0,
@@ -158,7 +158,7 @@
 4097, 8, 0, /* 368: pointer.func */
 4097, 8, 0, /* 371: pointer.func */
 4097, 8, 0, /* 374: pointer.func */
-1, 8, 1, /* 377: pointer.struct.rand_meth_st */
+0, 8, 1, /* 377: pointer.struct.rand_meth_st */
 	382, 0,
 0, 48, 6, /* 382: struct.rand_meth_st */
 	397, 0,
@@ -172,7 +172,7 @@
 4097, 8, 0, /* 403: pointer.func */
 4097, 8, 0, /* 406: pointer.func */
 4097, 8, 0, /* 409: pointer.func */
-1, 8, 1, /* 412: pointer.struct.store_method_st */
+0, 8, 1, /* 412: pointer.struct.store_method_st */
 	417, 0,
 0, 0, 0, /* 417: struct.store_method_st */
 4097, 8, 0, /* 420: pointer.func */
@@ -183,24 +183,24 @@
 4097, 8, 0, /* 435: pointer.func */
 4097, 8, 0, /* 438: pointer.func */
 4097, 8, 0, /* 441: pointer.func */
-1, 8, 1, /* 444: pointer.struct.ENGINE_CMD_DEFN_st */
+0, 8, 1, /* 444: pointer.struct.ENGINE_CMD_DEFN_st */
 	449, 0,
 0, 32, 2, /* 449: struct.ENGINE_CMD_DEFN_st */
 	26, 8,
 	26, 16,
 0, 16, 1, /* 456: struct.crypto_ex_data_st */
 	461, 0,
-1, 8, 1, /* 461: pointer.struct.stack_st_OPENSSL_STRING */
+0, 8, 1, /* 461: pointer.struct.stack_st_OPENSSL_STRING */
 	466, 0,
 0, 32, 1, /* 466: struct.stack_st_OPENSSL_STRING */
 	471, 0,
 0, 32, 2, /* 471: struct.stack_st */
 	478, 8,
 	483, 24,
-1, 8, 1, /* 478: pointer.pointer.char */
+0, 8, 1, /* 478: pointer.pointer.char */
 	26, 0,
 4097, 8, 0, /* 483: pointer.func */
-1, 8, 1, /* 486: pointer.struct.env_md_ctx_st */
+0, 8, 1, /* 486: pointer.struct.env_md_ctx_st */
 	491, 0,
 0, 48, 5, /* 491: struct.env_md_ctx_st */
 	504, 0,
@@ -208,7 +208,7 @@
 	132, 24,
 	549, 32,
 	531, 40,
-1, 8, 1, /* 504: pointer.struct.env_md_st */
+0, 8, 1, /* 504: pointer.struct.env_md_st */
 	509, 0,
 0, 120, 8, /* 509: struct.env_md_st */
 	528, 24,
@@ -226,7 +226,7 @@
 4097, 8, 0, /* 540: pointer.func */
 4097, 8, 0, /* 543: pointer.func */
 4097, 8, 0, /* 546: pointer.func */
-1, 8, 1, /* 549: pointer.struct.evp_pkey_ctx_st */
+0, 8, 1, /* 549: pointer.struct.evp_pkey_ctx_st */
 	554, 0,
 0, 80, 8, /* 554: struct.evp_pkey_ctx_st */
 	573, 0,
@@ -237,7 +237,7 @@
 	26, 48,
 	631, 56,
 	788, 64,
-1, 8, 1, /* 573: pointer.struct.evp_pkey_method_st */
+0, 8, 1, /* 573: pointer.struct.evp_pkey_method_st */
 	578, 0,
 0, 208, 25, /* 578: struct.evp_pkey_method_st */
 	631, 8,
@@ -265,7 +265,7 @@
 	663, 184,
 	666, 192,
 	669, 200,
-1, 8, 1, /* 631: pointer.struct.unnamed */
+0, 8, 1, /* 631: pointer.struct.unnamed */
 	636, 0,
 0, 0, 0, /* 636: struct.unnamed */
 4097, 8, 0, /* 639: pointer.func */
@@ -279,14 +279,14 @@
 4097, 8, 0, /* 663: pointer.func */
 4097, 8, 0, /* 666: pointer.func */
 4097, 8, 0, /* 669: pointer.func */
-1, 8, 1, /* 672: pointer.struct.evp_pkey_st */
+0, 8, 1, /* 672: pointer.struct.evp_pkey_st */
 	677, 0,
 0, 56, 4, /* 677: struct.evp_pkey_st */
 	688, 16,
 	135, 24,
 	783, 32,
 	461, 48,
-1, 8, 1, /* 688: pointer.struct.evp_pkey_asn1_method_st */
+0, 8, 1, /* 688: pointer.struct.evp_pkey_asn1_method_st */
 	693, 0,
 0, 208, 24, /* 693: struct.evp_pkey_asn1_method_st */
 	26, 16,
@@ -328,15 +328,15 @@
 4097, 8, 0, /* 780: pointer.func */
 0, 8, 1, /* 783: struct.fnames */
 	26, 0,
-1, 8, 1, /* 788: pointer.int */
+0, 8, 1, /* 788: pointer.int */
 	793, 0,
 0, 4, 0, /* 793: int */
-1, 8, 1, /* 796: pointer.struct.comp_ctx_st */
+0, 8, 1, /* 796: pointer.struct.comp_ctx_st */
 	801, 0,
 0, 56, 2, /* 801: struct.comp_ctx_st */
 	808, 0,
 	456, 40,
-1, 8, 1, /* 808: pointer.struct.comp_method_st */
+0, 8, 1, /* 808: pointer.struct.comp_method_st */
 	813, 0,
 0, 64, 7, /* 813: struct.comp_method_st */
 	26, 8,
@@ -350,7 +350,7 @@
 4097, 8, 0, /* 833: pointer.func */
 4097, 8, 0, /* 836: pointer.func */
 4097, 8, 0, /* 839: pointer.func */
-1, 8, 1, /* 842: pointer.struct.ssl_session_st */
+0, 8, 1, /* 842: pointer.struct.ssl_session_st */
 	847, 0,
 0, 352, 14, /* 847: struct.ssl_session_st */
 	26, 144,
@@ -367,7 +367,7 @@
 	26, 312,
 	26, 320,
 	26, 344,
-1, 8, 1, /* 878: pointer.struct.sess_cert_st */
+0, 8, 1, /* 878: pointer.struct.sess_cert_st */
 	883, 0,
 0, 248, 6, /* 883: struct.sess_cert_st */
 	461, 0,
@@ -376,13 +376,13 @@
 	1164, 216,
 	1257, 224,
 	1289, 232,
-1, 8, 1, /* 898: pointer.struct.cert_pkey_st */
+0, 8, 1, /* 898: pointer.struct.cert_pkey_st */
 	903, 0,
 0, 24, 3, /* 903: struct.cert_pkey_st */
 	912, 0,
 	672, 8,
 	504, 16,
-1, 8, 1, /* 912: pointer.struct.x509_st */
+0, 8, 1, /* 912: pointer.struct.x509_st */
 	917, 0,
 0, 184, 12, /* 917: struct.x509_st */
 	944, 0,
@@ -397,7 +397,7 @@
 	461, 136,
 	1115, 144,
 	1127, 176,
-1, 8, 1, /* 944: pointer.struct.x509_cinf_st */
+0, 8, 1, /* 944: pointer.struct.x509_cinf_st */
 	949, 0,
 0, 104, 11, /* 949: struct.x509_cinf_st */
 	974, 0,
@@ -411,41 +411,41 @@
 	974, 64,
 	461, 72,
 	1070, 80,
-1, 8, 1, /* 974: pointer.struct.asn1_string_st */
+0, 8, 1, /* 974: pointer.struct.asn1_string_st */
 	979, 0,
 0, 24, 1, /* 979: struct.asn1_string_st */
 	26, 8,
-1, 8, 1, /* 984: pointer.struct.X509_algor_st */
+0, 8, 1, /* 984: pointer.struct.X509_algor_st */
 	989, 0,
 0, 16, 2, /* 989: struct.X509_algor_st */
 	996, 0,
 	1010, 8,
-1, 8, 1, /* 996: pointer.struct.asn1_object_st */
+0, 8, 1, /* 996: pointer.struct.asn1_object_st */
 	1001, 0,
 0, 40, 3, /* 1001: struct.asn1_object_st */
 	26, 0,
 	26, 8,
 	26, 24,
-1, 8, 1, /* 1010: pointer.struct.asn1_type_st */
+0, 8, 1, /* 1010: pointer.struct.asn1_type_st */
 	1015, 0,
 0, 16, 1, /* 1015: struct.asn1_type_st */
 	783, 8,
-1, 8, 1, /* 1020: pointer.struct.X509_name_st */
+0, 8, 1, /* 1020: pointer.struct.X509_name_st */
 	1025, 0,
 0, 40, 3, /* 1025: struct.X509_name_st */
 	461, 0,
 	1034, 16,
 	26, 24,
-1, 8, 1, /* 1034: pointer.struct.buf_mem_st */
+0, 8, 1, /* 1034: pointer.struct.buf_mem_st */
 	1039, 0,
 0, 24, 1, /* 1039: struct.buf_mem_st */
 	26, 8,
-1, 8, 1, /* 1044: pointer.struct.X509_val_st */
+0, 8, 1, /* 1044: pointer.struct.X509_val_st */
 	1049, 0,
 0, 16, 2, /* 1049: struct.X509_val_st */
 	974, 0,
 	974, 8,
-1, 8, 1, /* 1056: pointer.struct.X509_pubkey_st */
+0, 8, 1, /* 1056: pointer.struct.X509_pubkey_st */
 	1061, 0,
 0, 24, 3, /* 1061: struct.X509_pubkey_st */
 	984, 0,
@@ -453,29 +453,29 @@
 	672, 16,
 0, 24, 1, /* 1070: struct.ASN1_ENCODING_st */
 	26, 0,
-1, 8, 1, /* 1075: pointer.struct.AUTHORITY_KEYID_st */
+0, 8, 1, /* 1075: pointer.struct.AUTHORITY_KEYID_st */
 	1080, 0,
 0, 24, 3, /* 1080: struct.AUTHORITY_KEYID_st */
 	974, 0,
 	461, 8,
 	974, 16,
-1, 8, 1, /* 1089: pointer.struct.X509_POLICY_CACHE_st */
+0, 8, 1, /* 1089: pointer.struct.X509_POLICY_CACHE_st */
 	1094, 0,
 0, 40, 2, /* 1094: struct.X509_POLICY_CACHE_st */
 	1101, 0,
 	461, 8,
-1, 8, 1, /* 1101: pointer.struct.X509_POLICY_DATA_st */
+0, 8, 1, /* 1101: pointer.struct.X509_POLICY_DATA_st */
 	1106, 0,
 0, 32, 3, /* 1106: struct.X509_POLICY_DATA_st */
 	996, 8,
 	461, 16,
 	461, 24,
-1, 8, 1, /* 1115: pointer.struct.NAME_CONSTRAINTS_st */
+0, 8, 1, /* 1115: pointer.struct.NAME_CONSTRAINTS_st */
 	1120, 0,
 0, 16, 2, /* 1120: struct.NAME_CONSTRAINTS_st */
 	461, 0,
 	461, 8,
-1, 8, 1, /* 1127: pointer.struct.x509_cert_aux_st */
+0, 8, 1, /* 1127: pointer.struct.x509_cert_aux_st */
 	1132, 0,
 0, 40, 5, /* 1132: struct.x509_cert_aux_st */
 	461, 0,
@@ -492,7 +492,7 @@
 	903, 120,
 	903, 144,
 	903, 168,
-1, 8, 1, /* 1164: pointer.struct.rsa_st */
+0, 8, 1, /* 1164: pointer.struct.rsa_st */
 	1169, 0,
 0, 168, 17, /* 1169: struct.rsa_st */
 	191, 16,
@@ -512,17 +512,17 @@
 	26, 144,
 	1230, 152,
 	1230, 160,
-1, 8, 1, /* 1206: pointer.struct.bignum_st */
+0, 8, 1, /* 1206: pointer.struct.bignum_st */
 	1211, 0,
 0, 24, 1, /* 1211: struct.bignum_st */
 	788, 0,
-1, 8, 1, /* 1216: pointer.struct.bn_mont_ctx_st */
+0, 8, 1, /* 1216: pointer.struct.bn_mont_ctx_st */
 	1221, 0,
 0, 96, 3, /* 1221: struct.bn_mont_ctx_st */
 	1211, 8,
 	1211, 32,
 	1211, 56,
-1, 8, 1, /* 1230: pointer.struct.bn_blinding_st */
+0, 8, 1, /* 1230: pointer.struct.bn_blinding_st */
 	1235, 0,
 0, 88, 7, /* 1235: struct.bn_blinding_st */
 	1206, 0,
@@ -534,7 +534,7 @@
 	231, 80,
 0, 16, 1, /* 1252: struct.iovec */
 	26, 0,
-1, 8, 1, /* 1257: pointer.struct.dh_st */
+0, 8, 1, /* 1257: pointer.struct.dh_st */
 	1262, 0,
 0, 144, 12, /* 1262: struct.dh_st */
 	1206, 8,
@@ -549,14 +549,14 @@
 	456, 112,
 	297, 128,
 	135, 136,
-1, 8, 1, /* 1289: pointer.struct.ec_key_st */
+0, 8, 1, /* 1289: pointer.struct.ec_key_st */
 	1294, 0,
 0, 56, 4, /* 1294: struct.ec_key_st */
 	1305, 8,
 	1482, 16,
 	1206, 24,
 	1498, 48,
-1, 8, 1, /* 1305: pointer.struct.ec_group_st */
+0, 8, 1, /* 1305: pointer.struct.ec_group_st */
 	1310, 0,
 0, 232, 12, /* 1310: struct.ec_group_st */
 	1337, 0,
@@ -571,7 +571,7 @@
 	26, 208,
 	26, 216,
 	1522, 224,
-1, 8, 1, /* 1337: pointer.struct.ec_method_st */
+0, 8, 1, /* 1337: pointer.struct.ec_method_st */
 	1342, 0,
 0, 304, 37, /* 1342: struct.ec_method_st */
 	1419, 8,
@@ -632,14 +632,14 @@
 4097, 8, 0, /* 1473: pointer.func */
 4097, 8, 0, /* 1476: pointer.func */
 4097, 8, 0, /* 1479: pointer.func */
-1, 8, 1, /* 1482: pointer.struct.ec_point_st */
+0, 8, 1, /* 1482: pointer.struct.ec_point_st */
 	1487, 0,
 0, 88, 4, /* 1487: struct.ec_point_st */
 	1337, 0,
 	1211, 8,
 	1211, 32,
 	1211, 56,
-1, 8, 1, /* 1498: pointer.struct.ec_extra_data_st */
+0, 8, 1, /* 1498: pointer.struct.ec_extra_data_st */
 	1503, 0,
 0, 40, 5, /* 1503: struct.ec_extra_data_st */
 	1498, 0,
@@ -650,7 +650,7 @@
 4097, 8, 0, /* 1516: pointer.func */
 4097, 8, 0, /* 1519: pointer.func */
 4097, 8, 0, /* 1522: pointer.func */
-1, 8, 1, /* 1525: pointer.struct.ssl_cipher_st */
+0, 8, 1, /* 1525: pointer.struct.ssl_cipher_st */
 	1530, 0,
 0, 88, 1, /* 1530: struct.ssl_cipher_st */
 	26, 8,
@@ -669,7 +669,7 @@
 	95, 488,
 	504, 496,
 	1572, 512,
-1, 8, 1, /* 1572: pointer.struct.ssl_comp_st */
+0, 8, 1, /* 1572: pointer.struct.ssl_comp_st */
 	1577, 0,
 0, 24, 2, /* 1577: struct.ssl_comp_st */
 	26, 8,
@@ -677,7 +677,7 @@
 0, 0, 0, /* 1584: func */
 0, 0, 0, /* 1587: func */
 0, 0, 0, /* 1590: func */
-1, 8, 1, /* 1593: pointer.struct.ssl3_state_st */
+0, 8, 1, /* 1593: pointer.struct.ssl3_state_st */
 	1598, 0,
 0, 1200, 10, /* 1598: struct.ssl3_state_st */
 	1621, 240,
@@ -696,7 +696,7 @@
 	26, 16,
 	26, 24,
 	26, 32,
-1, 8, 1, /* 1635: pointer.struct.bio_st */
+0, 8, 1, /* 1635: pointer.struct.bio_st */
 	1640, 0,
 0, 112, 7, /* 1640: struct.bio_st */
 	1657, 0,
@@ -706,7 +706,7 @@
 	1635, 56,
 	1635, 64,
 	456, 96,
-1, 8, 1, /* 1657: pointer.struct.bio_method_st */
+0, 8, 1, /* 1657: pointer.struct.bio_method_st */
 	1662, 0,
 0, 80, 9, /* 1662: struct.bio_method_st */
 	26, 8,
@@ -724,11 +724,11 @@
 4097, 8, 0, /* 1692: pointer.func */
 4097, 8, 0, /* 1695: pointer.func */
 4097, 8, 0, /* 1698: pointer.func */
-1, 8, 1, /* 1701: pointer.pointer.struct.env_md_ctx_st */
+0, 8, 1, /* 1701: pointer.pointer.struct.env_md_ctx_st */
 	486, 0,
 0, 72, 0, /* 1706: struct.anon */
 0, 0, 0, /* 1709: func */
-1, 8, 1, /* 1712: pointer.struct.ssl_st */
+0, 8, 1, /* 1712: pointer.struct.ssl_st */
 	1717, 0,
 0, 808, 51, /* 1717: struct.ssl_st */
 	1822, 8,
@@ -782,7 +782,7 @@
 	461, 648,
 	2334, 656,
 	2284, 680,
-1, 8, 1, /* 1822: pointer.struct.ssl_method_st */
+0, 8, 1, /* 1822: pointer.struct.ssl_method_st */
 	1827, 0,
 0, 232, 28, /* 1827: struct.ssl_method_st */
 	1886, 8,
@@ -825,7 +825,7 @@
 4097, 8, 0, /* 1913: pointer.func */
 4097, 8, 0, /* 1916: pointer.func */
 4097, 8, 0, /* 1919: pointer.func */
-1, 8, 1, /* 1922: pointer.struct.ssl3_enc_method */
+0, 8, 1, /* 1922: pointer.struct.ssl3_enc_method */
 	1927, 0,
 0, 112, 11, /* 1927: struct.ssl3_enc_method */
 	631, 0,
@@ -846,7 +846,7 @@
 4097, 8, 0, /* 1964: pointer.func */
 4097, 8, 0, /* 1967: pointer.func */
 4097, 8, 0, /* 1970: pointer.func */
-1, 8, 1, /* 1973: pointer.struct.ssl2_state_st */
+0, 8, 1, /* 1973: pointer.struct.ssl2_state_st */
 	1978, 0,
 0, 344, 9, /* 1978: struct.ssl2_state_st */
 	26, 24,
@@ -859,12 +859,12 @@
 	26, 128,
 	26, 136,
 4097, 8, 0, /* 1999: pointer.func */
-1, 8, 1, /* 2002: pointer.struct.X509_VERIFY_PARAM_st */
+0, 8, 1, /* 2002: pointer.struct.X509_VERIFY_PARAM_st */
 	2007, 0,
 0, 56, 2, /* 2007: struct.X509_VERIFY_PARAM_st */
 	26, 0,
 	461, 48,
-1, 8, 1, /* 2014: pointer.struct.cert_st */
+0, 8, 1, /* 2014: pointer.struct.cert_st */
 	2019, 0,
 0, 296, 8, /* 2019: struct.cert_st */
 	898, 0,
@@ -882,7 +882,7 @@
 4097, 8, 0, /* 2050: pointer.func */
 4097, 8, 0, /* 2053: pointer.func */
 4097, 8, 0, /* 2056: pointer.func */
-1, 8, 1, /* 2059: pointer.struct.ssl_ctx_st */
+0, 8, 1, /* 2059: pointer.struct.ssl_ctx_st */
 	2064, 0,
 0, 736, 50, /* 2064: struct.ssl_ctx_st */
 	1822, 0,
@@ -935,7 +935,7 @@
 	2321, 712,
 	132, 720,
 	461, 728,
-1, 8, 1, /* 2167: pointer.struct.x509_store_st */
+0, 8, 1, /* 2167: pointer.struct.x509_store_st */
 	2172, 0,
 0, 144, 15, /* 2172: struct.x509_store_st */
 	461, 8,
@@ -960,7 +960,7 @@
 4097, 8, 0, /* 2217: pointer.func */
 4097, 8, 0, /* 2220: pointer.func */
 4097, 8, 0, /* 2223: pointer.func */
-1, 8, 1, /* 2226: pointer.struct.in_addr */
+0, 8, 1, /* 2226: pointer.struct.in_addr */
 	2231, 0,
 0, 4, 0, /* 2231: struct.in_addr */
 4097, 8, 0, /* 2234: pointer.func */
@@ -973,11 +973,11 @@
 4097, 8, 0, /* 2255: pointer.func */
 4097, 8, 0, /* 2258: pointer.func */
 4097, 8, 0, /* 2261: pointer.func */
-1, 8, 1, /* 2264: pointer.struct.ssl3_buf_freelist_st */
+0, 8, 1, /* 2264: pointer.struct.ssl3_buf_freelist_st */
 	2269, 0,
 0, 24, 1, /* 2269: struct.ssl3_buf_freelist_st */
 	2274, 16,
-1, 8, 1, /* 2274: pointer.struct.ssl3_buf_freelist_entry_st */
+0, 8, 1, /* 2274: pointer.struct.ssl3_buf_freelist_entry_st */
 	2279, 0,
 0, 8, 1, /* 2279: struct.ssl3_buf_freelist_entry_st */
 	2274, 0,
@@ -999,11 +999,11 @@
 4097, 8, 0, /* 2315: pointer.func */
 4097, 8, 0, /* 2318: pointer.func */
 4097, 8, 0, /* 2321: pointer.func */
-1, 8, 1, /* 2324: pointer.struct.tls_session_ticket_ext_st */
+0, 8, 1, /* 2324: pointer.struct.tls_session_ticket_ext_st */
 	2329, 0,
 0, 16, 1, /* 2329: struct.tls_session_ticket_ext_st */
 	132, 8,
-1, 8, 1, /* 2334: pointer.struct.iovec */
+0, 8, 1, /* 2334: pointer.struct.iovec */
 	1252, 0,
 0, 0, 0, /* 2339: func */
 0, 16, 0, /* 2342: union.anon */

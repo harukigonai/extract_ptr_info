@@ -70,13 +70,13 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             4097, 8, 0, /* 52: pointer.func */
             4097, 8, 0, /* 55: pointer.func */
             4097, 8, 0, /* 58: pointer.func */
-            1, 8, 1, /* 61: pointer.char */
+            0, 8, 1, /* 61: pointer.char */
             	4096, 0,
-            1, 8, 1, /* 66: pointer.struct.bignum_st */
+            0, 8, 1, /* 66: pointer.struct.bignum_st */
             	71, 0,
             0, 24, 1, /* 71: struct.bignum_st */
             	76, 0,
-            1, 8, 1, /* 76: pointer.int */
+            0, 8, 1, /* 76: pointer.int */
             	81, 0,
             0, 4, 0, /* 81: int */
             0, 16, 0, /* 84: array[16].char */
@@ -98,13 +98,13 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             	1015, 80,
             	99, 88,
             	1251, 96,
-            1, 8, 1, /* 133: pointer.struct.cert_pkey_st */
+            0, 8, 1, /* 133: pointer.struct.cert_pkey_st */
             	138, 0,
             0, 24, 3, /* 138: struct.cert_pkey_st */
             	147, 0,
             	335, 8,
             	855, 16,
-            1, 8, 1, /* 147: pointer.struct.x509_st */
+            0, 8, 1, /* 147: pointer.struct.x509_st */
             	152, 0,
             0, 184, 12, /* 152: struct.x509_st */
             	179, 0,
@@ -119,7 +119,7 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             	274, 136,
             	825, 144,
             	837, 176,
-            1, 8, 1, /* 179: pointer.struct.x509_cinf_st */
+            0, 8, 1, /* 179: pointer.struct.x509_cinf_st */
             	184, 0,
             0, 104, 11, /* 184: struct.x509_cinf_st */
             	209, 0,
@@ -133,66 +133,66 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             	209, 64,
             	274, 72,
             	780, 80,
-            1, 8, 1, /* 209: pointer.struct.asn1_string_st */
+            0, 8, 1, /* 209: pointer.struct.asn1_string_st */
             	214, 0,
             0, 24, 1, /* 214: struct.asn1_string_st */
             	61, 8,
-            1, 8, 1, /* 219: pointer.struct.X509_algor_st */
+            0, 8, 1, /* 219: pointer.struct.X509_algor_st */
             	224, 0,
             0, 16, 2, /* 224: struct.X509_algor_st */
             	231, 0,
             	245, 8,
-            1, 8, 1, /* 231: pointer.struct.asn1_object_st */
+            0, 8, 1, /* 231: pointer.struct.asn1_object_st */
             	236, 0,
             0, 40, 3, /* 236: struct.asn1_object_st */
             	61, 0,
             	61, 8,
             	61, 24,
-            1, 8, 1, /* 245: pointer.struct.asn1_type_st */
+            0, 8, 1, /* 245: pointer.struct.asn1_type_st */
             	250, 0,
             0, 16, 1, /* 250: struct.asn1_type_st */
             	255, 8,
             0, 8, 1, /* 255: struct.fnames */
             	61, 0,
-            1, 8, 1, /* 260: pointer.struct.X509_name_st */
+            0, 8, 1, /* 260: pointer.struct.X509_name_st */
             	265, 0,
             0, 40, 3, /* 265: struct.X509_name_st */
             	274, 0,
             	299, 16,
             	61, 24,
-            1, 8, 1, /* 274: pointer.struct.stack_st_OPENSSL_STRING */
+            0, 8, 1, /* 274: pointer.struct.stack_st_OPENSSL_STRING */
             	279, 0,
             0, 32, 1, /* 279: struct.stack_st_OPENSSL_STRING */
             	284, 0,
             0, 32, 2, /* 284: struct.stack_st */
             	291, 8,
             	296, 24,
-            1, 8, 1, /* 291: pointer.pointer.char */
+            0, 8, 1, /* 291: pointer.pointer.char */
             	61, 0,
             4097, 8, 0, /* 296: pointer.func */
-            1, 8, 1, /* 299: pointer.struct.buf_mem_st */
+            0, 8, 1, /* 299: pointer.struct.buf_mem_st */
             	304, 0,
             0, 24, 1, /* 304: struct.buf_mem_st */
             	61, 8,
-            1, 8, 1, /* 309: pointer.struct.X509_val_st */
+            0, 8, 1, /* 309: pointer.struct.X509_val_st */
             	314, 0,
             0, 16, 2, /* 314: struct.X509_val_st */
             	209, 0,
             	209, 8,
-            1, 8, 1, /* 321: pointer.struct.X509_pubkey_st */
+            0, 8, 1, /* 321: pointer.struct.X509_pubkey_st */
             	326, 0,
             0, 24, 3, /* 326: struct.X509_pubkey_st */
             	219, 0,
             	209, 8,
             	335, 16,
-            1, 8, 1, /* 335: pointer.struct.evp_pkey_st */
+            0, 8, 1, /* 335: pointer.struct.evp_pkey_st */
             	340, 0,
             0, 56, 4, /* 340: struct.evp_pkey_st */
             	351, 16,
             	454, 24,
             	255, 32,
             	274, 48,
-            1, 8, 1, /* 351: pointer.struct.evp_pkey_asn1_method_st */
+            0, 8, 1, /* 351: pointer.struct.evp_pkey_asn1_method_st */
             	356, 0,
             0, 208, 24, /* 356: struct.evp_pkey_asn1_method_st */
             	61, 16,
@@ -219,7 +219,7 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             	436, 184,
             	448, 192,
             	451, 200,
-            1, 8, 1, /* 407: pointer.struct.unnamed */
+            0, 8, 1, /* 407: pointer.struct.unnamed */
             	412, 0,
             0, 0, 0, /* 412: struct.unnamed */
             4097, 8, 0, /* 415: pointer.func */
@@ -235,7 +235,7 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             4097, 8, 0, /* 445: pointer.func */
             4097, 8, 0, /* 448: pointer.func */
             4097, 8, 0, /* 451: pointer.func */
-            1, 8, 1, /* 454: pointer.struct.engine_st */
+            0, 8, 1, /* 454: pointer.struct.engine_st */
             	459, 0,
             0, 216, 24, /* 459: struct.engine_st */
             	61, 0,
@@ -262,7 +262,7 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             	775, 184,
             	454, 200,
             	454, 208,
-            1, 8, 1, /* 510: pointer.struct.rsa_meth_st */
+            0, 8, 1, /* 510: pointer.struct.rsa_meth_st */
             	515, 0,
             0, 112, 13, /* 515: struct.rsa_meth_st */
             	61, 0,
@@ -285,7 +285,7 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             4097, 8, 0, /* 556: pointer.func */
             4097, 8, 0, /* 559: pointer.func */
             4097, 8, 0, /* 562: pointer.func */
-            1, 8, 1, /* 565: pointer.struct.dsa_method */
+            0, 8, 1, /* 565: pointer.struct.dsa_method */
             	570, 0,
             0, 96, 11, /* 570: struct.dsa_method */
             	61, 0,
@@ -306,7 +306,7 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             4097, 8, 0, /* 607: pointer.func */
             4097, 8, 0, /* 610: pointer.func */
             4097, 8, 0, /* 613: pointer.func */
-            1, 8, 1, /* 616: pointer.struct.dh_method */
+            0, 8, 1, /* 616: pointer.struct.dh_method */
             	621, 0,
             0, 72, 8, /* 621: struct.dh_method */
             	61, 0,
@@ -321,14 +321,14 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             4097, 8, 0, /* 643: pointer.func */
             4097, 8, 0, /* 646: pointer.func */
             4097, 8, 0, /* 649: pointer.func */
-            1, 8, 1, /* 652: pointer.struct.ecdh_method */
+            0, 8, 1, /* 652: pointer.struct.ecdh_method */
             	657, 0,
             0, 32, 3, /* 657: struct.ecdh_method */
             	61, 0,
             	666, 8,
             	61, 24,
             4097, 8, 0, /* 666: pointer.func */
-            1, 8, 1, /* 669: pointer.struct.ecdsa_method */
+            0, 8, 1, /* 669: pointer.struct.ecdsa_method */
             	674, 0,
             0, 48, 5, /* 674: struct.ecdsa_method */
             	61, 0,
@@ -339,7 +339,7 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             4097, 8, 0, /* 687: pointer.func */
             4097, 8, 0, /* 690: pointer.func */
             4097, 8, 0, /* 693: pointer.func */
-            1, 8, 1, /* 696: pointer.struct.rand_meth_st */
+            0, 8, 1, /* 696: pointer.struct.rand_meth_st */
             	701, 0,
             0, 48, 6, /* 701: struct.rand_meth_st */
             	716, 0,
@@ -353,7 +353,7 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             4097, 8, 0, /* 722: pointer.func */
             4097, 8, 0, /* 725: pointer.func */
             4097, 8, 0, /* 728: pointer.func */
-            1, 8, 1, /* 731: pointer.struct.store_method_st */
+            0, 8, 1, /* 731: pointer.struct.store_method_st */
             	736, 0,
             0, 0, 0, /* 736: struct.store_method_st */
             4097, 8, 0, /* 739: pointer.func */
@@ -364,7 +364,7 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             4097, 8, 0, /* 754: pointer.func */
             4097, 8, 0, /* 757: pointer.func */
             4097, 8, 0, /* 760: pointer.func */
-            1, 8, 1, /* 763: pointer.struct.ENGINE_CMD_DEFN_st */
+            0, 8, 1, /* 763: pointer.struct.ENGINE_CMD_DEFN_st */
             	768, 0,
             0, 32, 2, /* 768: struct.ENGINE_CMD_DEFN_st */
             	61, 8,
@@ -373,29 +373,29 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             	274, 0,
             0, 24, 1, /* 780: struct.ASN1_ENCODING_st */
             	61, 0,
-            1, 8, 1, /* 785: pointer.struct.AUTHORITY_KEYID_st */
+            0, 8, 1, /* 785: pointer.struct.AUTHORITY_KEYID_st */
             	790, 0,
             0, 24, 3, /* 790: struct.AUTHORITY_KEYID_st */
             	209, 0,
             	274, 8,
             	209, 16,
-            1, 8, 1, /* 799: pointer.struct.X509_POLICY_CACHE_st */
+            0, 8, 1, /* 799: pointer.struct.X509_POLICY_CACHE_st */
             	804, 0,
             0, 40, 2, /* 804: struct.X509_POLICY_CACHE_st */
             	811, 0,
             	274, 8,
-            1, 8, 1, /* 811: pointer.struct.X509_POLICY_DATA_st */
+            0, 8, 1, /* 811: pointer.struct.X509_POLICY_DATA_st */
             	816, 0,
             0, 32, 3, /* 816: struct.X509_POLICY_DATA_st */
             	231, 8,
             	274, 16,
             	274, 24,
-            1, 8, 1, /* 825: pointer.struct.NAME_CONSTRAINTS_st */
+            0, 8, 1, /* 825: pointer.struct.NAME_CONSTRAINTS_st */
             	830, 0,
             0, 16, 2, /* 830: struct.NAME_CONSTRAINTS_st */
             	274, 0,
             	274, 8,
-            1, 8, 1, /* 837: pointer.struct.x509_cert_aux_st */
+            0, 8, 1, /* 837: pointer.struct.x509_cert_aux_st */
             	842, 0,
             0, 40, 5, /* 842: struct.x509_cert_aux_st */
             	274, 0,
@@ -403,7 +403,7 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             	209, 16,
             	209, 24,
             	274, 32,
-            1, 8, 1, /* 855: pointer.struct.env_md_st */
+            0, 8, 1, /* 855: pointer.struct.env_md_st */
             	860, 0,
             0, 120, 8, /* 860: struct.env_md_st */
             	879, 24,
@@ -421,7 +421,7 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             4097, 8, 0, /* 891: pointer.func */
             4097, 8, 0, /* 894: pointer.func */
             4097, 8, 0, /* 897: pointer.func */
-            1, 8, 1, /* 900: pointer.struct.rsa_st */
+            0, 8, 1, /* 900: pointer.struct.rsa_st */
             	905, 0,
             0, 168, 17, /* 905: struct.rsa_st */
             	510, 16,
@@ -441,13 +441,13 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             	61, 144,
             	956, 152,
             	956, 160,
-            1, 8, 1, /* 942: pointer.struct.bn_mont_ctx_st */
+            0, 8, 1, /* 942: pointer.struct.bn_mont_ctx_st */
             	947, 0,
             0, 96, 3, /* 947: struct.bn_mont_ctx_st */
             	71, 8,
             	71, 32,
             	71, 56,
-            1, 8, 1, /* 956: pointer.struct.bn_blinding_st */
+            0, 8, 1, /* 956: pointer.struct.bn_blinding_st */
             	961, 0,
             0, 88, 7, /* 961: struct.bn_blinding_st */
             	66, 0,
@@ -459,7 +459,7 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             	550, 80,
             0, 16, 1, /* 978: struct.iovec */
             	61, 0,
-            1, 8, 1, /* 983: pointer.struct.dh_st */
+            0, 8, 1, /* 983: pointer.struct.dh_st */
             	988, 0,
             0, 144, 12, /* 988: struct.dh_st */
             	66, 8,
@@ -474,14 +474,14 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             	775, 112,
             	616, 128,
             	454, 136,
-            1, 8, 1, /* 1015: pointer.struct.ec_key_st */
+            0, 8, 1, /* 1015: pointer.struct.ec_key_st */
             	1020, 0,
             0, 56, 4, /* 1020: struct.ec_key_st */
             	1031, 8,
             	1208, 16,
             	66, 24,
             	1224, 48,
-            1, 8, 1, /* 1031: pointer.struct.ec_group_st */
+            0, 8, 1, /* 1031: pointer.struct.ec_group_st */
             	1036, 0,
             0, 232, 12, /* 1036: struct.ec_group_st */
             	1063, 0,
@@ -496,7 +496,7 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             	61, 208,
             	61, 216,
             	1248, 224,
-            1, 8, 1, /* 1063: pointer.struct.ec_method_st */
+            0, 8, 1, /* 1063: pointer.struct.ec_method_st */
             	1068, 0,
             0, 304, 37, /* 1068: struct.ec_method_st */
             	1145, 8,
@@ -557,14 +557,14 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             4097, 8, 0, /* 1199: pointer.func */
             4097, 8, 0, /* 1202: pointer.func */
             4097, 8, 0, /* 1205: pointer.func */
-            1, 8, 1, /* 1208: pointer.struct.ec_point_st */
+            0, 8, 1, /* 1208: pointer.struct.ec_point_st */
             	1213, 0,
             0, 88, 4, /* 1213: struct.ec_point_st */
             	1063, 0,
             	71, 8,
             	71, 32,
             	71, 56,
-            1, 8, 1, /* 1224: pointer.struct.ec_extra_data_st */
+            0, 8, 1, /* 1224: pointer.struct.ec_extra_data_st */
             	1229, 0,
             0, 40, 5, /* 1229: struct.ec_extra_data_st */
             	1224, 0,
@@ -584,7 +584,7 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             	138, 120,
             	138, 144,
             	138, 168,
-            1, 8, 1, /* 1270: pointer.struct.cert_st */
+            0, 8, 1, /* 1270: pointer.struct.cert_st */
             	114, 0,
             0, 0, 0, /* 1275: func */
             4097, 8, 0, /* 1278: pointer.func */
@@ -601,7 +601,7 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             4097, 8, 0, /* 1311: pointer.func */
             0, 88, 1, /* 1314: struct.ssl_cipher_st */
             	61, 8,
-            1, 8, 1, /* 1319: pointer.struct.ssl_cipher_st */
+            0, 8, 1, /* 1319: pointer.struct.ssl_cipher_st */
             	1314, 0,
             0, 0, 0, /* 1324: func */
             0, 24, 0, /* 1327: array[6].int */
@@ -622,7 +622,7 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             0, 0, 0, /* 1372: func */
             0, 24, 1, /* 1375: struct.ssl3_buf_freelist_st */
             	1380, 16,
-            1, 8, 1, /* 1380: pointer.struct.ssl3_buf_freelist_entry_st */
+            0, 8, 1, /* 1380: pointer.struct.ssl3_buf_freelist_entry_st */
             	1385, 0,
             0, 8, 1, /* 1385: struct.ssl3_buf_freelist_entry_st */
             	1380, 0,
@@ -632,7 +632,7 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             4097, 8, 0, /* 1399: pointer.func */
             0, 0, 0, /* 1402: func */
             0, 0, 0, /* 1405: func */
-            1, 8, 1, /* 1408: pointer.struct.ssl3_buf_freelist_st */
+            0, 8, 1, /* 1408: pointer.struct.ssl3_buf_freelist_st */
             	1375, 0,
             0, 8, 0, /* 1413: array[2].int */
             4097, 8, 0, /* 1416: pointer.func */
@@ -643,7 +643,7 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             0, 0, 0, /* 1431: func */
             0, 0, 0, /* 1434: func */
             0, 0, 0, /* 1437: func */
-            1, 8, 1, /* 1440: pointer.struct.sess_cert_st */
+            0, 8, 1, /* 1440: pointer.struct.sess_cert_st */
             	1445, 0,
             0, 248, 6, /* 1445: struct.sess_cert_st */
             	274, 0,
@@ -670,7 +670,7 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             	61, 312,
             	61, 320,
             	61, 344,
-            1, 8, 1, /* 1500: pointer.struct.ssl_session_st */
+            0, 8, 1, /* 1500: pointer.struct.ssl_session_st */
             	1469, 0,
             0, 0, 0, /* 1505: func */
             4097, 8, 0, /* 1508: pointer.func */
@@ -688,7 +688,7 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             	274, 48,
             0, 0, 0, /* 1545: func */
             4097, 8, 0, /* 1548: pointer.func */
-            1, 8, 1, /* 1551: pointer.struct.X509_VERIFY_PARAM_st */
+            0, 8, 1, /* 1551: pointer.struct.X509_VERIFY_PARAM_st */
             	1538, 0,
             0, 0, 0, /* 1556: func */
             0, 0, 0, /* 1559: func */
@@ -714,7 +714,7 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             4097, 8, 0, /* 1604: pointer.func */
             4097, 8, 0, /* 1607: pointer.func */
             0, 0, 0, /* 1610: func */
-            1, 8, 1, /* 1613: pointer.struct.x509_store_st */
+            0, 8, 1, /* 1613: pointer.struct.x509_store_st */
             	1565, 0,
             0, 0, 0, /* 1618: func */
             0, 0, 0, /* 1621: func */
@@ -723,10 +723,10 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             0, 0, 0, /* 1630: func */
             0, 0, 0, /* 1633: func */
             0, 0, 0, /* 1636: func */
-            1, 8, 1, /* 1639: pointer.struct.in_addr */
+            0, 8, 1, /* 1639: pointer.struct.in_addr */
             	1644, 0,
             0, 4, 0, /* 1644: struct.in_addr */
-            1, 8, 1, /* 1647: pointer.struct.ssl_ctx_st */
+            0, 8, 1, /* 1647: pointer.struct.ssl_ctx_st */
             	1652, 0,
             0, 736, 50, /* 1652: struct.ssl_ctx_st */
             	1755, 0,
@@ -779,7 +779,7 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             	1360, 712,
             	49, 720,
             	274, 728,
-            1, 8, 1, /* 1755: pointer.struct.ssl_method_st */
+            0, 8, 1, /* 1755: pointer.struct.ssl_method_st */
             	1760, 0,
             0, 232, 28, /* 1760: struct.ssl_method_st */
             	1819, 8,
@@ -822,7 +822,7 @@ void bb_SSL_CTX_sess_set_get_cb(SSL_CTX * arg_a,SSL_SESSION *(*arg_b)(struct ssl
             4097, 8, 0, /* 1846: pointer.func */
             4097, 8, 0, /* 1849: pointer.func */
             4097, 8, 0, /* 1852: pointer.func */
-            1, 8, 1, /* 1855: pointer.struct.ssl3_enc_method */
+            0, 8, 1, /* 1855: pointer.struct.ssl3_enc_method */
             	1860, 0,
             0, 112, 11, /* 1860: struct.ssl3_enc_method */
             	1885, 0,

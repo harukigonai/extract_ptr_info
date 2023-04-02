@@ -1,25 +1,25 @@
 0, 8, 0, /* 0: pointer.void */
 0, 8, 0, /* 3: long */
 0, 4, 0, /* 6: int */
-1, 8, 1, /* 9: pointer.struct.X509_name_st */
+0, 8, 1, /* 9: pointer.struct.X509_name_st */
 	14, 0,
 0, 40, 3, /* 14: struct.X509_name_st */
 	23, 0,
 	53, 16,
 	45, 24,
-1, 8, 1, /* 23: pointer.struct.stack_st_OPENSSL_STRING */
+0, 8, 1, /* 23: pointer.struct.stack_st_OPENSSL_STRING */
 	28, 0,
 0, 32, 1, /* 28: struct.stack_st_OPENSSL_STRING */
 	33, 0,
 0, 32, 2, /* 33: struct.stack_st */
 	40, 8,
 	50, 24,
-1, 8, 1, /* 40: pointer.pointer.char */
+0, 8, 1, /* 40: pointer.pointer.char */
 	45, 0,
-1, 8, 1, /* 45: pointer.char */
+0, 8, 1, /* 45: pointer.char */
 	4096, 0,
 4097, 8, 0, /* 50: pointer.func */
-1, 8, 1, /* 53: pointer.struct.buf_mem_st */
+0, 8, 1, /* 53: pointer.struct.buf_mem_st */
 	58, 0,
 0, 24, 1, /* 58: struct.buf_mem_st */
 	45, 8,

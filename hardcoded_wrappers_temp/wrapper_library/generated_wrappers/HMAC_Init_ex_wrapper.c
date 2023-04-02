@@ -50,7 +50,7 @@ int bb_HMAC_Init_ex(HMAC_CTX * arg_a,const void * arg_b,int arg_c,const EVP_MD *
             0, 128, 0, /* 0: array[128].char */
             0, 8, 1, /* 3: struct.fnames */
             	8, 0,
-            1, 8, 1, /* 8: pointer.char */
+            0, 8, 1, /* 8: pointer.char */
             	4096, 0,
             0, 0, 0, /* 13: func */
             4097, 8, 0, /* 16: pointer.func */
@@ -69,7 +69,7 @@ int bb_HMAC_Init_ex(HMAC_CTX * arg_a,const void * arg_b,int arg_c,const EVP_MD *
             	148, 24,
             	3, 32,
             	474, 48,
-            1, 8, 1, /* 60: pointer.struct.evp_pkey_asn1_method_st */
+            0, 8, 1, /* 60: pointer.struct.evp_pkey_asn1_method_st */
             	65, 0,
             0, 208, 24, /* 65: struct.evp_pkey_asn1_method_st */
             	8, 16,
@@ -96,7 +96,7 @@ int bb_HMAC_Init_ex(HMAC_CTX * arg_a,const void * arg_b,int arg_c,const EVP_MD *
             	133, 184,
             	142, 192,
             	145, 200,
-            1, 8, 1, /* 116: pointer.struct.unnamed */
+            0, 8, 1, /* 116: pointer.struct.unnamed */
             	121, 0,
             0, 0, 0, /* 121: struct.unnamed */
             4097, 8, 0, /* 124: pointer.func */
@@ -107,7 +107,7 @@ int bb_HMAC_Init_ex(HMAC_CTX * arg_a,const void * arg_b,int arg_c,const EVP_MD *
             4097, 8, 0, /* 139: pointer.func */
             4097, 8, 0, /* 142: pointer.func */
             4097, 8, 0, /* 145: pointer.func */
-            1, 8, 1, /* 148: pointer.struct.engine_st */
+            0, 8, 1, /* 148: pointer.struct.engine_st */
             	153, 0,
             0, 216, 24, /* 153: struct.engine_st */
             	8, 0,
@@ -134,7 +134,7 @@ int bb_HMAC_Init_ex(HMAC_CTX * arg_a,const void * arg_b,int arg_c,const EVP_MD *
             	469, 184,
             	148, 200,
             	148, 208,
-            1, 8, 1, /* 204: pointer.struct.rsa_meth_st */
+            0, 8, 1, /* 204: pointer.struct.rsa_meth_st */
             	209, 0,
             0, 112, 13, /* 209: struct.rsa_meth_st */
             	8, 0,
@@ -157,7 +157,7 @@ int bb_HMAC_Init_ex(HMAC_CTX * arg_a,const void * arg_b,int arg_c,const EVP_MD *
             4097, 8, 0, /* 250: pointer.func */
             4097, 8, 0, /* 253: pointer.func */
             4097, 8, 0, /* 256: pointer.func */
-            1, 8, 1, /* 259: pointer.struct.dsa_method */
+            0, 8, 1, /* 259: pointer.struct.dsa_method */
             	264, 0,
             0, 96, 11, /* 264: struct.dsa_method */
             	8, 0,
@@ -178,7 +178,7 @@ int bb_HMAC_Init_ex(HMAC_CTX * arg_a,const void * arg_b,int arg_c,const EVP_MD *
             4097, 8, 0, /* 301: pointer.func */
             4097, 8, 0, /* 304: pointer.func */
             4097, 8, 0, /* 307: pointer.func */
-            1, 8, 1, /* 310: pointer.struct.dh_method */
+            0, 8, 1, /* 310: pointer.struct.dh_method */
             	315, 0,
             0, 72, 8, /* 315: struct.dh_method */
             	8, 0,
@@ -193,14 +193,14 @@ int bb_HMAC_Init_ex(HMAC_CTX * arg_a,const void * arg_b,int arg_c,const EVP_MD *
             4097, 8, 0, /* 337: pointer.func */
             4097, 8, 0, /* 340: pointer.func */
             4097, 8, 0, /* 343: pointer.func */
-            1, 8, 1, /* 346: pointer.struct.ecdh_method */
+            0, 8, 1, /* 346: pointer.struct.ecdh_method */
             	351, 0,
             0, 32, 3, /* 351: struct.ecdh_method */
             	8, 0,
             	360, 8,
             	8, 24,
             4097, 8, 0, /* 360: pointer.func */
-            1, 8, 1, /* 363: pointer.struct.ecdsa_method */
+            0, 8, 1, /* 363: pointer.struct.ecdsa_method */
             	368, 0,
             0, 48, 5, /* 368: struct.ecdsa_method */
             	8, 0,
@@ -211,7 +211,7 @@ int bb_HMAC_Init_ex(HMAC_CTX * arg_a,const void * arg_b,int arg_c,const EVP_MD *
             4097, 8, 0, /* 381: pointer.func */
             4097, 8, 0, /* 384: pointer.func */
             4097, 8, 0, /* 387: pointer.func */
-            1, 8, 1, /* 390: pointer.struct.rand_meth_st */
+            0, 8, 1, /* 390: pointer.struct.rand_meth_st */
             	395, 0,
             0, 48, 6, /* 395: struct.rand_meth_st */
             	410, 0,
@@ -225,7 +225,7 @@ int bb_HMAC_Init_ex(HMAC_CTX * arg_a,const void * arg_b,int arg_c,const EVP_MD *
             4097, 8, 0, /* 416: pointer.func */
             4097, 8, 0, /* 419: pointer.func */
             4097, 8, 0, /* 422: pointer.func */
-            1, 8, 1, /* 425: pointer.struct.store_method_st */
+            0, 8, 1, /* 425: pointer.struct.store_method_st */
             	430, 0,
             0, 0, 0, /* 430: struct.store_method_st */
             4097, 8, 0, /* 433: pointer.func */
@@ -236,24 +236,24 @@ int bb_HMAC_Init_ex(HMAC_CTX * arg_a,const void * arg_b,int arg_c,const EVP_MD *
             4097, 8, 0, /* 448: pointer.func */
             4097, 8, 0, /* 451: pointer.func */
             4097, 8, 0, /* 454: pointer.func */
-            1, 8, 1, /* 457: pointer.struct.ENGINE_CMD_DEFN_st */
+            0, 8, 1, /* 457: pointer.struct.ENGINE_CMD_DEFN_st */
             	462, 0,
             0, 32, 2, /* 462: struct.ENGINE_CMD_DEFN_st */
             	8, 8,
             	8, 16,
             0, 16, 1, /* 469: struct.crypto_ex_data_st */
             	474, 0,
-            1, 8, 1, /* 474: pointer.struct.stack_st_OPENSSL_STRING */
+            0, 8, 1, /* 474: pointer.struct.stack_st_OPENSSL_STRING */
             	479, 0,
             0, 32, 1, /* 479: struct.stack_st_OPENSSL_STRING */
             	484, 0,
             0, 32, 2, /* 484: struct.stack_st */
             	491, 8,
             	496, 24,
-            1, 8, 1, /* 491: pointer.pointer.char */
+            0, 8, 1, /* 491: pointer.pointer.char */
             	8, 0,
             4097, 8, 0, /* 496: pointer.func */
-            1, 8, 1, /* 499: pointer.struct.evp_pkey_st */
+            0, 8, 1, /* 499: pointer.struct.evp_pkey_st */
             	49, 0,
             4097, 8, 0, /* 504: pointer.func */
             0, 0, 0, /* 507: func */
@@ -268,7 +268,7 @@ int bb_HMAC_Init_ex(HMAC_CTX * arg_a,const void * arg_b,int arg_c,const EVP_MD *
             0, 0, 0, /* 534: func */
             4097, 8, 0, /* 537: pointer.func */
             0, 0, 0, /* 540: func */
-            1, 8, 1, /* 543: pointer.int */
+            0, 8, 1, /* 543: pointer.int */
             	548, 0,
             0, 4, 0, /* 548: int */
             4097, 8, 0, /* 551: pointer.func */
@@ -293,37 +293,37 @@ int bb_HMAC_Init_ex(HMAC_CTX * arg_a,const void * arg_b,int arg_c,const EVP_MD *
             0, 0, 0, /* 608: func */
             0, 0, 0, /* 611: func */
             0, 0, 0, /* 614: func */
-            0, 0, 0, /* 617: func */
+            0, 8, 0, /* 617: pointer.void */
             0, 0, 0, /* 620: func */
-            4097, 8, 0, /* 623: pointer.func */
-            0, 0, 0, /* 626: func */
-            4097, 8, 0, /* 629: pointer.func */
-            0, 0, 0, /* 632: func */
-            0, 120, 8, /* 635: struct.env_md_st */
-            	654, 24,
-            	623, 32,
-            	629, 40,
-            	657, 48,
-            	654, 56,
+            0, 0, 0, /* 623: func */
+            4097, 8, 0, /* 626: pointer.func */
+            0, 0, 0, /* 629: func */
+            4097, 8, 0, /* 632: pointer.func */
+            0, 0, 0, /* 635: func */
+            0, 120, 8, /* 638: struct.env_md_st */
+            	657, 24,
+            	626, 32,
+            	632, 40,
+            	660, 48,
+            	657, 56,
             	605, 64,
-            	660, 72,
-            	663, 112,
-            4097, 8, 0, /* 654: pointer.func */
+            	663, 72,
+            	666, 112,
             4097, 8, 0, /* 657: pointer.func */
             4097, 8, 0, /* 660: pointer.func */
             4097, 8, 0, /* 663: pointer.func */
-            0, 0, 0, /* 666: func */
+            4097, 8, 0, /* 666: pointer.func */
             0, 0, 0, /* 669: func */
-            0, 48, 5, /* 672: struct.env_md_ctx_st */
-            	685, 0,
+            0, 0, 0, /* 672: func */
+            0, 48, 5, /* 675: struct.env_md_ctx_st */
+            	688, 0,
             	148, 8,
-            	690, 24,
+            	617, 24,
             	693, 32,
-            	623, 40,
-            1, 8, 1, /* 685: pointer.struct.env_md_st */
-            	635, 0,
-            0, 8, 0, /* 690: pointer.void */
-            1, 8, 1, /* 693: pointer.struct.evp_pkey_ctx_st */
+            	626, 40,
+            0, 8, 1, /* 688: pointer.struct.env_md_st */
+            	638, 0,
+            0, 8, 1, /* 693: pointer.struct.evp_pkey_ctx_st */
             	698, 0,
             0, 80, 8, /* 698: struct.evp_pkey_ctx_st */
             	717, 0,
@@ -334,7 +334,7 @@ int bb_HMAC_Init_ex(HMAC_CTX * arg_a,const void * arg_b,int arg_c,const EVP_MD *
             	8, 48,
             	116, 56,
             	543, 64,
-            1, 8, 1, /* 717: pointer.struct.evp_pkey_method_st */
+            0, 8, 1, /* 717: pointer.struct.evp_pkey_method_st */
             	722, 0,
             0, 208, 25, /* 722: struct.evp_pkey_method_st */
             	116, 8,
@@ -364,10 +364,10 @@ int bb_HMAC_Init_ex(HMAC_CTX * arg_a,const void * arg_b,int arg_c,const EVP_MD *
             	504, 200,
             4097, 8, 0, /* 775: pointer.func */
             0, 288, 4, /* 778: struct.hmac_ctx_st */
-            	685, 0,
-            	672, 8,
-            	672, 56,
-            	672, 104,
+            	688, 0,
+            	675, 8,
+            	675, 56,
+            	675, 104,
             0, 0, 0, /* 789: func */
             0, 0, 0, /* 792: func */
             0, 0, 0, /* 795: func */
@@ -387,7 +387,7 @@ int bb_HMAC_Init_ex(HMAC_CTX * arg_a,const void * arg_b,int arg_c,const EVP_MD *
             0, 0, 0, /* 837: func */
             0, 0, 0, /* 840: func */
             0, 0, 0, /* 843: func */
-            1, 8, 1, /* 846: pointer.struct.hmac_ctx_st */
+            0, 8, 1, /* 846: pointer.struct.hmac_ctx_st */
             	778, 0,
             0, 0, 0, /* 851: func */
             0, 0, 0, /* 854: func */
@@ -404,7 +404,7 @@ int bb_HMAC_Init_ex(HMAC_CTX * arg_a,const void * arg_b,int arg_c,const EVP_MD *
             0, 0, 0, /* 887: func */
             0, 0, 0, /* 890: func */
         },
-        .arg_entity_index = { 846, 690, 548, 685, 148, },
+        .arg_entity_index = { 846, 617, 548, 688, 148, },
         .ret_entity_index = 548,
     };
     struct lib_enter_args *args_addr = &args;

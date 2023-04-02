@@ -45,14 +45,14 @@ void bb_CRYPTO_THREADID_set_numeric(CRYPTO_THREADID * arg_a,unsigned long arg_b)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            0, 1, 0, /* 0: char */
-            0, 8, 0, /* 3: pointer.void */
-            1, 8, 1, /* 6: pointer.char */
+            0, 8, 0, /* 0: pointer.void */
+            0, 1, 0, /* 3: char */
+            0, 8, 1, /* 6: pointer.char */
             	4096, 0,
             0, 16, 1, /* 11: struct.iovec */
             	6, 0,
             0, 8, 0, /* 16: long */
-            1, 8, 1, /* 19: pointer.struct.iovec */
+            0, 8, 1, /* 19: pointer.struct.iovec */
             	11, 0,
         },
         .arg_entity_index = { 19, 16, },

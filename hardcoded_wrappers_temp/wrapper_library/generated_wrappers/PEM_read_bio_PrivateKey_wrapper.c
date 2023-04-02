@@ -63,7 +63,7 @@ EVP_PKEY * bb_PEM_read_bio_PrivateKey(BIO * arg_a,EVP_PKEY ** arg_b,pem_password
             	78, 56,
             	78, 64,
             	83, 96,
-            1, 8, 1, /* 41: pointer.struct.bio_method_st */
+            0, 8, 1, /* 41: pointer.struct.bio_method_st */
             	46, 0,
             0, 80, 9, /* 46: struct.bio_method_st */
             	67, 8,
@@ -75,40 +75,40 @@ EVP_PKEY * bb_PEM_read_bio_PrivateKey(BIO * arg_a,EVP_PKEY ** arg_b,pem_password
             	12, 56,
             	12, 64,
             	6, 72,
-            1, 8, 1, /* 67: pointer.char */
+            0, 8, 1, /* 67: pointer.char */
             	4096, 0,
             4097, 8, 0, /* 72: pointer.func */
             0, 8, 0, /* 75: pointer.void */
-            1, 8, 1, /* 78: pointer.struct.bio_st */
+            0, 8, 1, /* 78: pointer.struct.bio_st */
             	24, 0,
             0, 16, 1, /* 83: struct.crypto_ex_data_st */
             	88, 0,
-            1, 8, 1, /* 88: pointer.struct.stack_st_OPENSSL_STRING */
+            0, 8, 1, /* 88: pointer.struct.stack_st_OPENSSL_STRING */
             	93, 0,
             0, 32, 1, /* 93: struct.stack_st_OPENSSL_STRING */
             	98, 0,
             0, 32, 2, /* 98: struct.stack_st */
             	105, 8,
             	110, 24,
-            1, 8, 1, /* 105: pointer.pointer.char */
+            0, 8, 1, /* 105: pointer.pointer.char */
             	67, 0,
             4097, 8, 0, /* 110: pointer.func */
             0, 8, 1, /* 113: struct.fnames */
             	67, 0,
             0, 0, 0, /* 118: func */
-            1, 8, 1, /* 121: pointer.struct.ENGINE_CMD_DEFN_st */
+            0, 8, 1, /* 121: pointer.struct.ENGINE_CMD_DEFN_st */
             	126, 0,
             0, 32, 2, /* 126: struct.ENGINE_CMD_DEFN_st */
             	67, 8,
             	67, 16,
-            1, 8, 1, /* 133: pointer.struct.evp_pkey_st */
+            0, 8, 1, /* 133: pointer.struct.evp_pkey_st */
             	138, 0,
             0, 56, 4, /* 138: struct.evp_pkey_st */
             	149, 16,
             	247, 24,
             	113, 32,
             	88, 48,
-            1, 8, 1, /* 149: pointer.struct.evp_pkey_asn1_method_st */
+            0, 8, 1, /* 149: pointer.struct.evp_pkey_asn1_method_st */
             	154, 0,
             0, 208, 24, /* 154: struct.evp_pkey_asn1_method_st */
             	67, 16,
@@ -149,7 +149,7 @@ EVP_PKEY * bb_PEM_read_bio_PrivateKey(BIO * arg_a,EVP_PKEY ** arg_b,pem_password
             4097, 8, 0, /* 238: pointer.func */
             4097, 8, 0, /* 241: pointer.func */
             4097, 8, 0, /* 244: pointer.func */
-            1, 8, 1, /* 247: pointer.struct.engine_st */
+            0, 8, 1, /* 247: pointer.struct.engine_st */
             	252, 0,
             0, 216, 24, /* 252: struct.engine_st */
             	67, 0,
@@ -176,7 +176,7 @@ EVP_PKEY * bb_PEM_read_bio_PrivateKey(BIO * arg_a,EVP_PKEY ** arg_b,pem_password
             	83, 184,
             	247, 200,
             	247, 208,
-            1, 8, 1, /* 303: pointer.struct.rsa_meth_st */
+            0, 8, 1, /* 303: pointer.struct.rsa_meth_st */
             	308, 0,
             0, 112, 13, /* 308: struct.rsa_meth_st */
             	67, 0,
@@ -199,7 +199,7 @@ EVP_PKEY * bb_PEM_read_bio_PrivateKey(BIO * arg_a,EVP_PKEY ** arg_b,pem_password
             4097, 8, 0, /* 349: pointer.func */
             4097, 8, 0, /* 352: pointer.func */
             4097, 8, 0, /* 355: pointer.func */
-            1, 8, 1, /* 358: pointer.struct.dsa_method */
+            0, 8, 1, /* 358: pointer.struct.dsa_method */
             	363, 0,
             0, 96, 11, /* 363: struct.dsa_method */
             	67, 0,
@@ -220,7 +220,7 @@ EVP_PKEY * bb_PEM_read_bio_PrivateKey(BIO * arg_a,EVP_PKEY ** arg_b,pem_password
             4097, 8, 0, /* 400: pointer.func */
             4097, 8, 0, /* 403: pointer.func */
             4097, 8, 0, /* 406: pointer.func */
-            1, 8, 1, /* 409: pointer.struct.dh_method */
+            0, 8, 1, /* 409: pointer.struct.dh_method */
             	414, 0,
             0, 72, 8, /* 414: struct.dh_method */
             	67, 0,
@@ -235,14 +235,14 @@ EVP_PKEY * bb_PEM_read_bio_PrivateKey(BIO * arg_a,EVP_PKEY ** arg_b,pem_password
             4097, 8, 0, /* 436: pointer.func */
             4097, 8, 0, /* 439: pointer.func */
             4097, 8, 0, /* 442: pointer.func */
-            1, 8, 1, /* 445: pointer.struct.ecdh_method */
+            0, 8, 1, /* 445: pointer.struct.ecdh_method */
             	450, 0,
             0, 32, 3, /* 450: struct.ecdh_method */
             	67, 0,
             	459, 8,
             	67, 24,
             4097, 8, 0, /* 459: pointer.func */
-            1, 8, 1, /* 462: pointer.struct.ecdsa_method */
+            0, 8, 1, /* 462: pointer.struct.ecdsa_method */
             	467, 0,
             0, 48, 5, /* 467: struct.ecdsa_method */
             	67, 0,
@@ -253,7 +253,7 @@ EVP_PKEY * bb_PEM_read_bio_PrivateKey(BIO * arg_a,EVP_PKEY ** arg_b,pem_password
             4097, 8, 0, /* 480: pointer.func */
             4097, 8, 0, /* 483: pointer.func */
             4097, 8, 0, /* 486: pointer.func */
-            1, 8, 1, /* 489: pointer.struct.rand_meth_st */
+            0, 8, 1, /* 489: pointer.struct.rand_meth_st */
             	494, 0,
             0, 48, 6, /* 494: struct.rand_meth_st */
             	509, 0,
@@ -267,7 +267,7 @@ EVP_PKEY * bb_PEM_read_bio_PrivateKey(BIO * arg_a,EVP_PKEY ** arg_b,pem_password
             4097, 8, 0, /* 515: pointer.func */
             4097, 8, 0, /* 518: pointer.func */
             4097, 8, 0, /* 521: pointer.func */
-            1, 8, 1, /* 524: pointer.struct.store_method_st */
+            0, 8, 1, /* 524: pointer.struct.store_method_st */
             	529, 0,
             0, 0, 0, /* 529: struct.store_method_st */
             4097, 8, 0, /* 532: pointer.func */
@@ -322,7 +322,7 @@ EVP_PKEY * bb_PEM_read_bio_PrivateKey(BIO * arg_a,EVP_PKEY ** arg_b,pem_password
             0, 0, 0, /* 679: func */
             0, 0, 0, /* 682: func */
             0, 0, 0, /* 685: func */
-            1, 8, 1, /* 688: pointer.pointer.struct.evp_pkey_st */
+            0, 8, 1, /* 688: pointer.pointer.struct.evp_pkey_st */
             	133, 0,
             0, 0, 0, /* 693: func */
             0, 0, 0, /* 696: func */

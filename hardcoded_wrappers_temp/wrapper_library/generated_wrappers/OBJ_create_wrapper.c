@@ -47,9 +47,9 @@ int bb_OBJ_create(const char * arg_a,const char * arg_b,const char * arg_c)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            0, 1, 0, /* 0: char */
-            0, 8, 0, /* 3: pointer.void */
-            1, 8, 1, /* 6: pointer.char */
+            0, 8, 0, /* 0: pointer.void */
+            0, 1, 0, /* 3: char */
+            0, 8, 1, /* 6: pointer.char */
             	4096, 0,
             0, 4, 0, /* 11: int */
         },

@@ -58,41 +58,41 @@ void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a)
             4097, 8, 0, /* 26: pointer.func */
             0, 8, 1, /* 29: union.anon.1.3127 */
             	34, 0,
-            1, 8, 1, /* 34: pointer.struct.stack_st_OPENSSL_STRING */
+            0, 8, 1, /* 34: pointer.struct.stack_st_OPENSSL_STRING */
             	39, 0,
             0, 32, 1, /* 39: struct.stack_st_OPENSSL_STRING */
             	44, 0,
             0, 32, 2, /* 44: struct.stack_st */
             	51, 8,
             	61, 24,
-            1, 8, 1, /* 51: pointer.pointer.char */
+            0, 8, 1, /* 51: pointer.pointer.char */
             	56, 0,
-            1, 8, 1, /* 56: pointer.char */
+            0, 8, 1, /* 56: pointer.char */
             	4096, 0,
             4097, 8, 0, /* 61: pointer.func */
             0, 32, 2, /* 64: struct.ISSUING_DIST_POINT_st */
             	71, 0,
             	107, 16,
-            1, 8, 1, /* 71: pointer.struct.DIST_POINT_NAME_st */
+            0, 8, 1, /* 71: pointer.struct.DIST_POINT_NAME_st */
             	76, 0,
             0, 24, 2, /* 76: struct.DIST_POINT_NAME_st */
             	29, 8,
             	83, 16,
-            1, 8, 1, /* 83: pointer.struct.X509_name_st */
+            0, 8, 1, /* 83: pointer.struct.X509_name_st */
             	88, 0,
             0, 40, 3, /* 88: struct.X509_name_st */
             	34, 0,
             	97, 16,
             	56, 24,
-            1, 8, 1, /* 97: pointer.struct.buf_mem_st */
+            0, 8, 1, /* 97: pointer.struct.buf_mem_st */
             	102, 0,
             0, 24, 1, /* 102: struct.buf_mem_st */
             	56, 8,
-            1, 8, 1, /* 107: pointer.struct.asn1_string_st */
+            0, 8, 1, /* 107: pointer.struct.asn1_string_st */
             	112, 0,
             0, 24, 1, /* 112: struct.asn1_string_st */
             	56, 8,
-            1, 8, 1, /* 117: pointer.struct.X509_crl_info_st */
+            0, 8, 1, /* 117: pointer.struct.X509_crl_info_st */
             	122, 0,
             0, 80, 8, /* 122: struct.X509_crl_info_st */
             	107, 0,
@@ -103,18 +103,18 @@ void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a)
             	34, 40,
             	34, 48,
             	182, 56,
-            1, 8, 1, /* 141: pointer.struct.X509_algor_st */
+            0, 8, 1, /* 141: pointer.struct.X509_algor_st */
             	146, 0,
             0, 16, 2, /* 146: struct.X509_algor_st */
             	153, 0,
             	167, 8,
-            1, 8, 1, /* 153: pointer.struct.asn1_object_st */
+            0, 8, 1, /* 153: pointer.struct.asn1_object_st */
             	158, 0,
             0, 40, 3, /* 158: struct.asn1_object_st */
             	56, 0,
             	56, 8,
             	56, 24,
-            1, 8, 1, /* 167: pointer.struct.asn1_type_st */
+            0, 8, 1, /* 167: pointer.struct.asn1_type_st */
             	172, 0,
             0, 16, 1, /* 172: struct.asn1_type_st */
             	177, 8,
@@ -122,14 +122,14 @@ void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a)
             	56, 0,
             0, 24, 1, /* 182: struct.ASN1_ENCODING_st */
             	56, 0,
-            1, 8, 1, /* 187: pointer.struct.ISSUING_DIST_POINT_st */
+            0, 8, 1, /* 187: pointer.struct.ISSUING_DIST_POINT_st */
             	64, 0,
-            1, 8, 1, /* 192: pointer.struct.X509_POLICY_NODE_st */
+            0, 8, 1, /* 192: pointer.struct.X509_POLICY_NODE_st */
             	197, 0,
             0, 24, 2, /* 197: struct.X509_POLICY_NODE_st */
             	204, 0,
             	192, 8,
-            1, 8, 1, /* 204: pointer.struct.X509_POLICY_DATA_st */
+            0, 8, 1, /* 204: pointer.struct.X509_POLICY_DATA_st */
             	209, 0,
             0, 32, 3, /* 209: struct.X509_POLICY_DATA_st */
             	153, 8,
@@ -148,14 +148,14 @@ void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a)
             	141, 0,
             	107, 8,
             	254, 16,
-            1, 8, 1, /* 254: pointer.struct.evp_pkey_st */
+            0, 8, 1, /* 254: pointer.struct.evp_pkey_st */
             	259, 0,
             0, 56, 4, /* 259: struct.evp_pkey_st */
             	270, 16,
             	364, 24,
             	177, 32,
             	34, 48,
-            1, 8, 1, /* 270: pointer.struct.evp_pkey_asn1_method_st */
+            0, 8, 1, /* 270: pointer.struct.evp_pkey_asn1_method_st */
             	275, 0,
             0, 208, 24, /* 275: struct.evp_pkey_asn1_method_st */
             	56, 16,
@@ -182,7 +182,7 @@ void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a)
             	346, 184,
             	358, 192,
             	361, 200,
-            1, 8, 1, /* 326: pointer.struct.unnamed */
+            0, 8, 1, /* 326: pointer.struct.unnamed */
             	331, 0,
             0, 0, 0, /* 331: struct.unnamed */
             4097, 8, 0, /* 334: pointer.func */
@@ -195,7 +195,7 @@ void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a)
             4097, 8, 0, /* 355: pointer.func */
             4097, 8, 0, /* 358: pointer.func */
             4097, 8, 0, /* 361: pointer.func */
-            1, 8, 1, /* 364: pointer.struct.engine_st */
+            0, 8, 1, /* 364: pointer.struct.engine_st */
             	369, 0,
             0, 216, 24, /* 369: struct.engine_st */
             	56, 0,
@@ -222,7 +222,7 @@ void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a)
             	685, 184,
             	364, 200,
             	364, 208,
-            1, 8, 1, /* 420: pointer.struct.rsa_meth_st */
+            0, 8, 1, /* 420: pointer.struct.rsa_meth_st */
             	425, 0,
             0, 112, 13, /* 425: struct.rsa_meth_st */
             	56, 0,
@@ -245,7 +245,7 @@ void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a)
             4097, 8, 0, /* 466: pointer.func */
             4097, 8, 0, /* 469: pointer.func */
             4097, 8, 0, /* 472: pointer.func */
-            1, 8, 1, /* 475: pointer.struct.dsa_method */
+            0, 8, 1, /* 475: pointer.struct.dsa_method */
             	480, 0,
             0, 96, 11, /* 480: struct.dsa_method */
             	56, 0,
@@ -266,7 +266,7 @@ void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a)
             4097, 8, 0, /* 517: pointer.func */
             4097, 8, 0, /* 520: pointer.func */
             4097, 8, 0, /* 523: pointer.func */
-            1, 8, 1, /* 526: pointer.struct.dh_method */
+            0, 8, 1, /* 526: pointer.struct.dh_method */
             	531, 0,
             0, 72, 8, /* 531: struct.dh_method */
             	56, 0,
@@ -281,14 +281,14 @@ void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a)
             4097, 8, 0, /* 553: pointer.func */
             4097, 8, 0, /* 556: pointer.func */
             4097, 8, 0, /* 559: pointer.func */
-            1, 8, 1, /* 562: pointer.struct.ecdh_method */
+            0, 8, 1, /* 562: pointer.struct.ecdh_method */
             	567, 0,
             0, 32, 3, /* 567: struct.ecdh_method */
             	56, 0,
             	576, 8,
             	56, 24,
             4097, 8, 0, /* 576: pointer.func */
-            1, 8, 1, /* 579: pointer.struct.ecdsa_method */
+            0, 8, 1, /* 579: pointer.struct.ecdsa_method */
             	584, 0,
             0, 48, 5, /* 584: struct.ecdsa_method */
             	56, 0,
@@ -299,7 +299,7 @@ void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a)
             4097, 8, 0, /* 597: pointer.func */
             4097, 8, 0, /* 600: pointer.func */
             4097, 8, 0, /* 603: pointer.func */
-            1, 8, 1, /* 606: pointer.struct.rand_meth_st */
+            0, 8, 1, /* 606: pointer.struct.rand_meth_st */
             	611, 0,
             0, 48, 6, /* 611: struct.rand_meth_st */
             	626, 0,
@@ -313,7 +313,7 @@ void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a)
             4097, 8, 0, /* 632: pointer.func */
             4097, 8, 0, /* 635: pointer.func */
             4097, 8, 0, /* 638: pointer.func */
-            1, 8, 1, /* 641: pointer.struct.store_method_st */
+            0, 8, 1, /* 641: pointer.struct.store_method_st */
             	646, 0,
             0, 0, 0, /* 646: struct.store_method_st */
             4097, 8, 0, /* 649: pointer.func */
@@ -324,14 +324,14 @@ void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a)
             4097, 8, 0, /* 664: pointer.func */
             4097, 8, 0, /* 667: pointer.func */
             4097, 8, 0, /* 670: pointer.func */
-            1, 8, 1, /* 673: pointer.struct.ENGINE_CMD_DEFN_st */
+            0, 8, 1, /* 673: pointer.struct.ENGINE_CMD_DEFN_st */
             	678, 0,
             0, 32, 2, /* 678: struct.ENGINE_CMD_DEFN_st */
             	56, 8,
             	56, 16,
             0, 16, 1, /* 685: struct.crypto_ex_data_st */
             	34, 0,
-            1, 8, 1, /* 690: pointer.struct.x509_cinf_st */
+            0, 8, 1, /* 690: pointer.struct.x509_cinf_st */
             	695, 0,
             0, 104, 11, /* 695: struct.x509_cinf_st */
             	107, 0,
@@ -345,20 +345,20 @@ void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a)
             	107, 64,
             	34, 72,
             	182, 80,
-            1, 8, 1, /* 720: pointer.struct.X509_val_st */
+            0, 8, 1, /* 720: pointer.struct.X509_val_st */
             	725, 0,
             0, 16, 2, /* 725: struct.X509_val_st */
             	107, 0,
             	107, 8,
-            1, 8, 1, /* 732: pointer.struct.X509_pubkey_st */
+            0, 8, 1, /* 732: pointer.struct.X509_pubkey_st */
             	245, 0,
-            1, 8, 1, /* 737: pointer.struct.X509_POLICY_LEVEL_st */
+            0, 8, 1, /* 737: pointer.struct.X509_POLICY_LEVEL_st */
             	742, 0,
             0, 32, 3, /* 742: struct.X509_POLICY_LEVEL_st */
             	751, 0,
             	34, 8,
             	192, 16,
-            1, 8, 1, /* 751: pointer.struct.x509_st */
+            0, 8, 1, /* 751: pointer.struct.x509_st */
             	756, 0,
             0, 184, 12, /* 756: struct.x509_st */
             	690, 0,
@@ -373,23 +373,23 @@ void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a)
             	34, 136,
             	809, 144,
             	821, 176,
-            1, 8, 1, /* 783: pointer.struct.AUTHORITY_KEYID_st */
+            0, 8, 1, /* 783: pointer.struct.AUTHORITY_KEYID_st */
             	788, 0,
             0, 24, 3, /* 788: struct.AUTHORITY_KEYID_st */
             	107, 0,
             	34, 8,
             	107, 16,
-            1, 8, 1, /* 797: pointer.struct.X509_POLICY_CACHE_st */
+            0, 8, 1, /* 797: pointer.struct.X509_POLICY_CACHE_st */
             	802, 0,
             0, 40, 2, /* 802: struct.X509_POLICY_CACHE_st */
             	204, 0,
             	34, 8,
-            1, 8, 1, /* 809: pointer.struct.NAME_CONSTRAINTS_st */
+            0, 8, 1, /* 809: pointer.struct.NAME_CONSTRAINTS_st */
             	814, 0,
             0, 16, 2, /* 814: struct.NAME_CONSTRAINTS_st */
             	34, 0,
             	34, 8,
-            1, 8, 1, /* 821: pointer.struct.x509_cert_aux_st */
+            0, 8, 1, /* 821: pointer.struct.x509_cert_aux_st */
             	826, 0,
             0, 40, 5, /* 826: struct.x509_cert_aux_st */
             	34, 0,
@@ -397,7 +397,7 @@ void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a)
             	107, 16,
             	107, 24,
             	34, 32,
-            1, 8, 1, /* 839: pointer.struct.X509_POLICY_TREE_st */
+            0, 8, 1, /* 839: pointer.struct.X509_POLICY_TREE_st */
             	844, 0,
             0, 48, 4, /* 844: struct.X509_POLICY_TREE_st */
             	737, 0,
@@ -417,11 +417,10 @@ void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a)
             0, 0, 0, /* 885: func */
             0, 0, 0, /* 888: func */
             0, 0, 0, /* 891: func */
-            0, 8, 0, /* 894: pointer.void */
-            0, 0, 0, /* 897: func */
-            1, 8, 1, /* 900: pointer.struct.X509_crl_st */
-            	905, 0,
-            0, 120, 10, /* 905: struct.X509_crl_st */
+            0, 0, 0, /* 894: func */
+            0, 8, 1, /* 897: pointer.struct.X509_crl_st */
+            	902, 0,
+            0, 120, 10, /* 902: struct.X509_crl_st */
             	117, 0,
             	141, 8,
             	107, 16,
@@ -430,26 +429,27 @@ void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a)
             	107, 56,
             	107, 64,
             	34, 96,
-            	928, 104,
-            	894, 112,
-            1, 8, 1, /* 928: pointer.struct.x509_crl_method_st */
+            	925, 104,
+            	930, 112,
+            0, 8, 1, /* 925: pointer.struct.x509_crl_method_st */
             	12, 0,
+            0, 8, 0, /* 930: pointer.void */
             0, 0, 0, /* 933: func */
             0, 0, 0, /* 936: func */
-            1, 8, 1, /* 939: pointer.struct.X509_pubkey_st */
+            0, 8, 1, /* 939: pointer.struct.X509_pubkey_st */
             	944, 0,
             0, 24, 3, /* 944: struct.X509_pubkey_st */
             	141, 0,
             	107, 8,
             	953, 16,
-            1, 8, 1, /* 953: pointer.struct.evp_pkey_st */
+            0, 8, 1, /* 953: pointer.struct.evp_pkey_st */
             	958, 0,
             0, 56, 4, /* 958: struct.evp_pkey_st */
             	969, 16,
             	364, 24,
             	177, 32,
             	34, 48,
-            1, 8, 1, /* 969: pointer.struct.evp_pkey_asn1_method_st */
+            0, 8, 1, /* 969: pointer.struct.evp_pkey_asn1_method_st */
             	974, 0,
             0, 208, 24, /* 974: struct.evp_pkey_asn1_method_st */
             	56, 16,
@@ -502,14 +502,14 @@ void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a)
             	34, 72,
             	182, 80,
             0, 0, 0, /* 1089: func */
-            1, 8, 1, /* 1092: pointer.struct.x509_cinf_st */
+            0, 8, 1, /* 1092: pointer.struct.x509_cinf_st */
             	1064, 0,
             0, 0, 0, /* 1097: func */
             4097, 8, 0, /* 1100: pointer.func */
             0, 0, 0, /* 1103: func */
             0, 0, 0, /* 1106: func */
             0, 1, 0, /* 1109: char */
-            1, 8, 1, /* 1112: pointer.struct.x509_st */
+            0, 8, 1, /* 1112: pointer.struct.x509_st */
             	1117, 0,
             0, 184, 12, /* 1117: struct.x509_st */
             	1092, 0,
@@ -525,7 +525,7 @@ void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a)
             	809, 144,
             	821, 176,
             0, 0, 0, /* 1144: func */
-            1, 8, 1, /* 1147: pointer.struct.x509_store_st */
+            0, 8, 1, /* 1147: pointer.struct.x509_store_st */
             	1152, 0,
             0, 144, 15, /* 1152: struct.x509_store_st */
             	34, 8,
@@ -543,7 +543,7 @@ void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a)
             	1100, 104,
             	326, 112,
             	685, 120,
-            1, 8, 1, /* 1185: pointer.struct.X509_VERIFY_PARAM_st */
+            0, 8, 1, /* 1185: pointer.struct.X509_VERIFY_PARAM_st */
             	1190, 0,
             0, 56, 2, /* 1190: struct.X509_VERIFY_PARAM_st */
             	56, 0,
@@ -566,7 +566,7 @@ void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a)
             	34, 24,
             	34, 32,
             	1185, 40,
-            	894, 48,
+            	930, 48,
             	326, 56,
             	1197, 64,
             	1200, 72,
@@ -583,10 +583,10 @@ void bb_X509_STORE_CTX_cleanup(X509_STORE_CTX * arg_a)
             	839, 168,
             	1112, 192,
             	1112, 200,
-            	900, 208,
+            	897, 208,
             	1286, 224,
             	685, 232,
-            1, 8, 1, /* 1286: pointer.struct.x509_store_ctx_st */
+            0, 8, 1, /* 1286: pointer.struct.x509_store_ctx_st */
             	1233, 0,
             0, 0, 0, /* 1291: func */
             0, 0, 0, /* 1294: func */

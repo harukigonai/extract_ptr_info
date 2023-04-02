@@ -62,7 +62,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             0, 0, 0, /* 36: func */
             4097, 8, 0, /* 39: pointer.func */
             0, 4, 0, /* 42: struct.in_addr */
-            1, 8, 1, /* 45: pointer.struct.in_addr */
+            0, 8, 1, /* 45: pointer.struct.in_addr */
             	42, 0,
             4097, 8, 0, /* 50: pointer.func */
             4097, 8, 0, /* 53: pointer.func */
@@ -86,13 +86,13 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             	1019, 80,
             	1255, 88,
             	1258, 96,
-            1, 8, 1, /* 108: pointer.struct.cert_pkey_st */
+            0, 8, 1, /* 108: pointer.struct.cert_pkey_st */
             	113, 0,
             0, 24, 3, /* 113: struct.cert_pkey_st */
             	122, 0,
             	315, 8,
             	835, 16,
-            1, 8, 1, /* 122: pointer.struct.x509_st */
+            0, 8, 1, /* 122: pointer.struct.x509_st */
             	127, 0,
             0, 184, 12, /* 127: struct.x509_st */
             	154, 0,
@@ -107,7 +107,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             	254, 136,
             	805, 144,
             	817, 176,
-            1, 8, 1, /* 154: pointer.struct.x509_cinf_st */
+            0, 8, 1, /* 154: pointer.struct.x509_cinf_st */
             	159, 0,
             0, 104, 11, /* 159: struct.x509_cinf_st */
             	184, 0,
@@ -121,68 +121,68 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             	184, 64,
             	254, 72,
             	760, 80,
-            1, 8, 1, /* 184: pointer.struct.asn1_string_st */
+            0, 8, 1, /* 184: pointer.struct.asn1_string_st */
             	189, 0,
             0, 24, 1, /* 189: struct.asn1_string_st */
             	194, 8,
-            1, 8, 1, /* 194: pointer.char */
+            0, 8, 1, /* 194: pointer.char */
             	4096, 0,
-            1, 8, 1, /* 199: pointer.struct.X509_algor_st */
+            0, 8, 1, /* 199: pointer.struct.X509_algor_st */
             	204, 0,
             0, 16, 2, /* 204: struct.X509_algor_st */
             	211, 0,
             	225, 8,
-            1, 8, 1, /* 211: pointer.struct.asn1_object_st */
+            0, 8, 1, /* 211: pointer.struct.asn1_object_st */
             	216, 0,
             0, 40, 3, /* 216: struct.asn1_object_st */
             	194, 0,
             	194, 8,
             	194, 24,
-            1, 8, 1, /* 225: pointer.struct.asn1_type_st */
+            0, 8, 1, /* 225: pointer.struct.asn1_type_st */
             	230, 0,
             0, 16, 1, /* 230: struct.asn1_type_st */
             	235, 8,
             0, 8, 1, /* 235: struct.fnames */
             	194, 0,
-            1, 8, 1, /* 240: pointer.struct.X509_name_st */
+            0, 8, 1, /* 240: pointer.struct.X509_name_st */
             	245, 0,
             0, 40, 3, /* 245: struct.X509_name_st */
             	254, 0,
             	279, 16,
             	194, 24,
-            1, 8, 1, /* 254: pointer.struct.stack_st_OPENSSL_STRING */
+            0, 8, 1, /* 254: pointer.struct.stack_st_OPENSSL_STRING */
             	259, 0,
             0, 32, 1, /* 259: struct.stack_st_OPENSSL_STRING */
             	264, 0,
             0, 32, 2, /* 264: struct.stack_st */
             	271, 8,
             	276, 24,
-            1, 8, 1, /* 271: pointer.pointer.char */
+            0, 8, 1, /* 271: pointer.pointer.char */
             	194, 0,
             4097, 8, 0, /* 276: pointer.func */
-            1, 8, 1, /* 279: pointer.struct.buf_mem_st */
+            0, 8, 1, /* 279: pointer.struct.buf_mem_st */
             	284, 0,
             0, 24, 1, /* 284: struct.buf_mem_st */
             	194, 8,
-            1, 8, 1, /* 289: pointer.struct.X509_val_st */
+            0, 8, 1, /* 289: pointer.struct.X509_val_st */
             	294, 0,
             0, 16, 2, /* 294: struct.X509_val_st */
             	184, 0,
             	184, 8,
-            1, 8, 1, /* 301: pointer.struct.X509_pubkey_st */
+            0, 8, 1, /* 301: pointer.struct.X509_pubkey_st */
             	306, 0,
             0, 24, 3, /* 306: struct.X509_pubkey_st */
             	199, 0,
             	184, 8,
             	315, 16,
-            1, 8, 1, /* 315: pointer.struct.evp_pkey_st */
+            0, 8, 1, /* 315: pointer.struct.evp_pkey_st */
             	320, 0,
             0, 56, 4, /* 320: struct.evp_pkey_st */
             	331, 16,
             	434, 24,
             	235, 32,
             	254, 48,
-            1, 8, 1, /* 331: pointer.struct.evp_pkey_asn1_method_st */
+            0, 8, 1, /* 331: pointer.struct.evp_pkey_asn1_method_st */
             	336, 0,
             0, 208, 24, /* 336: struct.evp_pkey_asn1_method_st */
             	194, 16,
@@ -209,7 +209,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             	416, 184,
             	428, 192,
             	431, 200,
-            1, 8, 1, /* 387: pointer.struct.unnamed */
+            0, 8, 1, /* 387: pointer.struct.unnamed */
             	392, 0,
             0, 0, 0, /* 392: struct.unnamed */
             4097, 8, 0, /* 395: pointer.func */
@@ -225,7 +225,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             4097, 8, 0, /* 425: pointer.func */
             4097, 8, 0, /* 428: pointer.func */
             4097, 8, 0, /* 431: pointer.func */
-            1, 8, 1, /* 434: pointer.struct.engine_st */
+            0, 8, 1, /* 434: pointer.struct.engine_st */
             	439, 0,
             0, 216, 24, /* 439: struct.engine_st */
             	194, 0,
@@ -252,7 +252,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             	755, 184,
             	434, 200,
             	434, 208,
-            1, 8, 1, /* 490: pointer.struct.rsa_meth_st */
+            0, 8, 1, /* 490: pointer.struct.rsa_meth_st */
             	495, 0,
             0, 112, 13, /* 495: struct.rsa_meth_st */
             	194, 0,
@@ -275,7 +275,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             4097, 8, 0, /* 536: pointer.func */
             4097, 8, 0, /* 539: pointer.func */
             4097, 8, 0, /* 542: pointer.func */
-            1, 8, 1, /* 545: pointer.struct.dsa_method */
+            0, 8, 1, /* 545: pointer.struct.dsa_method */
             	550, 0,
             0, 96, 11, /* 550: struct.dsa_method */
             	194, 0,
@@ -296,7 +296,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             4097, 8, 0, /* 587: pointer.func */
             4097, 8, 0, /* 590: pointer.func */
             4097, 8, 0, /* 593: pointer.func */
-            1, 8, 1, /* 596: pointer.struct.dh_method */
+            0, 8, 1, /* 596: pointer.struct.dh_method */
             	601, 0,
             0, 72, 8, /* 601: struct.dh_method */
             	194, 0,
@@ -311,14 +311,14 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             4097, 8, 0, /* 623: pointer.func */
             4097, 8, 0, /* 626: pointer.func */
             4097, 8, 0, /* 629: pointer.func */
-            1, 8, 1, /* 632: pointer.struct.ecdh_method */
+            0, 8, 1, /* 632: pointer.struct.ecdh_method */
             	637, 0,
             0, 32, 3, /* 637: struct.ecdh_method */
             	194, 0,
             	646, 8,
             	194, 24,
             4097, 8, 0, /* 646: pointer.func */
-            1, 8, 1, /* 649: pointer.struct.ecdsa_method */
+            0, 8, 1, /* 649: pointer.struct.ecdsa_method */
             	654, 0,
             0, 48, 5, /* 654: struct.ecdsa_method */
             	194, 0,
@@ -329,7 +329,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             4097, 8, 0, /* 667: pointer.func */
             4097, 8, 0, /* 670: pointer.func */
             4097, 8, 0, /* 673: pointer.func */
-            1, 8, 1, /* 676: pointer.struct.rand_meth_st */
+            0, 8, 1, /* 676: pointer.struct.rand_meth_st */
             	681, 0,
             0, 48, 6, /* 681: struct.rand_meth_st */
             	696, 0,
@@ -343,7 +343,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             4097, 8, 0, /* 702: pointer.func */
             4097, 8, 0, /* 705: pointer.func */
             4097, 8, 0, /* 708: pointer.func */
-            1, 8, 1, /* 711: pointer.struct.store_method_st */
+            0, 8, 1, /* 711: pointer.struct.store_method_st */
             	716, 0,
             0, 0, 0, /* 716: struct.store_method_st */
             4097, 8, 0, /* 719: pointer.func */
@@ -354,7 +354,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             4097, 8, 0, /* 734: pointer.func */
             4097, 8, 0, /* 737: pointer.func */
             4097, 8, 0, /* 740: pointer.func */
-            1, 8, 1, /* 743: pointer.struct.ENGINE_CMD_DEFN_st */
+            0, 8, 1, /* 743: pointer.struct.ENGINE_CMD_DEFN_st */
             	748, 0,
             0, 32, 2, /* 748: struct.ENGINE_CMD_DEFN_st */
             	194, 8,
@@ -363,29 +363,29 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             	254, 0,
             0, 24, 1, /* 760: struct.ASN1_ENCODING_st */
             	194, 0,
-            1, 8, 1, /* 765: pointer.struct.AUTHORITY_KEYID_st */
+            0, 8, 1, /* 765: pointer.struct.AUTHORITY_KEYID_st */
             	770, 0,
             0, 24, 3, /* 770: struct.AUTHORITY_KEYID_st */
             	184, 0,
             	254, 8,
             	184, 16,
-            1, 8, 1, /* 779: pointer.struct.X509_POLICY_CACHE_st */
+            0, 8, 1, /* 779: pointer.struct.X509_POLICY_CACHE_st */
             	784, 0,
             0, 40, 2, /* 784: struct.X509_POLICY_CACHE_st */
             	791, 0,
             	254, 8,
-            1, 8, 1, /* 791: pointer.struct.X509_POLICY_DATA_st */
+            0, 8, 1, /* 791: pointer.struct.X509_POLICY_DATA_st */
             	796, 0,
             0, 32, 3, /* 796: struct.X509_POLICY_DATA_st */
             	211, 8,
             	254, 16,
             	254, 24,
-            1, 8, 1, /* 805: pointer.struct.NAME_CONSTRAINTS_st */
+            0, 8, 1, /* 805: pointer.struct.NAME_CONSTRAINTS_st */
             	810, 0,
             0, 16, 2, /* 810: struct.NAME_CONSTRAINTS_st */
             	254, 0,
             	254, 8,
-            1, 8, 1, /* 817: pointer.struct.x509_cert_aux_st */
+            0, 8, 1, /* 817: pointer.struct.x509_cert_aux_st */
             	822, 0,
             0, 40, 5, /* 822: struct.x509_cert_aux_st */
             	254, 0,
@@ -393,7 +393,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             	184, 16,
             	184, 24,
             	254, 32,
-            1, 8, 1, /* 835: pointer.struct.env_md_st */
+            0, 8, 1, /* 835: pointer.struct.env_md_st */
             	840, 0,
             0, 120, 8, /* 840: struct.env_md_st */
             	859, 24,
@@ -411,7 +411,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             4097, 8, 0, /* 871: pointer.func */
             4097, 8, 0, /* 874: pointer.func */
             4097, 8, 0, /* 877: pointer.func */
-            1, 8, 1, /* 880: pointer.struct.rsa_st */
+            0, 8, 1, /* 880: pointer.struct.rsa_st */
             	885, 0,
             0, 168, 17, /* 885: struct.rsa_st */
             	490, 16,
@@ -431,20 +431,20 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             	194, 144,
             	954, 152,
             	954, 160,
-            1, 8, 1, /* 922: pointer.struct.bignum_st */
+            0, 8, 1, /* 922: pointer.struct.bignum_st */
             	927, 0,
             0, 24, 1, /* 927: struct.bignum_st */
             	932, 0,
-            1, 8, 1, /* 932: pointer.int */
+            0, 8, 1, /* 932: pointer.int */
             	937, 0,
             0, 4, 0, /* 937: int */
-            1, 8, 1, /* 940: pointer.struct.bn_mont_ctx_st */
+            0, 8, 1, /* 940: pointer.struct.bn_mont_ctx_st */
             	945, 0,
             0, 96, 3, /* 945: struct.bn_mont_ctx_st */
             	927, 8,
             	927, 32,
             	927, 56,
-            1, 8, 1, /* 954: pointer.struct.bn_blinding_st */
+            0, 8, 1, /* 954: pointer.struct.bn_blinding_st */
             	959, 0,
             0, 88, 7, /* 959: struct.bn_blinding_st */
             	922, 0,
@@ -457,7 +457,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             0, 16, 1, /* 976: struct.iovec */
             	194, 0,
             4097, 8, 0, /* 981: pointer.func */
-            1, 8, 1, /* 984: pointer.struct.dh_st */
+            0, 8, 1, /* 984: pointer.struct.dh_st */
             	989, 0,
             0, 144, 12, /* 989: struct.dh_st */
             	922, 8,
@@ -473,14 +473,14 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             	596, 128,
             	434, 136,
             4097, 8, 0, /* 1016: pointer.func */
-            1, 8, 1, /* 1019: pointer.struct.ec_key_st */
+            0, 8, 1, /* 1019: pointer.struct.ec_key_st */
             	1024, 0,
             0, 56, 4, /* 1024: struct.ec_key_st */
             	1035, 8,
             	1212, 16,
             	922, 24,
             	1228, 48,
-            1, 8, 1, /* 1035: pointer.struct.ec_group_st */
+            0, 8, 1, /* 1035: pointer.struct.ec_group_st */
             	1040, 0,
             0, 232, 12, /* 1040: struct.ec_group_st */
             	1067, 0,
@@ -495,7 +495,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             	194, 208,
             	194, 216,
             	1252, 224,
-            1, 8, 1, /* 1067: pointer.struct.ec_method_st */
+            0, 8, 1, /* 1067: pointer.struct.ec_method_st */
             	1072, 0,
             0, 304, 37, /* 1072: struct.ec_method_st */
             	1149, 8,
@@ -556,14 +556,14 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             4097, 8, 0, /* 1203: pointer.func */
             4097, 8, 0, /* 1206: pointer.func */
             4097, 8, 0, /* 1209: pointer.func */
-            1, 8, 1, /* 1212: pointer.struct.ec_point_st */
+            0, 8, 1, /* 1212: pointer.struct.ec_point_st */
             	1217, 0,
             0, 88, 4, /* 1217: struct.ec_point_st */
             	1067, 0,
             	927, 8,
             	927, 32,
             	927, 56,
-            1, 8, 1, /* 1228: pointer.struct.ec_extra_data_st */
+            0, 8, 1, /* 1228: pointer.struct.ec_extra_data_st */
             	1233, 0,
             0, 40, 5, /* 1233: struct.ec_extra_data_st */
             	1228, 0,
@@ -584,20 +584,20 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             	113, 120,
             	113, 144,
             	113, 168,
-            1, 8, 1, /* 1277: pointer.struct.cert_st */
+            0, 8, 1, /* 1277: pointer.struct.cert_st */
             	89, 0,
-            1, 8, 1, /* 1282: pointer.struct.X509_VERIFY_PARAM_st */
+            0, 8, 1, /* 1282: pointer.struct.X509_VERIFY_PARAM_st */
             	1287, 0,
             0, 56, 2, /* 1287: struct.X509_VERIFY_PARAM_st */
             	194, 0,
             	254, 48,
             4097, 8, 0, /* 1294: pointer.func */
             0, 16, 0, /* 1297: struct.rlimit */
-            1, 8, 1, /* 1300: pointer.struct.ssl3_buf_freelist_st */
+            0, 8, 1, /* 1300: pointer.struct.ssl3_buf_freelist_st */
             	1305, 0,
             0, 24, 1, /* 1305: struct.ssl3_buf_freelist_st */
             	1310, 16,
-            1, 8, 1, /* 1310: pointer.struct.ssl3_buf_freelist_entry_st */
+            0, 8, 1, /* 1310: pointer.struct.ssl3_buf_freelist_entry_st */
             	1315, 0,
             0, 8, 1, /* 1315: struct.ssl3_buf_freelist_entry_st */
             	1310, 0,
@@ -635,7 +635,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             	194, 312,
             	194, 320,
             	194, 344,
-            1, 8, 1, /* 1394: pointer.struct.sess_cert_st */
+            0, 8, 1, /* 1394: pointer.struct.sess_cert_st */
             	1399, 0,
             0, 248, 6, /* 1399: struct.sess_cert_st */
             	254, 0,
@@ -644,16 +644,16 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             	880, 216,
             	984, 224,
             	1019, 232,
-            1, 8, 1, /* 1414: pointer.struct.ssl_cipher_st */
+            0, 8, 1, /* 1414: pointer.struct.ssl_cipher_st */
             	1419, 0,
             0, 88, 1, /* 1419: struct.ssl_cipher_st */
             	194, 8,
-            1, 8, 1, /* 1424: pointer.struct.ssl_session_st */
+            0, 8, 1, /* 1424: pointer.struct.ssl_session_st */
             	1363, 0,
             0, 56, 2, /* 1429: struct.comp_ctx_st */
             	1436, 0,
             	755, 40,
-            1, 8, 1, /* 1436: pointer.struct.comp_method_st */
+            0, 8, 1, /* 1436: pointer.struct.comp_method_st */
             	1441, 0,
             0, 64, 7, /* 1441: struct.comp_method_st */
             	194, 8,
@@ -674,14 +674,14 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             	1539, 8,
             	1672, 16,
             	1424, 24,
-            1, 8, 1, /* 1486: pointer.struct.evp_cipher_ctx_st */
+            0, 8, 1, /* 1486: pointer.struct.evp_cipher_ctx_st */
             	1491, 0,
             0, 168, 4, /* 1491: struct.evp_cipher_ctx_st */
             	1502, 0,
             	434, 8,
             	1351, 96,
             	1351, 120,
-            1, 8, 1, /* 1502: pointer.struct.evp_cipher_st */
+            0, 8, 1, /* 1502: pointer.struct.evp_cipher_st */
             	1507, 0,
             0, 88, 7, /* 1507: struct.evp_cipher_st */
             	1524, 24,
@@ -696,7 +696,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             4097, 8, 0, /* 1530: pointer.func */
             4097, 8, 0, /* 1533: pointer.func */
             4097, 8, 0, /* 1536: pointer.func */
-            1, 8, 1, /* 1539: pointer.struct.env_md_ctx_st */
+            0, 8, 1, /* 1539: pointer.struct.env_md_ctx_st */
             	1544, 0,
             0, 48, 5, /* 1544: struct.env_md_ctx_st */
             	835, 0,
@@ -704,7 +704,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             	1351, 24,
             	1557, 32,
             	862, 40,
-            1, 8, 1, /* 1557: pointer.struct.evp_pkey_ctx_st */
+            0, 8, 1, /* 1557: pointer.struct.evp_pkey_ctx_st */
             	1562, 0,
             0, 80, 8, /* 1562: struct.evp_pkey_ctx_st */
             	1581, 0,
@@ -715,7 +715,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             	194, 48,
             	387, 56,
             	932, 64,
-            1, 8, 1, /* 1581: pointer.struct.evp_pkey_method_st */
+            0, 8, 1, /* 1581: pointer.struct.evp_pkey_method_st */
             	1586, 0,
             0, 208, 25, /* 1586: struct.evp_pkey_method_st */
             	387, 8,
@@ -754,9 +754,9 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             4097, 8, 0, /* 1663: pointer.func */
             4097, 8, 0, /* 1666: pointer.func */
             4097, 8, 0, /* 1669: pointer.func */
-            1, 8, 1, /* 1672: pointer.struct.comp_ctx_st */
+            0, 8, 1, /* 1672: pointer.struct.comp_ctx_st */
             	1429, 0,
-            1, 8, 1, /* 1677: pointer.struct._pitem */
+            0, 8, 1, /* 1677: pointer.struct._pitem */
             	1682, 0,
             0, 24, 2, /* 1682: struct._pitem */
             	194, 8,
@@ -764,7 +764,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             0, 16, 1, /* 1689: struct._pqueue */
             	1677, 0,
             0, 16, 0, /* 1694: union.anon */
-            1, 8, 1, /* 1697: pointer.struct.dtls1_state_st */
+            0, 8, 1, /* 1697: pointer.struct.dtls1_state_st */
             	1702, 0,
             0, 888, 7, /* 1702: struct.dtls1_state_st */
             	1719, 576,
@@ -776,10 +776,10 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             	1470, 736,
             0, 16, 1, /* 1719: struct.record_pqueue_st */
             	1724, 8,
-            1, 8, 1, /* 1724: pointer.struct._pqueue */
+            0, 8, 1, /* 1724: pointer.struct._pqueue */
             	1689, 0,
             0, 0, 0, /* 1729: func */
-            1, 8, 1, /* 1732: pointer.struct.ssl_comp_st */
+            0, 8, 1, /* 1732: pointer.struct.ssl_comp_st */
             	1737, 0,
             0, 24, 2, /* 1737: struct.ssl_comp_st */
             	194, 8,
@@ -839,10 +839,10 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             0, 16, 1, /* 1892: struct.tls_session_ticket_ext_st */
             	1351, 8,
             0, 0, 0, /* 1897: func */
-            1, 8, 1, /* 1900: pointer.struct.tls_session_ticket_ext_st */
+            0, 8, 1, /* 1900: pointer.struct.tls_session_ticket_ext_st */
             	1892, 0,
             0, 0, 0, /* 1905: func */
-            1, 8, 1, /* 1908: pointer.struct.ssl3_state_st */
+            0, 8, 1, /* 1908: pointer.struct.ssl3_state_st */
             	1913, 0,
             0, 1200, 10, /* 1913: struct.ssl3_state_st */
             	1936, 240,
@@ -861,7 +861,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             	194, 16,
             	194, 24,
             	194, 32,
-            1, 8, 1, /* 1950: pointer.struct.bio_st */
+            0, 8, 1, /* 1950: pointer.struct.bio_st */
             	1955, 0,
             0, 112, 7, /* 1955: struct.bio_st */
             	1972, 0,
@@ -871,7 +871,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             	1950, 56,
             	1950, 64,
             	755, 96,
-            1, 8, 1, /* 1972: pointer.struct.bio_method_st */
+            0, 8, 1, /* 1972: pointer.struct.bio_method_st */
             	1977, 0,
             0, 80, 9, /* 1977: struct.bio_method_st */
             	194, 8,
@@ -889,13 +889,13 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             4097, 8, 0, /* 2007: pointer.func */
             4097, 8, 0, /* 2010: pointer.func */
             4097, 8, 0, /* 2013: pointer.func */
-            1, 8, 1, /* 2016: pointer.pointer.struct.env_md_ctx_st */
+            0, 8, 1, /* 2016: pointer.pointer.struct.env_md_ctx_st */
             	1539, 0,
             0, 0, 0, /* 2021: func */
             0, 72, 0, /* 2024: struct.anon */
             0, 16, 0, /* 2027: array[16].char */
             0, 8, 0, /* 2030: long */
-            1, 8, 1, /* 2033: pointer.struct.iovec */
+            0, 8, 1, /* 2033: pointer.struct.iovec */
             	976, 0,
             0, 2, 0, /* 2038: short */
             0, 0, 0, /* 2041: func */
@@ -953,7 +953,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             	254, 648,
             	2033, 656,
             	1320, 680,
-            1, 8, 1, /* 2155: pointer.struct.ssl_method_st */
+            0, 8, 1, /* 2155: pointer.struct.ssl_method_st */
             	2160, 0,
             0, 232, 28, /* 2160: struct.ssl_method_st */
             	2219, 8,
@@ -995,7 +995,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             4097, 8, 0, /* 2243: pointer.func */
             4097, 8, 0, /* 2246: pointer.func */
             4097, 8, 0, /* 2249: pointer.func */
-            1, 8, 1, /* 2252: pointer.struct.ssl3_enc_method */
+            0, 8, 1, /* 2252: pointer.struct.ssl3_enc_method */
             	2257, 0,
             0, 112, 11, /* 2257: struct.ssl3_enc_method */
             	2282, 0,
@@ -1017,7 +1017,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             4097, 8, 0, /* 2297: pointer.func */
             4097, 8, 0, /* 2300: pointer.func */
             4097, 8, 0, /* 2303: pointer.func */
-            1, 8, 1, /* 2306: pointer.struct.ssl2_state_st */
+            0, 8, 1, /* 2306: pointer.struct.ssl2_state_st */
             	2311, 0,
             0, 344, 9, /* 2311: struct.ssl2_state_st */
             	194, 24,
@@ -1031,7 +1031,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             	194, 136,
             4097, 8, 0, /* 2332: pointer.func */
             4097, 8, 0, /* 2335: pointer.func */
-            1, 8, 1, /* 2338: pointer.struct.ssl_ctx_st */
+            0, 8, 1, /* 2338: pointer.struct.ssl_ctx_st */
             	2343, 0,
             0, 736, 50, /* 2343: struct.ssl_ctx_st */
             	2155, 0,
@@ -1084,7 +1084,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             	1360, 712,
             	1351, 720,
             	254, 728,
-            1, 8, 1, /* 2446: pointer.struct.x509_store_st */
+            0, 8, 1, /* 2446: pointer.struct.x509_store_st */
             	2451, 0,
             0, 144, 15, /* 2451: struct.x509_store_st */
             	254, 8,
@@ -1189,7 +1189,7 @@ char * bb_SSL_get_srp_username(SSL * arg_a)
             0, 0, 0, /* 2736: func */
             0, 0, 0, /* 2739: func */
             0, 0, 0, /* 2742: func */
-            1, 8, 1, /* 2745: pointer.struct.ssl_st */
+            0, 8, 1, /* 2745: pointer.struct.ssl_st */
             	2050, 0,
             0, 0, 0, /* 2750: func */
             0, 0, 0, /* 2753: func */

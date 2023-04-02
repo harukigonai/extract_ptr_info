@@ -70,13 +70,13 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             0, 8, 0, /* 46: pointer.void */
             4097, 8, 0, /* 49: pointer.func */
             4097, 8, 0, /* 52: pointer.func */
-            1, 8, 1, /* 55: pointer.char */
+            0, 8, 1, /* 55: pointer.char */
             	4096, 0,
-            1, 8, 1, /* 60: pointer.struct.bignum_st */
+            0, 8, 1, /* 60: pointer.struct.bignum_st */
             	65, 0,
             0, 24, 1, /* 65: struct.bignum_st */
             	70, 0,
-            1, 8, 1, /* 70: pointer.int */
+            0, 8, 1, /* 70: pointer.int */
             	75, 0,
             0, 4, 0, /* 75: int */
             0, 0, 0, /* 78: func */
@@ -90,7 +90,7 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             0, 0, 0, /* 102: func */
             0, 0, 0, /* 105: func */
             4097, 8, 0, /* 108: pointer.func */
-            1, 8, 1, /* 111: pointer.struct.cert_st */
+            0, 8, 1, /* 111: pointer.struct.cert_st */
             	116, 0,
             0, 296, 8, /* 116: struct.cert_st */
             	135, 0,
@@ -101,13 +101,13 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             	1023, 80,
             	108, 88,
             	1259, 96,
-            1, 8, 1, /* 135: pointer.struct.cert_pkey_st */
+            0, 8, 1, /* 135: pointer.struct.cert_pkey_st */
             	140, 0,
             0, 24, 3, /* 140: struct.cert_pkey_st */
             	149, 0,
             	337, 8,
             	857, 16,
-            1, 8, 1, /* 149: pointer.struct.x509_st */
+            0, 8, 1, /* 149: pointer.struct.x509_st */
             	154, 0,
             0, 184, 12, /* 154: struct.x509_st */
             	181, 0,
@@ -122,7 +122,7 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             	276, 136,
             	827, 144,
             	839, 176,
-            1, 8, 1, /* 181: pointer.struct.x509_cinf_st */
+            0, 8, 1, /* 181: pointer.struct.x509_cinf_st */
             	186, 0,
             0, 104, 11, /* 186: struct.x509_cinf_st */
             	211, 0,
@@ -136,66 +136,66 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             	211, 64,
             	276, 72,
             	782, 80,
-            1, 8, 1, /* 211: pointer.struct.asn1_string_st */
+            0, 8, 1, /* 211: pointer.struct.asn1_string_st */
             	216, 0,
             0, 24, 1, /* 216: struct.asn1_string_st */
             	55, 8,
-            1, 8, 1, /* 221: pointer.struct.X509_algor_st */
+            0, 8, 1, /* 221: pointer.struct.X509_algor_st */
             	226, 0,
             0, 16, 2, /* 226: struct.X509_algor_st */
             	233, 0,
             	247, 8,
-            1, 8, 1, /* 233: pointer.struct.asn1_object_st */
+            0, 8, 1, /* 233: pointer.struct.asn1_object_st */
             	238, 0,
             0, 40, 3, /* 238: struct.asn1_object_st */
             	55, 0,
             	55, 8,
             	55, 24,
-            1, 8, 1, /* 247: pointer.struct.asn1_type_st */
+            0, 8, 1, /* 247: pointer.struct.asn1_type_st */
             	252, 0,
             0, 16, 1, /* 252: struct.asn1_type_st */
             	257, 8,
             0, 8, 1, /* 257: struct.fnames */
             	55, 0,
-            1, 8, 1, /* 262: pointer.struct.X509_name_st */
+            0, 8, 1, /* 262: pointer.struct.X509_name_st */
             	267, 0,
             0, 40, 3, /* 267: struct.X509_name_st */
             	276, 0,
             	301, 16,
             	55, 24,
-            1, 8, 1, /* 276: pointer.struct.stack_st_OPENSSL_STRING */
+            0, 8, 1, /* 276: pointer.struct.stack_st_OPENSSL_STRING */
             	281, 0,
             0, 32, 1, /* 281: struct.stack_st_OPENSSL_STRING */
             	286, 0,
             0, 32, 2, /* 286: struct.stack_st */
             	293, 8,
             	298, 24,
-            1, 8, 1, /* 293: pointer.pointer.char */
+            0, 8, 1, /* 293: pointer.pointer.char */
             	55, 0,
             4097, 8, 0, /* 298: pointer.func */
-            1, 8, 1, /* 301: pointer.struct.buf_mem_st */
+            0, 8, 1, /* 301: pointer.struct.buf_mem_st */
             	306, 0,
             0, 24, 1, /* 306: struct.buf_mem_st */
             	55, 8,
-            1, 8, 1, /* 311: pointer.struct.X509_val_st */
+            0, 8, 1, /* 311: pointer.struct.X509_val_st */
             	316, 0,
             0, 16, 2, /* 316: struct.X509_val_st */
             	211, 0,
             	211, 8,
-            1, 8, 1, /* 323: pointer.struct.X509_pubkey_st */
+            0, 8, 1, /* 323: pointer.struct.X509_pubkey_st */
             	328, 0,
             0, 24, 3, /* 328: struct.X509_pubkey_st */
             	221, 0,
             	211, 8,
             	337, 16,
-            1, 8, 1, /* 337: pointer.struct.evp_pkey_st */
+            0, 8, 1, /* 337: pointer.struct.evp_pkey_st */
             	342, 0,
             0, 56, 4, /* 342: struct.evp_pkey_st */
             	353, 16,
             	456, 24,
             	257, 32,
             	276, 48,
-            1, 8, 1, /* 353: pointer.struct.evp_pkey_asn1_method_st */
+            0, 8, 1, /* 353: pointer.struct.evp_pkey_asn1_method_st */
             	358, 0,
             0, 208, 24, /* 358: struct.evp_pkey_asn1_method_st */
             	55, 16,
@@ -222,7 +222,7 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             	438, 184,
             	450, 192,
             	453, 200,
-            1, 8, 1, /* 409: pointer.struct.unnamed */
+            0, 8, 1, /* 409: pointer.struct.unnamed */
             	414, 0,
             0, 0, 0, /* 414: struct.unnamed */
             4097, 8, 0, /* 417: pointer.func */
@@ -238,7 +238,7 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             4097, 8, 0, /* 447: pointer.func */
             4097, 8, 0, /* 450: pointer.func */
             4097, 8, 0, /* 453: pointer.func */
-            1, 8, 1, /* 456: pointer.struct.engine_st */
+            0, 8, 1, /* 456: pointer.struct.engine_st */
             	461, 0,
             0, 216, 24, /* 461: struct.engine_st */
             	55, 0,
@@ -265,7 +265,7 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             	777, 184,
             	456, 200,
             	456, 208,
-            1, 8, 1, /* 512: pointer.struct.rsa_meth_st */
+            0, 8, 1, /* 512: pointer.struct.rsa_meth_st */
             	517, 0,
             0, 112, 13, /* 517: struct.rsa_meth_st */
             	55, 0,
@@ -288,7 +288,7 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             4097, 8, 0, /* 558: pointer.func */
             4097, 8, 0, /* 561: pointer.func */
             4097, 8, 0, /* 564: pointer.func */
-            1, 8, 1, /* 567: pointer.struct.dsa_method */
+            0, 8, 1, /* 567: pointer.struct.dsa_method */
             	572, 0,
             0, 96, 11, /* 572: struct.dsa_method */
             	55, 0,
@@ -309,7 +309,7 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             4097, 8, 0, /* 609: pointer.func */
             4097, 8, 0, /* 612: pointer.func */
             4097, 8, 0, /* 615: pointer.func */
-            1, 8, 1, /* 618: pointer.struct.dh_method */
+            0, 8, 1, /* 618: pointer.struct.dh_method */
             	623, 0,
             0, 72, 8, /* 623: struct.dh_method */
             	55, 0,
@@ -324,14 +324,14 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             4097, 8, 0, /* 645: pointer.func */
             4097, 8, 0, /* 648: pointer.func */
             4097, 8, 0, /* 651: pointer.func */
-            1, 8, 1, /* 654: pointer.struct.ecdh_method */
+            0, 8, 1, /* 654: pointer.struct.ecdh_method */
             	659, 0,
             0, 32, 3, /* 659: struct.ecdh_method */
             	55, 0,
             	668, 8,
             	55, 24,
             4097, 8, 0, /* 668: pointer.func */
-            1, 8, 1, /* 671: pointer.struct.ecdsa_method */
+            0, 8, 1, /* 671: pointer.struct.ecdsa_method */
             	676, 0,
             0, 48, 5, /* 676: struct.ecdsa_method */
             	55, 0,
@@ -342,7 +342,7 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             4097, 8, 0, /* 689: pointer.func */
             4097, 8, 0, /* 692: pointer.func */
             4097, 8, 0, /* 695: pointer.func */
-            1, 8, 1, /* 698: pointer.struct.rand_meth_st */
+            0, 8, 1, /* 698: pointer.struct.rand_meth_st */
             	703, 0,
             0, 48, 6, /* 703: struct.rand_meth_st */
             	718, 0,
@@ -356,7 +356,7 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             4097, 8, 0, /* 724: pointer.func */
             4097, 8, 0, /* 727: pointer.func */
             4097, 8, 0, /* 730: pointer.func */
-            1, 8, 1, /* 733: pointer.struct.store_method_st */
+            0, 8, 1, /* 733: pointer.struct.store_method_st */
             	738, 0,
             0, 0, 0, /* 738: struct.store_method_st */
             4097, 8, 0, /* 741: pointer.func */
@@ -367,7 +367,7 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             4097, 8, 0, /* 756: pointer.func */
             4097, 8, 0, /* 759: pointer.func */
             4097, 8, 0, /* 762: pointer.func */
-            1, 8, 1, /* 765: pointer.struct.ENGINE_CMD_DEFN_st */
+            0, 8, 1, /* 765: pointer.struct.ENGINE_CMD_DEFN_st */
             	770, 0,
             0, 32, 2, /* 770: struct.ENGINE_CMD_DEFN_st */
             	55, 8,
@@ -376,29 +376,29 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             	276, 0,
             0, 24, 1, /* 782: struct.ASN1_ENCODING_st */
             	55, 0,
-            1, 8, 1, /* 787: pointer.struct.AUTHORITY_KEYID_st */
+            0, 8, 1, /* 787: pointer.struct.AUTHORITY_KEYID_st */
             	792, 0,
             0, 24, 3, /* 792: struct.AUTHORITY_KEYID_st */
             	211, 0,
             	276, 8,
             	211, 16,
-            1, 8, 1, /* 801: pointer.struct.X509_POLICY_CACHE_st */
+            0, 8, 1, /* 801: pointer.struct.X509_POLICY_CACHE_st */
             	806, 0,
             0, 40, 2, /* 806: struct.X509_POLICY_CACHE_st */
             	813, 0,
             	276, 8,
-            1, 8, 1, /* 813: pointer.struct.X509_POLICY_DATA_st */
+            0, 8, 1, /* 813: pointer.struct.X509_POLICY_DATA_st */
             	818, 0,
             0, 32, 3, /* 818: struct.X509_POLICY_DATA_st */
             	233, 8,
             	276, 16,
             	276, 24,
-            1, 8, 1, /* 827: pointer.struct.NAME_CONSTRAINTS_st */
+            0, 8, 1, /* 827: pointer.struct.NAME_CONSTRAINTS_st */
             	832, 0,
             0, 16, 2, /* 832: struct.NAME_CONSTRAINTS_st */
             	276, 0,
             	276, 8,
-            1, 8, 1, /* 839: pointer.struct.x509_cert_aux_st */
+            0, 8, 1, /* 839: pointer.struct.x509_cert_aux_st */
             	844, 0,
             0, 40, 5, /* 844: struct.x509_cert_aux_st */
             	276, 0,
@@ -406,7 +406,7 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             	211, 16,
             	211, 24,
             	276, 32,
-            1, 8, 1, /* 857: pointer.struct.env_md_st */
+            0, 8, 1, /* 857: pointer.struct.env_md_st */
             	862, 0,
             0, 120, 8, /* 862: struct.env_md_st */
             	881, 24,
@@ -424,7 +424,7 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             4097, 8, 0, /* 893: pointer.func */
             4097, 8, 0, /* 896: pointer.func */
             4097, 8, 0, /* 899: pointer.func */
-            1, 8, 1, /* 902: pointer.struct.rsa_st */
+            0, 8, 1, /* 902: pointer.struct.rsa_st */
             	907, 0,
             0, 168, 17, /* 907: struct.rsa_st */
             	512, 16,
@@ -444,13 +444,13 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             	55, 144,
             	958, 152,
             	958, 160,
-            1, 8, 1, /* 944: pointer.struct.bn_mont_ctx_st */
+            0, 8, 1, /* 944: pointer.struct.bn_mont_ctx_st */
             	949, 0,
             0, 96, 3, /* 949: struct.bn_mont_ctx_st */
             	65, 8,
             	65, 32,
             	65, 56,
-            1, 8, 1, /* 958: pointer.struct.bn_blinding_st */
+            0, 8, 1, /* 958: pointer.struct.bn_blinding_st */
             	963, 0,
             0, 88, 7, /* 963: struct.bn_blinding_st */
             	60, 0,
@@ -463,7 +463,7 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             0, 16, 1, /* 980: struct.iovec */
             	55, 0,
             4097, 8, 0, /* 985: pointer.func */
-            1, 8, 1, /* 988: pointer.struct.dh_st */
+            0, 8, 1, /* 988: pointer.struct.dh_st */
             	993, 0,
             0, 144, 12, /* 993: struct.dh_st */
             	60, 8,
@@ -479,14 +479,14 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             	618, 128,
             	456, 136,
             4097, 8, 0, /* 1020: pointer.func */
-            1, 8, 1, /* 1023: pointer.struct.ec_key_st */
+            0, 8, 1, /* 1023: pointer.struct.ec_key_st */
             	1028, 0,
             0, 56, 4, /* 1028: struct.ec_key_st */
             	1039, 8,
             	1216, 16,
             	60, 24,
             	1232, 48,
-            1, 8, 1, /* 1039: pointer.struct.ec_group_st */
+            0, 8, 1, /* 1039: pointer.struct.ec_group_st */
             	1044, 0,
             0, 232, 12, /* 1044: struct.ec_group_st */
             	1071, 0,
@@ -501,7 +501,7 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             	55, 208,
             	55, 216,
             	1256, 224,
-            1, 8, 1, /* 1071: pointer.struct.ec_method_st */
+            0, 8, 1, /* 1071: pointer.struct.ec_method_st */
             	1076, 0,
             0, 304, 37, /* 1076: struct.ec_method_st */
             	1153, 8,
@@ -562,14 +562,14 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             4097, 8, 0, /* 1207: pointer.func */
             4097, 8, 0, /* 1210: pointer.func */
             4097, 8, 0, /* 1213: pointer.func */
-            1, 8, 1, /* 1216: pointer.struct.ec_point_st */
+            0, 8, 1, /* 1216: pointer.struct.ec_point_st */
             	1221, 0,
             0, 88, 4, /* 1221: struct.ec_point_st */
             	1071, 0,
             	65, 8,
             	65, 32,
             	65, 56,
-            1, 8, 1, /* 1232: pointer.struct.ec_extra_data_st */
+            0, 8, 1, /* 1232: pointer.struct.ec_extra_data_st */
             	1237, 0,
             0, 40, 5, /* 1237: struct.ec_extra_data_st */
             	1232, 0,
@@ -598,7 +598,7 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             4097, 8, 0, /* 1296: pointer.func */
             0, 88, 1, /* 1299: struct.ssl_cipher_st */
             	55, 8,
-            1, 8, 1, /* 1304: pointer.struct.ssl_cipher_st */
+            0, 8, 1, /* 1304: pointer.struct.ssl_cipher_st */
             	1299, 0,
             0, 0, 0, /* 1309: func */
             0, 24, 0, /* 1312: array[6].int */
@@ -617,7 +617,7 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             0, 0, 0, /* 1351: func */
             0, 24, 1, /* 1354: struct.ssl3_buf_freelist_st */
             	1359, 16,
-            1, 8, 1, /* 1359: pointer.struct.ssl3_buf_freelist_entry_st */
+            0, 8, 1, /* 1359: pointer.struct.ssl3_buf_freelist_entry_st */
             	1364, 0,
             0, 8, 1, /* 1364: struct.ssl3_buf_freelist_entry_st */
             	1359, 0,
@@ -625,7 +625,7 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             0, 0, 0, /* 1372: func */
             0, 0, 0, /* 1375: func */
             0, 0, 0, /* 1378: func */
-            1, 8, 1, /* 1381: pointer.struct.ssl3_buf_freelist_st */
+            0, 8, 1, /* 1381: pointer.struct.ssl3_buf_freelist_st */
             	1354, 0,
             0, 8, 0, /* 1386: array[2].int */
             0, 0, 0, /* 1389: func */
@@ -635,7 +635,7 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             0, 0, 0, /* 1401: func */
             0, 0, 0, /* 1404: func */
             0, 0, 0, /* 1407: func */
-            1, 8, 1, /* 1410: pointer.struct.sess_cert_st */
+            0, 8, 1, /* 1410: pointer.struct.sess_cert_st */
             	1415, 0,
             0, 248, 6, /* 1415: struct.sess_cert_st */
             	276, 0,
@@ -667,7 +667,7 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             	55, 312,
             	55, 320,
             	55, 344,
-            1, 8, 1, /* 1485: pointer.struct.ssl_session_st */
+            0, 8, 1, /* 1485: pointer.struct.ssl_session_st */
             	1454, 0,
             0, 4, 0, /* 1490: struct.in_addr */
             0, 0, 0, /* 1493: func */
@@ -679,13 +679,13 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             4097, 8, 0, /* 1511: pointer.func */
             4097, 8, 0, /* 1514: pointer.func */
             0, 0, 0, /* 1517: func */
-            1, 8, 1, /* 1520: pointer.struct.X509_VERIFY_PARAM_st */
+            0, 8, 1, /* 1520: pointer.struct.X509_VERIFY_PARAM_st */
             	1525, 0,
             0, 56, 2, /* 1525: struct.X509_VERIFY_PARAM_st */
             	55, 0,
             	276, 48,
             0, 0, 0, /* 1532: func */
-            1, 8, 1, /* 1535: pointer.struct.in_addr */
+            0, 8, 1, /* 1535: pointer.struct.in_addr */
             	1490, 0,
             0, 0, 0, /* 1540: func */
             0, 0, 0, /* 1543: func */
@@ -712,7 +712,7 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             4097, 8, 0, /* 1591: pointer.func */
             4097, 8, 0, /* 1594: pointer.func */
             0, 0, 0, /* 1597: func */
-            1, 8, 1, /* 1600: pointer.struct.x509_store_st */
+            0, 8, 1, /* 1600: pointer.struct.x509_store_st */
             	1546, 0,
             0, 0, 0, /* 1605: func */
             0, 0, 0, /* 1608: func */
@@ -763,7 +763,7 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             4097, 8, 0, /* 1715: pointer.func */
             4097, 8, 0, /* 1718: pointer.func */
             4097, 8, 0, /* 1721: pointer.func */
-            1, 8, 1, /* 1724: pointer.struct.ssl3_enc_method */
+            0, 8, 1, /* 1724: pointer.struct.ssl3_enc_method */
             	1729, 0,
             0, 112, 11, /* 1729: struct.ssl3_enc_method */
             	1754, 0,
@@ -790,7 +790,7 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             4097, 8, 0, /* 1784: pointer.func */
             0, 0, 0, /* 1787: func */
             0, 0, 0, /* 1790: func */
-            1, 8, 1, /* 1793: pointer.struct.ssl_method_st */
+            0, 8, 1, /* 1793: pointer.struct.ssl_method_st */
             	1638, 0,
             0, 0, 0, /* 1798: func */
             0, 0, 0, /* 1801: func */
@@ -869,7 +869,7 @@ int bb_SSL_CTX_use_certificate_chain_file(SSL_CTX * arg_a,const char * arg_b)
             0, 0, 0, /* 1970: func */
             0, 0, 0, /* 1973: func */
             0, 0, 0, /* 1976: func */
-            1, 8, 1, /* 1979: pointer.struct.ssl_ctx_st */
+            0, 8, 1, /* 1979: pointer.struct.ssl_ctx_st */
             	1825, 0,
             0, 0, 0, /* 1984: func */
             0, 1, 0, /* 1987: char */

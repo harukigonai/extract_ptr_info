@@ -52,42 +52,42 @@ X509_NAME * bb_X509_get_subject_name(X509 * arg_a)
             	12, 8,
             	31, 16,
             	31, 24,
-            1, 8, 1, /* 12: pointer.struct.asn1_object_st */
+            0, 8, 1, /* 12: pointer.struct.asn1_object_st */
             	17, 0,
             0, 40, 3, /* 17: struct.asn1_object_st */
             	26, 0,
             	26, 8,
             	26, 24,
-            1, 8, 1, /* 26: pointer.char */
+            0, 8, 1, /* 26: pointer.char */
             	4096, 0,
-            1, 8, 1, /* 31: pointer.struct.stack_st_OPENSSL_STRING */
+            0, 8, 1, /* 31: pointer.struct.stack_st_OPENSSL_STRING */
             	36, 0,
             0, 32, 1, /* 36: struct.stack_st_OPENSSL_STRING */
             	41, 0,
             0, 32, 2, /* 41: struct.stack_st */
             	48, 8,
             	53, 24,
-            1, 8, 1, /* 48: pointer.pointer.char */
+            0, 8, 1, /* 48: pointer.pointer.char */
             	26, 0,
             4097, 8, 0, /* 53: pointer.func */
             0, 24, 3, /* 56: struct.AUTHORITY_KEYID_st */
             	65, 0,
             	31, 8,
             	65, 16,
-            1, 8, 1, /* 65: pointer.struct.asn1_string_st */
+            0, 8, 1, /* 65: pointer.struct.asn1_string_st */
             	70, 0,
             0, 24, 1, /* 70: struct.asn1_string_st */
             	26, 8,
-            1, 8, 1, /* 75: pointer.struct.AUTHORITY_KEYID_st */
+            0, 8, 1, /* 75: pointer.struct.AUTHORITY_KEYID_st */
             	56, 0,
             0, 24, 1, /* 80: struct.ASN1_ENCODING_st */
             	26, 0,
-            1, 8, 1, /* 85: pointer.struct.ENGINE_CMD_DEFN_st */
+            0, 8, 1, /* 85: pointer.struct.ENGINE_CMD_DEFN_st */
             	90, 0,
             0, 32, 2, /* 90: struct.ENGINE_CMD_DEFN_st */
             	26, 8,
             	26, 16,
-            1, 8, 1, /* 97: pointer.struct.NAME_CONSTRAINTS_st */
+            0, 8, 1, /* 97: pointer.struct.NAME_CONSTRAINTS_st */
             	102, 0,
             0, 16, 2, /* 102: struct.NAME_CONSTRAINTS_st */
             	31, 0,
@@ -103,7 +103,7 @@ X509_NAME * bb_X509_get_subject_name(X509 * arg_a)
             0, 0, 0, /* 133: func */
             4097, 8, 0, /* 136: pointer.func */
             0, 0, 0, /* 139: struct.store_method_st */
-            1, 8, 1, /* 142: pointer.struct.store_method_st */
+            0, 8, 1, /* 142: pointer.struct.store_method_st */
             	139, 0,
             0, 0, 0, /* 147: func */
             4097, 8, 0, /* 150: pointer.func */
@@ -114,14 +114,14 @@ X509_NAME * bb_X509_get_subject_name(X509 * arg_a)
             0, 40, 2, /* 165: struct.X509_POLICY_CACHE_st */
             	172, 0,
             	31, 8,
-            1, 8, 1, /* 172: pointer.struct.X509_POLICY_DATA_st */
+            0, 8, 1, /* 172: pointer.struct.X509_POLICY_DATA_st */
             	3, 0,
             0, 0, 0, /* 177: func */
-            1, 8, 1, /* 180: pointer.struct.X509_POLICY_CACHE_st */
+            0, 8, 1, /* 180: pointer.struct.X509_POLICY_CACHE_st */
             	165, 0,
             4097, 8, 0, /* 185: pointer.func */
             0, 0, 0, /* 188: func */
-            1, 8, 1, /* 191: pointer.struct.evp_pkey_asn1_method_st */
+            0, 8, 1, /* 191: pointer.struct.evp_pkey_asn1_method_st */
             	196, 0,
             0, 208, 24, /* 196: struct.evp_pkey_asn1_method_st */
             	26, 16,
@@ -168,14 +168,14 @@ X509_NAME * bb_X509_get_subject_name(X509 * arg_a)
             0, 0, 0, /* 297: func */
             4097, 8, 0, /* 300: pointer.func */
             0, 0, 0, /* 303: func */
-            1, 8, 1, /* 306: pointer.struct.evp_pkey_st */
+            0, 8, 1, /* 306: pointer.struct.evp_pkey_st */
             	311, 0,
             0, 56, 4, /* 311: struct.evp_pkey_st */
             	191, 16,
             	322, 24,
             	596, 32,
             	31, 48,
-            1, 8, 1, /* 322: pointer.struct.engine_st */
+            0, 8, 1, /* 322: pointer.struct.engine_st */
             	327, 0,
             0, 216, 24, /* 327: struct.engine_st */
             	26, 0,
@@ -202,7 +202,7 @@ X509_NAME * bb_X509_get_subject_name(X509 * arg_a)
             	283, 184,
             	322, 200,
             	322, 208,
-            1, 8, 1, /* 378: pointer.struct.rsa_meth_st */
+            0, 8, 1, /* 378: pointer.struct.rsa_meth_st */
             	383, 0,
             0, 112, 13, /* 383: struct.rsa_meth_st */
             	26, 0,
@@ -225,7 +225,7 @@ X509_NAME * bb_X509_get_subject_name(X509 * arg_a)
             4097, 8, 0, /* 424: pointer.func */
             4097, 8, 0, /* 427: pointer.func */
             4097, 8, 0, /* 430: pointer.func */
-            1, 8, 1, /* 433: pointer.struct.dsa_method */
+            0, 8, 1, /* 433: pointer.struct.dsa_method */
             	438, 0,
             0, 96, 11, /* 438: struct.dsa_method */
             	26, 0,
@@ -246,7 +246,7 @@ X509_NAME * bb_X509_get_subject_name(X509 * arg_a)
             4097, 8, 0, /* 475: pointer.func */
             4097, 8, 0, /* 478: pointer.func */
             4097, 8, 0, /* 481: pointer.func */
-            1, 8, 1, /* 484: pointer.struct.dh_method */
+            0, 8, 1, /* 484: pointer.struct.dh_method */
             	489, 0,
             0, 72, 8, /* 489: struct.dh_method */
             	26, 0,
@@ -261,14 +261,14 @@ X509_NAME * bb_X509_get_subject_name(X509 * arg_a)
             4097, 8, 0, /* 511: pointer.func */
             4097, 8, 0, /* 514: pointer.func */
             4097, 8, 0, /* 517: pointer.func */
-            1, 8, 1, /* 520: pointer.struct.ecdh_method */
+            0, 8, 1, /* 520: pointer.struct.ecdh_method */
             	525, 0,
             0, 32, 3, /* 525: struct.ecdh_method */
             	26, 0,
             	534, 8,
             	26, 24,
             4097, 8, 0, /* 534: pointer.func */
-            1, 8, 1, /* 537: pointer.struct.ecdsa_method */
+            0, 8, 1, /* 537: pointer.struct.ecdsa_method */
             	542, 0,
             0, 48, 5, /* 542: struct.ecdsa_method */
             	26, 0,
@@ -279,7 +279,7 @@ X509_NAME * bb_X509_get_subject_name(X509 * arg_a)
             4097, 8, 0, /* 555: pointer.func */
             4097, 8, 0, /* 558: pointer.func */
             4097, 8, 0, /* 561: pointer.func */
-            1, 8, 1, /* 564: pointer.struct.rand_meth_st */
+            0, 8, 1, /* 564: pointer.struct.rand_meth_st */
             	569, 0,
             0, 48, 6, /* 569: struct.rand_meth_st */
             	584, 0,
@@ -295,18 +295,18 @@ X509_NAME * bb_X509_get_subject_name(X509 * arg_a)
             0, 8, 1, /* 596: struct.fnames */
             	26, 0,
             0, 0, 0, /* 601: func */
-            1, 8, 1, /* 604: pointer.struct.X509_pubkey_st */
+            0, 8, 1, /* 604: pointer.struct.X509_pubkey_st */
             	609, 0,
             0, 24, 3, /* 609: struct.X509_pubkey_st */
             	618, 0,
             	65, 8,
             	306, 16,
-            1, 8, 1, /* 618: pointer.struct.X509_algor_st */
+            0, 8, 1, /* 618: pointer.struct.X509_algor_st */
             	623, 0,
             0, 16, 2, /* 623: struct.X509_algor_st */
             	12, 0,
             	630, 8,
-            1, 8, 1, /* 630: pointer.struct.asn1_type_st */
+            0, 8, 1, /* 630: pointer.struct.asn1_type_st */
             	635, 0,
             0, 16, 1, /* 635: struct.asn1_type_st */
             	596, 8,
@@ -318,7 +318,7 @@ X509_NAME * bb_X509_get_subject_name(X509 * arg_a)
             	65, 16,
             	65, 24,
             	31, 32,
-            1, 8, 1, /* 658: pointer.struct.X509_val_st */
+            0, 8, 1, /* 658: pointer.struct.X509_val_st */
             	663, 0,
             0, 16, 2, /* 663: struct.X509_val_st */
             	65, 0,
@@ -328,13 +328,13 @@ X509_NAME * bb_X509_get_subject_name(X509 * arg_a)
             0, 0, 0, /* 676: func */
             0, 0, 0, /* 679: func */
             0, 0, 0, /* 682: func */
-            1, 8, 1, /* 685: pointer.struct.X509_name_st */
+            0, 8, 1, /* 685: pointer.struct.X509_name_st */
             	690, 0,
             0, 40, 3, /* 690: struct.X509_name_st */
             	31, 0,
             	699, 16,
             	26, 24,
-            1, 8, 1, /* 699: pointer.struct.buf_mem_st */
+            0, 8, 1, /* 699: pointer.struct.buf_mem_st */
             	640, 0,
             0, 0, 0, /* 704: func */
             0, 0, 0, /* 707: func */
@@ -345,7 +345,7 @@ X509_NAME * bb_X509_get_subject_name(X509 * arg_a)
             0, 0, 0, /* 722: func */
             0, 0, 0, /* 725: func */
             0, 8, 0, /* 728: long */
-            1, 8, 1, /* 731: pointer.struct.x509_st */
+            0, 8, 1, /* 731: pointer.struct.x509_st */
             	736, 0,
             0, 184, 12, /* 736: struct.x509_st */
             	763, 0,
@@ -360,7 +360,7 @@ X509_NAME * bb_X509_get_subject_name(X509 * arg_a)
             	31, 136,
             	97, 144,
             	793, 176,
-            1, 8, 1, /* 763: pointer.struct.x509_cinf_st */
+            0, 8, 1, /* 763: pointer.struct.x509_cinf_st */
             	768, 0,
             0, 104, 11, /* 768: struct.x509_cinf_st */
             	65, 0,
@@ -374,7 +374,7 @@ X509_NAME * bb_X509_get_subject_name(X509 * arg_a)
             	65, 64,
             	31, 72,
             	80, 80,
-            1, 8, 1, /* 793: pointer.struct.x509_cert_aux_st */
+            0, 8, 1, /* 793: pointer.struct.x509_cert_aux_st */
             	645, 0,
             0, 0, 0, /* 798: func */
             0, 0, 0, /* 801: func */
@@ -392,13 +392,13 @@ X509_NAME * bb_X509_get_subject_name(X509 * arg_a)
             0, 0, 0, /* 837: func */
             0, 0, 0, /* 840: func */
             0, 0, 0, /* 843: func */
-            0, 0, 0, /* 846: func */
+            0, 8, 0, /* 846: pointer.void */
             0, 0, 0, /* 849: func */
             0, 0, 0, /* 852: func */
             0, 0, 0, /* 855: func */
             0, 0, 0, /* 858: func */
             0, 0, 0, /* 861: func */
-            0, 8, 0, /* 864: pointer.void */
+            0, 0, 0, /* 864: func */
             0, 0, 0, /* 867: func */
             0, 0, 0, /* 870: func */
         },
