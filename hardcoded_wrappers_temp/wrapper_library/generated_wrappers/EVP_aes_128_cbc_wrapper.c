@@ -69,9 +69,9 @@ const EVP_CIPHER * bb_EVP_aes_128_cbc(void)
             0, 0, 0, /* 50: func */
             0, 0, 0, /* 53: func */
             0, 1, 0, /* 56: char */
-            0, 8, 1, /* 59: pointer.char */
+            1, 8, 1, /* 59: pointer.char */
             	4096, 0,
-            0, 8, 1, /* 64: pointer.struct.evp_cipher_st */
+            1, 8, 1, /* 64: pointer.struct.evp_cipher_st */
             	6, 0,
         },
         .arg_entity_index = { -1 },

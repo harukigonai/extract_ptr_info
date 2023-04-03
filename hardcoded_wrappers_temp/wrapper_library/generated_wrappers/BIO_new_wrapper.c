@@ -48,34 +48,34 @@ BIO * bb_BIO_new(BIO_METHOD * arg_a)
         .num_args = 0,
         .entity_metadata = {
             4097, 8, 0, /* 0: pointer.func */
-            0, 8, 1, /* 3: pointer.pointer.char */
+            1, 8, 1, /* 3: pointer.pointer.char */
             	8, 0,
-            0, 8, 1, /* 8: pointer.char */
+            1, 8, 1, /* 8: pointer.char */
             	4096, 0,
             0, 32, 2, /* 13: struct.stack_st */
             	3, 8,
             	0, 24,
             0, 32, 1, /* 20: struct.stack_st_OPENSSL_STRING */
             	13, 0,
-            0, 8, 1, /* 25: pointer.struct.stack_st_OPENSSL_STRING */
+            0, 8, 0, /* 25: pointer.void */
+            1, 8, 1, /* 28: pointer.struct.stack_st_OPENSSL_STRING */
             	20, 0,
-            0, 16, 1, /* 30: struct.crypto_ex_data_st */
-            	25, 0,
-            0, 0, 0, /* 35: func */
-            0, 8, 0, /* 38: pointer.void */
+            0, 16, 1, /* 33: struct.crypto_ex_data_st */
+            	28, 0,
+            0, 0, 0, /* 38: func */
             4097, 8, 0, /* 41: pointer.func */
             4097, 8, 0, /* 44: pointer.func */
-            0, 8, 1, /* 47: pointer.struct.bio_st */
+            1, 8, 1, /* 47: pointer.struct.bio_st */
             	52, 0,
             0, 112, 7, /* 52: struct.bio_st */
             	69, 0,
             	41, 8,
             	8, 16,
-            	38, 48,
+            	25, 48,
             	47, 56,
             	47, 64,
-            	30, 96,
-            0, 8, 1, /* 69: pointer.struct.bio_method_st */
+            	33, 96,
+            1, 8, 1, /* 69: pointer.struct.bio_method_st */
             	74, 0,
             0, 80, 9, /* 74: struct.bio_method_st */
             	8, 8,

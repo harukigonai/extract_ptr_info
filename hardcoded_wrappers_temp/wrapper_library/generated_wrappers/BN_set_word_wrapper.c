@@ -48,12 +48,12 @@ int bb_BN_set_word(BIGNUM * arg_a,BN_ULONG arg_b)
         .num_args = 0,
         .entity_metadata = {
             0, 8, 0, /* 0: pointer.void */
-            0, 8, 1, /* 3: pointer.int */
+            1, 8, 1, /* 3: pointer.int */
             	8, 0,
             0, 4, 0, /* 8: int */
             0, 24, 1, /* 11: struct.bignum_st */
             	3, 0,
-            0, 8, 1, /* 16: pointer.struct.bignum_st */
+            1, 8, 1, /* 16: pointer.struct.bignum_st */
             	11, 0,
         },
         .arg_entity_index = { 16, 8, },

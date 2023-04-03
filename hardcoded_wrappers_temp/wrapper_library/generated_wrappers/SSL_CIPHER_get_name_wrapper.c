@@ -50,11 +50,11 @@ const char * bb_SSL_CIPHER_get_name(const SSL_CIPHER * arg_a)
             0, 8, 0, /* 0: pointer.void */
             0, 8, 0, /* 3: long */
             0, 4, 0, /* 6: int */
-            0, 8, 1, /* 9: pointer.struct.ssl_cipher_st */
+            1, 8, 1, /* 9: pointer.struct.ssl_cipher_st */
             	14, 0,
             0, 88, 1, /* 14: struct.ssl_cipher_st */
             	19, 8,
-            0, 8, 1, /* 19: pointer.char */
+            1, 8, 1, /* 19: pointer.char */
             	4096, 0,
             0, 1, 0, /* 24: char */
         },

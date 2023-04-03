@@ -47,12 +47,12 @@ void bb_CRYPTO_THREADID_set_numeric(CRYPTO_THREADID * arg_a,unsigned long arg_b)
         .entity_metadata = {
             0, 8, 0, /* 0: pointer.void */
             0, 1, 0, /* 3: char */
-            0, 8, 1, /* 6: pointer.char */
+            1, 8, 1, /* 6: pointer.char */
             	4096, 0,
             0, 16, 1, /* 11: struct.iovec */
             	6, 0,
             0, 8, 0, /* 16: long */
-            0, 8, 1, /* 19: pointer.struct.iovec */
+            1, 8, 1, /* 19: pointer.struct.iovec */
             	11, 0,
         },
         .arg_entity_index = { 19, 16, },

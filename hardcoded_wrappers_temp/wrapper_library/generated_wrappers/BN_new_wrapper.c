@@ -49,11 +49,11 @@ BIGNUM * bb_BN_new(void)
         .entity_metadata = {
             0, 8, 0, /* 0: pointer.void */
             0, 4, 0, /* 3: int */
-            0, 8, 1, /* 6: pointer.int */
+            1, 8, 1, /* 6: pointer.int */
             	3, 0,
             0, 24, 1, /* 11: struct.bignum_st */
             	6, 0,
-            0, 8, 1, /* 16: pointer.struct.bignum_st */
+            1, 8, 1, /* 16: pointer.struct.bignum_st */
             	11, 0,
         },
         .arg_entity_index = { -1 },

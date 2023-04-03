@@ -54,26 +54,26 @@ int bb_EVP_EncryptInit_ex(EVP_CIPHER_CTX * arg_a,const EVP_CIPHER * arg_b,ENGINE
             0, 32, 2, /* 11: struct.stack_st */
             	18, 8,
             	3, 24,
-            0, 8, 1, /* 18: pointer.pointer.char */
+            1, 8, 1, /* 18: pointer.pointer.char */
             	23, 0,
-            0, 8, 1, /* 23: pointer.char */
+            1, 8, 1, /* 23: pointer.char */
             	4096, 0,
             0, 16, 1, /* 28: struct.crypto_ex_data_st */
             	33, 0,
-            0, 8, 1, /* 33: pointer.struct.stack_st_OPENSSL_STRING */
+            1, 8, 1, /* 33: pointer.struct.stack_st_OPENSSL_STRING */
             	6, 0,
             0, 0, 0, /* 38: func */
             0, 0, 0, /* 41: func */
             4097, 8, 0, /* 44: pointer.func */
             0, 0, 0, /* 47: struct.unnamed */
-            0, 8, 1, /* 50: pointer.struct.unnamed */
+            1, 8, 1, /* 50: pointer.struct.unnamed */
             	47, 0,
             0, 0, 0, /* 55: func */
             4097, 8, 0, /* 58: pointer.func */
             4097, 8, 0, /* 61: pointer.func */
             0, 0, 0, /* 64: func */
             4097, 8, 0, /* 67: pointer.func */
-            0, 8, 1, /* 70: pointer.struct.store_method_st */
+            1, 8, 1, /* 70: pointer.struct.store_method_st */
             	75, 0,
             0, 0, 0, /* 75: struct.store_method_st */
             0, 0, 0, /* 78: func */
@@ -102,10 +102,10 @@ int bb_EVP_EncryptInit_ex(EVP_CIPHER_CTX * arg_a,const EVP_CIPHER * arg_b,ENGINE
             	117, 24,
             	23, 40,
             0, 0, 0, /* 142: func */
-            0, 8, 1, /* 145: pointer.struct.ecdsa_method */
+            1, 8, 1, /* 145: pointer.struct.ecdsa_method */
             	129, 0,
             4097, 8, 0, /* 150: pointer.func */
-            0, 8, 1, /* 153: pointer.struct.ecdh_method */
+            1, 8, 1, /* 153: pointer.struct.ecdh_method */
             	158, 0,
             0, 32, 3, /* 158: struct.ecdh_method */
             	23, 0,
@@ -116,7 +116,7 @@ int bb_EVP_EncryptInit_ex(EVP_CIPHER_CTX * arg_a,const EVP_CIPHER * arg_b,ENGINE
             0, 0, 0, /* 173: func */
             0, 0, 0, /* 176: func */
             0, 0, 0, /* 179: func */
-            0, 8, 1, /* 182: pointer.struct.rsa_meth_st */
+            1, 8, 1, /* 182: pointer.struct.rsa_meth_st */
             	187, 0,
             0, 112, 13, /* 187: struct.rsa_meth_st */
             	23, 0,
@@ -140,7 +140,7 @@ int bb_EVP_EncryptInit_ex(EVP_CIPHER_CTX * arg_a,const EVP_CIPHER * arg_b,ENGINE
             4097, 8, 0, /* 231: pointer.func */
             4097, 8, 0, /* 234: pointer.func */
             0, 0, 0, /* 237: func */
-            0, 8, 1, /* 240: pointer.struct.dh_method */
+            1, 8, 1, /* 240: pointer.struct.dh_method */
             	245, 0,
             0, 72, 8, /* 245: struct.dh_method */
             	23, 0,
@@ -160,14 +160,14 @@ int bb_EVP_EncryptInit_ex(EVP_CIPHER_CTX * arg_a,const EVP_CIPHER * arg_b,ENGINE
             4097, 8, 0, /* 282: pointer.func */
             4097, 8, 0, /* 285: pointer.func */
             4097, 8, 0, /* 288: pointer.func */
-            0, 8, 1, /* 291: pointer.struct.evp_cipher_ctx_st */
+            1, 8, 1, /* 291: pointer.struct.evp_cipher_ctx_st */
             	296, 0,
             0, 168, 4, /* 296: struct.evp_cipher_ctx_st */
             	307, 0,
             	338, 8,
             	0, 96,
             	0, 120,
-            0, 8, 1, /* 307: pointer.struct.evp_cipher_st */
+            1, 8, 1, /* 307: pointer.struct.evp_cipher_st */
             	312, 0,
             0, 88, 7, /* 312: struct.evp_cipher_st */
             	329, 24,
@@ -180,7 +180,7 @@ int bb_EVP_EncryptInit_ex(EVP_CIPHER_CTX * arg_a,const EVP_CIPHER * arg_b,ENGINE
             4097, 8, 0, /* 329: pointer.func */
             4097, 8, 0, /* 332: pointer.func */
             4097, 8, 0, /* 335: pointer.func */
-            0, 8, 1, /* 338: pointer.struct.engine_st */
+            1, 8, 1, /* 338: pointer.struct.engine_st */
             	343, 0,
             0, 216, 24, /* 343: struct.engine_st */
             	23, 0,
@@ -207,7 +207,7 @@ int bb_EVP_EncryptInit_ex(EVP_CIPHER_CTX * arg_a,const EVP_CIPHER * arg_b,ENGINE
             	28, 184,
             	338, 200,
             	338, 208,
-            0, 8, 1, /* 394: pointer.struct.dsa_method */
+            1, 8, 1, /* 394: pointer.struct.dsa_method */
             	399, 0,
             0, 96, 11, /* 399: struct.dsa_method */
             	23, 0,
@@ -227,12 +227,12 @@ int bb_EVP_EncryptInit_ex(EVP_CIPHER_CTX * arg_a,const EVP_CIPHER * arg_b,ENGINE
             4097, 8, 0, /* 433: pointer.func */
             4097, 8, 0, /* 436: pointer.func */
             4097, 8, 0, /* 439: pointer.func */
-            0, 8, 1, /* 442: pointer.struct.rand_meth_st */
+            1, 8, 1, /* 442: pointer.struct.rand_meth_st */
             	96, 0,
             4097, 8, 0, /* 447: pointer.func */
             4097, 8, 0, /* 450: pointer.func */
             4097, 8, 0, /* 453: pointer.func */
-            0, 8, 1, /* 456: pointer.struct.ENGINE_CMD_DEFN_st */
+            1, 8, 1, /* 456: pointer.struct.ENGINE_CMD_DEFN_st */
             	461, 0,
             0, 32, 2, /* 461: struct.ENGINE_CMD_DEFN_st */
             	23, 8,
