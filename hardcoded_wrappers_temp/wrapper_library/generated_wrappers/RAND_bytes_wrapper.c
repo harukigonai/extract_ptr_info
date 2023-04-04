@@ -47,14 +47,14 @@ int bb_RAND_bytes(unsigned char * arg_a,int arg_b)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            0, 8, 0, /* 0: pointer.void */
-            0, 1, 0, /* 3: char */
-            1, 8, 1, /* 6: pointer.char */
+            0, 1, 0, /* 0: char */
+            1, 8, 1, /* 3: pointer.char */
             	4096, 0,
-            0, 4, 0, /* 11: int */
+            0, 4, 0, /* 8: int */
+            0, 8, 0, /* 11: pointer.void */
         },
-        .arg_entity_index = { 6, 11, },
-        .ret_entity_index = 11,
+        .arg_entity_index = { 3, 8, },
+        .ret_entity_index = 8,
     };
     struct lib_enter_args *args_addr = &args;
     populate_arg(args_addr, arg_a);

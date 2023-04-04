@@ -47,147 +47,121 @@ EC_KEY * bb_EC_KEY_new_by_curve_name(int arg_a)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            0, 0, 0, /* 0: func */
+            4097, 8, 0, /* 0: pointer.func */
             4097, 8, 0, /* 3: pointer.func */
-            0, 24, 0, /* 6: array[6].int */
-            4097, 8, 0, /* 9: pointer.func */
-            0, 0, 0, /* 12: func */
-            0, 0, 0, /* 15: func */
-            1, 8, 1, /* 18: pointer.int */
-            	23, 0,
-            0, 4, 0, /* 23: int */
-            4097, 8, 0, /* 26: pointer.func */
-            4097, 8, 0, /* 29: pointer.func */
-            0, 0, 0, /* 32: func */
-            0, 0, 0, /* 35: func */
-            0, 0, 0, /* 38: func */
-            4097, 8, 0, /* 41: pointer.func */
-            0, 0, 0, /* 44: func */
-            4097, 8, 0, /* 47: pointer.func */
-            0, 304, 37, /* 50: struct.ec_method_st */
-            	127, 8,
-            	130, 16,
-            	130, 24,
-            	133, 32,
-            	47, 40,
-            	47, 48,
-            	127, 56,
-            	41, 64,
-            	29, 72,
-            	136, 80,
-            	136, 88,
-            	139, 96,
-            	142, 104,
-            	145, 112,
-            	145, 120,
-            	26, 128,
-            	26, 136,
-            	148, 144,
-            	151, 152,
-            	154, 160,
-            	157, 168,
-            	160, 176,
-            	163, 184,
-            	142, 192,
-            	163, 200,
-            	160, 208,
-            	163, 216,
-            	166, 224,
-            	169, 232,
-            	41, 240,
-            	127, 248,
-            	47, 256,
-            	172, 264,
-            	47, 272,
-            	172, 280,
-            	172, 288,
-            	175, 296,
-            4097, 8, 0, /* 127: pointer.func */
-            4097, 8, 0, /* 130: pointer.func */
-            4097, 8, 0, /* 133: pointer.func */
-            4097, 8, 0, /* 136: pointer.func */
-            4097, 8, 0, /* 139: pointer.func */
-            4097, 8, 0, /* 142: pointer.func */
-            4097, 8, 0, /* 145: pointer.func */
-            4097, 8, 0, /* 148: pointer.func */
-            4097, 8, 0, /* 151: pointer.func */
-            4097, 8, 0, /* 154: pointer.func */
-            4097, 8, 0, /* 157: pointer.func */
-            4097, 8, 0, /* 160: pointer.func */
-            4097, 8, 0, /* 163: pointer.func */
-            4097, 8, 0, /* 166: pointer.func */
-            4097, 8, 0, /* 169: pointer.func */
-            4097, 8, 0, /* 172: pointer.func */
-            4097, 8, 0, /* 175: pointer.func */
-            0, 0, 0, /* 178: func */
-            0, 56, 4, /* 181: struct.ec_key_st */
-            	192, 8,
-            	229, 16,
-            	279, 24,
-            	255, 48,
-            1, 8, 1, /* 192: pointer.struct.ec_group_st */
-            	197, 0,
-            0, 232, 12, /* 197: struct.ec_group_st */
-            	224, 0,
-            	229, 8,
-            	245, 16,
-            	245, 40,
-            	250, 80,
-            	255, 96,
-            	245, 104,
-            	245, 152,
-            	245, 176,
-            	273, 208,
-            	273, 216,
-            	3, 224,
-            1, 8, 1, /* 224: pointer.struct.ec_method_st */
-            	50, 0,
-            1, 8, 1, /* 229: pointer.struct.ec_point_st */
-            	234, 0,
-            0, 88, 4, /* 234: struct.ec_point_st */
-            	224, 0,
-            	245, 8,
-            	245, 32,
-            	245, 56,
-            0, 24, 1, /* 245: struct.bignum_st */
-            	18, 0,
-            1, 8, 1, /* 250: pointer.char */
+            0, 40, 5, /* 6: struct.ec_extra_data_st */
+            	19, 0,
+            	24, 8,
+            	27, 16,
+            	3, 24,
+            	3, 32,
+            1, 8, 1, /* 19: pointer.struct.ec_extra_data_st */
+            	6, 0,
+            0, 8, 0, /* 24: pointer.void */
+            4097, 8, 0, /* 27: pointer.func */
+            1, 8, 1, /* 30: pointer.struct.ec_point_st */
+            	35, 0,
+            0, 88, 4, /* 35: struct.ec_point_st */
+            	46, 0,
+            	191, 8,
+            	191, 32,
+            	191, 56,
+            1, 8, 1, /* 46: pointer.struct.ec_method_st */
+            	51, 0,
+            0, 304, 37, /* 51: struct.ec_method_st */
+            	128, 8,
+            	131, 16,
+            	131, 24,
+            	134, 32,
+            	137, 40,
+            	137, 48,
+            	128, 56,
+            	140, 64,
+            	143, 72,
+            	146, 80,
+            	146, 88,
+            	149, 96,
+            	152, 104,
+            	155, 112,
+            	155, 120,
+            	158, 128,
+            	158, 136,
+            	161, 144,
+            	164, 152,
+            	167, 160,
+            	170, 168,
+            	173, 176,
+            	176, 184,
+            	152, 192,
+            	176, 200,
+            	173, 208,
+            	176, 216,
+            	179, 224,
+            	182, 232,
+            	140, 240,
+            	128, 248,
+            	137, 256,
+            	185, 264,
+            	137, 272,
+            	185, 280,
+            	185, 288,
+            	188, 296,
+            4097, 8, 0, /* 128: pointer.func */
+            4097, 8, 0, /* 131: pointer.func */
+            4097, 8, 0, /* 134: pointer.func */
+            4097, 8, 0, /* 137: pointer.func */
+            4097, 8, 0, /* 140: pointer.func */
+            4097, 8, 0, /* 143: pointer.func */
+            4097, 8, 0, /* 146: pointer.func */
+            4097, 8, 0, /* 149: pointer.func */
+            4097, 8, 0, /* 152: pointer.func */
+            4097, 8, 0, /* 155: pointer.func */
+            4097, 8, 0, /* 158: pointer.func */
+            4097, 8, 0, /* 161: pointer.func */
+            4097, 8, 0, /* 164: pointer.func */
+            4097, 8, 0, /* 167: pointer.func */
+            4097, 8, 0, /* 170: pointer.func */
+            4097, 8, 0, /* 173: pointer.func */
+            4097, 8, 0, /* 176: pointer.func */
+            4097, 8, 0, /* 179: pointer.func */
+            4097, 8, 0, /* 182: pointer.func */
+            4097, 8, 0, /* 185: pointer.func */
+            4097, 8, 0, /* 188: pointer.func */
+            0, 24, 1, /* 191: struct.bignum_st */
+            	196, 0,
+            1, 8, 1, /* 196: pointer.int */
+            	201, 0,
+            0, 4, 0, /* 201: int */
+            0, 232, 12, /* 204: struct.ec_group_st */
+            	46, 0,
+            	30, 8,
+            	191, 16,
+            	191, 40,
+            	231, 80,
+            	19, 96,
+            	191, 104,
+            	191, 152,
+            	191, 176,
+            	231, 208,
+            	231, 216,
+            	0, 224,
+            1, 8, 1, /* 231: pointer.char */
             	4096, 0,
-            1, 8, 1, /* 255: pointer.struct.ec_extra_data_st */
-            	260, 0,
-            0, 40, 5, /* 260: struct.ec_extra_data_st */
-            	255, 0,
-            	273, 8,
-            	276, 16,
-            	9, 24,
-            	9, 32,
-            0, 8, 0, /* 273: pointer.void */
-            4097, 8, 0, /* 276: pointer.func */
-            1, 8, 1, /* 279: pointer.struct.bignum_st */
-            	245, 0,
-            0, 0, 0, /* 284: func */
-            1, 8, 1, /* 287: pointer.struct.ec_key_st */
-            	181, 0,
-            0, 0, 0, /* 292: func */
-            0, 0, 0, /* 295: func */
-            0, 0, 0, /* 298: func */
-            0, 0, 0, /* 301: func */
-            0, 0, 0, /* 304: func */
-            0, 0, 0, /* 307: func */
-            0, 0, 0, /* 310: func */
-            0, 0, 0, /* 313: func */
-            0, 8, 0, /* 316: long */
-            0, 0, 0, /* 319: func */
-            0, 0, 0, /* 322: func */
-            0, 1, 0, /* 325: char */
-            0, 0, 0, /* 328: func */
-            0, 0, 0, /* 331: func */
-            0, 0, 0, /* 334: func */
-            0, 0, 0, /* 337: func */
-            0, 0, 0, /* 340: func */
+            1, 8, 1, /* 236: pointer.struct.bignum_st */
+            	191, 0,
+            1, 8, 1, /* 241: pointer.struct.ec_group_st */
+            	204, 0,
+            0, 56, 4, /* 246: struct.ec_key_st */
+            	241, 8,
+            	30, 16,
+            	236, 24,
+            	19, 48,
+            0, 1, 0, /* 257: char */
+            1, 8, 1, /* 260: pointer.struct.ec_key_st */
+            	246, 0,
         },
-        .arg_entity_index = { 23, },
-        .ret_entity_index = 287,
+        .arg_entity_index = { 201, },
+        .ret_entity_index = 260,
     };
     struct lib_enter_args *args_addr = &args;
     populate_arg(args_addr, arg_a);

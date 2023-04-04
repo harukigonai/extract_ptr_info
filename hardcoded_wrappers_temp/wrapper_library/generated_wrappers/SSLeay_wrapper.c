@@ -47,11 +47,11 @@ unsigned long bb_SSLeay(void)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            0, 8, 0, /* 0: pointer.void */
-            0, 8, 0, /* 3: long */
+            0, 8, 0, /* 0: long */
+            0, 8, 0, /* 3: pointer.void */
         },
         .arg_entity_index = { -1 },
-        .ret_entity_index = 3,
+        .ret_entity_index = 0,
     };
     struct lib_enter_args *args_addr = &args;
     populate_ret(args_addr, ret);

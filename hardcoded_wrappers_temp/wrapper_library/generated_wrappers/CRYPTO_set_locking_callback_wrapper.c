@@ -45,11 +45,10 @@ void bb_CRYPTO_set_locking_callback(void (*arg_a)(int, int, const char *, int))
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            0, 8, 0, /* 0: pointer.void */
-            0, 0, 0, /* 3: func */
-            4097, 8, 0, /* 6: pointer.func */
+            4097, 8, 0, /* 0: pointer.func */
+            0, 8, 0, /* 3: pointer.void */
         },
-        .arg_entity_index = { 6, },
+        .arg_entity_index = { 0, },
         .ret_entity_index = -1,
     };
     struct lib_enter_args *args_addr = &args;

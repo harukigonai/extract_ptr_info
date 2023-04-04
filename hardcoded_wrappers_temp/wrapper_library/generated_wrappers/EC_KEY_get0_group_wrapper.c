@@ -64,8 +64,8 @@ const EC_GROUP * bb_EC_KEY_get0_group(const EC_KEY * arg_a)
             	204, 104,
             	204, 152,
             	204, 176,
-            	240, 208,
-            	240, 216,
+            	217, 208,
+            	217, 216,
             	249, 224,
             1, 8, 1, /* 43: pointer.struct.ec_method_st */
             	48, 0,
@@ -156,37 +156,11 @@ const EC_GROUP * bb_EC_KEY_get0_group(const EC_KEY * arg_a)
             4097, 8, 0, /* 249: pointer.func */
             1, 8, 1, /* 252: pointer.struct.bignum_st */
             	204, 0,
-            1, 8, 1, /* 257: pointer.struct.ec_key_st */
+            0, 1, 0, /* 257: char */
+            1, 8, 1, /* 260: pointer.struct.ec_key_st */
             	0, 0,
-            0, 0, 0, /* 262: func */
-            0, 24, 0, /* 265: array[6].int */
-            0, 0, 0, /* 268: func */
-            0, 0, 0, /* 271: func */
-            0, 0, 0, /* 274: func */
-            0, 0, 0, /* 277: func */
-            0, 0, 0, /* 280: func */
-            0, 0, 0, /* 283: func */
-            0, 0, 0, /* 286: func */
-            0, 0, 0, /* 289: func */
-            0, 0, 0, /* 292: func */
-            0, 0, 0, /* 295: func */
-            0, 0, 0, /* 298: func */
-            0, 0, 0, /* 301: func */
-            0, 0, 0, /* 304: func */
-            0, 0, 0, /* 307: func */
-            0, 0, 0, /* 310: func */
-            0, 0, 0, /* 313: func */
-            0, 8, 0, /* 316: long */
-            0, 0, 0, /* 319: func */
-            0, 0, 0, /* 322: func */
-            0, 1, 0, /* 325: char */
-            0, 0, 0, /* 328: func */
-            0, 0, 0, /* 331: func */
-            0, 0, 0, /* 334: func */
-            0, 0, 0, /* 337: func */
-            0, 0, 0, /* 340: func */
         },
-        .arg_entity_index = { 257, },
+        .arg_entity_index = { 260, },
         .ret_entity_index = 11,
     };
     struct lib_enter_args *args_addr = &args;

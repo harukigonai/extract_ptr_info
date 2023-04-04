@@ -47,36 +47,34 @@ int bb_X509_NAME_get_index_by_NID(X509_NAME * arg_a,int arg_b,int arg_c)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            0, 8, 0, /* 0: long */
-            0, 4, 0, /* 3: int */
-            1, 8, 1, /* 6: pointer.struct.X509_name_st */
+            4097, 8, 0, /* 0: pointer.func */
+            0, 1, 0, /* 3: char */
+            1, 8, 1, /* 6: pointer.pointer.char */
             	11, 0,
-            0, 40, 3, /* 11: struct.X509_name_st */
-            	20, 0,
-            	50, 16,
-            	42, 24,
-            1, 8, 1, /* 20: pointer.struct.stack_st_OPENSSL_STRING */
-            	25, 0,
-            0, 32, 1, /* 25: struct.stack_st_OPENSSL_STRING */
-            	30, 0,
-            0, 32, 2, /* 30: struct.stack_st */
-            	37, 8,
-            	47, 24,
-            1, 8, 1, /* 37: pointer.pointer.char */
-            	42, 0,
-            1, 8, 1, /* 42: pointer.char */
+            1, 8, 1, /* 11: pointer.char */
             	4096, 0,
-            4097, 8, 0, /* 47: pointer.func */
-            1, 8, 1, /* 50: pointer.struct.buf_mem_st */
-            	55, 0,
-            0, 24, 1, /* 55: struct.buf_mem_st */
-            	42, 8,
+            0, 32, 2, /* 16: struct.stack_st */
+            	6, 8,
+            	0, 24,
+            1, 8, 1, /* 23: pointer.struct.buf_mem_st */
+            	28, 0,
+            0, 24, 1, /* 28: struct.buf_mem_st */
+            	11, 8,
+            0, 32, 1, /* 33: struct.stack_st_OPENSSL_STRING */
+            	16, 0,
+            1, 8, 1, /* 38: pointer.struct.stack_st_OPENSSL_STRING */
+            	33, 0,
+            0, 40, 3, /* 43: struct.X509_name_st */
+            	38, 0,
+            	23, 16,
+            	11, 24,
+            1, 8, 1, /* 52: pointer.struct.X509_name_st */
+            	43, 0,
+            0, 4, 0, /* 57: int */
             0, 8, 0, /* 60: pointer.void */
-            0, 1, 0, /* 63: char */
-            0, 0, 0, /* 66: func */
         },
-        .arg_entity_index = { 6, 3, 3, },
-        .ret_entity_index = 3,
+        .arg_entity_index = { 52, 57, 57, },
+        .ret_entity_index = 57,
     };
     struct lib_enter_args *args_addr = &args;
     populate_arg(args_addr, arg_a);
