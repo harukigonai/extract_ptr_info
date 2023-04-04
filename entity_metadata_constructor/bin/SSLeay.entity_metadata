@@ -1,2 +1,2 @@
-0, 8, 0, /* 0: pointer.void */
-0, 8, 0, /* 3: long */
+0, 8, 0, /* 0: long */
+0, 8, 0, /* 3: pointer.void */

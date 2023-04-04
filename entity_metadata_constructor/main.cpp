@@ -69,6 +69,8 @@ using llvm::dyn_cast_or_null;
 using llvm::DINodeArray;
 using llvm::DINode;
 
+bool void_ptr_used = false;
+
 void print_types_helper(set<struct type_info *> &entity_processed,
                         struct type_info *type_info) {
   const bool is_in = entity_processed.find(type_info) != entity_processed.end();
@@ -164,7 +166,6 @@ extract_types(DataLayout &dataLayout,
       if (structType->getName().data() != NULL) {
         string str = structType->getName().data();
         string::difference_type n = count(str.begin(), str.end(), '.');
-        cout << n << "\n";
         if (n == 2) {
           bool found_first_dot = false;
           for (int i = 0; i < str.length(); i++) {
@@ -179,7 +180,6 @@ extract_types(DataLayout &dataLayout,
           strcpy(type_info->name, str.data());
         }
       }
-      cout << "Found struct with name " << (char *)structType->getName().data() << "\n";
     } else {
       // Do we handle this case?
       strcpy(type_info->name, "struct.unnamed");
@@ -229,6 +229,26 @@ extract_types(DataLayout &dataLayout,
   }
 
   return type_info;
+}
+
+void make_types_revisions(
+  unordered_map<Type *, struct type_info *> &types
+) {
+  /* Iterate through types */
+  for (auto const& [type, type_info] : types) {
+    /* If type has some name */
+    if (strcmp(type_info->name, "struct.ssl_ctx_st") == 0) {
+      /* Find other member */
+      for (auto const& [type_2, type_info_2] : types) {
+        if (strcmp(type_info_2->name, "pointer.struct.lhash_st") == 0) {
+          /* Swap members */
+          struct child_type *child_type = (*type_info->child_types)[4];
+          strcpy(child_type->name, "pointer.struct.lhash_st");
+          child_type->type_info = type_info_2;
+        }
+      }
+    }
+  }
 }
 
 /*
@@ -402,8 +422,6 @@ void detail_void_ptr_types(
     string str = pair.first;
     DICompositeType *m = pair.second;
 
-    cout << "Attempt to find " + str + "\n";
-
     struct type_info *type_info_correct = NULL;
 
     /* Find the corresponding */
@@ -433,17 +451,53 @@ void detail_void_ptr_types(
       DINode *di_node = di_node_arr[i];
 
       DIDerivedType *di_derived_type = dyn_cast_or_null<DIDerivedType>(di_node);
-      cout << " " << di_derived_type->getName().data() << " " << di_derived_type->getTag() << " " << di_derived_type->getBaseType() << "\n";
 
       DIType *di_type_2 = di_derived_type->getBaseType();
       if (is_void_ptr(di_type_2)) {
         // cout << "   Derived type is " << i << " is " << di_derived_type_2->getTag() << " " << di_derived_type_2->getBaseType() << "\n"; 
         struct child_type *child_type = (*type_info_correct->child_types)[i];
         child_type->type_info = void_ptr_type_info;
+
+        void_ptr_used = true;
       }
     }
+  }
+}
 
-    cout << "{" << str << ": " << type_info_correct->name << "}\n";
+void populate_type_we_care_about(
+  set<struct type_info *> &entity_processed,
+  struct type_info *type_info,
+  unordered_map<Type *, struct type_info *> &types_we_care_abt
+) {
+  const bool is_in = entity_processed.find(type_info) != entity_processed.end();
+  if (is_in)
+    return;
+
+  entity_processed.insert(type_info);
+  types_we_care_abt[type_info->type_ptr] = type_info;
+
+  size_t child_types_size = type_info->child_types->size();
+  for (int i = 0; i < child_types_size; i++) {
+    struct child_type *child_type = (*type_info->child_types)[i];
+    populate_type_we_care_about(entity_processed, child_type->type_info, types_we_care_abt);
+  }
+}
+
+void populate_types_we_care_about(
+  unordered_map<Type *, struct type_info *> &types,
+  unordered_map<Type *, struct type_info *> &types_we_care_abt,
+  set<Type *> &types_we_care_abt_set
+) {
+  set<struct type_info *> entity_processed;
+  set<Type *>::iterator itr;
+
+  for (itr = types_we_care_abt_set.begin();
+       itr != types_we_care_abt_set.end();
+       itr++) {
+    Type *t_as_type = *itr;
+    // t_as_type->dump();
+    struct type_info *type_info = types[t_as_type];
+    populate_type_we_care_about(entity_processed, type_info, types_we_care_abt);
   }
 }
 
@@ -516,7 +570,7 @@ int setEntInArray(uint64_t *ent_array,
     ind += 3 + 2 * child_types_size;
     // ent_array[local_ind++] = 9999999999999999;
     // ent_array[local_ind++] = ent_to_id[type_info];
-    ent_array[local_ind++] = type_info->type == Type::PointerTyID ? 1 : 0;     
+    ent_array[local_ind++] = type_info->type == Type::PointerTyID ? 1 : 0;
     ent_array[local_ind++] = type_info->size;
     ent_array[local_ind++] = child_types_size;
 
@@ -577,35 +631,17 @@ int main(int argc, char **argv) {
       TargetLibraryInfoImpl(Triple(mod->getTargetTriple())));
   LibFunc func;
 
+  unordered_map<Type *, struct type_info *> types;
+
+  for (StructType *type : mod->getIdentifiedStructTypes()) {
+    extract_types(dataLayout, types, type);
+  }
+
   for (auto &F : *mod) {
     if (!TLI->getLibFunc(F, func)) {
       const Function &lib_func = F.getFunction();
+
       FunctionType *functionType = lib_func.getFunctionType();
-      StringRef name = lib_func.getName();
-      string name_as_str = string(name.data());
-
-      // /* Debugging tool to only generate for one func */
-      // if (strcmp("RAND_seed", name.data()) != 0) {
-      //   continue;
-      // }
-
-      // lib_func.getArgumentList();
-      for (auto *it = lib_func.arg_begin(); it != lib_func.arg_end(); it++) {
-        cout << it->getDereferenceableBytes() << "\n";
-      }
-
-      const bool is_in = funcs_we_care_about.find(name_as_str) !=
-        funcs_we_care_about.end();
-      if (!is_in) {
-        continue;
-      } else {
-        funcs_we_care_about.erase(name_as_str);
-      }
-
-      char filename[4096];
-
-      unordered_map<Type *, struct type_info *> types;
-
       Type *returnType = functionType->getReturnType();
       if (!returnType->isVoidTy()) {
         extract_types(dataLayout, types, returnType);
@@ -617,34 +653,88 @@ int main(int argc, char **argv) {
           extract_types(dataLayout, types, paramType);
         }
       }
+    }
+  }
 
-      struct type_info *void_ptr_type_info = new struct type_info;
-      void_ptr_type_info->type = 4098; // arbitrary, but stands for void *
-      memset(void_ptr_type_info->name, 0, 4096);
-      strcpy(void_ptr_type_info->name, "pointer.void");
-      void_ptr_type_info->size = 8;
-      void_ptr_type_info->child_types = new vector<struct child_type *>();
-      void_ptr_type_info->type_ptr = (Type *)4098;
-      types[(Type *)4098] = void_ptr_type_info;
+  struct type_info *void_ptr_type_info = new struct type_info;
+  void_ptr_type_info->type = 4098; // arbitrary, but stands for void *
+  memset(void_ptr_type_info->name, 0, 4096);
+  strcpy(void_ptr_type_info->name, "pointer.void");
+  void_ptr_type_info->size = 8;
+  void_ptr_type_info->child_types = new vector<struct child_type *>();
+  void_ptr_type_info->type_ptr = (Type *)4098;
+  types[(Type *)4098] = void_ptr_type_info;
 
+  for (auto &F : *mod) {
+    if (!TLI->getLibFunc(F, func)) {
+      const Function &lib_func = F.getFunction();
       detail_void_ptr_types(lib_func, void_ptr_type_info, types);
+    }
+  }
 
-      detail_types(types);
+  detail_types(types);
 
-      extract_ptr_types(types);
+  make_types_revisions(types);
 
-      size_t arr_size = compute_arr_size(types);
+  extract_ptr_types(types);
 
+  for (auto &F : *mod) {
+    if (!TLI->getLibFunc(F, func)) {
+      const Function &lib_func = F.getFunction();
+
+      void_ptr_used = false;
+
+      // /* Debugging tool to only generate for one func */
+      // if (strcmp("RAND_seed", name.data()) != 0) {
+      //   continue;
+      // }
+
+      // lib_func.getArgumentList();
+
+      StringRef name = lib_func.getName();
+      string name_as_str = string(name.data());
+      const bool is_in = funcs_we_care_about.find(name_as_str) !=
+        funcs_we_care_about.end();
+      if (!is_in) {
+        continue;
+      } else {
+        funcs_we_care_about.erase(name_as_str);
+      }
+
+      set<Type *> types_we_care_about_set;
+      // unordered_map<Type *, struct type_info *> types_we_care_about;
+
+      FunctionType *functionType = lib_func.getFunctionType();
+      Type *returnType = functionType->getReturnType();
+      if (!returnType->isVoidTy()) {
+        types_we_care_about_set.insert(returnType);
+      }
+
+      ArrayRef<Type *> paramTypes = functionType->params();
+      for (Type *paramType : paramTypes) {
+        if (!paramType->isVoidTy()) {
+          // extract_types(dataLayout, types, paramType);
+          types_we_care_about_set.insert(paramType);
+        }
+      }
+
+      types_we_care_about_set.insert((Type *)4098);
+
+      unordered_map<Type *, struct type_info *> types_we_care_about;
+      populate_types_we_care_about(types, types_we_care_about, types_we_care_about_set);
+
+      size_t arr_size = compute_arr_size(types_we_care_about);
       uint64_t *ent_array = new uint64_t[arr_size];
       unordered_map<int, char *> ind_to_name;
 
-      unordered_map<struct type_info *, int> *ent_to_index = ptrChildTypesToArray(ent_array, ind_to_name, types);
+      unordered_map<struct type_info *, int> *ent_to_index = ptrChildTypesToArray(ent_array, ind_to_name, types_we_care_about);
 
       int p = 0;
       char *curr_func_name = NULL;
       uint64_t num_children = 0;
       uint64_t num_children_processed = 0;
 
+      char filename[4096];
       sprintf(filename, "bin/%s.entity_metadata", name.data());
 
       FILE *f = fopen(filename, "w");
@@ -692,7 +782,6 @@ int main(int argc, char **argv) {
       // Metadata *type = sub->Type;
       DISubroutineType *sub_routine_type = sub->getType();
       DITypeRefArray sub_routine_type_arr = sub_routine_type->getTypeArray();
-      cout << sub_routine_type_arr.size() << "yikes ol \n";
 
       sprintf(filename, "bin/%s.ret_entity_index", name.data());
       f = fopen(filename, "w");
@@ -701,8 +790,9 @@ int main(int argc, char **argv) {
         if (is_void_ptr(ret_type)) {
           index = ent_to_index->find(void_ptr_type_info)->second;
           fprintf(f, "%d", index);
+          void_ptr_used = true;
         } else {
-          struct type_info *type_info = types.find(returnType)->second;
+          struct type_info *type_info = types_we_care_about.find(returnType)->second;
           index = ent_to_index->find(type_info)->second;
           fprintf(f, "%d", index);
         }
@@ -710,19 +800,18 @@ int main(int argc, char **argv) {
         fprintf(f, "-1");
       }
       fclose(f);
-
       sprintf(filename, "bin/%s.arg_entity_index", name.data());
       f = fopen(filename, "w");
       if (paramTypes.size()) {
-        cout << paramTypes.size() << "\n";
         int i = 1;
         for (Type *paramType : paramTypes) {
           DIType *param_di_type = dyn_cast_or_null<DIType>(sub_routine_type_arr[i]);
           if (is_void_ptr(param_di_type)) {
             index = ent_to_index->find(void_ptr_type_info)->second;
             fprintf(f, "%d, ", index);
+            void_ptr_used = true;
           } else {
-            struct type_info *type_info = types.find(paramType)->second;
+            struct type_info *type_info = types_we_care_about.find(paramType)->second;
             index = ent_to_index->find(type_info)->second;
             fprintf(f, "%d, ", index);
           }
@@ -732,6 +821,10 @@ int main(int argc, char **argv) {
         fprintf(f, "-1");
       }
       fclose(f);
+
+      if (void_ptr_used)
+        printf("%s\n", name.data());
+
     }
   }
 

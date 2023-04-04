@@ -1,3 +1,2 @@
-0, 8, 0, /* 0: pointer.void */
-0, 0, 0, /* 3: func */
-4097, 8, 0, /* 6: pointer.func */
+4097, 8, 0, /* 0: pointer.func */
+0, 8, 0, /* 3: pointer.void */

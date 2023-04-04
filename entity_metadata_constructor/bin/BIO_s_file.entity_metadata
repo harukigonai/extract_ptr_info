@@ -1,27 +1,21 @@
-0, 8, 0, /* 0: pointer.void */
-1, 8, 1, /* 3: pointer.struct.bio_method_st */
-	8, 0,
-0, 80, 9, /* 8: struct.bio_method_st */
-	29, 8,
-	34, 16,
-	34, 24,
-	37, 32,
-	34, 40,
-	40, 48,
-	43, 56,
-	43, 64,
-	46, 72,
-1, 8, 1, /* 29: pointer.char */
+4097, 8, 0, /* 0: pointer.func */
+4097, 8, 0, /* 3: pointer.func */
+4097, 8, 0, /* 6: pointer.func */
+4097, 8, 0, /* 9: pointer.func */
+0, 1, 0, /* 12: char */
+1, 8, 1, /* 15: pointer.char */
 	4096, 0,
-4097, 8, 0, /* 34: pointer.func */
-4097, 8, 0, /* 37: pointer.func */
-4097, 8, 0, /* 40: pointer.func */
-4097, 8, 0, /* 43: pointer.func */
-4097, 8, 0, /* 46: pointer.func */
-0, 4, 0, /* 49: int */
-0, 0, 0, /* 52: func */
-0, 0, 0, /* 55: func */
-0, 0, 0, /* 58: func */
-0, 0, 0, /* 61: func */
-0, 1, 0, /* 64: char */
-0, 0, 0, /* 67: func */
+4097, 8, 0, /* 20: pointer.func */
+0, 80, 9, /* 23: struct.bio_method_st */
+	15, 8,
+	9, 16,
+	9, 24,
+	20, 32,
+	9, 40,
+	6, 48,
+	3, 56,
+	3, 64,
+	0, 72,
+1, 8, 1, /* 44: pointer.struct.bio_method_st */
+	23, 0,
+0, 8, 0, /* 49: pointer.void */
