@@ -56,11 +56,11 @@ int bb_EVP_EncryptInit_ex(EVP_CIPHER_CTX * arg_a,const EVP_CIPHER * arg_b,ENGINE
             	29, 64,
             	32, 72,
             	35, 80,
-            64097, 8, 0, /* 20: pointer.func */
-            64097, 8, 0, /* 23: pointer.func */
-            64097, 8, 0, /* 26: pointer.func */
-            64097, 8, 0, /* 29: pointer.func */
-            64097, 8, 0, /* 32: pointer.func */
+            8884097, 8, 0, /* 20: pointer.func */
+            8884097, 8, 0, /* 23: pointer.func */
+            8884097, 8, 0, /* 26: pointer.func */
+            8884097, 8, 0, /* 29: pointer.func */
+            8884097, 8, 0, /* 32: pointer.func */
             0, 8, 0, /* 35: pointer.void */
             1, 8, 1, /* 38: pointer.unsigned char */
             	43, 0,

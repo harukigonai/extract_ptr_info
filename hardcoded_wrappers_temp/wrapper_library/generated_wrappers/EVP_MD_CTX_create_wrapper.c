@@ -69,13 +69,13 @@ EVP_MD_CTX * bb_EVP_MD_CTX_create(void)
             	62, 64,
             	65, 72,
             	68, 112,
-            64097, 8, 0, /* 50: pointer.func */
-            64097, 8, 0, /* 53: pointer.func */
-            64097, 8, 0, /* 56: pointer.func */
-            64097, 8, 0, /* 59: pointer.func */
-            64097, 8, 0, /* 62: pointer.func */
-            64097, 8, 0, /* 65: pointer.func */
-            64097, 8, 0, /* 68: pointer.func */
+            8884097, 8, 0, /* 50: pointer.func */
+            8884097, 8, 0, /* 53: pointer.func */
+            8884097, 8, 0, /* 56: pointer.func */
+            8884097, 8, 0, /* 59: pointer.func */
+            8884097, 8, 0, /* 62: pointer.func */
+            8884097, 8, 0, /* 65: pointer.func */
+            8884097, 8, 0, /* 68: pointer.func */
             1, 8, 1, /* 71: pointer.struct.engine_st */
             	76, 0,
             0, 0, 0, /* 76: struct.engine_st */

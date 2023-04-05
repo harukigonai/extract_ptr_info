@@ -47,8 +47,8 @@ DH * bb_DH_new(void)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            64097, 8, 0, /* 0: pointer.func */
-            64097, 8, 0, /* 3: pointer.func */
+            8884097, 8, 0, /* 0: pointer.func */
+            8884097, 8, 0, /* 3: pointer.func */
             0, 72, 8, /* 6: struct.dh_method */
             	25, 0,
             	3, 8,
@@ -59,11 +59,11 @@ DH * bb_DH_new(void)
             	33, 56,
             	38, 64,
             1, 8, 1, /* 25: pointer.char */
-            	64096, 0,
-            64097, 8, 0, /* 30: pointer.func */
+            	8884096, 0,
+            8884097, 8, 0, /* 30: pointer.func */
             1, 8, 1, /* 33: pointer.char */
-            	64096, 0,
-            64097, 8, 0, /* 38: pointer.func */
+            	8884096, 0,
+            8884097, 8, 0, /* 38: pointer.func */
             1, 8, 1, /* 41: pointer.struct.dh_method */
             	6, 0,
             0, 1, 0, /* 46: char */
@@ -73,7 +73,7 @@ DH * bb_DH_new(void)
             	64, 24,
             1, 8, 1, /* 59: pointer.pointer.char */
             	33, 0,
-            64097, 8, 0, /* 64: pointer.func */
+            8884097, 8, 0, /* 64: pointer.func */
             1, 8, 1, /* 67: pointer.struct.dh_st */
             	72, 0,
             0, 144, 12, /* 72: struct.dh_st */

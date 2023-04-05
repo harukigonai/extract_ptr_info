@@ -47,15 +47,15 @@ BIO_METHOD * bb_BIO_s_mem(void)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            64097, 8, 0, /* 0: pointer.func */
-            64097, 8, 0, /* 3: pointer.func */
-            64097, 8, 0, /* 6: pointer.func */
-            64097, 8, 0, /* 9: pointer.func */
-            64097, 8, 0, /* 12: pointer.func */
-            64097, 8, 0, /* 15: pointer.func */
+            8884097, 8, 0, /* 0: pointer.func */
+            8884097, 8, 0, /* 3: pointer.func */
+            8884097, 8, 0, /* 6: pointer.func */
+            8884097, 8, 0, /* 9: pointer.func */
+            8884097, 8, 0, /* 12: pointer.func */
+            8884097, 8, 0, /* 15: pointer.func */
             0, 1, 0, /* 18: char */
             1, 8, 1, /* 21: pointer.char */
-            	64096, 0,
+            	8884096, 0,
             0, 80, 9, /* 26: struct.bio_method_st */
             	21, 8,
             	15, 16,

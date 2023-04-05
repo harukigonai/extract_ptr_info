@@ -27,7 +27,7 @@ struct lib_enter_args {
     void *ret;
     int ret_entity_index;
 
-    uint16_t entity_metadata[ENTITY_METADATA_SIZE];
+    uint32_t entity_metadata[ENTITY_METADATA_SIZE];
 };
 
 // #define offsetof(TYPE, MEMBER) ((size_t) &((TYPE *)0)->MEMBER)

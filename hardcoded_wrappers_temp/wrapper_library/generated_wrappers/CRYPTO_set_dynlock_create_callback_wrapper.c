@@ -45,7 +45,7 @@ void bb_CRYPTO_set_dynlock_create_callback(struct CRYPTO_dynlock_value *(*arg_a)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            64097, 8, 0, /* 0: pointer.func */
+            8884097, 8, 0, /* 0: pointer.func */
         },
         .arg_entity_index = { 0, },
         .ret_entity_index = -1,

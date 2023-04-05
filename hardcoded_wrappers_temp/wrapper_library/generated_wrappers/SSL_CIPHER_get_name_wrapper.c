@@ -50,7 +50,7 @@ const char * bb_SSL_CIPHER_get_name(const SSL_CIPHER * arg_a)
             0, 88, 1, /* 0: struct.ssl_cipher_st */
             	5, 8,
             1, 8, 1, /* 5: pointer.char */
-            	64096, 0,
+            	8884096, 0,
             1, 8, 1, /* 10: pointer.struct.ssl_cipher_st */
             	0, 0,
             0, 1, 0, /* 15: char */

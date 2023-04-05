@@ -48,7 +48,7 @@ int bb_OBJ_txt2nid(const char * arg_a)
         .num_args = 0,
         .entity_metadata = {
             1, 8, 1, /* 0: pointer.char */
-            	64096, 0,
+            	8884096, 0,
             0, 1, 0, /* 5: char */
             0, 4, 0, /* 8: int */
         },

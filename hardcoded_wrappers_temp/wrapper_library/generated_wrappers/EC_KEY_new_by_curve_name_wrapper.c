@@ -47,20 +47,20 @@ EC_KEY * bb_EC_KEY_new_by_curve_name(int arg_a)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            64097, 8, 0, /* 0: pointer.func */
-            64097, 8, 0, /* 3: pointer.func */
-            1, 8, 1, /* 6: pointer.struct.ec_extra_data_st */
-            	11, 0,
-            0, 40, 5, /* 11: struct.ec_extra_data_st */
-            	24, 0,
-            	29, 8,
+            8884097, 8, 0, /* 0: pointer.func */
+            8884097, 8, 0, /* 3: pointer.func */
+            0, 8, 0, /* 6: pointer.void */
+            1, 8, 1, /* 9: pointer.struct.ec_extra_data_st */
+            	14, 0,
+            0, 40, 5, /* 14: struct.ec_extra_data_st */
+            	27, 0,
+            	6, 8,
             	32, 16,
             	3, 24,
             	3, 32,
-            1, 8, 1, /* 24: pointer.struct.ec_extra_data_st */
-            	11, 0,
-            0, 8, 0, /* 29: pointer.void */
-            64097, 8, 0, /* 32: pointer.func */
+            1, 8, 1, /* 27: pointer.struct.ec_extra_data_st */
+            	14, 0,
+            8884097, 8, 0, /* 32: pointer.func */
             0, 4, 0, /* 35: unsigned int */
             1, 8, 1, /* 38: pointer.unsigned int */
             	35, 0,
@@ -111,36 +111,36 @@ EC_KEY * bb_EC_KEY_new_by_curve_name(int arg_a)
             	225, 280,
             	225, 288,
             	228, 296,
-            64097, 8, 0, /* 141: pointer.func */
-            64097, 8, 0, /* 144: pointer.func */
-            64097, 8, 0, /* 147: pointer.func */
-            64097, 8, 0, /* 150: pointer.func */
-            64097, 8, 0, /* 153: pointer.func */
-            64097, 8, 0, /* 156: pointer.func */
-            64097, 8, 0, /* 159: pointer.func */
-            64097, 8, 0, /* 162: pointer.func */
-            64097, 8, 0, /* 165: pointer.func */
-            64097, 8, 0, /* 168: pointer.func */
-            64097, 8, 0, /* 171: pointer.func */
-            64097, 8, 0, /* 174: pointer.func */
-            64097, 8, 0, /* 177: pointer.func */
-            64097, 8, 0, /* 180: pointer.func */
-            64097, 8, 0, /* 183: pointer.func */
-            64097, 8, 0, /* 186: pointer.func */
-            64097, 8, 0, /* 189: pointer.func */
-            64097, 8, 0, /* 192: pointer.func */
-            64097, 8, 0, /* 195: pointer.func */
-            64097, 8, 0, /* 198: pointer.func */
-            64097, 8, 0, /* 201: pointer.func */
-            64097, 8, 0, /* 204: pointer.func */
-            64097, 8, 0, /* 207: pointer.func */
-            64097, 8, 0, /* 210: pointer.func */
-            64097, 8, 0, /* 213: pointer.func */
-            64097, 8, 0, /* 216: pointer.func */
-            64097, 8, 0, /* 219: pointer.func */
-            64097, 8, 0, /* 222: pointer.func */
-            64097, 8, 0, /* 225: pointer.func */
-            64097, 8, 0, /* 228: pointer.func */
+            8884097, 8, 0, /* 141: pointer.func */
+            8884097, 8, 0, /* 144: pointer.func */
+            8884097, 8, 0, /* 147: pointer.func */
+            8884097, 8, 0, /* 150: pointer.func */
+            8884097, 8, 0, /* 153: pointer.func */
+            8884097, 8, 0, /* 156: pointer.func */
+            8884097, 8, 0, /* 159: pointer.func */
+            8884097, 8, 0, /* 162: pointer.func */
+            8884097, 8, 0, /* 165: pointer.func */
+            8884097, 8, 0, /* 168: pointer.func */
+            8884097, 8, 0, /* 171: pointer.func */
+            8884097, 8, 0, /* 174: pointer.func */
+            8884097, 8, 0, /* 177: pointer.func */
+            8884097, 8, 0, /* 180: pointer.func */
+            8884097, 8, 0, /* 183: pointer.func */
+            8884097, 8, 0, /* 186: pointer.func */
+            8884097, 8, 0, /* 189: pointer.func */
+            8884097, 8, 0, /* 192: pointer.func */
+            8884097, 8, 0, /* 195: pointer.func */
+            8884097, 8, 0, /* 198: pointer.func */
+            8884097, 8, 0, /* 201: pointer.func */
+            8884097, 8, 0, /* 204: pointer.func */
+            8884097, 8, 0, /* 207: pointer.func */
+            8884097, 8, 0, /* 210: pointer.func */
+            8884097, 8, 0, /* 213: pointer.func */
+            8884097, 8, 0, /* 216: pointer.func */
+            8884097, 8, 0, /* 219: pointer.func */
+            8884097, 8, 0, /* 222: pointer.func */
+            8884097, 8, 0, /* 225: pointer.func */
+            8884097, 8, 0, /* 228: pointer.func */
             1, 8, 1, /* 231: pointer.unsigned char */
             	236, 0,
             0, 1, 0, /* 236: unsigned char */
@@ -152,12 +152,12 @@ EC_KEY * bb_EC_KEY_new_by_curve_name(int arg_a)
             	43, 16,
             	43, 40,
             	231, 80,
-            	6, 96,
+            	9, 96,
             	43, 104,
             	43, 152,
             	43, 176,
-            	29, 208,
-            	29, 216,
+            	6, 208,
+            	6, 216,
             	0, 224,
             1, 8, 1, /* 271: pointer.struct.ec_point_st */
             	48, 0,
@@ -165,7 +165,7 @@ EC_KEY * bb_EC_KEY_new_by_curve_name(int arg_a)
             	239, 8,
             	271, 16,
             	287, 24,
-            	6, 48,
+            	9, 48,
             1, 8, 1, /* 287: pointer.struct.bignum_st */
             	43, 0,
             1, 8, 1, /* 292: pointer.struct.ec_key_st */

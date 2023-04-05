@@ -47,11 +47,11 @@ BIO * bb_BIO_new_file(const char * arg_a,const char * arg_b)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            64097, 8, 0, /* 0: pointer.func */
+            8884097, 8, 0, /* 0: pointer.func */
             1, 8, 1, /* 3: pointer.pointer.char */
             	8, 0,
             1, 8, 1, /* 8: pointer.char */
-            	64096, 0,
+            	8884096, 0,
             0, 32, 1, /* 13: struct.stack_st_void */
             	18, 0,
             0, 32, 2, /* 18: struct.stack_st */
@@ -80,14 +80,14 @@ BIO * bb_BIO_new_file(const char * arg_a,const char * arg_b)
             	90, 64,
             	93, 72,
             1, 8, 1, /* 73: pointer.char */
-            	64096, 0,
-            64097, 8, 0, /* 78: pointer.func */
-            64097, 8, 0, /* 81: pointer.func */
-            64097, 8, 0, /* 84: pointer.func */
-            64097, 8, 0, /* 87: pointer.func */
-            64097, 8, 0, /* 90: pointer.func */
-            64097, 8, 0, /* 93: pointer.func */
-            64097, 8, 0, /* 96: pointer.func */
+            	8884096, 0,
+            8884097, 8, 0, /* 78: pointer.func */
+            8884097, 8, 0, /* 81: pointer.func */
+            8884097, 8, 0, /* 84: pointer.func */
+            8884097, 8, 0, /* 87: pointer.func */
+            8884097, 8, 0, /* 90: pointer.func */
+            8884097, 8, 0, /* 93: pointer.func */
+            8884097, 8, 0, /* 96: pointer.func */
             0, 8, 0, /* 99: pointer.void */
             0, 16, 1, /* 102: struct.crypto_ex_data_st */
             	107, 0,
