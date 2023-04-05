@@ -49,6 +49,7 @@ using llvm::PointerType;
 using llvm::ArrayType;
 using llvm::IntegerType;
 using llvm::StructLayout;
+using llvm::MDNode;
 
 struct child_type {
     size_t offset;
@@ -58,10 +59,13 @@ struct child_type {
 
 struct type_info {
     char name[4096];
-    int type;
+    // int type;
+    char type[4096];
     size_t size;
-    Type *type_ptr;
+
+    MDNode *md_node_ptr;
     vector<struct child_type *> *child_types;
 };
+
 
 #endif
