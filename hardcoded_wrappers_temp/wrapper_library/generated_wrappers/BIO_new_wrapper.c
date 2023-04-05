@@ -57,10 +57,10 @@ BIO * bb_BIO_new(BIO_METHOD * arg_a)
             0, 32, 2, /* 18: struct.stack_st */
             	3, 8,
             	0, 24,
-            1, 8, 1, /* 25: pointer.struct.stack_st_void */
+            0, 16, 1, /* 25: struct.crypto_ex_data_st */
+            	30, 0,
+            1, 8, 1, /* 30: pointer.struct.stack_st_void */
             	13, 0,
-            0, 16, 1, /* 30: struct.crypto_ex_data_st */
-            	25, 0,
             1, 8, 1, /* 35: pointer.struct.bio_st */
             	40, 0,
             0, 112, 7, /* 40: struct.bio_st */
@@ -70,7 +70,7 @@ BIO * bb_BIO_new(BIO_METHOD * arg_a)
             	109, 48,
             	35, 56,
             	35, 64,
-            	30, 96,
+            	25, 96,
             1, 8, 1, /* 57: pointer.struct.bio_method_st */
             	62, 0,
             0, 80, 9, /* 62: struct.bio_method_st */

@@ -49,17 +49,17 @@ EC_KEY * bb_EC_KEY_new_by_curve_name(int arg_a)
         .entity_metadata = {
             8884097, 8, 0, /* 0: pointer.func */
             8884097, 8, 0, /* 3: pointer.func */
-            0, 8, 0, /* 6: pointer.void */
-            1, 8, 1, /* 9: pointer.struct.ec_extra_data_st */
-            	14, 0,
-            0, 40, 5, /* 14: struct.ec_extra_data_st */
-            	27, 0,
-            	6, 8,
+            1, 8, 1, /* 6: pointer.struct.ec_extra_data_st */
+            	11, 0,
+            0, 40, 5, /* 11: struct.ec_extra_data_st */
+            	24, 0,
+            	29, 8,
             	32, 16,
             	3, 24,
             	3, 32,
-            1, 8, 1, /* 27: pointer.struct.ec_extra_data_st */
-            	14, 0,
+            1, 8, 1, /* 24: pointer.struct.ec_extra_data_st */
+            	11, 0,
+            0, 8, 0, /* 29: pointer.void */
             8884097, 8, 0, /* 32: pointer.func */
             0, 4, 0, /* 35: unsigned int */
             1, 8, 1, /* 38: pointer.unsigned int */
@@ -152,12 +152,12 @@ EC_KEY * bb_EC_KEY_new_by_curve_name(int arg_a)
             	43, 16,
             	43, 40,
             	231, 80,
-            	9, 96,
+            	6, 96,
             	43, 104,
             	43, 152,
             	43, 176,
-            	6, 208,
-            	6, 216,
+            	29, 208,
+            	29, 216,
             	0, 224,
             1, 8, 1, /* 271: pointer.struct.ec_point_st */
             	48, 0,
@@ -165,7 +165,7 @@ EC_KEY * bb_EC_KEY_new_by_curve_name(int arg_a)
             	239, 8,
             	271, 16,
             	287, 24,
-            	9, 48,
+            	6, 48,
             1, 8, 1, /* 287: pointer.struct.bignum_st */
             	43, 0,
             1, 8, 1, /* 292: pointer.struct.ec_key_st */
