@@ -51,9 +51,9 @@ int bb_EVP_DigestInit_ex(EVP_MD_CTX * arg_a,const EVP_MD * arg_b,ENGINE * arg_c)
             1, 8, 1, /* 3: pointer.struct.evp_pkey_ctx_st */
             	0, 0,
             0, 8, 0, /* 8: pointer.void */
-            4097, 8, 0, /* 11: pointer.func */
+            8884097, 8, 0, /* 11: pointer.func */
             0, 4, 0, /* 14: int */
-            4097, 8, 0, /* 17: pointer.func */
+            8884097, 8, 0, /* 17: pointer.func */
             1, 8, 1, /* 20: pointer.struct.engine_st */
             	25, 0,
             0, 0, 0, /* 25: struct.engine_st */
@@ -76,11 +76,11 @@ int bb_EVP_DigestInit_ex(EVP_MD_CTX * arg_a,const EVP_MD * arg_b,ENGINE * arg_c)
             	17, 64,
             	82, 72,
             	11, 112,
-            4097, 8, 0, /* 70: pointer.func */
-            4097, 8, 0, /* 73: pointer.func */
-            4097, 8, 0, /* 76: pointer.func */
-            4097, 8, 0, /* 79: pointer.func */
-            4097, 8, 0, /* 82: pointer.func */
+            8884097, 8, 0, /* 70: pointer.func */
+            8884097, 8, 0, /* 73: pointer.func */
+            8884097, 8, 0, /* 76: pointer.func */
+            8884097, 8, 0, /* 79: pointer.func */
+            8884097, 8, 0, /* 82: pointer.func */
         },
         .arg_entity_index = { 28, 46, 20, },
         .ret_entity_index = 14,

@@ -45,8 +45,8 @@ void bb_EC_KEY_free(EC_KEY * arg_a)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            4097, 8, 0, /* 0: pointer.func */
-            4097, 8, 0, /* 3: pointer.func */
+            8884097, 8, 0, /* 0: pointer.func */
+            8884097, 8, 0, /* 3: pointer.func */
             0, 8, 0, /* 6: pointer.void */
             1, 8, 1, /* 9: pointer.struct.ec_extra_data_st */
             	14, 0,
@@ -58,7 +58,7 @@ void bb_EC_KEY_free(EC_KEY * arg_a)
             	3, 32,
             1, 8, 1, /* 27: pointer.struct.ec_extra_data_st */
             	14, 0,
-            4097, 8, 0, /* 32: pointer.func */
+            8884097, 8, 0, /* 32: pointer.func */
             0, 4, 0, /* 35: unsigned int */
             1, 8, 1, /* 38: pointer.unsigned int */
             	35, 0,
@@ -109,36 +109,36 @@ void bb_EC_KEY_free(EC_KEY * arg_a)
             	225, 280,
             	225, 288,
             	228, 296,
-            4097, 8, 0, /* 141: pointer.func */
-            4097, 8, 0, /* 144: pointer.func */
-            4097, 8, 0, /* 147: pointer.func */
-            4097, 8, 0, /* 150: pointer.func */
-            4097, 8, 0, /* 153: pointer.func */
-            4097, 8, 0, /* 156: pointer.func */
-            4097, 8, 0, /* 159: pointer.func */
-            4097, 8, 0, /* 162: pointer.func */
-            4097, 8, 0, /* 165: pointer.func */
-            4097, 8, 0, /* 168: pointer.func */
-            4097, 8, 0, /* 171: pointer.func */
-            4097, 8, 0, /* 174: pointer.func */
-            4097, 8, 0, /* 177: pointer.func */
-            4097, 8, 0, /* 180: pointer.func */
-            4097, 8, 0, /* 183: pointer.func */
-            4097, 8, 0, /* 186: pointer.func */
-            4097, 8, 0, /* 189: pointer.func */
-            4097, 8, 0, /* 192: pointer.func */
-            4097, 8, 0, /* 195: pointer.func */
-            4097, 8, 0, /* 198: pointer.func */
-            4097, 8, 0, /* 201: pointer.func */
-            4097, 8, 0, /* 204: pointer.func */
-            4097, 8, 0, /* 207: pointer.func */
-            4097, 8, 0, /* 210: pointer.func */
-            4097, 8, 0, /* 213: pointer.func */
-            4097, 8, 0, /* 216: pointer.func */
-            4097, 8, 0, /* 219: pointer.func */
-            4097, 8, 0, /* 222: pointer.func */
-            4097, 8, 0, /* 225: pointer.func */
-            4097, 8, 0, /* 228: pointer.func */
+            8884097, 8, 0, /* 141: pointer.func */
+            8884097, 8, 0, /* 144: pointer.func */
+            8884097, 8, 0, /* 147: pointer.func */
+            8884097, 8, 0, /* 150: pointer.func */
+            8884097, 8, 0, /* 153: pointer.func */
+            8884097, 8, 0, /* 156: pointer.func */
+            8884097, 8, 0, /* 159: pointer.func */
+            8884097, 8, 0, /* 162: pointer.func */
+            8884097, 8, 0, /* 165: pointer.func */
+            8884097, 8, 0, /* 168: pointer.func */
+            8884097, 8, 0, /* 171: pointer.func */
+            8884097, 8, 0, /* 174: pointer.func */
+            8884097, 8, 0, /* 177: pointer.func */
+            8884097, 8, 0, /* 180: pointer.func */
+            8884097, 8, 0, /* 183: pointer.func */
+            8884097, 8, 0, /* 186: pointer.func */
+            8884097, 8, 0, /* 189: pointer.func */
+            8884097, 8, 0, /* 192: pointer.func */
+            8884097, 8, 0, /* 195: pointer.func */
+            8884097, 8, 0, /* 198: pointer.func */
+            8884097, 8, 0, /* 201: pointer.func */
+            8884097, 8, 0, /* 204: pointer.func */
+            8884097, 8, 0, /* 207: pointer.func */
+            8884097, 8, 0, /* 210: pointer.func */
+            8884097, 8, 0, /* 213: pointer.func */
+            8884097, 8, 0, /* 216: pointer.func */
+            8884097, 8, 0, /* 219: pointer.func */
+            8884097, 8, 0, /* 222: pointer.func */
+            8884097, 8, 0, /* 225: pointer.func */
+            8884097, 8, 0, /* 228: pointer.func */
             1, 8, 1, /* 231: pointer.unsigned char */
             	236, 0,
             0, 1, 0, /* 236: unsigned char */

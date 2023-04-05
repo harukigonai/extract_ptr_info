@@ -53,37 +53,37 @@ int bb_EVP_DigestUpdate(EVP_MD_CTX * arg_a, const void * arg_b,size_t arg_c)
             0, 0, 0, /* 8: struct.engine_st */
             1, 8, 1, /* 11: pointer.struct.engine_st */
             	8, 0,
-            4097, 8, 0, /* 16: pointer.func */
+            8884097, 8, 0, /* 16: pointer.func */
             0, 4, 0, /* 19: int */
-            4097, 8, 0, /* 22: pointer.func */
+            8884097, 8, 0, /* 22: pointer.func */
             0, 8, 0, /* 25: pointer.void */
-            1, 8, 1, /* 28: pointer.struct.env_md_ctx_st */
-            	33, 0,
-            0, 48, 5, /* 33: struct.env_md_ctx_st */
-            	46, 0,
+            0, 0, 0, /* 28: size_t */
+            0, 120, 8, /* 31: struct.env_md_st */
+            	50, 24,
+            	53, 32,
+            	56, 40,
+            	59, 48,
+            	50, 56,
+            	22, 64,
+            	62, 72,
+            	16, 112,
+            8884097, 8, 0, /* 50: pointer.func */
+            8884097, 8, 0, /* 53: pointer.func */
+            8884097, 8, 0, /* 56: pointer.func */
+            8884097, 8, 0, /* 59: pointer.func */
+            8884097, 8, 0, /* 62: pointer.func */
+            1, 8, 1, /* 65: pointer.struct.env_md_ctx_st */
+            	70, 0,
+            0, 48, 5, /* 70: struct.env_md_ctx_st */
+            	83, 0,
             	11, 8,
             	25, 24,
             	3, 32,
-            	73, 40,
-            1, 8, 1, /* 46: pointer.struct.env_md_st */
-            	51, 0,
-            0, 120, 8, /* 51: struct.env_md_st */
-            	70, 24,
-            	73, 32,
-            	76, 40,
-            	79, 48,
-            	70, 56,
-            	22, 64,
-            	82, 72,
-            	16, 112,
-            4097, 8, 0, /* 70: pointer.func */
-            4097, 8, 0, /* 73: pointer.func */
-            4097, 8, 0, /* 76: pointer.func */
-            4097, 8, 0, /* 79: pointer.func */
-            4097, 8, 0, /* 82: pointer.func */
-            0, 0, 0, /* 85: size_t */
+            	53, 40,
+            1, 8, 1, /* 83: pointer.struct.env_md_st */
+            	31, 0,
         },
-        .arg_entity_index = { 28, 25, 85, },
+        .arg_entity_index = { 65, 25, 28, },
         .ret_entity_index = 19,
     };
     struct lib_enter_args *args_addr = &args;

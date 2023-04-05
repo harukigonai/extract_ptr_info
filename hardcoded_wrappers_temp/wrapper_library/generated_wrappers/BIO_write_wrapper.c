@@ -47,11 +47,11 @@ int bb_BIO_write(BIO * arg_a,const void * arg_b,int arg_c)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            4097, 8, 0, /* 0: pointer.func */
+            8884097, 8, 0, /* 0: pointer.func */
             1, 8, 1, /* 3: pointer.pointer.char */
             	8, 0,
             1, 8, 1, /* 8: pointer.char */
-            	4096, 0,
+            	8884096, 0,
             0, 32, 1, /* 13: struct.stack_st_void */
             	18, 0,
             0, 32, 2, /* 18: struct.stack_st */
@@ -84,22 +84,22 @@ int bb_BIO_write(BIO * arg_a,const void * arg_b,int arg_c)
             	100, 64,
             	103, 72,
             1, 8, 1, /* 83: pointer.char */
-            	4096, 0,
-            4097, 8, 0, /* 88: pointer.func */
-            4097, 8, 0, /* 91: pointer.func */
-            4097, 8, 0, /* 94: pointer.func */
-            4097, 8, 0, /* 97: pointer.func */
-            4097, 8, 0, /* 100: pointer.func */
-            4097, 8, 0, /* 103: pointer.func */
-            4097, 8, 0, /* 106: pointer.func */
+            	8884096, 0,
+            8884097, 8, 0, /* 88: pointer.func */
+            8884097, 8, 0, /* 91: pointer.func */
+            8884097, 8, 0, /* 94: pointer.func */
+            8884097, 8, 0, /* 97: pointer.func */
+            8884097, 8, 0, /* 100: pointer.func */
+            8884097, 8, 0, /* 103: pointer.func */
+            8884097, 8, 0, /* 106: pointer.func */
             0, 8, 0, /* 109: pointer.void */
             0, 1, 0, /* 112: char */
-            1, 8, 1, /* 115: pointer.struct.bio_st */
+            0, 4, 0, /* 115: int */
+            1, 8, 1, /* 118: pointer.struct.bio_st */
             	40, 0,
-            0, 4, 0, /* 120: int */
         },
-        .arg_entity_index = { 115, 109, 120, },
-        .ret_entity_index = 120,
+        .arg_entity_index = { 118, 109, 115, },
+        .ret_entity_index = 115,
     };
     struct lib_enter_args *args_addr = &args;
     populate_arg(args_addr, arg_a);

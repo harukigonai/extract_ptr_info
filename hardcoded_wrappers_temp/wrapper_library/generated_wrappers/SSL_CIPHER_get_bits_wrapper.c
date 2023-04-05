@@ -48,7 +48,7 @@ int bb_SSL_CIPHER_get_bits(const SSL_CIPHER * arg_a,int * arg_b)
         .num_args = 0,
         .entity_metadata = {
             1, 8, 1, /* 0: pointer.char */
-            	4096, 0,
+            	8884096, 0,
             0, 88, 1, /* 5: struct.ssl_cipher_st */
             	0, 8,
             1, 8, 1, /* 10: pointer.int */

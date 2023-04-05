@@ -102,36 +102,36 @@ const EC_GROUP * bb_EC_KEY_get0_group(const EC_KEY * arg_a)
             	198, 280,
             	198, 288,
             	201, 296,
-            4097, 8, 0, /* 114: pointer.func */
-            4097, 8, 0, /* 117: pointer.func */
-            4097, 8, 0, /* 120: pointer.func */
-            4097, 8, 0, /* 123: pointer.func */
-            4097, 8, 0, /* 126: pointer.func */
-            4097, 8, 0, /* 129: pointer.func */
-            4097, 8, 0, /* 132: pointer.func */
-            4097, 8, 0, /* 135: pointer.func */
-            4097, 8, 0, /* 138: pointer.func */
-            4097, 8, 0, /* 141: pointer.func */
-            4097, 8, 0, /* 144: pointer.func */
-            4097, 8, 0, /* 147: pointer.func */
-            4097, 8, 0, /* 150: pointer.func */
-            4097, 8, 0, /* 153: pointer.func */
-            4097, 8, 0, /* 156: pointer.func */
-            4097, 8, 0, /* 159: pointer.func */
-            4097, 8, 0, /* 162: pointer.func */
-            4097, 8, 0, /* 165: pointer.func */
-            4097, 8, 0, /* 168: pointer.func */
-            4097, 8, 0, /* 171: pointer.func */
-            4097, 8, 0, /* 174: pointer.func */
-            4097, 8, 0, /* 177: pointer.func */
-            4097, 8, 0, /* 180: pointer.func */
-            4097, 8, 0, /* 183: pointer.func */
-            4097, 8, 0, /* 186: pointer.func */
-            4097, 8, 0, /* 189: pointer.func */
-            4097, 8, 0, /* 192: pointer.func */
-            4097, 8, 0, /* 195: pointer.func */
-            4097, 8, 0, /* 198: pointer.func */
-            4097, 8, 0, /* 201: pointer.func */
+            8884097, 8, 0, /* 114: pointer.func */
+            8884097, 8, 0, /* 117: pointer.func */
+            8884097, 8, 0, /* 120: pointer.func */
+            8884097, 8, 0, /* 123: pointer.func */
+            8884097, 8, 0, /* 126: pointer.func */
+            8884097, 8, 0, /* 129: pointer.func */
+            8884097, 8, 0, /* 132: pointer.func */
+            8884097, 8, 0, /* 135: pointer.func */
+            8884097, 8, 0, /* 138: pointer.func */
+            8884097, 8, 0, /* 141: pointer.func */
+            8884097, 8, 0, /* 144: pointer.func */
+            8884097, 8, 0, /* 147: pointer.func */
+            8884097, 8, 0, /* 150: pointer.func */
+            8884097, 8, 0, /* 153: pointer.func */
+            8884097, 8, 0, /* 156: pointer.func */
+            8884097, 8, 0, /* 159: pointer.func */
+            8884097, 8, 0, /* 162: pointer.func */
+            8884097, 8, 0, /* 165: pointer.func */
+            8884097, 8, 0, /* 168: pointer.func */
+            8884097, 8, 0, /* 171: pointer.func */
+            8884097, 8, 0, /* 174: pointer.func */
+            8884097, 8, 0, /* 177: pointer.func */
+            8884097, 8, 0, /* 180: pointer.func */
+            8884097, 8, 0, /* 183: pointer.func */
+            8884097, 8, 0, /* 186: pointer.func */
+            8884097, 8, 0, /* 189: pointer.func */
+            8884097, 8, 0, /* 192: pointer.func */
+            8884097, 8, 0, /* 195: pointer.func */
+            8884097, 8, 0, /* 198: pointer.func */
+            8884097, 8, 0, /* 201: pointer.func */
             1, 8, 1, /* 204: pointer.struct.ec_point_st */
             	209, 0,
             0, 88, 4, /* 209: struct.ec_point_st */
@@ -158,9 +158,9 @@ const EC_GROUP * bb_EC_KEY_get0_group(const EC_KEY * arg_a)
             1, 8, 1, /* 259: pointer.struct.ec_extra_data_st */
             	246, 0,
             0, 8, 0, /* 264: pointer.void */
-            4097, 8, 0, /* 267: pointer.func */
-            4097, 8, 0, /* 270: pointer.func */
-            4097, 8, 0, /* 273: pointer.func */
+            8884097, 8, 0, /* 267: pointer.func */
+            8884097, 8, 0, /* 270: pointer.func */
+            8884097, 8, 0, /* 273: pointer.func */
             0, 56, 4, /* 276: struct.ec_key_st */
             	0, 8,
             	204, 16,

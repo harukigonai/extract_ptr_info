@@ -47,7 +47,7 @@ int bb_CRYPTO_THREADID_set_callback(void (*arg_a)(CRYPTO_THREADID *))
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            4097, 8, 0, /* 0: pointer.func */
+            8884097, 8, 0, /* 0: pointer.func */
             0, 4, 0, /* 3: int */
         },
         .arg_entity_index = { 0, },

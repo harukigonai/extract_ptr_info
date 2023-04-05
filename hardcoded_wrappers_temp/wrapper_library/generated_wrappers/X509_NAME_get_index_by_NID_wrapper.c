@@ -47,36 +47,56 @@ int bb_X509_NAME_get_index_by_NID(X509_NAME * arg_a,int arg_b,int arg_c)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            0, 4, 0, /* 0: int */
-            0, 1, 0, /* 3: char */
-            0, 1, 0, /* 6: unsigned char */
-            0, 32, 1, /* 9: struct.stack_st_X509_NAME_ENTRY */
-            	14, 0,
-            0, 32, 2, /* 14: struct.stack_st */
-            	21, 8,
-            	31, 24,
-            1, 8, 1, /* 21: pointer.pointer.char */
-            	26, 0,
-            1, 8, 1, /* 26: pointer.char */
-            	4096, 0,
-            4097, 8, 0, /* 31: pointer.func */
-            1, 8, 1, /* 34: pointer.unsigned char */
-            	6, 0,
-            0, 40, 3, /* 39: struct.X509_name_st */
-            	48, 0,
-            	53, 16,
-            	34, 24,
-            1, 8, 1, /* 48: pointer.struct.stack_st_X509_NAME_ENTRY */
-            	9, 0,
-            1, 8, 1, /* 53: pointer.struct.buf_mem_st */
-            	58, 0,
-            0, 24, 1, /* 58: struct.buf_mem_st */
-            	26, 8,
-            1, 8, 1, /* 63: pointer.struct.X509_name_st */
-            	39, 0,
+            1, 8, 1, /* 0: pointer.char */
+            	8884096, 0,
+            0, 24, 1, /* 5: struct.buf_mem_st */
+            	0, 8,
+            1, 8, 1, /* 10: pointer.struct.buf_mem_st */
+            	5, 0,
+            0, 1, 0, /* 15: unsigned char */
+            0, 32, 2, /* 18: struct.stack_st_fake_X509_NAME_ENTRY */
+            	25, 8,
+            	91, 24,
+            8884099, 8, 2, /* 25: pointer_to_array_of_pointers_to_stack */
+            	32, 0,
+            	88, 20,
+            0, 8, 1, /* 32: pointer.X509_NAME_ENTRY */
+            	37, 0,
+            0, 0, 1, /* 37: X509_NAME_ENTRY */
+            	42, 0,
+            0, 24, 2, /* 42: struct.X509_name_entry_st */
+            	49, 0,
+            	73, 8,
+            1, 8, 1, /* 49: pointer.struct.asn1_object_st */
+            	54, 0,
+            0, 40, 3, /* 54: struct.asn1_object_st */
+            	63, 0,
+            	63, 8,
+            	68, 24,
+            1, 8, 1, /* 63: pointer.char */
+            	8884096, 0,
+            1, 8, 1, /* 68: pointer.unsigned char */
+            	15, 0,
+            1, 8, 1, /* 73: pointer.struct.asn1_string_st */
+            	78, 0,
+            0, 24, 1, /* 78: struct.asn1_string_st */
+            	83, 8,
+            1, 8, 1, /* 83: pointer.unsigned char */
+            	15, 0,
+            0, 4, 0, /* 88: int */
+            8884097, 8, 0, /* 91: pointer.func */
+            0, 1, 0, /* 94: char */
+            1, 8, 1, /* 97: pointer.struct.X509_name_st */
+            	102, 0,
+            0, 40, 3, /* 102: struct.X509_name_st */
+            	111, 0,
+            	10, 16,
+            	83, 24,
+            1, 8, 1, /* 111: pointer.struct.stack_st_X509_NAME_ENTRY */
+            	18, 0,
         },
-        .arg_entity_index = { 63, 0, 0, },
-        .ret_entity_index = 0,
+        .arg_entity_index = { 97, 88, 88, },
+        .ret_entity_index = 88,
     };
     struct lib_enter_args *args_addr = &args;
     populate_arg(args_addr, arg_a);

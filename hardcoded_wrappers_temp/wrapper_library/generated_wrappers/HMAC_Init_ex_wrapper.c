@@ -65,13 +65,13 @@ int bb_HMAC_Init_ex(HMAC_CTX * arg_a,const void * arg_b,int arg_c,const EVP_MD *
             	52, 64,
             	55, 72,
             	58, 112,
-            4097, 8, 0, /* 40: pointer.func */
-            4097, 8, 0, /* 43: pointer.func */
-            4097, 8, 0, /* 46: pointer.func */
-            4097, 8, 0, /* 49: pointer.func */
-            4097, 8, 0, /* 52: pointer.func */
-            4097, 8, 0, /* 55: pointer.func */
-            4097, 8, 0, /* 58: pointer.func */
+            8884097, 8, 0, /* 40: pointer.func */
+            8884097, 8, 0, /* 43: pointer.func */
+            8884097, 8, 0, /* 46: pointer.func */
+            8884097, 8, 0, /* 49: pointer.func */
+            8884097, 8, 0, /* 52: pointer.func */
+            8884097, 8, 0, /* 55: pointer.func */
+            8884097, 8, 0, /* 58: pointer.func */
             1, 8, 1, /* 61: pointer.struct.engine_st */
             	66, 0,
             0, 0, 0, /* 66: struct.engine_st */
