@@ -146,22 +146,17 @@ void saveChildType(vector<struct child_type *> *child_types,
  */
 struct type_info *
 extract_types(unordered_map<MDNode *, struct type_info *> &types, MDNode *md_node) {
-  // printf("e\n");
-
   auto got = types.find(md_node);
   if (got != types.end()) {
-    // printf("already found %#lx\n", md_node);
     return got->second;
   }
 
   if (!md_node) {
-    // printf("Strange, md_node is NULL\n");
     return NULL;
   }
 
   DIType *di_type = dyn_cast<DIType>(md_node);
   if (!di_type) {
-    // printf("not DIType %#lx\n", md_node);
     return NULL;
   }
 
@@ -169,19 +164,29 @@ extract_types(unordered_map<MDNode *, struct type_info *> &types, MDNode *md_nod
   struct type_info *type_info = new struct type_info;
   memset(type_info->name, 0, 4096);
   memset(type_info->type, 0, 4096);
-  // printf("getting size\n");
   type_info->size = di_type->getSizeInBits() / 8;
-  // printf("lol\n");
   type_info->child_types = new vector<struct child_type *>();
   vector<struct child_type *> *child_types = type_info->child_types;
+  type_info->md_node_ptr = md_node;
 
-  types[md_node] = type_info;
 
-  // printf("f 3 %#lx\n", md_node);
+  /* Handle void * cases first */
+  if (DIDerivedType *deriv_type = dyn_cast<DIDerivedType>(md_node)) {
+    if (deriv_type->getTag() == 0x0f && is_void_ptr(deriv_type)) {
+      types[md_node] = types[(MDNode *)4098];
+      return types[md_node];
+    } else if (deriv_type->getTag() == 0x16 && !deriv_type->getBaseType()) {
+      types[md_node] = types[(MDNode *)4098];
+      return types[md_node];
+    } else {
+      types[md_node] = type_info;
+    }
+  } else {
+    types[md_node] = type_info;
+  }
 
   const char *compos_type_name;
   if (DICompositeType *compos_type = dyn_cast<DICompositeType>(md_node)) {
-    // printf("found compos_type\n");
     switch (compos_type->getTag()) {
       case 0x13:
         strcpy(type_info->name, "struct.");
@@ -398,60 +403,9 @@ extract_types(unordered_map<MDNode *, struct type_info *> &types, MDNode *md_nod
     }
   } else {
     strcpy(type_info->type, "unknown");
-    // printf("uhhh found\n");
-
   }
 
-  // printf("returning with name %s\n", type_info->name);
   return type_info;
-
-
-  // // Add type to types
-  // types[type] = type_info;
-
-  // if (type->isPointerTy()) {
-  //   strcpy(type_info->name, "pointer");
-
-  //   // child_type is whatever the pointer points to
-  //   Type *child_type = type->getContainedType(0);
-  //   struct type_info *child_type_info =
-  //       extract_types(dataLayout, types, child_type);
-
-  //   saveChildType(child_types, child_type_info, 0);
-  // } else if (type->isStructTy()) {
-
-  // } else if (type->isArrayTy()) {
-  //   strcpy(type_info->name, "array");
-
-  //   ArrayType *array_type = (ArrayType *)type;
-  //   Type *child_type = array_type->getElementType();
-  //   uint64_t num_elements = array_type->getNumElements();
-  //   size_t child_size = 0;
-  //   if (child_type->isSized())
-  //     child_size = dataLayout.getTypeAllocSize(child_type);
-
-  //   for (int i = 0; i < num_elements; i++) {
-  //     uint64_t offset = child_size * i;
-  //     struct type_info *child_type_info =
-  //         extract_types(dataLayout, types, child_type);
-  //     saveChildType(child_types, child_type_info, offset);
-  //   }
-  // } else if (type->isIntegerTy()) {
-  //   IntegerType *integerType = (IntegerType *)type;
-  //   type_info->size = integerType->getBitWidth() / 8;
-  //   if (type_info->size == 1)
-  //     strcpy(type_info->name, "char");
-  //   else if (type_info->size == 2)
-  //     strcpy(type_info->name, "short");
-  //   else if (type_info->size == 4)
-  //     strcpy(type_info->name, "int");
-  //   else if (type_info->size == 8)
-  //     strcpy(type_info->name, "long");
-  // } else if (type->isFunctionTy()) {
-  //   strcpy(type_info->name, "func");
-  // }
-
-  // return type_info;
 }
 
 void make_types_revisions(
@@ -459,37 +413,25 @@ void make_types_revisions(
 ) {
   /* Iterate through types */
   for (auto const& [type, type_info] : types) {
-    /* If type has some name */
-    if (strcmp(type_info->name, "struct.ssl_ctx_st") == 0) {
-      /* Find other member */
-      for (auto const& [type_2, type_info_2] : types) {
-        if (strcmp(type_info_2->name, "pointer.struct.lhash_st") == 0) {
-          /* Swap members */
-          struct child_type *child_type = (*type_info->child_types)[4];
-          strcpy(child_type->name, "pointer.struct.lhash_st");
-          child_type->type_info = type_info_2;
+    size_t child_types_size = type_info->child_types->size();
+    for (int i = 0; i < child_types_size; i++) {
+      struct child_type *child_type = (*type_info->child_types)[i];
+      /* If type has some name */
+      if (strcmp(child_type->type_info->name, "pointer.struct.lhash_st_SSL_SESSION") == 0 ||
+          strcmp(child_type->type_info->name, "pointer.struct.lhash_st_FUNCTION") == 0 ||
+          strcmp(child_type->type_info->name, "pointer.struct.lhash_st_CONF_VALUE") == 0 ||
+          strcmp(child_type->type_info->name, "pointer.struct.lhash_st_OPENSSL_STRING") == 0 ||
+          strcmp(child_type->type_info->name, "pointer.struct.lhash_st_OPENSSL_CSTRING") == 0) {
+        /* Find other member */
+        for (auto const& [type_2, type_info_2] : types) {
+          if (strcmp(type_info_2->name, "pointer.struct.lhash_st") == 0) {
+            strcpy(child_type->name, "pointer.struct.lhash_st");
+            child_type->type_info = type_info_2;
+          }
         }
       }
     }
   }
-
-  // /* Iterate through types */
-  // for (auto const& [type, type_info] : types) {
-  //   size_t child_types_size = type_info->child_types->size();
-  //   for (int i = 0; i < child_types_size; i++) {
-  //     struct child_type *child_type = (*type_info->child_types)[i];
-  //     /* If type has some name */
-  //     if (strcmp(child_type->type_info->name, "pointer.struct.lhash_st_SSL_SESSION") == 0) {
-  //       /* Find other member */
-  //       for (auto const& [type_2, type_info_2] : types) {
-  //         if (strcmp(type_info_2->name, "pointer.struct.lhash_st") == 0) {
-  //           strcpy(child_type->name, "pointer.struct.lhash_st");
-  //           child_type->type_info = type_info_2;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
 }
 
 struct type_info *
@@ -685,103 +627,17 @@ void extract_ptr_types(
   }
 }
 
-
-// void get_structs_and_arrays(
-//   set<MDNode *> &entity_processed,
-//   unordered_map<string, DICompositeType *> &structs_and_arrs,
-//   MDNode *m
-// ) {
-//   const bool is_in = entity_processed.find(m) != entity_processed.end();
-//   if (is_in)
-//     return;
-//   entity_processed.insert(m);
-
-//   DICompositeType *compos_type = dyn_cast<DICompositeType>(m);
-//   if (compos_type) {
-//     if (compos_type->getTag() == 0x13 && compos_type->getName().data() != NULL) {
-//       string str = compos_type->getName().data();
-//       structs_and_arrs[str] = compos_type;
-//     }    
-//   }
-
-//   for (unsigned i = 0, e = m->getNumOperands(); i!=e; ++i){
-//     if(MDNode *Op = dyn_cast_or_null<MDNode>(m->getOperand(i))){
-//       get_structs_and_arrays(entity_processed, structs_and_arrs, Op);
-//     }
-//   }
-// }
-
-// void detail_void_ptr_types(
-//   const Function &lib_func,
-//   struct type_info *void_ptr_type_info,
-//   unordered_map<Type *, struct type_info *> &structs)
-// {
-//   SmallVector<std::pair<unsigned, MDNode *>, 20> MDs;
-//   lib_func.getAllMetadata(MDs);
-
-//   set<MDNode *> entity_processed;
-//   unordered_map<string, DICompositeType *> structs_and_arrs;
-//   for(unsigned i = 0, e = MDs.size(); i!=e; ++i){
-//     get_structs_and_arrays(entity_processed, structs_and_arrs, MDs[i].second);
-//   }
-
-//   for (auto const &pair: structs_and_arrs) {
-//     string str = pair.first;
-//     DICompositeType *m = pair.second;
-
-//     struct type_info *type_info_correct = NULL;
-
-//     /* Find the corresponding */
-//     for (auto &t : structs) {
-//       struct type_info *type_info = t.second;
-//       if (type_info->type == Type::StructTyID || type_info->type == Type::ArrayTyID) {
-//         string temp_str;
-//         if (type_info->type == Type::StructTyID) {
-//           temp_str = "struct." + str;
-//         } else {
-//           temp_str = "array." + str;
-//         }
-
-//         if (strcmp(temp_str.data(), type_info->name) == 0) {
-//           type_info_correct = type_info;
-//           break;
-//         }
-//       }
-//     }
-
-//     if (!type_info_correct) {
-//       continue;
-//     }
-
-//     DINodeArray di_node_arr = m->getElements();
-//     for (int i = 0; i < di_node_arr.size(); i++) {
-//       DINode *di_node = di_node_arr[i];
-
-//       DIDerivedType *di_derived_type = dyn_cast_or_null<DIDerivedType>(di_node);
-
-//       DIType *di_type_2 = di_derived_type->getBaseType();
-//       if (is_void_ptr(di_type_2)) {
-//         // cout << "   Derived type is " << i << " is " << di_derived_type_2->getTag() << " " << di_derived_type_2->getBaseType() << "\n"; 
-//         struct child_type *child_type = (*type_info_correct->child_types)[i];
-//         child_type->type_info = void_ptr_type_info;
-
-//         void_ptr_used = true;
-//       }
-//     }
-//   }
-// }
-
 void populate_type_we_care_about(
   set<struct type_info *> &entity_processed,
   struct type_info *type_info,
-  unordered_map<Type *, struct type_info *> &types_we_care_abt
+  unordered_map<MDNode *, struct type_info *> &types_we_care_abt
 ) {
   const bool is_in = entity_processed.find(type_info) != entity_processed.end();
   if (is_in)
     return;
-
   entity_processed.insert(type_info);
-  types_we_care_abt[type_info->type_ptr] = type_info;
+
+  types_we_care_abt[type_info->md_node_ptr] = type_info;
 
   size_t child_types_size = type_info->child_types->size();
   for (int i = 0; i < child_types_size; i++) {
@@ -791,17 +647,17 @@ void populate_type_we_care_about(
 }
 
 void populate_types_we_care_about(
-  unordered_map<Type *, struct type_info *> &types,
-  unordered_map<Type *, struct type_info *> &types_we_care_abt,
-  set<Type *> &types_we_care_abt_set
+  unordered_map<MDNode *, struct type_info *> &types,
+  unordered_map<MDNode *, struct type_info *> &types_we_care_abt,
+  set<MDNode *> &types_we_care_abt_set
 ) {
   set<struct type_info *> entity_processed;
-  set<Type *>::iterator itr;
+  set<MDNode *>::iterator itr;
 
   for (itr = types_we_care_abt_set.begin();
        itr != types_we_care_abt_set.end();
        itr++) {
-    Type *t_as_type = *itr;
+    MDNode *t_as_type = *itr;
     // t_as_type->dump();
     struct type_info *type_info = types[t_as_type];
     populate_type_we_care_about(entity_processed, type_info, types_we_care_abt);
@@ -828,7 +684,7 @@ size_t updateSize(set<struct type_info *> &entity_processed, size_t &size,
   return ent_size;
 }
 
-size_t compute_arr_size(unordered_map<Type *, struct type_info *> &structs) {
+size_t compute_arr_size(unordered_map<MDNode *, struct type_info *> &structs) {
   size_t size = 0;
   set<struct type_info *> entity_processed;
 
@@ -840,77 +696,82 @@ size_t compute_arr_size(unordered_map<Type *, struct type_info *> &structs) {
   return size;
 }
 
-// /*
-//  * Populate the entity_metadata array with relevant info
-//  */
-// int setEntInArray(uint64_t *ent_array,
-//                   unordered_map<struct type_info *, int> &ent_to_index,
-//                   int &ind, unordered_map<struct type_info *, int> &ent_to_id,
-//                   int &id, struct type_info *type_info,
-//                   unordered_map<int, char *> &ind_to_name) {
-//   unordered_map<struct type_info *, int>::const_iterator got =
-//       ent_to_index.find(type_info);
-//   if (got != ent_to_index.end())
-//     return got->second;
-//   ent_to_index[type_info] = ind;
-//   ent_to_id[type_info] = id++; // ent_to_id is unused now, replaced with mode
-//   ind_to_name[ind] = (char *)&type_info->name;
+/*
+ * Populate the entity_metadata array with relevant info
+ */
+int setEntInArray(uint64_t *ent_array,
+                  unordered_map<struct type_info *, int> &ent_to_index,
+                  int &ind, unordered_map<struct type_info *, int> &ent_to_id,
+                  int &id, struct type_info *type_info,
+                  unordered_map<int, char *> &ind_to_name) {
+  unordered_map<struct type_info *, int>::const_iterator got =
+      ent_to_index.find(type_info);
+  if (got != ent_to_index.end())
+    return got->second;
+  ent_to_index[type_info] = ind;
+  ent_to_id[type_info] = id++; // ent_to_id is unused now, replaced with mode
+  ind_to_name[ind] = (char *)&type_info->name;
 
-//   size_t child_types_size = type_info->child_types->size();
-//   int local_ind = ind;
+  size_t child_types_size = type_info->child_types->size();
+  int local_ind = ind;
 
-//   if (strcmp(type_info->name, "pointer.void") == 0) {
-//     ind += 3;
+  if (strcmp(type_info->name, "pointer.void") == 0) {
+    ind += 3;
 
-//     /* Switch these lines to make void * have mode 4098 */
-//     // ent_array[local_ind++] = 4098;
-//     ent_array[local_ind++] = 0;
+    /* Switch these lines to make void * have mode 4098 */
+    // ent_array[local_ind++] = 4098;
+    ent_array[local_ind++] = 0;
 
-//     ent_array[local_ind++] = type_info->size;
-//     ent_array[local_ind++] = 0;
-//   } else if (strcmp(type_info->name, "pointer.func") == 0) {
-//     ind += 3;
-//     ent_array[local_ind++] = 4097;
-//     ent_array[local_ind++] = type_info->size;
-//     ent_array[local_ind++] = 0;
-//   } else {
-//     ind += 3 + 2 * child_types_size;
-//     // ent_array[local_ind++] = 9999999999999999;
-//     // ent_array[local_ind++] = ent_to_id[type_info];
-//     ent_array[local_ind++] = type_info->type == Type::PointerTyID ? 1 : 0;
-//     ent_array[local_ind++] = type_info->size;
-//     ent_array[local_ind++] = child_types_size;
+    ent_array[local_ind++] = type_info->size;
+    ent_array[local_ind++] = 0;
+  } else if (strcmp(type_info->name, "pointer.func") == 0) {
+    ind += 3;
+    ent_array[local_ind++] = 4097;
+    ent_array[local_ind++] = type_info->size;
+    ent_array[local_ind++] = 0;
+  } else {
+    ind += 3 + 2 * child_types_size;
+    // ent_array[local_ind++] = 9999999999999999;
+    // ent_array[local_ind++] = ent_to_id[type_info];
+    if (!strcmp(type_info->type, "pointer")) {
+      ent_array[local_ind++] = 1;
+    } else {
+      ent_array[local_ind++] = 0;
+    }
 
-//     size_t ent_size = 3 + child_types_size;
-//     for (int j = 0; j < child_types_size; j++) {
-//       struct child_type *child_type = (*type_info->child_types)[j];
-//       if (strcmp(type_info->name, "pointer.char") == 0) {
-//         ent_array[local_ind++] = 4096;
-//       } else {
-//         ent_array[local_ind++] = setEntInArray(
-//           ent_array, ent_to_index, ind, ent_to_id, id, child_type->type_info, ind_to_name);
-//       }
-//       ent_array[local_ind++] = child_type->offset;
-//     }
-//   }
-//   return ent_to_index[type_info];
-// }
+    ent_array[local_ind++] = type_info->size;
+    ent_array[local_ind++] = child_types_size;
 
-// unordered_map<struct type_info *, int> *ptrChildTypesToArray(uint64_t *ent_array,
-//                           unordered_map<int, char *> &ind_to_name,
-//                           unordered_map<Type *, struct type_info *> &structs) {
-//   int ind = 0;
-//   unordered_map<struct type_info *, int> ent_to_id;
-//   unordered_map<struct type_info *, int> *ent_to_index = new unordered_map<struct type_info *, int>();
-//   int id = 0;
+    size_t ent_size = 3 + child_types_size;
+    for (int j = 0; j < child_types_size; j++) {
+      struct child_type *child_type = (*type_info->child_types)[j];
+      if (strcmp(type_info->name, "pointer.char") == 0) {
+        ent_array[local_ind++] = 4096;
+      } else {
+        ent_array[local_ind++] = setEntInArray(
+          ent_array, ent_to_index, ind, ent_to_id, id, child_type->type_info, ind_to_name);
+      }
+      ent_array[local_ind++] = child_type->offset;
+    }
+  }
+  return ent_to_index[type_info];
+}
 
-//   for (auto &t : structs) {
-//     struct type_info *type_info = t.second;
+unordered_map<struct type_info *, int> *ptr_child_types_to_arr(uint64_t *ent_array,
+                          unordered_map<int, char *> &ind_to_name,
+                          unordered_map<MDNode *, struct type_info *> &structs) {
+  int ind = 0;
+  unordered_map<struct type_info *, int> ent_to_id;
+  unordered_map<struct type_info *, int> *ent_to_index = new unordered_map<struct type_info *, int>();
+  int id = 0;
 
-//     setEntInArray(ent_array, *ent_to_index, ind, ent_to_id, id, type_info, ind_to_name);
-//   }
-//   return ent_to_index;
-// }
+  for (auto &t : structs) {
+    struct type_info *type_info = t.second;
+
+    setEntInArray(ent_array, *ent_to_index, ind, ent_to_id, id, type_info, ind_to_name);
+  }
+  return ent_to_index;
+}
 
 int main(int argc, char **argv) {
   set<string> funcs_we_care_about;
@@ -945,46 +806,27 @@ int main(int argc, char **argv) {
   strcpy(void_ptr_type_info->name, "pointer.void");
   void_ptr_type_info->size = 8;
   void_ptr_type_info->child_types = new vector<struct child_type *>();
-  void_ptr_type_info->type_ptr = (Type *)4098;
+  void_ptr_type_info->md_node_ptr = (MDNode *)4098;
   types[(MDNode *)4098] = void_ptr_type_info;
 
-  int k = 0;
   for (auto &F : *mod) {
     if (!TLI->getLibFunc(F, func)) {
       const Function &lib_func = F.getFunction();
       SmallVector<std::pair<unsigned, MDNode *>, 20> MDs;
       lib_func.getAllMetadata(MDs);
 
-      if (!MDs.size())
-        continue;
-      // printf("e %s %d %d\n", lib_func.getName().data(), MDs.size(), k);
       for(unsigned i = 0; i < MDs.size(); i++){
-        // printf("g\n");
         MDNode *md_node = MDs[i].second;
         for (unsigned j = 0; j < md_node->getNumOperands(); j++){
-          // printf("h\n");
           if(MDNode *md_node_2 = dyn_cast_or_null<MDNode>(md_node->getOperand(j))){
-            // printf("i\n");
             extract_types(types, md_node_2);
           }
         }
-
-        // extract_types(types, md_node);
       }
-      if (k == 2) {
-        // break;
-      }
-      k++;
     }
   }
 
-  printf("test\n");
-
-  // remove_dup_types(types);
-
   remove_intermed_types(types);
-
-  printf("test2\n");
 
   detail_types(types);
 
@@ -992,202 +834,141 @@ int main(int argc, char **argv) {
 
   extract_ptr_types(types);
 
-  print_types(types);
+  // print_types(types);
 
+  for (auto &F : *mod) {
+    if (!TLI->getLibFunc(F, func)) {
+      const Function &lib_func = F.getFunction();
 
+      void_ptr_used = false;
 
-  // for (auto &F : *mod) {
-  //   if (!TLI->getLibFunc(F, func)) {
-  //     const Function &lib_func = F.getFunction();
+      // /* Debugging tool to only generate for one func */
+      // if (strcmp("RAND_seed", name.data()) != 0) {
+      //   continue;
+      // }
 
-  //     FunctionType *functionType = lib_func.getFunctionType();
-  //     Type *returnType = functionType->getReturnType();
-  //     if (!returnType->isVoidTy()) {
-  //       extract_types(dataLayout, types, returnType);
-  //     }
+      StringRef name = lib_func.getName();
+      string name_as_str = string(name.data());
+      const bool is_in = funcs_we_care_about.find(name_as_str) !=
+        funcs_we_care_about.end();
+      if (!is_in) {
+        continue;
+      } else {
+        funcs_we_care_about.erase(name_as_str);
+      }
 
-  //     ArrayRef<Type *> paramTypes = functionType->params();
-  //     for (Type *paramType : paramTypes) {
-  //       if (!paramType->isVoidTy()) {
-  //         extract_types(dataLayout, types, paramType);
-  //       }
-  //     }
-  //   }
-  // }
+      SmallVector<std::pair<unsigned, MDNode *>, 20> MDs;
+      lib_func.getAllMetadata(MDs);
+      if (MDs.size() == 0) {
+        continue;
+      }
 
-  return 0;
+      set<MDNode *> types_we_care_about_set;
+      DITypeRefArray type_ref_array;
+      for(unsigned i = 0; i < MDs.size(); i++){
+        MDNode *md_node = MDs[i].second;
+        for (unsigned j = 0; j < md_node->getNumOperands(); j++){
+          if(DISubroutineType *sub_routine_type = dyn_cast_or_null<DISubroutineType>(md_node->getOperand(j))) {
+            type_ref_array = sub_routine_type->getTypeArray();
+            for (int k = 0; k < type_ref_array.size(); k++) {
+              if (type_ref_array[k] != NULL) {
+                types_we_care_about_set.insert(type_ref_array[k]);
+              }
+            }
+          }
+        }
+      }
 
-  // struct type_info *void_ptr_type_info = new struct type_info;
-  // void_ptr_type_info->type = 4098; // arbitrary, but stands for void *
-  // memset(void_ptr_type_info->name, 0, 4096);
-  // strcpy(void_ptr_type_info->name, "pointer.void");
-  // void_ptr_type_info->size = 8;
-  // void_ptr_type_info->child_types = new vector<struct child_type *>();
-  // void_ptr_type_info->type_ptr = (Type *)4098;
-  // types[(Type *)4098] = void_ptr_type_info;
+      unordered_map<MDNode *, struct type_info *> types_we_care_about;
+      populate_types_we_care_about(types, types_we_care_about, types_we_care_about_set);
 
-  // for (auto &F : *mod) {
-  //   if (!TLI->getLibFunc(F, func)) {
-  //     const Function &lib_func = F.getFunction();
-  //     detail_void_ptr_types(lib_func, void_ptr_type_info, types);
-  //   }
-  // }
+      size_t arr_size = compute_arr_size(types_we_care_about);
+      uint64_t *ent_array = new uint64_t[arr_size];
+      unordered_map<int, char *> ind_to_name;
 
-  // detail_types(types);
+      unordered_map<struct type_info *, int> *ent_to_index =
+        ptr_child_types_to_arr(ent_array, ind_to_name, types_we_care_about);
 
-  // make_types_revisions(types);
+      int p = 0;
+      char *curr_func_name = NULL;
+      uint64_t num_children = 0;
+      uint64_t num_children_processed = 0;
 
-  // extract_ptr_types(types);
+      char filename[4096];
+      sprintf(filename, "bin/%s.entity_metadata", name.data());
 
-  // for (auto &F : *mod) {
-  //   if (!TLI->getLibFunc(F, func)) {
-  //     const Function &lib_func = F.getFunction();
+      FILE *f = fopen(filename, "w");
+      for (int k = 0; k < arr_size; k++) {
+        if (p <= 2) {
+          fprintf(f, "%lu, ", ent_array[k]);
 
-  //     void_ptr_used = false;
+          if (p == 2) {
+            unordered_map<int, char *>::const_iterator got =
+                ind_to_name.find(k - 2);
+            if (got != ind_to_name.end()) {
+              fprintf(f, "/* %d: %s */\n", k - 2, got->second);
+            } else {
+              fprintf(f, "/* %d: Unnamed */\n", k - 2);
+            }
 
-  //     // /* Debugging tool to only generate for one func */
-  //     // if (strcmp("RAND_seed", name.data()) != 0) {
-  //     //   continue;
-  //     // }
+            num_children = ent_array[k];
+            if (num_children == 0) {
+              p = 0;
+              num_children_processed = 0;
+              continue;
+            }
+          }
+          p++;
+        } else {
+          fprintf(f, "\t%lu, ", ent_array[k]);
+          k++;
+          fprintf(f, "%lu,\n", ent_array[k]);
 
-  //     // lib_func.getArgumentList();
+          num_children_processed++;
 
-  //     StringRef name = lib_func.getName();
-  //     string name_as_str = string(name.data());
-  //     const bool is_in = funcs_we_care_about.find(name_as_str) !=
-  //       funcs_we_care_about.end();
-  //     if (!is_in) {
-  //       continue;
-  //     } else {
-  //       funcs_we_care_about.erase(name_as_str);
-  //     }
+          if (num_children == num_children_processed) {
+            p = 0;
+            num_children_processed = 0;
+            continue;
+          }
+        }
+      }
 
-  //     set<Type *> types_we_care_about_set;
-  //     // unordered_map<Type *, struct type_info *> types_we_care_about;
+      fclose(f);
 
-  //     FunctionType *functionType = lib_func.getFunctionType();
-  //     Type *returnType = functionType->getReturnType();
-  //     if (!returnType->isVoidTy()) {
-  //       types_we_care_about_set.insert(returnType);
-  //     }
+      int index;
 
-  //     ArrayRef<Type *> paramTypes = functionType->params();
-  //     for (Type *paramType : paramTypes) {
-  //       if (!paramType->isVoidTy()) {
-  //         // extract_types(dataLayout, types, paramType);
-  //         types_we_care_about_set.insert(paramType);
-  //       }
-  //     }
+      // DISubprogram *sub = lib_func.getSubprogram();
+      // DISubroutineType *sub_routine_type = sub->getType();
+      // DITypeRefArray sub_routine_type_arr = sub_routine_type->getTypeArray();
+      // DITypeRefArray sub_routine_type_arr = type_ref_array;
 
-  //     types_we_care_about_set.insert((Type *)4098);
+      sprintf(filename, "bin/%s.ret_entity_index", name.data());
+      f = fopen(filename, "w");
+      if (type_ref_array[0] != NULL) {
+        struct type_info *type_info = types.find(type_ref_array[0])->second;
+        index = ent_to_index->find(type_info)->second;
+        fprintf(f, "%d", index);
+      } else {
+        fprintf(f, "-1");
+      }
+      fclose(f);
 
-  //     unordered_map<Type *, struct type_info *> types_we_care_about;
-  //     populate_types_we_care_about(types, types_we_care_about, types_we_care_about_set);
-
-  //     size_t arr_size = compute_arr_size(types_we_care_about);
-  //     uint64_t *ent_array = new uint64_t[arr_size];
-  //     unordered_map<int, char *> ind_to_name;
-
-  //     unordered_map<struct type_info *, int> *ent_to_index = ptrChildTypesToArray(ent_array, ind_to_name, types_we_care_about);
-
-  //     int p = 0;
-  //     char *curr_func_name = NULL;
-  //     uint64_t num_children = 0;
-  //     uint64_t num_children_processed = 0;
-
-  //     char filename[4096];
-  //     sprintf(filename, "bin/%s.entity_metadata", name.data());
-
-  //     FILE *f = fopen(filename, "w");
-  //     for (int k = 0; k < arr_size; k++) {
-  //       if (p <= 2) {
-  //         fprintf(f, "%lu, ", ent_array[k]);
-
-  //         if (p == 2) {
-  //           unordered_map<int, char *>::const_iterator got =
-  //               ind_to_name.find(k - 2);
-  //           if (got != ind_to_name.end()) {
-  //             fprintf(f, "/* %d: %s */\n", k - 2, got->second);
-  //           } else {
-  //             fprintf(f, "/* %d: Unnamed */\n", k - 2);
-  //           }
-
-  //           num_children = ent_array[k];
-  //           if (num_children == 0) {
-  //             p = 0;
-  //             num_children_processed = 0;
-  //             continue;
-  //           }
-  //         }
-  //         p++;
-  //       } else {
-  //         fprintf(f, "\t%lu, ", ent_array[k]);
-  //         k++;
-  //         fprintf(f, "%lu,\n", ent_array[k]);
-
-  //         num_children_processed++;
-
-  //         if (num_children == num_children_processed) {
-  //           p = 0;
-  //           num_children_processed = 0;
-  //           continue;
-  //         }
-  //       }
-  //     }
-
-  //     fclose(f);
-
-  //     int index;
-
-  //     DISubprogram *sub = lib_func.getSubprogram();
-  //     // Metadata *type = sub->Type;
-  //     DISubroutineType *sub_routine_type = sub->getType();
-  //     DITypeRefArray sub_routine_type_arr = sub_routine_type->getTypeArray();
-
-  //     sprintf(filename, "bin/%s.ret_entity_index", name.data());
-  //     f = fopen(filename, "w");
-  //     DIType *ret_type = dyn_cast_or_null<DIType>(sub_routine_type_arr[0]);
-  //     if (!returnType->isVoidTy()) {
-  //       if (is_void_ptr(ret_type)) {
-  //         index = ent_to_index->find(void_ptr_type_info)->second;
-  //         fprintf(f, "%d", index);
-  //         void_ptr_used = true;
-  //       } else {
-  //         struct type_info *type_info = types_we_care_about.find(returnType)->second;
-  //         index = ent_to_index->find(type_info)->second;
-  //         fprintf(f, "%d", index);
-  //       }
-  //     } else {
-  //       fprintf(f, "-1");
-  //     }
-  //     fclose(f);
-  //     sprintf(filename, "bin/%s.arg_entity_index", name.data());
-  //     f = fopen(filename, "w");
-  //     if (paramTypes.size()) {
-  //       int i = 1;
-  //       for (Type *paramType : paramTypes) {
-  //         DIType *param_di_type = dyn_cast_or_null<DIType>(sub_routine_type_arr[i]);
-  //         if (is_void_ptr(param_di_type)) {
-  //           index = ent_to_index->find(void_ptr_type_info)->second;
-  //           fprintf(f, "%d, ", index);
-  //           void_ptr_used = true;
-  //         } else {
-  //           struct type_info *type_info = types_we_care_about.find(paramType)->second;
-  //           index = ent_to_index->find(type_info)->second;
-  //           fprintf(f, "%d, ", index);
-  //         }
-  //         i++;
-  //       }
-  //     } else {
-  //       fprintf(f, "-1");
-  //     }
-  //     fclose(f);
-
-  //     if (void_ptr_used)
-  //       printf("%s\n", name.data());
-
-  //   }
-  // }
+      sprintf(filename, "bin/%s.arg_entity_index", name.data());
+      f = fopen(filename, "w");
+      if (type_ref_array.size() > 1) {
+        for (int i = 1; i < type_ref_array.size(); i++) {
+          DIType *param_di_type = dyn_cast_or_null<DIType>(type_ref_array[i]);
+          struct type_info *type_info = types.find(type_ref_array[i])->second;
+          index = ent_to_index->find(type_info)->second;
+          fprintf(f, "%d, ", index);
+        }
+      } else {
+        fprintf(f, "-1");
+      }
+      fclose(f);
+    }
+  }
 
   // for (string func_not_processed : funcs_we_care_about)
   // {

@@ -1,9 +1,6 @@
 4097, 8, 0, /* 0: pointer.func */
 4097, 8, 0, /* 3: pointer.func */
 4097, 8, 0, /* 6: pointer.func */
-0, 1, 0, /* 9: char */
-1, 8, 1, /* 12: pointer.char */
-	4096, 0,
-0, 8, 0, /* 17: long */
-0, 4, 0, /* 20: int */
-0, 8, 0, /* 23: pointer.void */
+0, 8, 0, /* 9: long int */
+0, 4, 0, /* 12: int */
+0, 8, 0, /* 15: pointer.void */

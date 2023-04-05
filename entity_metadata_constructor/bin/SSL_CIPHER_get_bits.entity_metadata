@@ -1,11 +1,10 @@
 1, 8, 1, /* 0: pointer.char */
 	4096, 0,
-0, 1, 0, /* 5: char */
-0, 88, 1, /* 8: struct.ssl_cipher_st */
+0, 88, 1, /* 5: struct.ssl_cipher_st */
 	0, 8,
-1, 8, 1, /* 13: pointer.int */
-	18, 0,
-0, 4, 0, /* 18: int */
+1, 8, 1, /* 10: pointer.int */
+	15, 0,
+0, 4, 0, /* 15: int */
+0, 1, 0, /* 18: char */
 1, 8, 1, /* 21: pointer.struct.ssl_cipher_st */
-	8, 0,
-0, 8, 0, /* 26: pointer.void */
+	5, 0,
