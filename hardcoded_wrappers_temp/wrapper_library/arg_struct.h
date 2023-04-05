@@ -17,7 +17,7 @@
 
 #define MAX_ARGS 100
 
-#define ENTITY_METADATA_SIZE 4096 * 3
+#define ENTITY_METADATA_SIZE 4096 * 2
 
 struct lib_enter_args {
     int num_args;
@@ -27,7 +27,7 @@ struct lib_enter_args {
     void *ret;
     int ret_entity_index;
 
-    uint64_t entity_metadata[ENTITY_METADATA_SIZE];
+    uint16_t entity_metadata[ENTITY_METADATA_SIZE];
 };
 
 // #define offsetof(TYPE, MEMBER) ((size_t) &((TYPE *)0)->MEMBER)

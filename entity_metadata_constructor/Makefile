@@ -1,8 +1,8 @@
 CC = g++
 CFLAGS = -g -Wall
 LDFLAGS = -g -Wall
-LDLIBS = -L/usr/lib/llvm-10/lib -lLLVM
-INCLUDE = -I/usr/lib/llvm-10/include
+LDLIBS = -L/usr/lib/llvm-14/lib -lLLVM
+INCLUDE = -I/usr/lib/llvm-14/include
 
 main: main.o
 	$(CC) $(LDFLAGS) main.cpp -o main $(INCLUDE) $(LDLIBS)

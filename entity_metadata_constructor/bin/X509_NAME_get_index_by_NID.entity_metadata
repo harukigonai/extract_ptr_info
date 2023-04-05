@@ -1,47 +1,47 @@
 1, 8, 1, /* 0: pointer.char */
-	8884096, 0,
+	64096, 0,
 0, 24, 1, /* 5: struct.buf_mem_st */
 	0, 8,
 1, 8, 1, /* 10: pointer.struct.buf_mem_st */
 	5, 0,
 0, 1, 0, /* 15: unsigned char */
-0, 32, 2, /* 18: struct.stack_st_fake_X509_NAME_ENTRY */
-	25, 8,
-	91, 24,
-8884099, 8, 2, /* 25: pointer_to_array_of_pointers_to_stack */
-	32, 0,
-	88, 20,
-0, 8, 1, /* 32: pointer.X509_NAME_ENTRY */
-	37, 0,
-0, 0, 1, /* 37: X509_NAME_ENTRY */
-	42, 0,
-0, 24, 2, /* 42: struct.X509_name_entry_st */
+1, 8, 1, /* 18: pointer.struct.asn1_string_st */
+	23, 0,
+0, 24, 1, /* 23: struct.asn1_string_st */
+	28, 8,
+1, 8, 1, /* 28: pointer.unsigned char */
+	15, 0,
+1, 8, 1, /* 33: pointer.unsigned char */
+	15, 0,
+0, 1, 0, /* 38: char */
+64097, 8, 0, /* 41: pointer.func */
+1, 8, 1, /* 44: pointer.struct.X509_name_st */
 	49, 0,
-	73, 8,
-1, 8, 1, /* 49: pointer.struct.asn1_object_st */
-	54, 0,
-0, 40, 3, /* 54: struct.asn1_object_st */
-	63, 0,
-	63, 8,
-	68, 24,
-1, 8, 1, /* 63: pointer.char */
-	8884096, 0,
-1, 8, 1, /* 68: pointer.unsigned char */
-	15, 0,
-1, 8, 1, /* 73: pointer.struct.asn1_string_st */
-	78, 0,
-0, 24, 1, /* 78: struct.asn1_string_st */
-	83, 8,
-1, 8, 1, /* 83: pointer.unsigned char */
-	15, 0,
-0, 4, 0, /* 88: int */
-8884097, 8, 0, /* 91: pointer.func */
-0, 1, 0, /* 94: char */
-1, 8, 1, /* 97: pointer.struct.X509_name_st */
-	102, 0,
-0, 40, 3, /* 102: struct.X509_name_st */
-	111, 0,
+0, 40, 3, /* 49: struct.X509_name_st */
+	58, 0,
 	10, 16,
-	83, 24,
-1, 8, 1, /* 111: pointer.struct.stack_st_X509_NAME_ENTRY */
-	18, 0,
+	28, 24,
+1, 8, 1, /* 58: pointer.struct.stack_st_X509_NAME_ENTRY */
+	63, 0,
+0, 32, 2, /* 63: struct.stack_st_fake_X509_NAME_ENTRY */
+	70, 8,
+	41, 24,
+64099, 8, 2, /* 70: pointer_to_array_of_pointers_to_stack */
+	77, 0,
+	113, 20,
+0, 8, 1, /* 77: pointer.X509_NAME_ENTRY */
+	82, 0,
+0, 0, 1, /* 82: X509_NAME_ENTRY */
+	87, 0,
+0, 24, 2, /* 87: struct.X509_name_entry_st */
+	94, 0,
+	18, 8,
+1, 8, 1, /* 94: pointer.struct.asn1_object_st */
+	99, 0,
+0, 40, 3, /* 99: struct.asn1_object_st */
+	108, 0,
+	108, 8,
+	33, 24,
+1, 8, 1, /* 108: pointer.char */
+	64096, 0,
+0, 4, 0, /* 113: int */

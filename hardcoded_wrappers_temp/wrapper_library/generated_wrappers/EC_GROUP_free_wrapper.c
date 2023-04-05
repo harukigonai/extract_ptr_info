@@ -54,8 +54,8 @@ void bb_EC_GROUP_free(EC_GROUP * arg_a)
             	24, 32,
             1, 8, 1, /* 16: pointer.struct.ec_extra_data_st */
             	3, 0,
-            8884097, 8, 0, /* 21: pointer.func */
-            8884097, 8, 0, /* 24: pointer.func */
+            64097, 8, 0, /* 21: pointer.func */
+            64097, 8, 0, /* 24: pointer.func */
             0, 1, 0, /* 27: unsigned char */
             0, 24, 1, /* 30: struct.bignum_st */
             	35, 0,
@@ -107,36 +107,36 @@ void bb_EC_GROUP_free(EC_GROUP * arg_a)
             	220, 280,
             	220, 288,
             	223, 296,
-            8884097, 8, 0, /* 136: pointer.func */
-            8884097, 8, 0, /* 139: pointer.func */
-            8884097, 8, 0, /* 142: pointer.func */
-            8884097, 8, 0, /* 145: pointer.func */
-            8884097, 8, 0, /* 148: pointer.func */
-            8884097, 8, 0, /* 151: pointer.func */
-            8884097, 8, 0, /* 154: pointer.func */
-            8884097, 8, 0, /* 157: pointer.func */
-            8884097, 8, 0, /* 160: pointer.func */
-            8884097, 8, 0, /* 163: pointer.func */
-            8884097, 8, 0, /* 166: pointer.func */
-            8884097, 8, 0, /* 169: pointer.func */
-            8884097, 8, 0, /* 172: pointer.func */
-            8884097, 8, 0, /* 175: pointer.func */
-            8884097, 8, 0, /* 178: pointer.func */
-            8884097, 8, 0, /* 181: pointer.func */
-            8884097, 8, 0, /* 184: pointer.func */
-            8884097, 8, 0, /* 187: pointer.func */
-            8884097, 8, 0, /* 190: pointer.func */
-            8884097, 8, 0, /* 193: pointer.func */
-            8884097, 8, 0, /* 196: pointer.func */
-            8884097, 8, 0, /* 199: pointer.func */
-            8884097, 8, 0, /* 202: pointer.func */
-            8884097, 8, 0, /* 205: pointer.func */
-            8884097, 8, 0, /* 208: pointer.func */
-            8884097, 8, 0, /* 211: pointer.func */
-            8884097, 8, 0, /* 214: pointer.func */
-            8884097, 8, 0, /* 217: pointer.func */
-            8884097, 8, 0, /* 220: pointer.func */
-            8884097, 8, 0, /* 223: pointer.func */
+            64097, 8, 0, /* 136: pointer.func */
+            64097, 8, 0, /* 139: pointer.func */
+            64097, 8, 0, /* 142: pointer.func */
+            64097, 8, 0, /* 145: pointer.func */
+            64097, 8, 0, /* 148: pointer.func */
+            64097, 8, 0, /* 151: pointer.func */
+            64097, 8, 0, /* 154: pointer.func */
+            64097, 8, 0, /* 157: pointer.func */
+            64097, 8, 0, /* 160: pointer.func */
+            64097, 8, 0, /* 163: pointer.func */
+            64097, 8, 0, /* 166: pointer.func */
+            64097, 8, 0, /* 169: pointer.func */
+            64097, 8, 0, /* 172: pointer.func */
+            64097, 8, 0, /* 175: pointer.func */
+            64097, 8, 0, /* 178: pointer.func */
+            64097, 8, 0, /* 181: pointer.func */
+            64097, 8, 0, /* 184: pointer.func */
+            64097, 8, 0, /* 187: pointer.func */
+            64097, 8, 0, /* 190: pointer.func */
+            64097, 8, 0, /* 193: pointer.func */
+            64097, 8, 0, /* 196: pointer.func */
+            64097, 8, 0, /* 199: pointer.func */
+            64097, 8, 0, /* 202: pointer.func */
+            64097, 8, 0, /* 205: pointer.func */
+            64097, 8, 0, /* 208: pointer.func */
+            64097, 8, 0, /* 211: pointer.func */
+            64097, 8, 0, /* 214: pointer.func */
+            64097, 8, 0, /* 217: pointer.func */
+            64097, 8, 0, /* 220: pointer.func */
+            64097, 8, 0, /* 223: pointer.func */
             1, 8, 1, /* 226: pointer.struct.ec_point_st */
             	43, 0,
             1, 8, 1, /* 231: pointer.struct.ec_extra_data_st */
@@ -156,7 +156,7 @@ void bb_EC_GROUP_free(EC_GROUP * arg_a)
             	0, 208,
             	0, 216,
             	268, 224,
-            8884097, 8, 0, /* 268: pointer.func */
+            64097, 8, 0, /* 268: pointer.func */
             1, 8, 1, /* 271: pointer.struct.ec_group_st */
             	241, 0,
         },

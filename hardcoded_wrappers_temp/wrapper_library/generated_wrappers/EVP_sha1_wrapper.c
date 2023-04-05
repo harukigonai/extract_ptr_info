@@ -47,9 +47,9 @@ const EVP_MD * bb_EVP_sha1(void)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            8884097, 8, 0, /* 0: pointer.func */
-            8884097, 8, 0, /* 3: pointer.func */
-            8884097, 8, 0, /* 6: pointer.func */
+            64097, 8, 0, /* 0: pointer.func */
+            64097, 8, 0, /* 3: pointer.func */
+            64097, 8, 0, /* 6: pointer.func */
             0, 120, 8, /* 9: struct.env_md_st */
             	28, 24,
             	31, 32,
@@ -59,10 +59,10 @@ const EVP_MD * bb_EVP_sha1(void)
             	3, 64,
             	0, 72,
             	37, 112,
-            8884097, 8, 0, /* 28: pointer.func */
-            8884097, 8, 0, /* 31: pointer.func */
-            8884097, 8, 0, /* 34: pointer.func */
-            8884097, 8, 0, /* 37: pointer.func */
+            64097, 8, 0, /* 28: pointer.func */
+            64097, 8, 0, /* 31: pointer.func */
+            64097, 8, 0, /* 34: pointer.func */
+            64097, 8, 0, /* 37: pointer.func */
             1, 8, 1, /* 40: pointer.struct.env_md_st */
             	9, 0,
         },

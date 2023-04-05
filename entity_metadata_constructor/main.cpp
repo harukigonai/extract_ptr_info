@@ -173,10 +173,10 @@ extract_types(unordered_map<MDNode *, struct type_info *> &types, MDNode *md_nod
   /* Handle void * cases first */
   if (DIDerivedType *deriv_type = dyn_cast<DIDerivedType>(md_node)) {
     if (deriv_type->getTag() == 0x0f && is_void_ptr(deriv_type)) {
-      types[md_node] = types[(MDNode *)8884098];
+      types[md_node] = types[(MDNode *)64098];
       return types[md_node];
     } else if (deriv_type->getTag() == 0x16 && !deriv_type->getBaseType()) {
-      types[md_node] = types[(MDNode *)8884098];
+      types[md_node] = types[(MDNode *)64098];
       return types[md_node];
     } else {
       types[md_node] = type_info;
@@ -333,7 +333,7 @@ extract_types(unordered_map<MDNode *, struct type_info *> &types, MDNode *md_nod
         if (!is_void_ptr(deriv_type)) {
           child_type_info = extract_types(types, deriv_type->getBaseType());
         } else {
-          child_type_info = types[(MDNode *)8884098];
+          child_type_info = types[(MDNode *)64098];
         }
 
         // printf("saving pointer child type\n");
@@ -350,7 +350,7 @@ extract_types(unordered_map<MDNode *, struct type_info *> &types, MDNode *md_nod
         if (deriv_type->getBaseType()) {
           child_type_info = extract_types(types, deriv_type->getBaseType());
         } else {
-          child_type_info = types[(MDNode *)8884098];
+          child_type_info = types[(MDNode *)64098];
         }
 
         saveChildType(child_types, child_type_info, 0);
@@ -470,7 +470,7 @@ void make_types_revisions(
       );
       new_type_info_stack_st->size =
         type_info_stack_st->size;
-      new_type_info_stack_st->md_node_ptr = (MDNode *)8884100; /* Pointer to array, dummy */
+      new_type_info_stack_st->md_node_ptr = (MDNode *)64100; /* Pointer to array, dummy */
       new_type_info_stack_st->child_types =
         new vector<struct child_type *>(
           *type_info_stack_st->child_types
@@ -490,7 +490,7 @@ void make_types_revisions(
       type_info_ptr_to_arr->child_types = new vector<struct child_type *>();
       vector<struct child_type *> *type_info_ptr_to_arr_child_types =
         type_info_ptr_to_arr->child_types;
-      type_info_ptr_to_arr->md_node_ptr = (MDNode *)8884099; /* Pointer to array */
+      type_info_ptr_to_arr->md_node_ptr = (MDNode *)64099; /* Pointer to array */
       strcpy(type_info_ptr_to_arr->name, "pointer_to_array_of_pointers_to_stack");
       strcpy(type_info_ptr_to_arr->type, "pointer_to_array");
 
@@ -530,7 +530,7 @@ void make_types_revisions(
         new vector<struct child_type *>();
       vector<struct child_type *> *type_info_actual_stack_ptr_child_types =
         type_info_actual_stack_ptr->child_types;
-      MDNode *md_node_ptr = (MDNode *)8884100; /* Pointer to array, dummy */
+      MDNode *md_node_ptr = (MDNode *)64100; /* Pointer to array, dummy */
 
       type_info_actual_stack_ptr_child_types->insert(
         type_info_actual_stack_ptr_child_types->end(),
@@ -563,7 +563,7 @@ void make_types_revisions(
       strcpy(child_type_int->name,
         type_info_int->name);
 
-      /* Later, make sure non-ptr children of 8884099 do NOT get deleted */
+      /* Later, make sure non-ptr children of 64099 do NOT get deleted */
       type_info_ptr_to_arr_child_types->insert(
         type_info_ptr_to_arr_child_types->end(),
         child_type_actual_stack_ptr
@@ -732,8 +732,8 @@ bool remove_non_ptr_types(
   vector<struct child_type *> *child_types = type_info->child_types;
   vector<struct child_type *>::iterator it;
 
-  if (type_info->md_node_ptr == (MDNode *)8884099) {
-    /* Don't remove 8884099's children */
+  if (type_info->md_node_ptr == (MDNode *)64099) {
+    /* Don't remove 64099's children */
   } else if (strcmp(type_info->name, "pointer.func") == 0) {
     for (it = child_types->begin(); it != child_types->end();) {
       struct child_type *child_type = *it;
@@ -872,15 +872,15 @@ int setEntInArray(uint64_t *ent_array,
   if (strcmp(type_info->name, "pointer.void") == 0) {
     ind += 3;
 
-    /* Switch these lines to make void * have mode 8884098 */
-    // ent_array[local_ind++] = 8884098;
+    /* Switch these lines to make void * have mode 64098 */
+    // ent_array[local_ind++] = 64098;
     ent_array[local_ind++] = 0;
 
     ent_array[local_ind++] = type_info->size;
     ent_array[local_ind++] = 0;
   } else if (strcmp(type_info->name, "pointer.func") == 0) {
     ind += 3;
-    ent_array[local_ind++] = 8884097;
+    ent_array[local_ind++] = 64097;
     ent_array[local_ind++] = type_info->size;
     ent_array[local_ind++] = 0;
   } else {
@@ -888,7 +888,7 @@ int setEntInArray(uint64_t *ent_array,
     // ent_array[local_ind++] = 9999999999999999;
     // ent_array[local_ind++] = ent_to_id[type_info];
     if (!strcmp(type_info->type, "pointer_to_array")) {
-      ent_array[local_ind++] = 8884099;
+      ent_array[local_ind++] = 64099;
     } else if (!strcmp(type_info->type, "pointer")) {
       ent_array[local_ind++] = 1;
     } else {
@@ -902,7 +902,7 @@ int setEntInArray(uint64_t *ent_array,
     for (int j = 0; j < child_types_size; j++) {
       struct child_type *child_type = (*type_info->child_types)[j];
       if (strcmp(type_info->name, "pointer.char") == 0) {
-        ent_array[local_ind++] = 8884096;
+        ent_array[local_ind++] = 64096;
       } else {
         ent_array[local_ind++] = setEntInArray(
           ent_array, ent_to_index, ind, ent_to_id, id, child_type->type_info, ind_to_name);
@@ -962,8 +962,8 @@ int main(int argc, char **argv) {
   strcpy(void_ptr_type_info->name, "pointer.void");
   void_ptr_type_info->size = 8;
   void_ptr_type_info->child_types = new vector<struct child_type *>();
-  void_ptr_type_info->md_node_ptr = (MDNode *)8884098;
-  types[(MDNode *)8884098] = void_ptr_type_info;
+  void_ptr_type_info->md_node_ptr = (MDNode *)64098;
+  types[(MDNode *)64098] = void_ptr_type_info;
 
   for (auto &F : *mod) {
     if (!TLI->getLibFunc(F, func)) {

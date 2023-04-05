@@ -48,10 +48,10 @@ const EVP_CIPHER * bb_EVP_aes_256_cbc(void)
         .num_args = 0,
         .entity_metadata = {
             0, 8, 0, /* 0: pointer.void */
-            8884097, 8, 0, /* 3: pointer.func */
-            8884097, 8, 0, /* 6: pointer.func */
-            8884097, 8, 0, /* 9: pointer.func */
-            8884097, 8, 0, /* 12: pointer.func */
+            64097, 8, 0, /* 3: pointer.func */
+            64097, 8, 0, /* 6: pointer.func */
+            64097, 8, 0, /* 9: pointer.func */
+            64097, 8, 0, /* 12: pointer.func */
             0, 88, 7, /* 15: struct.evp_cipher_st */
             	9, 24,
             	12, 32,
@@ -60,7 +60,7 @@ const EVP_CIPHER * bb_EVP_aes_256_cbc(void)
             	32, 64,
             	3, 72,
             	0, 80,
-            8884097, 8, 0, /* 32: pointer.func */
+            64097, 8, 0, /* 32: pointer.func */
             1, 8, 1, /* 35: pointer.struct.evp_cipher_st */
             	15, 0,
         },

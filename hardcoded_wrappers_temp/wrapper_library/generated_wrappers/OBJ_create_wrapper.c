@@ -48,7 +48,7 @@ int bb_OBJ_create(const char * arg_a,const char * arg_b,const char * arg_c)
         .num_args = 0,
         .entity_metadata = {
             1, 8, 1, /* 0: pointer.char */
-            	8884096, 0,
+            	64096, 0,
             0, 1, 0, /* 5: char */
             0, 4, 0, /* 8: int */
         },
