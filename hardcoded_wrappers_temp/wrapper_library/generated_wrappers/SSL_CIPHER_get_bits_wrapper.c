@@ -49,18 +49,17 @@ int bb_SSL_CIPHER_get_bits(const SSL_CIPHER * arg_a,int * arg_b)
         .entity_metadata = {
             1, 8, 1, /* 0: pointer.char */
             	4096, 0,
-            0, 1, 0, /* 5: char */
-            0, 88, 1, /* 8: struct.ssl_cipher_st */
+            0, 88, 1, /* 5: struct.ssl_cipher_st */
             	0, 8,
-            1, 8, 1, /* 13: pointer.int */
-            	18, 0,
-            0, 4, 0, /* 18: int */
+            1, 8, 1, /* 10: pointer.int */
+            	15, 0,
+            0, 4, 0, /* 15: int */
+            0, 1, 0, /* 18: char */
             1, 8, 1, /* 21: pointer.struct.ssl_cipher_st */
-            	8, 0,
-            0, 8, 0, /* 26: pointer.void */
+            	5, 0,
         },
-        .arg_entity_index = { 21, 13, },
-        .ret_entity_index = 18,
+        .arg_entity_index = { 21, 10, },
+        .ret_entity_index = 15,
     };
     struct lib_enter_args *args_addr = &args;
     populate_arg(args_addr, arg_a);

@@ -48,7 +48,6 @@ int bb_SSL_library_init(void)
         .num_args = 0,
         .entity_metadata = {
             0, 4, 0, /* 0: int */
-            0, 8, 0, /* 3: pointer.void */
         },
         .arg_entity_index = { -1 },
         .ret_entity_index = 0,

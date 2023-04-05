@@ -52,49 +52,54 @@ int bb_BIO_write(BIO * arg_a,const void * arg_b,int arg_c)
             	8, 0,
             1, 8, 1, /* 8: pointer.char */
             	4096, 0,
-            0, 32, 2, /* 13: struct.stack_st */
+            0, 32, 1, /* 13: struct.stack_st_void */
+            	18, 0,
+            0, 32, 2, /* 18: struct.stack_st */
             	3, 8,
             	0, 24,
-            0, 32, 1, /* 20: struct.stack_st_OPENSSL_STRING */
+            1, 8, 1, /* 25: pointer.struct.stack_st_void */
             	13, 0,
-            1, 8, 1, /* 25: pointer.struct.stack_st_OPENSSL_STRING */
-            	20, 0,
             0, 16, 1, /* 30: struct.crypto_ex_data_st */
             	25, 0,
-            1, 8, 1, /* 35: pointer.struct.bio_method_st */
+            1, 8, 1, /* 35: pointer.struct.bio_st */
             	40, 0,
-            0, 80, 9, /* 40: struct.bio_method_st */
-            	8, 8,
-            	61, 16,
-            	61, 24,
-            	64, 32,
-            	61, 40,
-            	67, 48,
-            	70, 56,
-            	70, 64,
-            	73, 72,
-            4097, 8, 0, /* 61: pointer.func */
-            4097, 8, 0, /* 64: pointer.func */
-            4097, 8, 0, /* 67: pointer.func */
-            4097, 8, 0, /* 70: pointer.func */
-            4097, 8, 0, /* 73: pointer.func */
-            1, 8, 1, /* 76: pointer.struct.bio_st */
-            	81, 0,
-            0, 112, 7, /* 81: struct.bio_st */
-            	35, 0,
-            	98, 8,
+            0, 112, 7, /* 40: struct.bio_st */
+            	57, 0,
+            	106, 8,
             	8, 16,
-            	8, 48,
-            	76, 56,
-            	76, 64,
+            	109, 48,
+            	35, 56,
+            	35, 64,
             	30, 96,
-            4097, 8, 0, /* 98: pointer.func */
-            0, 1, 0, /* 101: char */
-            0, 4, 0, /* 104: int */
-            0, 8, 0, /* 107: pointer.void */
+            1, 8, 1, /* 57: pointer.struct.bio_method_st */
+            	62, 0,
+            0, 80, 9, /* 62: struct.bio_method_st */
+            	83, 8,
+            	88, 16,
+            	91, 24,
+            	94, 32,
+            	91, 40,
+            	97, 48,
+            	100, 56,
+            	100, 64,
+            	103, 72,
+            1, 8, 1, /* 83: pointer.char */
+            	4096, 0,
+            4097, 8, 0, /* 88: pointer.func */
+            4097, 8, 0, /* 91: pointer.func */
+            4097, 8, 0, /* 94: pointer.func */
+            4097, 8, 0, /* 97: pointer.func */
+            4097, 8, 0, /* 100: pointer.func */
+            4097, 8, 0, /* 103: pointer.func */
+            4097, 8, 0, /* 106: pointer.func */
+            0, 8, 0, /* 109: pointer.void */
+            0, 1, 0, /* 112: char */
+            1, 8, 1, /* 115: pointer.struct.bio_st */
+            	40, 0,
+            0, 4, 0, /* 120: int */
         },
-        .arg_entity_index = { 76, 107, 104, },
-        .ret_entity_index = 104,
+        .arg_entity_index = { 115, 109, 120, },
+        .ret_entity_index = 120,
     };
     struct lib_enter_args *args_addr = &args;
     populate_arg(args_addr, arg_a);

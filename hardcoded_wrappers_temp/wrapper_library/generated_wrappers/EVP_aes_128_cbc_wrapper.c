@@ -47,28 +47,25 @@ const EVP_CIPHER * bb_EVP_aes_128_cbc(void)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            0, 1, 0, /* 0: char */
-            1, 8, 1, /* 3: pointer.char */
-            	4096, 0,
-            4097, 8, 0, /* 8: pointer.func */
-            4097, 8, 0, /* 11: pointer.func */
-            4097, 8, 0, /* 14: pointer.func */
-            4097, 8, 0, /* 17: pointer.func */
-            0, 88, 7, /* 20: struct.evp_cipher_st */
-            	14, 24,
-            	17, 32,
-            	11, 40,
-            	8, 56,
-            	8, 64,
-            	37, 72,
-            	3, 80,
-            4097, 8, 0, /* 37: pointer.func */
-            1, 8, 1, /* 40: pointer.struct.evp_cipher_st */
-            	20, 0,
-            0, 8, 0, /* 45: pointer.void */
+            0, 8, 0, /* 0: pointer.void */
+            4097, 8, 0, /* 3: pointer.func */
+            4097, 8, 0, /* 6: pointer.func */
+            4097, 8, 0, /* 9: pointer.func */
+            4097, 8, 0, /* 12: pointer.func */
+            0, 88, 7, /* 15: struct.evp_cipher_st */
+            	9, 24,
+            	12, 32,
+            	6, 40,
+            	32, 56,
+            	32, 64,
+            	3, 72,
+            	0, 80,
+            4097, 8, 0, /* 32: pointer.func */
+            1, 8, 1, /* 35: pointer.struct.evp_cipher_st */
+            	15, 0,
         },
         .arg_entity_index = { -1 },
-        .ret_entity_index = 40,
+        .ret_entity_index = 35,
     };
     struct lib_enter_args *args_addr = &args;
     populate_ret(args_addr, ret);

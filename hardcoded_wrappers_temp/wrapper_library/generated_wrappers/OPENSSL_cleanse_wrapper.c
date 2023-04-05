@@ -45,13 +45,10 @@ void bb_OPENSSL_cleanse(void * arg_a,size_t arg_b)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            0, 1, 0, /* 0: char */
-            1, 8, 1, /* 3: pointer.char */
-            	4096, 0,
-            0, 8, 0, /* 8: long */
-            0, 8, 0, /* 11: pointer.void */
+            0, 0, 0, /* 0: size_t */
+            0, 8, 0, /* 3: pointer.void */
         },
-        .arg_entity_index = { 11, 8, },
+        .arg_entity_index = { 3, 0, },
         .ret_entity_index = -1,
     };
     struct lib_enter_args *args_addr = &args;

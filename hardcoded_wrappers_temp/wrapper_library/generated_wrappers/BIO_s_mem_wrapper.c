@@ -51,26 +51,26 @@ BIO_METHOD * bb_BIO_s_mem(void)
             4097, 8, 0, /* 3: pointer.func */
             4097, 8, 0, /* 6: pointer.func */
             4097, 8, 0, /* 9: pointer.func */
-            0, 1, 0, /* 12: char */
-            1, 8, 1, /* 15: pointer.char */
+            4097, 8, 0, /* 12: pointer.func */
+            4097, 8, 0, /* 15: pointer.func */
+            0, 1, 0, /* 18: char */
+            1, 8, 1, /* 21: pointer.char */
             	4096, 0,
-            4097, 8, 0, /* 20: pointer.func */
-            0, 80, 9, /* 23: struct.bio_method_st */
-            	15, 8,
-            	9, 16,
-            	9, 24,
-            	20, 32,
-            	9, 40,
-            	6, 48,
-            	3, 56,
-            	3, 64,
-            	0, 72,
-            1, 8, 1, /* 44: pointer.struct.bio_method_st */
-            	23, 0,
-            0, 8, 0, /* 49: pointer.void */
+            0, 80, 9, /* 26: struct.bio_method_st */
+            	21, 8,
+            	15, 16,
+            	12, 24,
+            	9, 32,
+            	12, 40,
+            	3, 48,
+            	0, 56,
+            	0, 64,
+            	6, 72,
+            1, 8, 1, /* 47: pointer.struct.bio_method_st */
+            	26, 0,
         },
         .arg_entity_index = { -1 },
-        .ret_entity_index = 44,
+        .ret_entity_index = 47,
     };
     struct lib_enter_args *args_addr = &args;
     populate_ret(args_addr, ret);

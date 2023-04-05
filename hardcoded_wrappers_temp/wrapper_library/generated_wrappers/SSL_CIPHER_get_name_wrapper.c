@@ -51,12 +51,11 @@ const char * bb_SSL_CIPHER_get_name(const SSL_CIPHER * arg_a)
             	5, 8,
             1, 8, 1, /* 5: pointer.char */
             	4096, 0,
-            0, 1, 0, /* 10: char */
-            1, 8, 1, /* 13: pointer.struct.ssl_cipher_st */
+            1, 8, 1, /* 10: pointer.struct.ssl_cipher_st */
             	0, 0,
-            0, 8, 0, /* 18: pointer.void */
+            0, 1, 0, /* 15: char */
         },
-        .arg_entity_index = { 13, },
+        .arg_entity_index = { 10, },
         .ret_entity_index = 5,
     };
     struct lib_enter_args *args_addr = &args;

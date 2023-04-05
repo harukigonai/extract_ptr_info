@@ -46,7 +46,6 @@ void bb_CRYPTO_set_dynlock_destroy_callback(void (*arg_a)(struct CRYPTO_dynlock_
         .num_args = 0,
         .entity_metadata = {
             4097, 8, 0, /* 0: pointer.func */
-            0, 8, 0, /* 3: pointer.void */
         },
         .arg_entity_index = { 0, },
         .ret_entity_index = -1,

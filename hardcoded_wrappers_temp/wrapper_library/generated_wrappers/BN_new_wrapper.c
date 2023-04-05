@@ -47,14 +47,13 @@ BIGNUM * bb_BN_new(void)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            0, 4, 0, /* 0: int */
-            1, 8, 1, /* 3: pointer.int */
+            0, 4, 0, /* 0: unsigned int */
+            1, 8, 1, /* 3: pointer.unsigned int */
             	0, 0,
             0, 24, 1, /* 8: struct.bignum_st */
             	3, 0,
             1, 8, 1, /* 13: pointer.struct.bignum_st */
             	8, 0,
-            0, 8, 0, /* 18: pointer.void */
         },
         .arg_entity_index = { -1 },
         .ret_entity_index = 13,

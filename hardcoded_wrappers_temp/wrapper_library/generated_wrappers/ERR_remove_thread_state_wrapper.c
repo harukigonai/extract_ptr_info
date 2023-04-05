@@ -45,14 +45,11 @@ void bb_ERR_remove_thread_state(const CRYPTO_THREADID * arg_a)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            0, 1, 0, /* 0: char */
-            1, 8, 1, /* 3: pointer.char */
-            	4096, 0,
-            1, 8, 1, /* 8: pointer.struct.iovec */
-            	13, 0,
-            0, 16, 1, /* 13: struct.iovec */
+            0, 8, 0, /* 0: pointer.void */
+            0, 16, 1, /* 3: struct.crypto_threadid_st */
+            	0, 0,
+            1, 8, 1, /* 8: pointer.struct.crypto_threadid_st */
             	3, 0,
-            0, 8, 0, /* 18: pointer.void */
         },
         .arg_entity_index = { 8, },
         .ret_entity_index = -1,
