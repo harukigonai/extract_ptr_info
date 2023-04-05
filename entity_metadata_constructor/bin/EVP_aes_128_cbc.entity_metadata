@@ -1,8 +1,8 @@
 0, 8, 0, /* 0: pointer.void */
-64097, 8, 0, /* 3: pointer.func */
-64097, 8, 0, /* 6: pointer.func */
-64097, 8, 0, /* 9: pointer.func */
-64097, 8, 0, /* 12: pointer.func */
+8884097, 8, 0, /* 3: pointer.func */
+8884097, 8, 0, /* 6: pointer.func */
+8884097, 8, 0, /* 9: pointer.func */
+8884097, 8, 0, /* 12: pointer.func */
 0, 88, 7, /* 15: struct.evp_cipher_st */
 	9, 24,
 	12, 32,
@@ -11,6 +11,6 @@
 	32, 64,
 	3, 72,
 	0, 80,
-64097, 8, 0, /* 32: pointer.func */
+8884097, 8, 0, /* 32: pointer.func */
 1, 8, 1, /* 35: pointer.struct.evp_cipher_st */
 	15, 0,
