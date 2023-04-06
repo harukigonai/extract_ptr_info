@@ -411,6 +411,37 @@ extract_types(unordered_map<MDNode *, struct type_info *> &types, MDNode *md_nod
 void make_types_revisions(
   unordered_map<MDNode *, struct type_info *> &types
 ) {
+  for (auto const& [type, type_info] : types) {
+    if (type_info->child_types->size() == 0 &&
+      type_info->size == 0 &&
+      strstr(type_info->name, "struct.")) {
+
+      struct type_info *correct_type_info = NULL;
+      for (auto const& [type_2, type_info_2] : types) {
+        if (!strcmp(type_info_2->name, type_info->name)
+            && type_info_2->size != 0) {
+          correct_type_info = type_info_2;
+        }
+      }
+
+      if (!correct_type_info) {
+        printf("yikes, couldn't find correct %s\n", type_info->name);
+        continue;
+      }
+
+      for (auto const& [type_2, type_info_2] : types) {
+        size_t child_types_size = type_info_2->child_types->size();
+        for (int i = 0; i < child_types_size; i++) {
+          struct child_type *child_type = (*type_info_2->child_types)[i];
+          if (!strcmp(child_type->name, type_info->name)) {
+            child_type->type_info = correct_type_info;
+          }
+        }
+      }
+    }
+  }
+
+
   /* Replace dummy lhash_st_... with real lhash_st */
   for (auto const& [type, type_info] : types) {
     size_t child_types_size = type_info->child_types->size();
