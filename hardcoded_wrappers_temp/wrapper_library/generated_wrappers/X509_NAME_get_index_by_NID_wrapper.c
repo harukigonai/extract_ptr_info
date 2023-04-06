@@ -47,12 +47,12 @@ int bb_X509_NAME_get_index_by_NID(X509_NAME * arg_a,int arg_b,int arg_c)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            0, 24, 1, /* 0: struct.buf_mem_st */
-            	5, 8,
-            1, 8, 1, /* 5: pointer.char */
+            1, 8, 1, /* 0: pointer.char */
             	8884096, 0,
+            0, 24, 1, /* 5: struct.buf_mem_st */
+            	0, 8,
             1, 8, 1, /* 10: pointer.struct.buf_mem_st */
-            	0, 0,
+            	5, 0,
             0, 1, 0, /* 15: unsigned char */
             1, 8, 1, /* 18: pointer.struct.asn1_string_st */
             	23, 0,

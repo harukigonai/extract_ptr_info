@@ -47,17 +47,18 @@ int bb_BN_set_word(BIGNUM * arg_a,BN_ULONG arg_b)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            1, 8, 1, /* 0: pointer.unsigned int */
-            	5, 0,
-            0, 4, 0, /* 5: unsigned int */
-            0, 24, 1, /* 8: struct.bignum_st */
+            8884099, 8, 2, /* 0: pointer_to_array_of_pointers_to_stack */
+            	7, 0,
+            	10, 12,
+            0, 4, 0, /* 7: unsigned int */
+            0, 4, 0, /* 10: int */
+            0, 24, 1, /* 13: struct.bignum_st */
             	0, 0,
-            1, 8, 1, /* 13: pointer.struct.bignum_st */
-            	8, 0,
-            0, 4, 0, /* 18: int */
+            1, 8, 1, /* 18: pointer.struct.bignum_st */
+            	13, 0,
         },
-        .arg_entity_index = { 13, 5, },
-        .ret_entity_index = 18,
+        .arg_entity_index = { 18, 7, },
+        .ret_entity_index = 10,
     };
     struct lib_enter_args *args_addr = &args;
     populate_arg(args_addr, arg_a);

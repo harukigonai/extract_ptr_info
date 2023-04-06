@@ -47,16 +47,18 @@ BIGNUM * bb_BN_new(void)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            0, 4, 0, /* 0: unsigned int */
-            1, 8, 1, /* 3: pointer.unsigned int */
-            	0, 0,
-            0, 24, 1, /* 8: struct.bignum_st */
+            0, 4, 0, /* 0: int */
+            0, 4, 0, /* 3: unsigned int */
+            8884099, 8, 2, /* 6: pointer_to_array_of_pointers_to_stack */
             	3, 0,
-            1, 8, 1, /* 13: pointer.struct.bignum_st */
-            	8, 0,
+            	0, 12,
+            0, 24, 1, /* 13: struct.bignum_st */
+            	6, 0,
+            1, 8, 1, /* 18: pointer.struct.bignum_st */
+            	13, 0,
         },
         .arg_entity_index = { -1 },
-        .ret_entity_index = 13,
+        .ret_entity_index = 18,
     };
     struct lib_enter_args *args_addr = &args;
     populate_ret(args_addr, ret);

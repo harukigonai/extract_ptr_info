@@ -669,6 +669,61 @@ void make_types_revisions(
       (*type_info->child_types)[0]->type_info = new_type_info_stack_st;
     }
   }
+
+  for (auto const& [type, type_info] : types) {
+    if (!strcmp(type_info->name, "struct.bignum_st")) {
+      vector<struct child_type *> *child_types =
+        type_info->child_types;
+
+      struct child_type *num_alloc_nodes =
+        (*child_types)[2];
+
+      struct type_info *type_info_ptr_to_arr = new struct type_info;
+      memset(type_info_ptr_to_arr->name, 0, 4096);
+      memset(type_info_ptr_to_arr->type, 0, 4096);
+      type_info_ptr_to_arr->size = 8;
+      type_info_ptr_to_arr->child_types = new vector<struct child_type *>();
+      vector<struct child_type *> *type_info_ptr_to_arr_child_types =
+        type_info_ptr_to_arr->child_types;
+      type_info_ptr_to_arr->md_node_ptr = (MDNode *)8884099; /* Pointer to array */
+      strcpy(type_info_ptr_to_arr->name, "pointer_to_array_of_pointers_to_stack");
+      strcpy(type_info_ptr_to_arr->type, "pointer_to_array");
+
+      struct type_info *type_info_type_in_arr;
+      for (auto const& [type_2, type_info_2] : types) {
+        if (strcmp(type_info_2->name, "unsigned int") == 0) {
+          type_info_type_in_arr = type_info_2;
+        }
+      }
+
+      struct child_type *child_type_in_arr =
+        new struct child_type;
+      child_type_in_arr->type_info =
+        type_info_type_in_arr;
+      child_type_in_arr->offset = 0;
+      strcpy(child_type_in_arr->name,
+        type_info_type_in_arr->name);
+
+      struct child_type *child_type_num_alloc_nodes_new =
+        new struct child_type;
+      child_type_num_alloc_nodes_new->type_info =
+        num_alloc_nodes->type_info;
+      child_type_num_alloc_nodes_new->offset = num_alloc_nodes->offset;
+      strcpy(child_type_num_alloc_nodes_new->name,
+        num_alloc_nodes->name);
+
+      type_info_ptr_to_arr_child_types->insert(
+        type_info_ptr_to_arr_child_types->end(),
+        child_type_in_arr
+      );
+      type_info_ptr_to_arr_child_types->insert(
+        type_info_ptr_to_arr_child_types->end(),
+        child_type_num_alloc_nodes_new
+      );
+
+      (*child_types)[0]->type_info = type_info_ptr_to_arr;
+    }
+  }
 }
 
 struct type_info *

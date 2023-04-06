@@ -1,9 +1,9 @@
-0, 24, 1, /* 0: struct.buf_mem_st */
-	5, 8,
-1, 8, 1, /* 5: pointer.char */
+1, 8, 1, /* 0: pointer.char */
 	8884096, 0,
+0, 24, 1, /* 5: struct.buf_mem_st */
+	0, 8,
 1, 8, 1, /* 10: pointer.struct.buf_mem_st */
-	0, 0,
+	5, 0,
 0, 1, 0, /* 15: unsigned char */
 1, 8, 1, /* 18: pointer.struct.asn1_string_st */
 	23, 0,

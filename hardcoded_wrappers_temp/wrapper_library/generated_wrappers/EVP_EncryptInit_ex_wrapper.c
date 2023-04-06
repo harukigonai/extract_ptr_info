@@ -197,39 +197,39 @@ int bb_EVP_EncryptInit_ex(EVP_CIPHER_CTX * arg_a,const EVP_CIPHER * arg_b,ENGINE
             1, 8, 1, /* 353: pointer.pointer.char */
             	107, 0,
             8884097, 8, 0, /* 358: pointer.func */
-            1, 8, 1, /* 361: pointer.struct.evp_cipher_st */
-            	366, 0,
-            0, 88, 7, /* 366: struct.evp_cipher_st */
-            	383, 24,
-            	386, 32,
-            	389, 40,
-            	392, 56,
-            	392, 64,
-            	395, 72,
-            	398, 80,
-            8884097, 8, 0, /* 383: pointer.func */
-            8884097, 8, 0, /* 386: pointer.func */
-            8884097, 8, 0, /* 389: pointer.func */
-            8884097, 8, 0, /* 392: pointer.func */
-            8884097, 8, 0, /* 395: pointer.func */
-            0, 8, 0, /* 398: pointer.void */
-            0, 1, 0, /* 401: char */
-            0, 4, 0, /* 404: int */
-            0, 1, 0, /* 407: unsigned char */
-            1, 8, 1, /* 410: pointer.unsigned char */
-            	407, 0,
-            1, 8, 1, /* 415: pointer.struct.engine_st */
+            1, 8, 1, /* 361: pointer.struct.engine_st */
             	5, 0,
+            0, 1, 0, /* 366: unsigned char */
+            1, 8, 1, /* 369: pointer.struct.evp_cipher_st */
+            	374, 0,
+            0, 88, 7, /* 374: struct.evp_cipher_st */
+            	391, 24,
+            	394, 32,
+            	397, 40,
+            	400, 56,
+            	400, 64,
+            	403, 72,
+            	406, 80,
+            8884097, 8, 0, /* 391: pointer.func */
+            8884097, 8, 0, /* 394: pointer.func */
+            8884097, 8, 0, /* 397: pointer.func */
+            8884097, 8, 0, /* 400: pointer.func */
+            8884097, 8, 0, /* 403: pointer.func */
+            0, 8, 0, /* 406: pointer.void */
+            0, 1, 0, /* 409: char */
+            0, 4, 0, /* 412: int */
+            1, 8, 1, /* 415: pointer.unsigned char */
+            	366, 0,
             1, 8, 1, /* 420: pointer.struct.evp_cipher_ctx_st */
             	425, 0,
             0, 168, 4, /* 425: struct.evp_cipher_ctx_st */
-            	361, 0,
-            	415, 8,
-            	398, 96,
-            	398, 120,
+            	369, 0,
+            	361, 8,
+            	406, 96,
+            	406, 120,
         },
-        .arg_entity_index = { 420, 361, 415, 410, 410, },
-        .ret_entity_index = 404,
+        .arg_entity_index = { 420, 369, 361, 415, 415, },
+        .ret_entity_index = 412,
     };
     struct lib_enter_args *args_addr = &args;
     populate_arg(args_addr, arg_a);

@@ -47,22 +47,22 @@ const EVP_CIPHER * bb_EVP_aes_128_cbc(void)
     struct lib_enter_args args = {
         .num_args = 0,
         .entity_metadata = {
-            0, 8, 0, /* 0: pointer.void */
+            8884097, 8, 0, /* 0: pointer.func */
             8884097, 8, 0, /* 3: pointer.func */
             8884097, 8, 0, /* 6: pointer.func */
             8884097, 8, 0, /* 9: pointer.func */
             8884097, 8, 0, /* 12: pointer.func */
-            8884097, 8, 0, /* 15: pointer.func */
-            0, 88, 7, /* 18: struct.evp_cipher_st */
-            	15, 24,
-            	9, 32,
-            	12, 40,
-            	6, 56,
-            	6, 64,
-            	3, 72,
-            	0, 80,
+            0, 88, 7, /* 15: struct.evp_cipher_st */
+            	12, 24,
+            	6, 32,
+            	9, 40,
+            	3, 56,
+            	3, 64,
+            	0, 72,
+            	32, 80,
+            0, 8, 0, /* 32: pointer.void */
             1, 8, 1, /* 35: pointer.struct.evp_cipher_st */
-            	18, 0,
+            	15, 0,
         },
         .arg_entity_index = { -1 },
         .ret_entity_index = 35,

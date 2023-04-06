@@ -195,66 +195,68 @@ void bb_DH_free(DH * arg_a)
             1, 8, 1, /* 353: pointer.pointer.char */
             	107, 0,
             8884097, 8, 0, /* 358: pointer.func */
-            8884097, 8, 0, /* 361: pointer.func */
-            0, 72, 8, /* 364: struct.dh_method */
+            1, 8, 1, /* 361: pointer.struct.bignum_st */
+            	366, 0,
+            0, 24, 1, /* 366: struct.bignum_st */
+            	371, 0,
+            8884099, 8, 2, /* 371: pointer_to_array_of_pointers_to_stack */
+            	378, 0,
+            	381, 12,
+            0, 4, 0, /* 378: unsigned int */
+            0, 4, 0, /* 381: int */
+            0, 1, 0, /* 384: char */
+            8884097, 8, 0, /* 387: pointer.func */
+            0, 72, 8, /* 390: struct.dh_method */
             	56, 0,
-            	361, 8,
-            	383, 16,
-            	386, 24,
-            	361, 32,
-            	361, 40,
+            	409, 8,
+            	412, 16,
+            	415, 24,
+            	409, 32,
+            	409, 40,
             	107, 56,
-            	389, 64,
-            8884097, 8, 0, /* 383: pointer.func */
-            8884097, 8, 0, /* 386: pointer.func */
-            8884097, 8, 0, /* 389: pointer.func */
-            0, 24, 1, /* 392: struct.bignum_st */
-            	397, 0,
-            1, 8, 1, /* 397: pointer.unsigned int */
-            	402, 0,
-            0, 4, 0, /* 402: unsigned int */
-            0, 1, 0, /* 405: char */
-            0, 32, 2, /* 408: struct.stack_st */
+            	387, 64,
+            8884097, 8, 0, /* 409: pointer.func */
+            8884097, 8, 0, /* 412: pointer.func */
+            8884097, 8, 0, /* 415: pointer.func */
+            0, 32, 1, /* 418: struct.stack_st_void */
+            	423, 0,
+            0, 32, 2, /* 423: struct.stack_st */
             	353, 8,
             	358, 24,
-            1, 8, 1, /* 415: pointer.struct.dh_st */
-            	420, 0,
-            0, 144, 12, /* 420: struct.dh_st */
-            	447, 8,
-            	447, 16,
-            	447, 32,
-            	447, 40,
-            	452, 56,
-            	447, 64,
-            	447, 72,
-            	466, 80,
-            	447, 96,
-            	474, 112,
+            0, 144, 12, /* 430: struct.dh_st */
+            	361, 8,
+            	361, 16,
+            	361, 32,
+            	361, 40,
+            	457, 56,
+            	361, 64,
+            	361, 72,
+            	471, 80,
+            	361, 96,
+            	479, 112,
             	489, 128,
             	494, 136,
-            1, 8, 1, /* 447: pointer.struct.bignum_st */
-            	392, 0,
-            1, 8, 1, /* 452: pointer.struct.bn_mont_ctx_st */
-            	457, 0,
-            0, 96, 3, /* 457: struct.bn_mont_ctx_st */
-            	392, 8,
-            	392, 32,
-            	392, 56,
-            1, 8, 1, /* 466: pointer.unsigned char */
-            	471, 0,
-            0, 1, 0, /* 471: unsigned char */
-            0, 16, 1, /* 474: struct.crypto_ex_data_st */
-            	479, 0,
-            1, 8, 1, /* 479: pointer.struct.stack_st_void */
+            1, 8, 1, /* 457: pointer.struct.bn_mont_ctx_st */
+            	462, 0,
+            0, 96, 3, /* 462: struct.bn_mont_ctx_st */
+            	366, 8,
+            	366, 32,
+            	366, 56,
+            1, 8, 1, /* 471: pointer.unsigned char */
+            	476, 0,
+            0, 1, 0, /* 476: unsigned char */
+            0, 16, 1, /* 479: struct.crypto_ex_data_st */
             	484, 0,
-            0, 32, 1, /* 484: struct.stack_st_void */
-            	408, 0,
+            1, 8, 1, /* 484: pointer.struct.stack_st_void */
+            	418, 0,
             1, 8, 1, /* 489: pointer.struct.dh_method */
-            	364, 0,
+            	390, 0,
             1, 8, 1, /* 494: pointer.struct.engine_st */
             	5, 0,
+            1, 8, 1, /* 499: pointer.struct.dh_st */
+            	430, 0,
         },
-        .arg_entity_index = { 415, },
+        .arg_entity_index = { 499, },
         .ret_entity_index = -1,
     };
     struct lib_enter_args *args_addr = &args;
