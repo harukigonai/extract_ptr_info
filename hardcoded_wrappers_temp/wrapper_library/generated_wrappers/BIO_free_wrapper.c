@@ -51,57 +51,52 @@ int bb_BIO_free(BIO * arg_a)
     args_addr->num_args = 0;
     uint32_t *em = args_addr->entity_metadata;
     em[0] = 8884097; em[1] = 8; em[2] = 0; /* 0: pointer.func */
-    em[3] = 1; em[4] = 8; em[5] = 1; /* 3: pointer.pointer.char */
-    	em[6] = 8; em[7] = 0; 
-    em[8] = 1; em[9] = 8; em[10] = 1; /* 8: pointer.char */
-    	em[11] = 8884096; em[12] = 0; 
-    em[13] = 0; em[14] = 32; em[15] = 1; /* 13: struct.stack_st_void */
-    	em[16] = 18; em[17] = 0; 
-    em[18] = 0; em[19] = 32; em[20] = 2; /* 18: struct.stack_st */
-    	em[21] = 3; em[22] = 8; 
-    	em[23] = 0; em[24] = 24; 
-    em[25] = 1; em[26] = 8; em[27] = 1; /* 25: pointer.struct.stack_st_void */
-    	em[28] = 13; em[29] = 0; 
-    em[30] = 0; em[31] = 16; em[32] = 1; /* 30: struct.crypto_ex_data_st */
-    	em[33] = 25; em[34] = 0; 
-    em[35] = 1; em[36] = 8; em[37] = 1; /* 35: pointer.struct.bio_st */
-    	em[38] = 40; em[39] = 0; 
-    em[40] = 0; em[41] = 112; em[42] = 7; /* 40: struct.bio_st */
-    	em[43] = 57; em[44] = 0; 
-    	em[45] = 106; em[46] = 8; 
-    	em[47] = 8; em[48] = 16; 
-    	em[49] = 109; em[50] = 48; 
-    	em[51] = 35; em[52] = 56; 
-    	em[53] = 35; em[54] = 64; 
-    	em[55] = 30; em[56] = 96; 
-    em[57] = 1; em[58] = 8; em[59] = 1; /* 57: pointer.struct.bio_method_st */
-    	em[60] = 62; em[61] = 0; 
-    em[62] = 0; em[63] = 80; em[64] = 9; /* 62: struct.bio_method_st */
-    	em[65] = 83; em[66] = 8; 
-    	em[67] = 88; em[68] = 16; 
-    	em[69] = 91; em[70] = 24; 
-    	em[71] = 94; em[72] = 32; 
-    	em[73] = 91; em[74] = 40; 
-    	em[75] = 97; em[76] = 48; 
-    	em[77] = 100; em[78] = 56; 
-    	em[79] = 100; em[80] = 64; 
-    	em[81] = 103; em[82] = 72; 
-    em[83] = 1; em[84] = 8; em[85] = 1; /* 83: pointer.char */
-    	em[86] = 8884096; em[87] = 0; 
-    em[88] = 8884097; em[89] = 8; em[90] = 0; /* 88: pointer.func */
-    em[91] = 8884097; em[92] = 8; em[93] = 0; /* 91: pointer.func */
-    em[94] = 8884097; em[95] = 8; em[96] = 0; /* 94: pointer.func */
-    em[97] = 8884097; em[98] = 8; em[99] = 0; /* 97: pointer.func */
-    em[100] = 8884097; em[101] = 8; em[102] = 0; /* 100: pointer.func */
-    em[103] = 8884097; em[104] = 8; em[105] = 0; /* 103: pointer.func */
-    em[106] = 8884097; em[107] = 8; em[108] = 0; /* 106: pointer.func */
-    em[109] = 0; em[110] = 8; em[111] = 0; /* 109: pointer.void */
-    em[112] = 0; em[113] = 1; em[114] = 0; /* 112: char */
-    em[115] = 1; em[116] = 8; em[117] = 1; /* 115: pointer.struct.bio_st */
-    	em[118] = 40; em[119] = 0; 
-    em[120] = 0; em[121] = 4; em[122] = 0; /* 120: int */
-    args_addr->arg_entity_index[0] = 115;
-    args_addr->ret_entity_index = 120;
+    em[3] = 8884099; em[4] = 8; em[5] = 2; /* 3: pointer_to_array_of_pointers_to_stack */
+    	em[6] = 10; em[7] = 0; 
+    	em[8] = 13; em[9] = 20; 
+    em[10] = 0; em[11] = 8; em[12] = 0; /* 10: pointer.void */
+    em[13] = 0; em[14] = 4; em[15] = 0; /* 13: int */
+    em[16] = 1; em[17] = 8; em[18] = 1; /* 16: pointer.struct.bio_st */
+    	em[19] = 21; em[20] = 0; 
+    em[21] = 0; em[22] = 112; em[23] = 7; /* 21: struct.bio_st */
+    	em[24] = 38; em[25] = 0; 
+    	em[26] = 87; em[27] = 8; 
+    	em[28] = 90; em[29] = 16; 
+    	em[30] = 10; em[31] = 48; 
+    	em[32] = 16; em[33] = 56; 
+    	em[34] = 16; em[35] = 64; 
+    	em[36] = 95; em[37] = 96; 
+    em[38] = 1; em[39] = 8; em[40] = 1; /* 38: pointer.struct.bio_method_st */
+    	em[41] = 43; em[42] = 0; 
+    em[43] = 0; em[44] = 80; em[45] = 9; /* 43: struct.bio_method_st */
+    	em[46] = 64; em[47] = 8; 
+    	em[48] = 69; em[49] = 16; 
+    	em[50] = 72; em[51] = 24; 
+    	em[52] = 75; em[53] = 32; 
+    	em[54] = 72; em[55] = 40; 
+    	em[56] = 78; em[57] = 48; 
+    	em[58] = 81; em[59] = 56; 
+    	em[60] = 81; em[61] = 64; 
+    	em[62] = 84; em[63] = 72; 
+    em[64] = 1; em[65] = 8; em[66] = 1; /* 64: pointer.char */
+    	em[67] = 8884096; em[68] = 0; 
+    em[69] = 8884097; em[70] = 8; em[71] = 0; /* 69: pointer.func */
+    em[72] = 8884097; em[73] = 8; em[74] = 0; /* 72: pointer.func */
+    em[75] = 8884097; em[76] = 8; em[77] = 0; /* 75: pointer.func */
+    em[78] = 8884097; em[79] = 8; em[80] = 0; /* 78: pointer.func */
+    em[81] = 8884097; em[82] = 8; em[83] = 0; /* 81: pointer.func */
+    em[84] = 8884097; em[85] = 8; em[86] = 0; /* 84: pointer.func */
+    em[87] = 8884097; em[88] = 8; em[89] = 0; /* 87: pointer.func */
+    em[90] = 1; em[91] = 8; em[92] = 1; /* 90: pointer.char */
+    	em[93] = 8884096; em[94] = 0; 
+    em[95] = 0; em[96] = 32; em[97] = 2; /* 95: struct.crypto_ex_data_st_fake */
+    	em[98] = 3; em[99] = 8; 
+    	em[100] = 0; em[101] = 24; 
+    em[102] = 0; em[103] = 1; em[104] = 0; /* 102: char */
+    em[105] = 1; em[106] = 8; em[107] = 1; /* 105: pointer.struct.bio_st */
+    	em[108] = 21; em[109] = 0; 
+    args_addr->arg_entity_index[0] = 105;
+    args_addr->ret_entity_index = 13;
     populate_arg(args_addr, arg_a);
     populate_ret(args_addr, ret);
 

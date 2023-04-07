@@ -186,79 +186,72 @@ void bb_DH_free(DH * arg_a)
     em[324] = 0; em[325] = 32; em[326] = 2; /* 324: struct.ENGINE_CMD_DEFN_st */
     	em[327] = 56; em[328] = 8; 
     	em[329] = 56; em[330] = 16; 
-    em[331] = 0; em[332] = 16; em[333] = 1; /* 331: struct.crypto_ex_data_st */
-    	em[334] = 336; em[335] = 0; 
-    em[336] = 1; em[337] = 8; em[338] = 1; /* 336: pointer.struct.stack_st_void */
-    	em[339] = 341; em[340] = 0; 
-    em[341] = 0; em[342] = 32; em[343] = 1; /* 341: struct.stack_st_void */
-    	em[344] = 346; em[345] = 0; 
-    em[346] = 0; em[347] = 32; em[348] = 2; /* 346: struct.stack_st */
-    	em[349] = 353; em[350] = 8; 
-    	em[351] = 358; em[352] = 24; 
-    em[353] = 1; em[354] = 8; em[355] = 1; /* 353: pointer.pointer.char */
-    	em[356] = 107; em[357] = 0; 
-    em[358] = 8884097; em[359] = 8; em[360] = 0; /* 358: pointer.func */
-    em[361] = 8884097; em[362] = 8; em[363] = 0; /* 361: pointer.func */
-    em[364] = 0; em[365] = 72; em[366] = 8; /* 364: struct.dh_method */
-    	em[367] = 56; em[368] = 0; 
-    	em[369] = 361; em[370] = 8; 
-    	em[371] = 383; em[372] = 16; 
-    	em[373] = 386; em[374] = 24; 
-    	em[375] = 361; em[376] = 32; 
-    	em[377] = 361; em[378] = 40; 
-    	em[379] = 107; em[380] = 56; 
-    	em[381] = 389; em[382] = 64; 
-    em[383] = 8884097; em[384] = 8; em[385] = 0; /* 383: pointer.func */
-    em[386] = 8884097; em[387] = 8; em[388] = 0; /* 386: pointer.func */
-    em[389] = 8884097; em[390] = 8; em[391] = 0; /* 389: pointer.func */
-    em[392] = 0; em[393] = 1; em[394] = 0; /* 392: char */
-    em[395] = 0; em[396] = 32; em[397] = 2; /* 395: struct.stack_st */
-    	em[398] = 353; em[399] = 8; 
-    	em[400] = 358; em[401] = 24; 
-    em[402] = 1; em[403] = 8; em[404] = 1; /* 402: pointer.struct.dh_st */
-    	em[405] = 407; em[406] = 0; 
-    em[407] = 0; em[408] = 144; em[409] = 12; /* 407: struct.dh_st */
-    	em[410] = 434; em[411] = 8; 
-    	em[412] = 434; em[413] = 16; 
-    	em[414] = 434; em[415] = 32; 
-    	em[416] = 434; em[417] = 40; 
-    	em[418] = 457; em[419] = 56; 
-    	em[420] = 434; em[421] = 64; 
-    	em[422] = 434; em[423] = 72; 
-    	em[424] = 471; em[425] = 80; 
-    	em[426] = 434; em[427] = 96; 
-    	em[428] = 479; em[429] = 112; 
-    	em[430] = 494; em[431] = 128; 
-    	em[432] = 499; em[433] = 136; 
-    em[434] = 1; em[435] = 8; em[436] = 1; /* 434: pointer.struct.bignum_st */
-    	em[437] = 439; em[438] = 0; 
-    em[439] = 0; em[440] = 24; em[441] = 1; /* 439: struct.bignum_st */
-    	em[442] = 444; em[443] = 0; 
-    em[444] = 8884099; em[445] = 8; em[446] = 2; /* 444: pointer_to_array_of_pointers_to_stack */
-    	em[447] = 451; em[448] = 0; 
-    	em[449] = 454; em[450] = 12; 
-    em[451] = 0; em[452] = 8; em[453] = 0; /* 451: long unsigned int */
-    em[454] = 0; em[455] = 4; em[456] = 0; /* 454: int */
-    em[457] = 1; em[458] = 8; em[459] = 1; /* 457: pointer.struct.bn_mont_ctx_st */
-    	em[460] = 462; em[461] = 0; 
-    em[462] = 0; em[463] = 96; em[464] = 3; /* 462: struct.bn_mont_ctx_st */
-    	em[465] = 439; em[466] = 8; 
-    	em[467] = 439; em[468] = 32; 
-    	em[469] = 439; em[470] = 56; 
-    em[471] = 1; em[472] = 8; em[473] = 1; /* 471: pointer.unsigned char */
-    	em[474] = 476; em[475] = 0; 
-    em[476] = 0; em[477] = 1; em[478] = 0; /* 476: unsigned char */
-    em[479] = 0; em[480] = 16; em[481] = 1; /* 479: struct.crypto_ex_data_st */
-    	em[482] = 484; em[483] = 0; 
-    em[484] = 1; em[485] = 8; em[486] = 1; /* 484: pointer.struct.stack_st_void */
-    	em[487] = 489; em[488] = 0; 
-    em[489] = 0; em[490] = 32; em[491] = 1; /* 489: struct.stack_st_void */
-    	em[492] = 395; em[493] = 0; 
-    em[494] = 1; em[495] = 8; em[496] = 1; /* 494: pointer.struct.dh_method */
-    	em[497] = 364; em[498] = 0; 
-    em[499] = 1; em[500] = 8; em[501] = 1; /* 499: pointer.struct.engine_st */
-    	em[502] = 5; em[503] = 0; 
-    args_addr->arg_entity_index[0] = 402;
+    em[331] = 0; em[332] = 32; em[333] = 2; /* 331: struct.crypto_ex_data_st_fake */
+    	em[334] = 338; em[335] = 8; 
+    	em[336] = 351; em[337] = 24; 
+    em[338] = 8884099; em[339] = 8; em[340] = 2; /* 338: pointer_to_array_of_pointers_to_stack */
+    	em[341] = 345; em[342] = 0; 
+    	em[343] = 348; em[344] = 20; 
+    em[345] = 0; em[346] = 8; em[347] = 0; /* 345: pointer.void */
+    em[348] = 0; em[349] = 4; em[350] = 0; /* 348: int */
+    em[351] = 8884097; em[352] = 8; em[353] = 0; /* 351: pointer.func */
+    em[354] = 1; em[355] = 8; em[356] = 1; /* 354: pointer.struct.engine_st */
+    	em[357] = 5; em[358] = 0; 
+    em[359] = 8884097; em[360] = 8; em[361] = 0; /* 359: pointer.func */
+    em[362] = 0; em[363] = 72; em[364] = 8; /* 362: struct.dh_method */
+    	em[365] = 56; em[366] = 0; 
+    	em[367] = 381; em[368] = 8; 
+    	em[369] = 384; em[370] = 16; 
+    	em[371] = 387; em[372] = 24; 
+    	em[373] = 381; em[374] = 32; 
+    	em[375] = 381; em[376] = 40; 
+    	em[377] = 107; em[378] = 56; 
+    	em[379] = 359; em[380] = 64; 
+    em[381] = 8884097; em[382] = 8; em[383] = 0; /* 381: pointer.func */
+    em[384] = 8884097; em[385] = 8; em[386] = 0; /* 384: pointer.func */
+    em[387] = 8884097; em[388] = 8; em[389] = 0; /* 387: pointer.func */
+    em[390] = 1; em[391] = 8; em[392] = 1; /* 390: pointer.struct.dh_st */
+    	em[393] = 395; em[394] = 0; 
+    em[395] = 0; em[396] = 144; em[397] = 12; /* 395: struct.dh_st */
+    	em[398] = 422; em[399] = 8; 
+    	em[400] = 422; em[401] = 16; 
+    	em[402] = 422; em[403] = 32; 
+    	em[404] = 422; em[405] = 40; 
+    	em[406] = 442; em[407] = 56; 
+    	em[408] = 422; em[409] = 64; 
+    	em[410] = 422; em[411] = 72; 
+    	em[412] = 456; em[413] = 80; 
+    	em[414] = 422; em[415] = 96; 
+    	em[416] = 464; em[417] = 112; 
+    	em[418] = 478; em[419] = 128; 
+    	em[420] = 354; em[421] = 136; 
+    em[422] = 1; em[423] = 8; em[424] = 1; /* 422: pointer.struct.bignum_st */
+    	em[425] = 427; em[426] = 0; 
+    em[427] = 0; em[428] = 24; em[429] = 1; /* 427: struct.bignum_st */
+    	em[430] = 432; em[431] = 0; 
+    em[432] = 8884099; em[433] = 8; em[434] = 2; /* 432: pointer_to_array_of_pointers_to_stack */
+    	em[435] = 439; em[436] = 0; 
+    	em[437] = 348; em[438] = 12; 
+    em[439] = 0; em[440] = 8; em[441] = 0; /* 439: long unsigned int */
+    em[442] = 1; em[443] = 8; em[444] = 1; /* 442: pointer.struct.bn_mont_ctx_st */
+    	em[445] = 447; em[446] = 0; 
+    em[447] = 0; em[448] = 96; em[449] = 3; /* 447: struct.bn_mont_ctx_st */
+    	em[450] = 427; em[451] = 8; 
+    	em[452] = 427; em[453] = 32; 
+    	em[454] = 427; em[455] = 56; 
+    em[456] = 1; em[457] = 8; em[458] = 1; /* 456: pointer.unsigned char */
+    	em[459] = 461; em[460] = 0; 
+    em[461] = 0; em[462] = 1; em[463] = 0; /* 461: unsigned char */
+    em[464] = 0; em[465] = 32; em[466] = 2; /* 464: struct.crypto_ex_data_st_fake */
+    	em[467] = 471; em[468] = 8; 
+    	em[469] = 351; em[470] = 24; 
+    em[471] = 8884099; em[472] = 8; em[473] = 2; /* 471: pointer_to_array_of_pointers_to_stack */
+    	em[474] = 345; em[475] = 0; 
+    	em[476] = 348; em[477] = 20; 
+    em[478] = 1; em[479] = 8; em[480] = 1; /* 478: pointer.struct.dh_method */
+    	em[481] = 362; em[482] = 0; 
+    em[483] = 0; em[484] = 1; em[485] = 0; /* 483: char */
+    args_addr->arg_entity_index[0] = 390;
     args_addr->ret_entity_index = -1;
     populate_arg(args_addr, arg_a);
 

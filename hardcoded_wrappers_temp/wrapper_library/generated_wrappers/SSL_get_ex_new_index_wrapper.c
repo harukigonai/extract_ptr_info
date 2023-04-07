@@ -52,16 +52,16 @@ int bb_SSL_get_ex_new_index(long arg_a,void * arg_b,CRYPTO_EX_new * arg_c,CRYPTO
     uint32_t *em = args_addr->entity_metadata;
     em[0] = 8884097; em[1] = 8; em[2] = 0; /* 0: pointer.func */
     em[3] = 8884097; em[4] = 8; em[5] = 0; /* 3: pointer.func */
-    em[6] = 0; em[7] = 8; em[8] = 0; /* 6: long int */
-    em[9] = 0; em[10] = 4; em[11] = 0; /* 9: int */
-    em[12] = 8884097; em[13] = 8; em[14] = 0; /* 12: pointer.func */
+    em[6] = 8884097; em[7] = 8; em[8] = 0; /* 6: pointer.func */
+    em[9] = 0; em[10] = 8; em[11] = 0; /* 9: long int */
+    em[12] = 0; em[13] = 4; em[14] = 0; /* 12: int */
     em[15] = 0; em[16] = 8; em[17] = 0; /* 15: pointer.void */
-    args_addr->arg_entity_index[0] = 6;
+    args_addr->arg_entity_index[0] = 9;
     args_addr->arg_entity_index[1] = 15;
-    args_addr->arg_entity_index[2] = 3;
-    args_addr->arg_entity_index[3] = 0;
-    args_addr->arg_entity_index[4] = 12;
-    args_addr->ret_entity_index = 9;
+    args_addr->arg_entity_index[2] = 6;
+    args_addr->arg_entity_index[3] = 3;
+    args_addr->arg_entity_index[4] = 0;
+    args_addr->ret_entity_index = 12;
     populate_arg(args_addr, arg_a);
     populate_arg(args_addr, arg_b);
     populate_arg(args_addr, arg_c);

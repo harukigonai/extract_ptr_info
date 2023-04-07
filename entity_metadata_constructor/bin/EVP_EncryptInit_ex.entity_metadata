@@ -136,45 +136,40 @@
 0, 32, 2, /* 324: struct.ENGINE_CMD_DEFN_st */
 	56, 8,
 	56, 16,
-0, 16, 1, /* 331: struct.crypto_ex_data_st */
-	336, 0,
-1, 8, 1, /* 336: pointer.struct.stack_st_void */
-	341, 0,
-0, 32, 1, /* 341: struct.stack_st_void */
-	346, 0,
-0, 32, 2, /* 346: struct.stack_st */
-	353, 8,
-	358, 24,
-1, 8, 1, /* 353: pointer.pointer.char */
-	107, 0,
-8884097, 8, 0, /* 358: pointer.func */
-0, 88, 7, /* 361: struct.evp_cipher_st */
-	378, 24,
-	381, 32,
-	384, 40,
-	387, 56,
-	387, 64,
-	390, 72,
-	393, 80,
-8884097, 8, 0, /* 378: pointer.func */
-8884097, 8, 0, /* 381: pointer.func */
-8884097, 8, 0, /* 384: pointer.func */
-8884097, 8, 0, /* 387: pointer.func */
-8884097, 8, 0, /* 390: pointer.func */
-0, 8, 0, /* 393: pointer.void */
-1, 8, 1, /* 396: pointer.struct.evp_cipher_st */
-	361, 0,
-0, 1, 0, /* 401: char */
-0, 4, 0, /* 404: int */
-0, 1, 0, /* 407: unsigned char */
-1, 8, 1, /* 410: pointer.struct.evp_cipher_ctx_st */
-	415, 0,
-0, 168, 4, /* 415: struct.evp_cipher_ctx_st */
-	396, 0,
-	426, 8,
-	393, 96,
-	393, 120,
-1, 8, 1, /* 426: pointer.struct.engine_st */
+0, 32, 2, /* 331: struct.crypto_ex_data_st_fake */
+	338, 8,
+	351, 24,
+8884099, 8, 2, /* 338: pointer_to_array_of_pointers_to_stack */
+	345, 0,
+	348, 20,
+0, 8, 0, /* 345: pointer.void */
+0, 4, 0, /* 348: int */
+8884097, 8, 0, /* 351: pointer.func */
+0, 1, 0, /* 354: unsigned char */
+8884097, 8, 0, /* 357: pointer.func */
+1, 8, 1, /* 360: pointer.struct.evp_cipher_st */
+	365, 0,
+0, 88, 7, /* 365: struct.evp_cipher_st */
+	357, 24,
+	382, 32,
+	385, 40,
+	388, 56,
+	388, 64,
+	391, 72,
+	345, 80,
+8884097, 8, 0, /* 382: pointer.func */
+8884097, 8, 0, /* 385: pointer.func */
+8884097, 8, 0, /* 388: pointer.func */
+8884097, 8, 0, /* 391: pointer.func */
+1, 8, 1, /* 394: pointer.struct.engine_st */
 	5, 0,
-1, 8, 1, /* 431: pointer.unsigned char */
-	407, 0,
+0, 1, 0, /* 399: char */
+1, 8, 1, /* 402: pointer.unsigned char */
+	354, 0,
+1, 8, 1, /* 407: pointer.struct.evp_cipher_ctx_st */
+	412, 0,
+0, 168, 4, /* 412: struct.evp_cipher_ctx_st */
+	360, 0,
+	394, 8,
+	345, 96,
+	345, 120,
