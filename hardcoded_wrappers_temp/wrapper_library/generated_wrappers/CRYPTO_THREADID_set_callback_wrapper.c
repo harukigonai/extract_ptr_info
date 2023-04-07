@@ -1,6 +1,7 @@
 #define _GNU_SOURCE
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <dlfcn.h>
 #include <sys/syscall.h>
 #include <unistd.h>
@@ -44,16 +45,13 @@ int bb_CRYPTO_THREADID_set_callback(void (*arg_a)(CRYPTO_THREADID *))
 {
     int ret;
 
-    struct lib_enter_args args = {
-        .num_args = 0,
-        .entity_metadata = {
-            8884097, 8, 0, /* 0: pointer.func */
-            0, 4, 0, /* 3: int */
-        },
-        .arg_entity_index = { 0, },
-        .ret_entity_index = 3,
-    };
-    struct lib_enter_args *args_addr = &args;
+    struct lib_enter_args *args_addr = malloc(sizeof(struct lib_enter_args));
+    args_addr->num_args = 0;
+    uint32_t *em = args_addr->entity_metadata;
+    em[0] = 8884097; em[1] = 8; em[2] = 0; /* 0: pointer.func */
+    em[3] = 0; em[4] = 4; em[5] = 0; /* 3: int */
+    args_addr->arg_entity_index[0] = 0;
+    args_addr->ret_entity_index = 3;
     populate_arg(args_addr, arg_a);
     populate_ret(args_addr, ret);
 
@@ -68,6 +66,8 @@ int bb_CRYPTO_THREADID_set_callback(void (*arg_a)(CRYPTO_THREADID *))
     *new_ret_ptr = (*orig_CRYPTO_THREADID_set_callback)(new_arg_a);
 
     syscall(889);
+
+    free(args_addr);
 
     return ret;
 }

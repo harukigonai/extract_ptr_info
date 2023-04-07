@@ -1,6 +1,7 @@
 #define _GNU_SOURCE
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <dlfcn.h>
 #include <sys/syscall.h>
 #include <unistd.h>
@@ -44,18 +45,16 @@ int bb_RAND_bytes(unsigned char * arg_a,int arg_b)
 {
     int ret;
 
-    struct lib_enter_args args = {
-        .num_args = 0,
-        .entity_metadata = {
-            0, 1, 0, /* 0: unsigned char */
-            1, 8, 1, /* 3: pointer.unsigned char */
-            	0, 0,
-            0, 4, 0, /* 8: int */
-        },
-        .arg_entity_index = { 3, 8, },
-        .ret_entity_index = 8,
-    };
-    struct lib_enter_args *args_addr = &args;
+    struct lib_enter_args *args_addr = malloc(sizeof(struct lib_enter_args));
+    args_addr->num_args = 0;
+    uint32_t *em = args_addr->entity_metadata;
+    em[0] = 0; em[1] = 1; em[2] = 0; /* 0: unsigned char */
+    em[3] = 1; em[4] = 8; em[5] = 1; /* 3: pointer.unsigned char */
+    	em[6] = 0; em[7] = 0; 
+    em[8] = 0; em[9] = 4; em[10] = 0; /* 8: int */
+    args_addr->arg_entity_index[0] = 3;
+    args_addr->arg_entity_index[1] = 8;
+    args_addr->ret_entity_index = 8;
     populate_arg(args_addr, arg_a);
     populate_arg(args_addr, arg_b);
     populate_ret(args_addr, ret);
@@ -73,6 +72,8 @@ int bb_RAND_bytes(unsigned char * arg_a,int arg_b)
     *new_ret_ptr = (*orig_RAND_bytes)(new_arg_a,new_arg_b);
 
     syscall(889);
+
+    free(args_addr);
 
     return ret;
 }

@@ -1,6 +1,7 @@
 #define _GNU_SOURCE
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <dlfcn.h>
 #include <sys/syscall.h>
 #include <unistd.h>
@@ -44,21 +45,18 @@ const char * bb_SSL_CIPHER_get_name(const SSL_CIPHER * arg_a)
 {
     const char * ret;
 
-    struct lib_enter_args args = {
-        .num_args = 0,
-        .entity_metadata = {
-            0, 88, 1, /* 0: struct.ssl_cipher_st */
-            	5, 8,
-            1, 8, 1, /* 5: pointer.char */
-            	8884096, 0,
-            1, 8, 1, /* 10: pointer.struct.ssl_cipher_st */
-            	0, 0,
-            0, 1, 0, /* 15: char */
-        },
-        .arg_entity_index = { 10, },
-        .ret_entity_index = 5,
-    };
-    struct lib_enter_args *args_addr = &args;
+    struct lib_enter_args *args_addr = malloc(sizeof(struct lib_enter_args));
+    args_addr->num_args = 0;
+    uint32_t *em = args_addr->entity_metadata;
+    em[0] = 0; em[1] = 88; em[2] = 1; /* 0: struct.ssl_cipher_st */
+    	em[3] = 5; em[4] = 8; 
+    em[5] = 1; em[6] = 8; em[7] = 1; /* 5: pointer.char */
+    	em[8] = 8884096; em[9] = 0; 
+    em[10] = 1; em[11] = 8; em[12] = 1; /* 10: pointer.struct.ssl_cipher_st */
+    	em[13] = 0; em[14] = 0; 
+    em[15] = 0; em[16] = 1; em[17] = 0; /* 15: char */
+    args_addr->arg_entity_index[0] = 10;
+    args_addr->ret_entity_index = 5;
     populate_arg(args_addr, arg_a);
     populate_ret(args_addr, ret);
 
@@ -73,6 +71,8 @@ const char * bb_SSL_CIPHER_get_name(const SSL_CIPHER * arg_a)
     *new_ret_ptr = (*orig_SSL_CIPHER_get_name)(new_arg_a);
 
     syscall(889);
+
+    free(args_addr);
 
     return ret;
 }

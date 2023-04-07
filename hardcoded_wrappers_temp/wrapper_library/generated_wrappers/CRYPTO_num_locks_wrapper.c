@@ -1,6 +1,7 @@
 #define _GNU_SOURCE
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <dlfcn.h>
 #include <sys/syscall.h>
 #include <unistd.h>
@@ -44,15 +45,11 @@ int bb_CRYPTO_num_locks(void)
 {
     int ret;
 
-    struct lib_enter_args args = {
-        .num_args = 0,
-        .entity_metadata = {
-            0, 4, 0, /* 0: int */
-        },
-        .arg_entity_index = { -1 },
-        .ret_entity_index = 0,
-    };
-    struct lib_enter_args *args_addr = &args;
+    struct lib_enter_args *args_addr = malloc(sizeof(struct lib_enter_args));
+    args_addr->num_args = 0;
+    uint32_t *em = args_addr->entity_metadata;
+    em[0] = 0; em[1] = 4; em[2] = 0; /* 0: int */
+    args_addr->ret_entity_index = 0;
     populate_ret(args_addr, ret);
 
     struct lib_enter_args *new_args = (struct lib_enter_args *)syscall(888, args_addr);
@@ -64,6 +61,8 @@ int bb_CRYPTO_num_locks(void)
     *new_ret_ptr = (*orig_CRYPTO_num_locks)();
 
     syscall(889);
+
+    free(args_addr);
 
     return ret;
 }

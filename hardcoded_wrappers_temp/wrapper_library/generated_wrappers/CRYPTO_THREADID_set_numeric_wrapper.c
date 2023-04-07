@@ -1,6 +1,7 @@
 #define _GNU_SOURCE
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <dlfcn.h>
 #include <sys/syscall.h>
 #include <unistd.h>
@@ -42,20 +43,18 @@ void CRYPTO_THREADID_set_numeric(CRYPTO_THREADID * arg_a,unsigned long arg_b)
 
 void bb_CRYPTO_THREADID_set_numeric(CRYPTO_THREADID * arg_a,unsigned long arg_b) 
 {
-    struct lib_enter_args args = {
-        .num_args = 0,
-        .entity_metadata = {
-            0, 8, 0, /* 0: pointer.void */
-            0, 16, 1, /* 3: struct.crypto_threadid_st */
-            	0, 0,
-            1, 8, 1, /* 8: pointer.struct.crypto_threadid_st */
-            	3, 0,
-            0, 8, 0, /* 13: long unsigned int */
-        },
-        .arg_entity_index = { 8, 13, },
-        .ret_entity_index = -1,
-    };
-    struct lib_enter_args *args_addr = &args;
+    struct lib_enter_args *args_addr = malloc(sizeof(struct lib_enter_args));
+    args_addr->num_args = 0;
+    uint32_t *em = args_addr->entity_metadata;
+    em[0] = 0; em[1] = 8; em[2] = 0; /* 0: pointer.void */
+    em[3] = 0; em[4] = 16; em[5] = 1; /* 3: struct.crypto_threadid_st */
+    	em[6] = 0; em[7] = 0; 
+    em[8] = 1; em[9] = 8; em[10] = 1; /* 8: pointer.struct.crypto_threadid_st */
+    	em[11] = 3; em[12] = 0; 
+    em[13] = 0; em[14] = 8; em[15] = 0; /* 13: long unsigned int */
+    args_addr->arg_entity_index[0] = 8;
+    args_addr->arg_entity_index[1] = 13;
+    args_addr->ret_entity_index = -1;
     populate_arg(args_addr, arg_a);
     populate_arg(args_addr, arg_b);
 
@@ -70,6 +69,8 @@ void bb_CRYPTO_THREADID_set_numeric(CRYPTO_THREADID * arg_a,unsigned long arg_b)
     (*orig_CRYPTO_THREADID_set_numeric)(new_arg_a,new_arg_b);
 
     syscall(889);
+
+    free(args_addr);
 
 }
 

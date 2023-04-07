@@ -1,6 +1,7 @@
 #define _GNU_SOURCE
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <dlfcn.h>
 #include <sys/syscall.h>
 #include <unistd.h>
@@ -44,23 +45,21 @@ int bb_BN_set_word(BIGNUM * arg_a,BN_ULONG arg_b)
 {
     int ret;
 
-    struct lib_enter_args args = {
-        .num_args = 0,
-        .entity_metadata = {
-            8884099, 8, 2, /* 0: pointer_to_array_of_pointers_to_stack */
-            	7, 0,
-            	10, 12,
-            0, 4, 0, /* 7: unsigned int */
-            0, 4, 0, /* 10: int */
-            0, 24, 1, /* 13: struct.bignum_st */
-            	0, 0,
-            1, 8, 1, /* 18: pointer.struct.bignum_st */
-            	13, 0,
-        },
-        .arg_entity_index = { 18, 7, },
-        .ret_entity_index = 10,
-    };
-    struct lib_enter_args *args_addr = &args;
+    struct lib_enter_args *args_addr = malloc(sizeof(struct lib_enter_args));
+    args_addr->num_args = 0;
+    uint32_t *em = args_addr->entity_metadata;
+    em[0] = 8884099; em[1] = 8; em[2] = 2; /* 0: pointer_to_array_of_pointers_to_stack */
+    	em[3] = 7; em[4] = 0; 
+    	em[5] = 10; em[6] = 12; 
+    em[7] = 0; em[8] = 4; em[9] = 0; /* 7: unsigned int */
+    em[10] = 0; em[11] = 4; em[12] = 0; /* 10: int */
+    em[13] = 0; em[14] = 24; em[15] = 1; /* 13: struct.bignum_st */
+    	em[16] = 0; em[17] = 0; 
+    em[18] = 1; em[19] = 8; em[20] = 1; /* 18: pointer.struct.bignum_st */
+    	em[21] = 13; em[22] = 0; 
+    args_addr->arg_entity_index[0] = 18;
+    args_addr->arg_entity_index[1] = 7;
+    args_addr->ret_entity_index = 10;
     populate_arg(args_addr, arg_a);
     populate_arg(args_addr, arg_b);
     populate_ret(args_addr, ret);
@@ -78,6 +77,8 @@ int bb_BN_set_word(BIGNUM * arg_a,BN_ULONG arg_b)
     *new_ret_ptr = (*orig_BN_set_word)(new_arg_a,new_arg_b);
 
     syscall(889);
+
+    free(args_addr);
 
     return ret;
 }

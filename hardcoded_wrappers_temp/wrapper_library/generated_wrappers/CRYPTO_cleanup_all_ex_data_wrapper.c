@@ -1,6 +1,7 @@
 #define _GNU_SOURCE
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <dlfcn.h>
 #include <sys/syscall.h>
 #include <unistd.h>
@@ -42,14 +43,10 @@ void CRYPTO_cleanup_all_ex_data(void)
 
 void bb_CRYPTO_cleanup_all_ex_data(void) 
 {
-    struct lib_enter_args args = {
-        .num_args = 0,
-        .entity_metadata = {
-        },
-        .arg_entity_index = { -1 },
-        .ret_entity_index = -1,
-    };
-    struct lib_enter_args *args_addr = &args;
+    struct lib_enter_args *args_addr = malloc(sizeof(struct lib_enter_args));
+    args_addr->num_args = 0;
+    uint32_t *em = args_addr->entity_metadata;
+    args_addr->ret_entity_index = -1;
 
     struct lib_enter_args *new_args = (struct lib_enter_args *)syscall(888, args_addr);
 
@@ -58,6 +55,8 @@ void bb_CRYPTO_cleanup_all_ex_data(void)
     (*orig_CRYPTO_cleanup_all_ex_data)();
 
     syscall(889);
+
+    free(args_addr);
 
 }
 

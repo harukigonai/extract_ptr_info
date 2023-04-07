@@ -1,6 +1,7 @@
 #define _GNU_SOURCE
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <dlfcn.h>
 #include <sys/syscall.h>
 #include <unistd.h>
@@ -44,24 +45,22 @@ int bb_SSL_CIPHER_get_bits(const SSL_CIPHER * arg_a,int * arg_b)
 {
     int ret;
 
-    struct lib_enter_args args = {
-        .num_args = 0,
-        .entity_metadata = {
-            1, 8, 1, /* 0: pointer.char */
-            	8884096, 0,
-            0, 88, 1, /* 5: struct.ssl_cipher_st */
-            	0, 8,
-            1, 8, 1, /* 10: pointer.int */
-            	15, 0,
-            0, 4, 0, /* 15: int */
-            0, 1, 0, /* 18: char */
-            1, 8, 1, /* 21: pointer.struct.ssl_cipher_st */
-            	5, 0,
-        },
-        .arg_entity_index = { 21, 10, },
-        .ret_entity_index = 15,
-    };
-    struct lib_enter_args *args_addr = &args;
+    struct lib_enter_args *args_addr = malloc(sizeof(struct lib_enter_args));
+    args_addr->num_args = 0;
+    uint32_t *em = args_addr->entity_metadata;
+    em[0] = 1; em[1] = 8; em[2] = 1; /* 0: pointer.char */
+    	em[3] = 8884096; em[4] = 0; 
+    em[5] = 0; em[6] = 88; em[7] = 1; /* 5: struct.ssl_cipher_st */
+    	em[8] = 0; em[9] = 8; 
+    em[10] = 1; em[11] = 8; em[12] = 1; /* 10: pointer.int */
+    	em[13] = 15; em[14] = 0; 
+    em[15] = 0; em[16] = 4; em[17] = 0; /* 15: int */
+    em[18] = 0; em[19] = 1; em[20] = 0; /* 18: char */
+    em[21] = 1; em[22] = 8; em[23] = 1; /* 21: pointer.struct.ssl_cipher_st */
+    	em[24] = 5; em[25] = 0; 
+    args_addr->arg_entity_index[0] = 21;
+    args_addr->arg_entity_index[1] = 10;
+    args_addr->ret_entity_index = 15;
     populate_arg(args_addr, arg_a);
     populate_arg(args_addr, arg_b);
     populate_ret(args_addr, ret);
@@ -79,6 +78,8 @@ int bb_SSL_CIPHER_get_bits(const SSL_CIPHER * arg_a,int * arg_b)
     *new_ret_ptr = (*orig_SSL_CIPHER_get_bits)(new_arg_a,new_arg_b);
 
     syscall(889);
+
+    free(args_addr);
 
     return ret;
 }

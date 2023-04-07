@@ -1,6 +1,7 @@
 #define _GNU_SOURCE
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <dlfcn.h>
 #include <sys/syscall.h>
 #include <unistd.h>
@@ -42,16 +43,14 @@ void RAND_seed(void * arg_a,int arg_b)
 
 void bb_RAND_seed(void * arg_a,int arg_b) 
 {
-    struct lib_enter_args args = {
-        .num_args = 0,
-        .entity_metadata = {
-            0, 8, 0, /* 0: pointer.void */
-            0, 4, 0, /* 3: int */
-        },
-        .arg_entity_index = { 0, 3, },
-        .ret_entity_index = -1,
-    };
-    struct lib_enter_args *args_addr = &args;
+    struct lib_enter_args *args_addr = malloc(sizeof(struct lib_enter_args));
+    args_addr->num_args = 0;
+    uint32_t *em = args_addr->entity_metadata;
+    em[0] = 0; em[1] = 8; em[2] = 0; /* 0: pointer.void */
+    em[3] = 0; em[4] = 4; em[5] = 0; /* 3: int */
+    args_addr->arg_entity_index[0] = 0;
+    args_addr->arg_entity_index[1] = 3;
+    args_addr->ret_entity_index = -1;
     populate_arg(args_addr, arg_a);
     populate_arg(args_addr, arg_b);
 
@@ -66,6 +65,8 @@ void bb_RAND_seed(void * arg_a,int arg_b)
     (*orig_RAND_seed)(new_arg_a,new_arg_b);
 
     syscall(889);
+
+    free(args_addr);
 
 }
 

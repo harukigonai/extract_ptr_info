@@ -1,6 +1,7 @@
 #define _GNU_SOURCE
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <dlfcn.h>
 #include <sys/syscall.h>
 #include <unistd.h>
@@ -44,61 +45,60 @@ int bb_X509_NAME_get_index_by_NID(X509_NAME * arg_a,int arg_b,int arg_c)
 {
     int ret;
 
-    struct lib_enter_args args = {
-        .num_args = 0,
-        .entity_metadata = {
-            1, 8, 1, /* 0: pointer.char */
-            	8884096, 0,
-            0, 24, 1, /* 5: struct.buf_mem_st */
-            	0, 8,
-            1, 8, 1, /* 10: pointer.struct.buf_mem_st */
-            	5, 0,
-            0, 1, 0, /* 15: unsigned char */
-            1, 8, 1, /* 18: pointer.struct.asn1_string_st */
-            	23, 0,
-            0, 24, 1, /* 23: struct.asn1_string_st */
-            	28, 8,
-            1, 8, 1, /* 28: pointer.unsigned char */
-            	15, 0,
-            1, 8, 1, /* 33: pointer.unsigned char */
-            	15, 0,
-            0, 1, 0, /* 38: char */
-            8884097, 8, 0, /* 41: pointer.func */
-            1, 8, 1, /* 44: pointer.struct.X509_name_st */
-            	49, 0,
-            0, 40, 3, /* 49: struct.X509_name_st */
-            	58, 0,
-            	10, 16,
-            	28, 24,
-            1, 8, 1, /* 58: pointer.struct.stack_st_X509_NAME_ENTRY */
-            	63, 0,
-            0, 32, 2, /* 63: struct.stack_st_fake_X509_NAME_ENTRY */
-            	70, 8,
-            	41, 24,
-            8884099, 8, 2, /* 70: pointer_to_array_of_pointers_to_stack */
-            	77, 0,
-            	113, 20,
-            0, 8, 1, /* 77: pointer.X509_NAME_ENTRY */
-            	82, 0,
-            0, 0, 1, /* 82: X509_NAME_ENTRY */
-            	87, 0,
-            0, 24, 2, /* 87: struct.X509_name_entry_st */
-            	94, 0,
-            	18, 8,
-            1, 8, 1, /* 94: pointer.struct.asn1_object_st */
-            	99, 0,
-            0, 40, 3, /* 99: struct.asn1_object_st */
-            	108, 0,
-            	108, 8,
-            	33, 24,
-            1, 8, 1, /* 108: pointer.char */
-            	8884096, 0,
-            0, 4, 0, /* 113: int */
-        },
-        .arg_entity_index = { 44, 113, 113, },
-        .ret_entity_index = 113,
-    };
-    struct lib_enter_args *args_addr = &args;
+    struct lib_enter_args *args_addr = malloc(sizeof(struct lib_enter_args));
+    args_addr->num_args = 0;
+    uint32_t *em = args_addr->entity_metadata;
+    em[0] = 1; em[1] = 8; em[2] = 1; /* 0: pointer.char */
+    	em[3] = 8884096; em[4] = 0; 
+    em[5] = 0; em[6] = 24; em[7] = 1; /* 5: struct.buf_mem_st */
+    	em[8] = 0; em[9] = 8; 
+    em[10] = 1; em[11] = 8; em[12] = 1; /* 10: pointer.struct.buf_mem_st */
+    	em[13] = 5; em[14] = 0; 
+    em[15] = 0; em[16] = 1; em[17] = 0; /* 15: unsigned char */
+    em[18] = 1; em[19] = 8; em[20] = 1; /* 18: pointer.struct.asn1_string_st */
+    	em[21] = 23; em[22] = 0; 
+    em[23] = 0; em[24] = 24; em[25] = 1; /* 23: struct.asn1_string_st */
+    	em[26] = 28; em[27] = 8; 
+    em[28] = 1; em[29] = 8; em[30] = 1; /* 28: pointer.unsigned char */
+    	em[31] = 15; em[32] = 0; 
+    em[33] = 1; em[34] = 8; em[35] = 1; /* 33: pointer.unsigned char */
+    	em[36] = 15; em[37] = 0; 
+    em[38] = 0; em[39] = 1; em[40] = 0; /* 38: char */
+    em[41] = 8884097; em[42] = 8; em[43] = 0; /* 41: pointer.func */
+    em[44] = 1; em[45] = 8; em[46] = 1; /* 44: pointer.struct.X509_name_st */
+    	em[47] = 49; em[48] = 0; 
+    em[49] = 0; em[50] = 40; em[51] = 3; /* 49: struct.X509_name_st */
+    	em[52] = 58; em[53] = 0; 
+    	em[54] = 10; em[55] = 16; 
+    	em[56] = 28; em[57] = 24; 
+    em[58] = 1; em[59] = 8; em[60] = 1; /* 58: pointer.struct.stack_st_X509_NAME_ENTRY */
+    	em[61] = 63; em[62] = 0; 
+    em[63] = 0; em[64] = 32; em[65] = 2; /* 63: struct.stack_st_fake_X509_NAME_ENTRY */
+    	em[66] = 70; em[67] = 8; 
+    	em[68] = 41; em[69] = 24; 
+    em[70] = 8884099; em[71] = 8; em[72] = 2; /* 70: pointer_to_array_of_pointers_to_stack */
+    	em[73] = 77; em[74] = 0; 
+    	em[75] = 113; em[76] = 20; 
+    em[77] = 0; em[78] = 8; em[79] = 1; /* 77: pointer.X509_NAME_ENTRY */
+    	em[80] = 82; em[81] = 0; 
+    em[82] = 0; em[83] = 0; em[84] = 1; /* 82: X509_NAME_ENTRY */
+    	em[85] = 87; em[86] = 0; 
+    em[87] = 0; em[88] = 24; em[89] = 2; /* 87: struct.X509_name_entry_st */
+    	em[90] = 94; em[91] = 0; 
+    	em[92] = 18; em[93] = 8; 
+    em[94] = 1; em[95] = 8; em[96] = 1; /* 94: pointer.struct.asn1_object_st */
+    	em[97] = 99; em[98] = 0; 
+    em[99] = 0; em[100] = 40; em[101] = 3; /* 99: struct.asn1_object_st */
+    	em[102] = 108; em[103] = 0; 
+    	em[104] = 108; em[105] = 8; 
+    	em[106] = 33; em[107] = 24; 
+    em[108] = 1; em[109] = 8; em[110] = 1; /* 108: pointer.char */
+    	em[111] = 8884096; em[112] = 0; 
+    em[113] = 0; em[114] = 4; em[115] = 0; /* 113: int */
+    args_addr->arg_entity_index[0] = 44;
+    args_addr->arg_entity_index[1] = 113;
+    args_addr->arg_entity_index[2] = 113;
+    args_addr->ret_entity_index = 113;
     populate_arg(args_addr, arg_a);
     populate_arg(args_addr, arg_b);
     populate_arg(args_addr, arg_c);
@@ -119,6 +119,8 @@ int bb_X509_NAME_get_index_by_NID(X509_NAME * arg_a,int arg_b,int arg_c)
     *new_ret_ptr = (*orig_X509_NAME_get_index_by_NID)(new_arg_a,new_arg_b,new_arg_c);
 
     syscall(889);
+
+    free(args_addr);
 
     return ret;
 }

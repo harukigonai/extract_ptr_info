@@ -1,6 +1,7 @@
 #define _GNU_SOURCE
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <dlfcn.h>
 #include <sys/syscall.h>
 #include <unistd.h>
@@ -42,19 +43,16 @@ void ERR_remove_thread_state(const CRYPTO_THREADID * arg_a)
 
 void bb_ERR_remove_thread_state(const CRYPTO_THREADID * arg_a) 
 {
-    struct lib_enter_args args = {
-        .num_args = 0,
-        .entity_metadata = {
-            0, 8, 0, /* 0: pointer.void */
-            0, 16, 1, /* 3: struct.crypto_threadid_st */
-            	0, 0,
-            1, 8, 1, /* 8: pointer.struct.crypto_threadid_st */
-            	3, 0,
-        },
-        .arg_entity_index = { 8, },
-        .ret_entity_index = -1,
-    };
-    struct lib_enter_args *args_addr = &args;
+    struct lib_enter_args *args_addr = malloc(sizeof(struct lib_enter_args));
+    args_addr->num_args = 0;
+    uint32_t *em = args_addr->entity_metadata;
+    em[0] = 0; em[1] = 8; em[2] = 0; /* 0: pointer.void */
+    em[3] = 0; em[4] = 16; em[5] = 1; /* 3: struct.crypto_threadid_st */
+    	em[6] = 0; em[7] = 0; 
+    em[8] = 1; em[9] = 8; em[10] = 1; /* 8: pointer.struct.crypto_threadid_st */
+    	em[11] = 3; em[12] = 0; 
+    args_addr->arg_entity_index[0] = 8;
+    args_addr->ret_entity_index = -1;
     populate_arg(args_addr, arg_a);
 
     struct lib_enter_args *new_args = (struct lib_enter_args *)syscall(888, args_addr);
@@ -66,6 +64,8 @@ void bb_ERR_remove_thread_state(const CRYPTO_THREADID * arg_a)
     (*orig_ERR_remove_thread_state)(new_arg_a);
 
     syscall(889);
+
+    free(args_addr);
 
 }
 
