@@ -5,6 +5,7 @@
 #include <dlfcn.h>
 #include <sys/syscall.h>
 #include <unistd.h>
+#include <string.h>
 #include <openssl/crypto.h>
 #include <openssl/err.h>
 #include <openssl/x509.h>
@@ -46,6 +47,7 @@ int bb_EVP_SignFinal(EVP_MD_CTX * arg_a,unsigned char * arg_b,unsigned int * arg
     int ret;
 
     struct lib_enter_args *args_addr = malloc(sizeof(struct lib_enter_args));
+    memset(args_addr, 0, sizeof(struct lib_enter_args));
     args_addr->num_args = 0;
     uint32_t *em = args_addr->entity_metadata;
     em[0] = 1; em[1] = 8; em[2] = 1; /* 0: pointer.struct.dsa_st */

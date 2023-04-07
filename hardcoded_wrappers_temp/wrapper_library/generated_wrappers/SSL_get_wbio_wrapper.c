@@ -5,6 +5,7 @@
 #include <dlfcn.h>
 #include <sys/syscall.h>
 #include <unistd.h>
+#include <string.h>
 #include <openssl/crypto.h>
 #include <openssl/err.h>
 #include <openssl/x509.h>
@@ -46,6 +47,7 @@ BIO * bb_SSL_get_wbio(const SSL * arg_a)
     BIO * ret;
 
     struct lib_enter_args *args_addr = malloc(sizeof(struct lib_enter_args));
+    memset(args_addr, 0, sizeof(struct lib_enter_args));
     args_addr->num_args = 0;
     uint32_t *em = args_addr->entity_metadata;
     em[0] = 0; em[1] = 32; em[2] = 1; /* 0: struct.stack_st_void */

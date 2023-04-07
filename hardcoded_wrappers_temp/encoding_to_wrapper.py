@@ -10,6 +10,7 @@ headers = """#define _GNU_SOURCE
 #include <dlfcn.h>
 #include <sys/syscall.h>
 #include <unistd.h>
+#include <string.h>
 #include <openssl/crypto.h>
 #include <openssl/err.h>
 #include <openssl/x509.h>
@@ -138,6 +139,7 @@ def generate_function_wrapper(func_dict, wrapper_output_dir, ent_metadata_dir):
         pass
 
     func_text += "    struct lib_enter_args *args_addr = malloc(sizeof(struct lib_enter_args));\n"
+    func_text += "    memset(args_addr, 0, sizeof(struct lib_enter_args));\n"
     func_text += "    args_addr->num_args = 0;\n"
     func_text += "    uint32_t *em = args_addr->entity_metadata;\n"
 
