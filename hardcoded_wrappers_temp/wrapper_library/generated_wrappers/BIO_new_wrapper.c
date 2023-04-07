@@ -60,10 +60,10 @@ BIO * bb_BIO_new(BIO_METHOD * arg_a)
     em[18] = 0; em[19] = 32; em[20] = 2; /* 18: struct.stack_st */
     	em[21] = 3; em[22] = 8; 
     	em[23] = 0; em[24] = 24; 
-    em[25] = 0; em[26] = 16; em[27] = 1; /* 25: struct.crypto_ex_data_st */
-    	em[28] = 30; em[29] = 0; 
-    em[30] = 1; em[31] = 8; em[32] = 1; /* 30: pointer.struct.stack_st_void */
-    	em[33] = 13; em[34] = 0; 
+    em[25] = 1; em[26] = 8; em[27] = 1; /* 25: pointer.struct.stack_st_void */
+    	em[28] = 13; em[29] = 0; 
+    em[30] = 0; em[31] = 16; em[32] = 1; /* 30: struct.crypto_ex_data_st */
+    	em[33] = 25; em[34] = 0; 
     em[35] = 1; em[36] = 8; em[37] = 1; /* 35: pointer.struct.bio_st */
     	em[38] = 40; em[39] = 0; 
     em[40] = 0; em[41] = 112; em[42] = 7; /* 40: struct.bio_st */
@@ -73,7 +73,7 @@ BIO * bb_BIO_new(BIO_METHOD * arg_a)
     	em[49] = 109; em[50] = 48; 
     	em[51] = 35; em[52] = 56; 
     	em[53] = 35; em[54] = 64; 
-    	em[55] = 25; em[56] = 96; 
+    	em[55] = 30; em[56] = 96; 
     em[57] = 1; em[58] = 8; em[59] = 1; /* 57: pointer.struct.bio_method_st */
     	em[60] = 62; em[61] = 0; 
     em[62] = 0; em[63] = 80; em[64] = 9; /* 62: struct.bio_method_st */

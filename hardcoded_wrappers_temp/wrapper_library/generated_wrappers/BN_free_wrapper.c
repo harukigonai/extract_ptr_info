@@ -49,7 +49,7 @@ void bb_BN_free(BIGNUM * arg_a)
     args_addr->num_args = 0;
     uint32_t *em = args_addr->entity_metadata;
     em[0] = 0; em[1] = 4; em[2] = 0; /* 0: int */
-    em[3] = 0; em[4] = 4; em[5] = 0; /* 3: unsigned int */
+    em[3] = 0; em[4] = 8; em[5] = 0; /* 3: long unsigned int */
     em[6] = 8884099; em[7] = 8; em[8] = 2; /* 6: pointer_to_array_of_pointers_to_stack */
     	em[9] = 3; em[10] = 0; 
     	em[11] = 0; em[12] = 12; 

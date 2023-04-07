@@ -200,42 +200,42 @@ int bb_EVP_EncryptInit_ex(EVP_CIPHER_CTX * arg_a,const EVP_CIPHER * arg_b,ENGINE
     em[353] = 1; em[354] = 8; em[355] = 1; /* 353: pointer.pointer.char */
     	em[356] = 107; em[357] = 0; 
     em[358] = 8884097; em[359] = 8; em[360] = 0; /* 358: pointer.func */
-    em[361] = 1; em[362] = 8; em[363] = 1; /* 361: pointer.struct.engine_st */
-    	em[364] = 5; em[365] = 0; 
-    em[366] = 0; em[367] = 1; em[368] = 0; /* 366: unsigned char */
-    em[369] = 1; em[370] = 8; em[371] = 1; /* 369: pointer.struct.evp_cipher_st */
-    	em[372] = 374; em[373] = 0; 
-    em[374] = 0; em[375] = 88; em[376] = 7; /* 374: struct.evp_cipher_st */
-    	em[377] = 391; em[378] = 24; 
-    	em[379] = 394; em[380] = 32; 
-    	em[381] = 397; em[382] = 40; 
-    	em[383] = 400; em[384] = 56; 
-    	em[385] = 400; em[386] = 64; 
-    	em[387] = 403; em[388] = 72; 
-    	em[389] = 406; em[390] = 80; 
-    em[391] = 8884097; em[392] = 8; em[393] = 0; /* 391: pointer.func */
-    em[394] = 8884097; em[395] = 8; em[396] = 0; /* 394: pointer.func */
-    em[397] = 8884097; em[398] = 8; em[399] = 0; /* 397: pointer.func */
-    em[400] = 8884097; em[401] = 8; em[402] = 0; /* 400: pointer.func */
-    em[403] = 8884097; em[404] = 8; em[405] = 0; /* 403: pointer.func */
-    em[406] = 0; em[407] = 8; em[408] = 0; /* 406: pointer.void */
-    em[409] = 0; em[410] = 1; em[411] = 0; /* 409: char */
-    em[412] = 0; em[413] = 4; em[414] = 0; /* 412: int */
-    em[415] = 1; em[416] = 8; em[417] = 1; /* 415: pointer.unsigned char */
-    	em[418] = 366; em[419] = 0; 
-    em[420] = 1; em[421] = 8; em[422] = 1; /* 420: pointer.struct.evp_cipher_ctx_st */
-    	em[423] = 425; em[424] = 0; 
-    em[425] = 0; em[426] = 168; em[427] = 4; /* 425: struct.evp_cipher_ctx_st */
-    	em[428] = 369; em[429] = 0; 
-    	em[430] = 361; em[431] = 8; 
-    	em[432] = 406; em[433] = 96; 
-    	em[434] = 406; em[435] = 120; 
-    args_addr->arg_entity_index[0] = 420;
-    args_addr->arg_entity_index[1] = 369;
-    args_addr->arg_entity_index[2] = 361;
-    args_addr->arg_entity_index[3] = 415;
-    args_addr->arg_entity_index[4] = 415;
-    args_addr->ret_entity_index = 412;
+    em[361] = 0; em[362] = 88; em[363] = 7; /* 361: struct.evp_cipher_st */
+    	em[364] = 378; em[365] = 24; 
+    	em[366] = 381; em[367] = 32; 
+    	em[368] = 384; em[369] = 40; 
+    	em[370] = 387; em[371] = 56; 
+    	em[372] = 387; em[373] = 64; 
+    	em[374] = 390; em[375] = 72; 
+    	em[376] = 393; em[377] = 80; 
+    em[378] = 8884097; em[379] = 8; em[380] = 0; /* 378: pointer.func */
+    em[381] = 8884097; em[382] = 8; em[383] = 0; /* 381: pointer.func */
+    em[384] = 8884097; em[385] = 8; em[386] = 0; /* 384: pointer.func */
+    em[387] = 8884097; em[388] = 8; em[389] = 0; /* 387: pointer.func */
+    em[390] = 8884097; em[391] = 8; em[392] = 0; /* 390: pointer.func */
+    em[393] = 0; em[394] = 8; em[395] = 0; /* 393: pointer.void */
+    em[396] = 1; em[397] = 8; em[398] = 1; /* 396: pointer.struct.evp_cipher_st */
+    	em[399] = 361; em[400] = 0; 
+    em[401] = 0; em[402] = 1; em[403] = 0; /* 401: char */
+    em[404] = 0; em[405] = 4; em[406] = 0; /* 404: int */
+    em[407] = 0; em[408] = 1; em[409] = 0; /* 407: unsigned char */
+    em[410] = 1; em[411] = 8; em[412] = 1; /* 410: pointer.struct.evp_cipher_ctx_st */
+    	em[413] = 415; em[414] = 0; 
+    em[415] = 0; em[416] = 168; em[417] = 4; /* 415: struct.evp_cipher_ctx_st */
+    	em[418] = 396; em[419] = 0; 
+    	em[420] = 426; em[421] = 8; 
+    	em[422] = 393; em[423] = 96; 
+    	em[424] = 393; em[425] = 120; 
+    em[426] = 1; em[427] = 8; em[428] = 1; /* 426: pointer.struct.engine_st */
+    	em[429] = 5; em[430] = 0; 
+    em[431] = 1; em[432] = 8; em[433] = 1; /* 431: pointer.unsigned char */
+    	em[434] = 407; em[435] = 0; 
+    args_addr->arg_entity_index[0] = 410;
+    args_addr->arg_entity_index[1] = 396;
+    args_addr->arg_entity_index[2] = 426;
+    args_addr->arg_entity_index[3] = 431;
+    args_addr->arg_entity_index[4] = 431;
+    args_addr->ret_entity_index = 404;
     populate_arg(args_addr, arg_a);
     populate_arg(args_addr, arg_b);
     populate_arg(args_addr, arg_c);

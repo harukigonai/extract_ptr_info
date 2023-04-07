@@ -52,18 +52,18 @@ const EVP_CIPHER * bb_EVP_aes_128_cbc(void)
     uint32_t *em = args_addr->entity_metadata;
     em[0] = 8884097; em[1] = 8; em[2] = 0; /* 0: pointer.func */
     em[3] = 8884097; em[4] = 8; em[5] = 0; /* 3: pointer.func */
-    em[6] = 8884097; em[7] = 8; em[8] = 0; /* 6: pointer.func */
+    em[6] = 0; em[7] = 8; em[8] = 0; /* 6: pointer.void */
     em[9] = 8884097; em[10] = 8; em[11] = 0; /* 9: pointer.func */
     em[12] = 8884097; em[13] = 8; em[14] = 0; /* 12: pointer.func */
     em[15] = 0; em[16] = 88; em[17] = 7; /* 15: struct.evp_cipher_st */
     	em[18] = 12; em[19] = 24; 
-    	em[20] = 6; em[21] = 32; 
+    	em[20] = 3; em[21] = 32; 
     	em[22] = 9; em[23] = 40; 
-    	em[24] = 3; em[25] = 56; 
-    	em[26] = 3; em[27] = 64; 
+    	em[24] = 32; em[25] = 56; 
+    	em[26] = 32; em[27] = 64; 
     	em[28] = 0; em[29] = 72; 
-    	em[30] = 32; em[31] = 80; 
-    em[32] = 0; em[33] = 8; em[34] = 0; /* 32: pointer.void */
+    	em[30] = 6; em[31] = 80; 
+    em[32] = 8884097; em[33] = 8; em[34] = 0; /* 32: pointer.func */
     em[35] = 1; em[36] = 8; em[37] = 1; /* 35: pointer.struct.evp_cipher_st */
     	em[38] = 15; em[39] = 0; 
     args_addr->ret_entity_index = 35;
