@@ -691,7 +691,7 @@ void make_types_revisions(
 
       struct type_info *type_info_type_in_arr;
       for (auto const& [type_2, type_info_2] : types) {
-        if (strcmp(type_info_2->name, "unsigned int") == 0) {
+        if (strcmp(type_info_2->name, "long unsigned int") == 0) {
           type_info_type_in_arr = type_info_2;
         }
       }

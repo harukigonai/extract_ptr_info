@@ -148,63 +148,63 @@
 1, 8, 1, /* 353: pointer.pointer.char */
 	107, 0,
 8884097, 8, 0, /* 358: pointer.func */
-1, 8, 1, /* 361: pointer.struct.bignum_st */
-	366, 0,
-0, 24, 1, /* 366: struct.bignum_st */
-	371, 0,
-8884099, 8, 2, /* 371: pointer_to_array_of_pointers_to_stack */
-	378, 0,
-	381, 12,
-0, 4, 0, /* 378: unsigned int */
-0, 4, 0, /* 381: int */
-0, 1, 0, /* 384: char */
-8884097, 8, 0, /* 387: pointer.func */
-0, 72, 8, /* 390: struct.dh_method */
+8884097, 8, 0, /* 361: pointer.func */
+0, 72, 8, /* 364: struct.dh_method */
 	56, 0,
-	409, 8,
-	412, 16,
-	415, 24,
-	409, 32,
-	409, 40,
-	107, 56,
-	387, 64,
-8884097, 8, 0, /* 409: pointer.func */
-8884097, 8, 0, /* 412: pointer.func */
-8884097, 8, 0, /* 415: pointer.func */
-0, 32, 1, /* 418: struct.stack_st_void */
-	423, 0,
-0, 32, 2, /* 423: struct.stack_st */
-	353, 8,
-	358, 24,
-0, 144, 12, /* 430: struct.dh_st */
 	361, 8,
-	361, 16,
+	383, 16,
+	386, 24,
 	361, 32,
 	361, 40,
+	107, 56,
+	389, 64,
+8884097, 8, 0, /* 383: pointer.func */
+8884097, 8, 0, /* 386: pointer.func */
+8884097, 8, 0, /* 389: pointer.func */
+0, 1, 0, /* 392: char */
+0, 32, 2, /* 395: struct.stack_st */
+	353, 8,
+	358, 24,
+1, 8, 1, /* 402: pointer.struct.dh_st */
+	407, 0,
+0, 144, 12, /* 407: struct.dh_st */
+	434, 8,
+	434, 16,
+	434, 32,
+	434, 40,
 	457, 56,
-	361, 64,
-	361, 72,
+	434, 64,
+	434, 72,
 	471, 80,
-	361, 96,
+	434, 96,
 	479, 112,
-	489, 128,
-	494, 136,
+	494, 128,
+	499, 136,
+1, 8, 1, /* 434: pointer.struct.bignum_st */
+	439, 0,
+0, 24, 1, /* 439: struct.bignum_st */
+	444, 0,
+8884099, 8, 2, /* 444: pointer_to_array_of_pointers_to_stack */
+	451, 0,
+	454, 12,
+0, 8, 0, /* 451: long unsigned int */
+0, 4, 0, /* 454: int */
 1, 8, 1, /* 457: pointer.struct.bn_mont_ctx_st */
 	462, 0,
 0, 96, 3, /* 462: struct.bn_mont_ctx_st */
-	366, 8,
-	366, 32,
-	366, 56,
+	439, 8,
+	439, 32,
+	439, 56,
 1, 8, 1, /* 471: pointer.unsigned char */
 	476, 0,
 0, 1, 0, /* 476: unsigned char */
 0, 16, 1, /* 479: struct.crypto_ex_data_st */
 	484, 0,
 1, 8, 1, /* 484: pointer.struct.stack_st_void */
-	418, 0,
-1, 8, 1, /* 489: pointer.struct.dh_method */
-	390, 0,
-1, 8, 1, /* 494: pointer.struct.engine_st */
+	489, 0,
+0, 32, 1, /* 489: struct.stack_st_void */
+	395, 0,
+1, 8, 1, /* 494: pointer.struct.dh_method */
+	364, 0,
+1, 8, 1, /* 499: pointer.struct.engine_st */
 	5, 0,
-1, 8, 1, /* 499: pointer.struct.dh_st */
-	430, 0,
