@@ -50,187 +50,187 @@ int bb_EVP_EncryptInit_ex(EVP_CIPHER_CTX * arg_a,const EVP_CIPHER * arg_b,ENGINE
     memset(args_addr, 0, sizeof(struct lib_enter_args));
     args_addr->num_args = 0;
     uint32_t *em = args_addr->entity_metadata;
-    em[0] = 1; em[1] = 8; em[2] = 1; /* 0: pointer.struct.engine_st */
-    	em[3] = 5; em[4] = 0; 
-    em[5] = 0; em[6] = 216; em[7] = 24; /* 5: struct.engine_st */
-    	em[8] = 56; em[9] = 0; 
-    	em[10] = 56; em[11] = 8; 
-    	em[12] = 61; em[13] = 16; 
-    	em[14] = 121; em[15] = 24; 
-    	em[16] = 172; em[17] = 32; 
-    	em[18] = 208; em[19] = 40; 
-    	em[20] = 225; em[21] = 48; 
-    	em[22] = 252; em[23] = 56; 
-    	em[24] = 287; em[25] = 64; 
-    	em[26] = 295; em[27] = 72; 
-    	em[28] = 298; em[29] = 80; 
-    	em[30] = 301; em[31] = 88; 
-    	em[32] = 304; em[33] = 96; 
-    	em[34] = 307; em[35] = 104; 
-    	em[36] = 307; em[37] = 112; 
-    	em[38] = 307; em[39] = 120; 
-    	em[40] = 310; em[41] = 128; 
-    	em[42] = 313; em[43] = 136; 
-    	em[44] = 313; em[45] = 144; 
-    	em[46] = 316; em[47] = 152; 
-    	em[48] = 319; em[49] = 160; 
-    	em[50] = 331; em[51] = 184; 
-    	em[52] = 0; em[53] = 200; 
-    	em[54] = 0; em[55] = 208; 
-    em[56] = 1; em[57] = 8; em[58] = 1; /* 56: pointer.char */
-    	em[59] = 8884096; em[60] = 0; 
-    em[61] = 1; em[62] = 8; em[63] = 1; /* 61: pointer.struct.rsa_meth_st */
-    	em[64] = 66; em[65] = 0; 
-    em[66] = 0; em[67] = 112; em[68] = 13; /* 66: struct.rsa_meth_st */
-    	em[69] = 56; em[70] = 0; 
-    	em[71] = 95; em[72] = 8; 
-    	em[73] = 95; em[74] = 16; 
-    	em[75] = 95; em[76] = 24; 
-    	em[77] = 95; em[78] = 32; 
-    	em[79] = 98; em[80] = 40; 
-    	em[81] = 101; em[82] = 48; 
-    	em[83] = 104; em[84] = 56; 
-    	em[85] = 104; em[86] = 64; 
-    	em[87] = 107; em[88] = 80; 
-    	em[89] = 112; em[90] = 88; 
-    	em[91] = 115; em[92] = 96; 
-    	em[93] = 118; em[94] = 104; 
-    em[95] = 8884097; em[96] = 8; em[97] = 0; /* 95: pointer.func */
-    em[98] = 8884097; em[99] = 8; em[100] = 0; /* 98: pointer.func */
-    em[101] = 8884097; em[102] = 8; em[103] = 0; /* 101: pointer.func */
+    em[0] = 8884097; em[1] = 8; em[2] = 0; /* 0: pointer.func */
+    em[3] = 8884099; em[4] = 8; em[5] = 2; /* 3: pointer_to_array_of_pointers_to_stack */
+    	em[6] = 10; em[7] = 0; 
+    	em[8] = 13; em[9] = 20; 
+    em[10] = 0; em[11] = 8; em[12] = 0; /* 10: pointer.void */
+    em[13] = 0; em[14] = 4; em[15] = 0; /* 13: int */
+    em[16] = 1; em[17] = 8; em[18] = 1; /* 16: pointer.struct.ENGINE_CMD_DEFN_st */
+    	em[19] = 21; em[20] = 0; 
+    em[21] = 0; em[22] = 32; em[23] = 2; /* 21: struct.ENGINE_CMD_DEFN_st */
+    	em[24] = 28; em[25] = 8; 
+    	em[26] = 28; em[27] = 16; 
+    em[28] = 1; em[29] = 8; em[30] = 1; /* 28: pointer.char */
+    	em[31] = 8884096; em[32] = 0; 
+    em[33] = 8884097; em[34] = 8; em[35] = 0; /* 33: pointer.func */
+    em[36] = 8884097; em[37] = 8; em[38] = 0; /* 36: pointer.func */
+    em[39] = 8884097; em[40] = 8; em[41] = 0; /* 39: pointer.func */
+    em[42] = 8884097; em[43] = 8; em[44] = 0; /* 42: pointer.func */
+    em[45] = 8884097; em[46] = 8; em[47] = 0; /* 45: pointer.func */
+    em[48] = 8884097; em[49] = 8; em[50] = 0; /* 48: pointer.func */
+    em[51] = 1; em[52] = 8; em[53] = 1; /* 51: pointer.struct.dsa_method */
+    	em[54] = 56; em[55] = 0; 
+    em[56] = 0; em[57] = 96; em[58] = 11; /* 56: struct.dsa_method */
+    	em[59] = 28; em[60] = 0; 
+    	em[61] = 81; em[62] = 8; 
+    	em[63] = 84; em[64] = 16; 
+    	em[65] = 87; em[66] = 24; 
+    	em[67] = 90; em[68] = 32; 
+    	em[69] = 93; em[70] = 40; 
+    	em[71] = 96; em[72] = 48; 
+    	em[73] = 96; em[74] = 56; 
+    	em[75] = 99; em[76] = 72; 
+    	em[77] = 104; em[78] = 80; 
+    	em[79] = 96; em[80] = 88; 
+    em[81] = 8884097; em[82] = 8; em[83] = 0; /* 81: pointer.func */
+    em[84] = 8884097; em[85] = 8; em[86] = 0; /* 84: pointer.func */
+    em[87] = 8884097; em[88] = 8; em[89] = 0; /* 87: pointer.func */
+    em[90] = 8884097; em[91] = 8; em[92] = 0; /* 90: pointer.func */
+    em[93] = 8884097; em[94] = 8; em[95] = 0; /* 93: pointer.func */
+    em[96] = 8884097; em[97] = 8; em[98] = 0; /* 96: pointer.func */
+    em[99] = 1; em[100] = 8; em[101] = 1; /* 99: pointer.char */
+    	em[102] = 8884096; em[103] = 0; 
     em[104] = 8884097; em[105] = 8; em[106] = 0; /* 104: pointer.func */
-    em[107] = 1; em[108] = 8; em[109] = 1; /* 107: pointer.char */
-    	em[110] = 8884096; em[111] = 0; 
-    em[112] = 8884097; em[113] = 8; em[114] = 0; /* 112: pointer.func */
-    em[115] = 8884097; em[116] = 8; em[117] = 0; /* 115: pointer.func */
-    em[118] = 8884097; em[119] = 8; em[120] = 0; /* 118: pointer.func */
-    em[121] = 1; em[122] = 8; em[123] = 1; /* 121: pointer.struct.dsa_method */
-    	em[124] = 126; em[125] = 0; 
-    em[126] = 0; em[127] = 96; em[128] = 11; /* 126: struct.dsa_method */
-    	em[129] = 56; em[130] = 0; 
-    	em[131] = 151; em[132] = 8; 
-    	em[133] = 154; em[134] = 16; 
-    	em[135] = 157; em[136] = 24; 
-    	em[137] = 160; em[138] = 32; 
-    	em[139] = 163; em[140] = 40; 
-    	em[141] = 166; em[142] = 48; 
-    	em[143] = 166; em[144] = 56; 
-    	em[145] = 107; em[146] = 72; 
-    	em[147] = 169; em[148] = 80; 
-    	em[149] = 166; em[150] = 88; 
-    em[151] = 8884097; em[152] = 8; em[153] = 0; /* 151: pointer.func */
-    em[154] = 8884097; em[155] = 8; em[156] = 0; /* 154: pointer.func */
-    em[157] = 8884097; em[158] = 8; em[159] = 0; /* 157: pointer.func */
-    em[160] = 8884097; em[161] = 8; em[162] = 0; /* 160: pointer.func */
-    em[163] = 8884097; em[164] = 8; em[165] = 0; /* 163: pointer.func */
-    em[166] = 8884097; em[167] = 8; em[168] = 0; /* 166: pointer.func */
-    em[169] = 8884097; em[170] = 8; em[171] = 0; /* 169: pointer.func */
-    em[172] = 1; em[173] = 8; em[174] = 1; /* 172: pointer.struct.dh_method */
-    	em[175] = 177; em[176] = 0; 
-    em[177] = 0; em[178] = 72; em[179] = 8; /* 177: struct.dh_method */
-    	em[180] = 56; em[181] = 0; 
-    	em[182] = 196; em[183] = 8; 
-    	em[184] = 199; em[185] = 16; 
-    	em[186] = 202; em[187] = 24; 
-    	em[188] = 196; em[189] = 32; 
-    	em[190] = 196; em[191] = 40; 
-    	em[192] = 107; em[193] = 56; 
-    	em[194] = 205; em[195] = 64; 
-    em[196] = 8884097; em[197] = 8; em[198] = 0; /* 196: pointer.func */
-    em[199] = 8884097; em[200] = 8; em[201] = 0; /* 199: pointer.func */
-    em[202] = 8884097; em[203] = 8; em[204] = 0; /* 202: pointer.func */
-    em[205] = 8884097; em[206] = 8; em[207] = 0; /* 205: pointer.func */
-    em[208] = 1; em[209] = 8; em[210] = 1; /* 208: pointer.struct.ecdh_method */
-    	em[211] = 213; em[212] = 0; 
-    em[213] = 0; em[214] = 32; em[215] = 3; /* 213: struct.ecdh_method */
-    	em[216] = 56; em[217] = 0; 
-    	em[218] = 222; em[219] = 8; 
-    	em[220] = 107; em[221] = 24; 
-    em[222] = 8884097; em[223] = 8; em[224] = 0; /* 222: pointer.func */
-    em[225] = 1; em[226] = 8; em[227] = 1; /* 225: pointer.struct.ecdsa_method */
-    	em[228] = 230; em[229] = 0; 
-    em[230] = 0; em[231] = 48; em[232] = 5; /* 230: struct.ecdsa_method */
-    	em[233] = 56; em[234] = 0; 
-    	em[235] = 243; em[236] = 8; 
-    	em[237] = 246; em[238] = 16; 
-    	em[239] = 249; em[240] = 24; 
-    	em[241] = 107; em[242] = 40; 
-    em[243] = 8884097; em[244] = 8; em[245] = 0; /* 243: pointer.func */
-    em[246] = 8884097; em[247] = 8; em[248] = 0; /* 246: pointer.func */
-    em[249] = 8884097; em[250] = 8; em[251] = 0; /* 249: pointer.func */
-    em[252] = 1; em[253] = 8; em[254] = 1; /* 252: pointer.struct.rand_meth_st */
-    	em[255] = 257; em[256] = 0; 
-    em[257] = 0; em[258] = 48; em[259] = 6; /* 257: struct.rand_meth_st */
-    	em[260] = 272; em[261] = 0; 
-    	em[262] = 275; em[263] = 8; 
-    	em[264] = 278; em[265] = 16; 
-    	em[266] = 281; em[267] = 24; 
-    	em[268] = 275; em[269] = 32; 
-    	em[270] = 284; em[271] = 40; 
-    em[272] = 8884097; em[273] = 8; em[274] = 0; /* 272: pointer.func */
-    em[275] = 8884097; em[276] = 8; em[277] = 0; /* 275: pointer.func */
-    em[278] = 8884097; em[279] = 8; em[280] = 0; /* 278: pointer.func */
-    em[281] = 8884097; em[282] = 8; em[283] = 0; /* 281: pointer.func */
-    em[284] = 8884097; em[285] = 8; em[286] = 0; /* 284: pointer.func */
-    em[287] = 1; em[288] = 8; em[289] = 1; /* 287: pointer.struct.store_method_st */
-    	em[290] = 292; em[291] = 0; 
-    em[292] = 0; em[293] = 0; em[294] = 0; /* 292: struct.store_method_st */
+    em[107] = 8884097; em[108] = 8; em[109] = 0; /* 107: pointer.func */
+    em[110] = 8884097; em[111] = 8; em[112] = 0; /* 110: pointer.func */
+    em[113] = 1; em[114] = 8; em[115] = 1; /* 113: pointer.struct.engine_st */
+    	em[116] = 118; em[117] = 0; 
+    em[118] = 0; em[119] = 216; em[120] = 24; /* 118: struct.engine_st */
+    	em[121] = 28; em[122] = 0; 
+    	em[123] = 28; em[124] = 8; 
+    	em[125] = 169; em[126] = 16; 
+    	em[127] = 51; em[128] = 24; 
+    	em[129] = 218; em[130] = 32; 
+    	em[131] = 254; em[132] = 40; 
+    	em[133] = 271; em[134] = 48; 
+    	em[135] = 298; em[136] = 56; 
+    	em[137] = 333; em[138] = 64; 
+    	em[139] = 341; em[140] = 72; 
+    	em[141] = 344; em[142] = 80; 
+    	em[143] = 48; em[144] = 88; 
+    	em[145] = 45; em[146] = 96; 
+    	em[147] = 42; em[148] = 104; 
+    	em[149] = 42; em[150] = 112; 
+    	em[151] = 42; em[152] = 120; 
+    	em[153] = 39; em[154] = 128; 
+    	em[155] = 36; em[156] = 136; 
+    	em[157] = 36; em[158] = 144; 
+    	em[159] = 33; em[160] = 152; 
+    	em[161] = 16; em[162] = 160; 
+    	em[163] = 347; em[164] = 184; 
+    	em[165] = 354; em[166] = 200; 
+    	em[167] = 354; em[168] = 208; 
+    em[169] = 1; em[170] = 8; em[171] = 1; /* 169: pointer.struct.rsa_meth_st */
+    	em[172] = 174; em[173] = 0; 
+    em[174] = 0; em[175] = 112; em[176] = 13; /* 174: struct.rsa_meth_st */
+    	em[177] = 28; em[178] = 0; 
+    	em[179] = 203; em[180] = 8; 
+    	em[181] = 203; em[182] = 16; 
+    	em[183] = 203; em[184] = 24; 
+    	em[185] = 203; em[186] = 32; 
+    	em[187] = 206; em[188] = 40; 
+    	em[189] = 107; em[190] = 48; 
+    	em[191] = 209; em[192] = 56; 
+    	em[193] = 209; em[194] = 64; 
+    	em[195] = 99; em[196] = 80; 
+    	em[197] = 212; em[198] = 88; 
+    	em[199] = 110; em[200] = 96; 
+    	em[201] = 215; em[202] = 104; 
+    em[203] = 8884097; em[204] = 8; em[205] = 0; /* 203: pointer.func */
+    em[206] = 8884097; em[207] = 8; em[208] = 0; /* 206: pointer.func */
+    em[209] = 8884097; em[210] = 8; em[211] = 0; /* 209: pointer.func */
+    em[212] = 8884097; em[213] = 8; em[214] = 0; /* 212: pointer.func */
+    em[215] = 8884097; em[216] = 8; em[217] = 0; /* 215: pointer.func */
+    em[218] = 1; em[219] = 8; em[220] = 1; /* 218: pointer.struct.dh_method */
+    	em[221] = 223; em[222] = 0; 
+    em[223] = 0; em[224] = 72; em[225] = 8; /* 223: struct.dh_method */
+    	em[226] = 28; em[227] = 0; 
+    	em[228] = 242; em[229] = 8; 
+    	em[230] = 245; em[231] = 16; 
+    	em[232] = 248; em[233] = 24; 
+    	em[234] = 242; em[235] = 32; 
+    	em[236] = 242; em[237] = 40; 
+    	em[238] = 99; em[239] = 56; 
+    	em[240] = 251; em[241] = 64; 
+    em[242] = 8884097; em[243] = 8; em[244] = 0; /* 242: pointer.func */
+    em[245] = 8884097; em[246] = 8; em[247] = 0; /* 245: pointer.func */
+    em[248] = 8884097; em[249] = 8; em[250] = 0; /* 248: pointer.func */
+    em[251] = 8884097; em[252] = 8; em[253] = 0; /* 251: pointer.func */
+    em[254] = 1; em[255] = 8; em[256] = 1; /* 254: pointer.struct.ecdh_method */
+    	em[257] = 259; em[258] = 0; 
+    em[259] = 0; em[260] = 32; em[261] = 3; /* 259: struct.ecdh_method */
+    	em[262] = 28; em[263] = 0; 
+    	em[264] = 268; em[265] = 8; 
+    	em[266] = 99; em[267] = 24; 
+    em[268] = 8884097; em[269] = 8; em[270] = 0; /* 268: pointer.func */
+    em[271] = 1; em[272] = 8; em[273] = 1; /* 271: pointer.struct.ecdsa_method */
+    	em[274] = 276; em[275] = 0; 
+    em[276] = 0; em[277] = 48; em[278] = 5; /* 276: struct.ecdsa_method */
+    	em[279] = 28; em[280] = 0; 
+    	em[281] = 289; em[282] = 8; 
+    	em[283] = 292; em[284] = 16; 
+    	em[285] = 295; em[286] = 24; 
+    	em[287] = 99; em[288] = 40; 
+    em[289] = 8884097; em[290] = 8; em[291] = 0; /* 289: pointer.func */
+    em[292] = 8884097; em[293] = 8; em[294] = 0; /* 292: pointer.func */
     em[295] = 8884097; em[296] = 8; em[297] = 0; /* 295: pointer.func */
-    em[298] = 8884097; em[299] = 8; em[300] = 0; /* 298: pointer.func */
-    em[301] = 8884097; em[302] = 8; em[303] = 0; /* 301: pointer.func */
-    em[304] = 8884097; em[305] = 8; em[306] = 0; /* 304: pointer.func */
-    em[307] = 8884097; em[308] = 8; em[309] = 0; /* 307: pointer.func */
-    em[310] = 8884097; em[311] = 8; em[312] = 0; /* 310: pointer.func */
-    em[313] = 8884097; em[314] = 8; em[315] = 0; /* 313: pointer.func */
-    em[316] = 8884097; em[317] = 8; em[318] = 0; /* 316: pointer.func */
-    em[319] = 1; em[320] = 8; em[321] = 1; /* 319: pointer.struct.ENGINE_CMD_DEFN_st */
-    	em[322] = 324; em[323] = 0; 
-    em[324] = 0; em[325] = 32; em[326] = 2; /* 324: struct.ENGINE_CMD_DEFN_st */
-    	em[327] = 56; em[328] = 8; 
-    	em[329] = 56; em[330] = 16; 
-    em[331] = 0; em[332] = 32; em[333] = 2; /* 331: struct.crypto_ex_data_st_fake */
-    	em[334] = 338; em[335] = 8; 
-    	em[336] = 351; em[337] = 24; 
-    em[338] = 8884099; em[339] = 8; em[340] = 2; /* 338: pointer_to_array_of_pointers_to_stack */
-    	em[341] = 345; em[342] = 0; 
-    	em[343] = 348; em[344] = 20; 
-    em[345] = 0; em[346] = 8; em[347] = 0; /* 345: pointer.void */
-    em[348] = 0; em[349] = 4; em[350] = 0; /* 348: int */
-    em[351] = 8884097; em[352] = 8; em[353] = 0; /* 351: pointer.func */
-    em[354] = 0; em[355] = 88; em[356] = 7; /* 354: struct.evp_cipher_st */
-    	em[357] = 371; em[358] = 24; 
-    	em[359] = 374; em[360] = 32; 
-    	em[361] = 377; em[362] = 40; 
-    	em[363] = 380; em[364] = 56; 
-    	em[365] = 380; em[366] = 64; 
-    	em[367] = 383; em[368] = 72; 
-    	em[369] = 345; em[370] = 80; 
-    em[371] = 8884097; em[372] = 8; em[373] = 0; /* 371: pointer.func */
-    em[374] = 8884097; em[375] = 8; em[376] = 0; /* 374: pointer.func */
-    em[377] = 8884097; em[378] = 8; em[379] = 0; /* 377: pointer.func */
-    em[380] = 8884097; em[381] = 8; em[382] = 0; /* 380: pointer.func */
-    em[383] = 8884097; em[384] = 8; em[385] = 0; /* 383: pointer.func */
-    em[386] = 0; em[387] = 1; em[388] = 0; /* 386: unsigned char */
-    em[389] = 1; em[390] = 8; em[391] = 1; /* 389: pointer.struct.evp_cipher_st */
-    	em[392] = 354; em[393] = 0; 
-    em[394] = 1; em[395] = 8; em[396] = 1; /* 394: pointer.struct.evp_cipher_ctx_st */
-    	em[397] = 399; em[398] = 0; 
-    em[399] = 0; em[400] = 168; em[401] = 4; /* 399: struct.evp_cipher_ctx_st */
-    	em[402] = 389; em[403] = 0; 
-    	em[404] = 410; em[405] = 8; 
-    	em[406] = 345; em[407] = 96; 
-    	em[408] = 345; em[409] = 120; 
-    em[410] = 1; em[411] = 8; em[412] = 1; /* 410: pointer.struct.engine_st */
-    	em[413] = 5; em[414] = 0; 
-    em[415] = 1; em[416] = 8; em[417] = 1; /* 415: pointer.unsigned char */
-    	em[418] = 386; em[419] = 0; 
-    em[420] = 0; em[421] = 1; em[422] = 0; /* 420: char */
-    args_addr->arg_entity_index[0] = 394;
-    args_addr->arg_entity_index[1] = 389;
-    args_addr->arg_entity_index[2] = 410;
-    args_addr->arg_entity_index[3] = 415;
-    args_addr->arg_entity_index[4] = 415;
-    args_addr->ret_entity_index = 348;
+    em[298] = 1; em[299] = 8; em[300] = 1; /* 298: pointer.struct.rand_meth_st */
+    	em[301] = 303; em[302] = 0; 
+    em[303] = 0; em[304] = 48; em[305] = 6; /* 303: struct.rand_meth_st */
+    	em[306] = 318; em[307] = 0; 
+    	em[308] = 321; em[309] = 8; 
+    	em[310] = 324; em[311] = 16; 
+    	em[312] = 327; em[313] = 24; 
+    	em[314] = 321; em[315] = 32; 
+    	em[316] = 330; em[317] = 40; 
+    em[318] = 8884097; em[319] = 8; em[320] = 0; /* 318: pointer.func */
+    em[321] = 8884097; em[322] = 8; em[323] = 0; /* 321: pointer.func */
+    em[324] = 8884097; em[325] = 8; em[326] = 0; /* 324: pointer.func */
+    em[327] = 8884097; em[328] = 8; em[329] = 0; /* 327: pointer.func */
+    em[330] = 8884097; em[331] = 8; em[332] = 0; /* 330: pointer.func */
+    em[333] = 1; em[334] = 8; em[335] = 1; /* 333: pointer.struct.store_method_st */
+    	em[336] = 338; em[337] = 0; 
+    em[338] = 0; em[339] = 0; em[340] = 0; /* 338: struct.store_method_st */
+    em[341] = 8884097; em[342] = 8; em[343] = 0; /* 341: pointer.func */
+    em[344] = 8884097; em[345] = 8; em[346] = 0; /* 344: pointer.func */
+    em[347] = 0; em[348] = 32; em[349] = 2; /* 347: struct.crypto_ex_data_st_fake */
+    	em[350] = 3; em[351] = 8; 
+    	em[352] = 0; em[353] = 24; 
+    em[354] = 1; em[355] = 8; em[356] = 1; /* 354: pointer.struct.engine_st */
+    	em[357] = 118; em[358] = 0; 
+    em[359] = 0; em[360] = 1; em[361] = 0; /* 359: unsigned char */
+    em[362] = 1; em[363] = 8; em[364] = 1; /* 362: pointer.struct.evp_cipher_st */
+    	em[365] = 367; em[366] = 0; 
+    em[367] = 0; em[368] = 88; em[369] = 7; /* 367: struct.evp_cipher_st */
+    	em[370] = 384; em[371] = 24; 
+    	em[372] = 387; em[373] = 32; 
+    	em[374] = 390; em[375] = 40; 
+    	em[376] = 393; em[377] = 56; 
+    	em[378] = 393; em[379] = 64; 
+    	em[380] = 396; em[381] = 72; 
+    	em[382] = 10; em[383] = 80; 
+    em[384] = 8884097; em[385] = 8; em[386] = 0; /* 384: pointer.func */
+    em[387] = 8884097; em[388] = 8; em[389] = 0; /* 387: pointer.func */
+    em[390] = 8884097; em[391] = 8; em[392] = 0; /* 390: pointer.func */
+    em[393] = 8884097; em[394] = 8; em[395] = 0; /* 393: pointer.func */
+    em[396] = 8884097; em[397] = 8; em[398] = 0; /* 396: pointer.func */
+    em[399] = 0; em[400] = 1; em[401] = 0; /* 399: char */
+    em[402] = 1; em[403] = 8; em[404] = 1; /* 402: pointer.unsigned char */
+    	em[405] = 359; em[406] = 0; 
+    em[407] = 1; em[408] = 8; em[409] = 1; /* 407: pointer.struct.evp_cipher_ctx_st */
+    	em[410] = 412; em[411] = 0; 
+    em[412] = 0; em[413] = 168; em[414] = 4; /* 412: struct.evp_cipher_ctx_st */
+    	em[415] = 362; em[416] = 0; 
+    	em[417] = 113; em[418] = 8; 
+    	em[419] = 10; em[420] = 96; 
+    	em[421] = 10; em[422] = 120; 
+    args_addr->arg_entity_index[0] = 407;
+    args_addr->arg_entity_index[1] = 362;
+    args_addr->arg_entity_index[2] = 113;
+    args_addr->arg_entity_index[3] = 402;
+    args_addr->arg_entity_index[4] = 402;
+    args_addr->ret_entity_index = 13;
     populate_arg(args_addr, arg_a);
     populate_arg(args_addr, arg_b);
     populate_arg(args_addr, arg_c);
