@@ -823,8 +823,7 @@ void make_types_revisions(
   }
 
   for (auto const& [type, type_info] : types) {
-    if (strstr(type_info->name, "struct.evp_pkey_st") ==
-        &type_info->name[0]) {
+    if (!strcmp(type_info->name, "struct.evp_pkey_st")) {
 
       struct child_type *type_child_type = (*type_info->child_types)[0];
       struct child_type *union_child_type = (*type_info->child_types)[5];
@@ -838,7 +837,7 @@ void make_types_revisions(
       );
       strcpy(
         new_union_type->type,
-        "union"
+        "union_handled"
       );
       new_union_type->size =
         old_union_type->size;
@@ -1187,7 +1186,10 @@ int setEntInArray(uint64_t *ent_array,
     ind += 3 + 2 * child_types_size;
     // ent_array[local_ind++] = 9999999999999999;
     // ent_array[local_ind++] = ent_to_id[type_info];
-    if (!strcmp(type_info->type, "pointer_to_array")) {
+
+    if (!strcmp(type_info->type, "union_handled")) {
+      ent_array[local_ind++] = 8884101;
+    } else if (!strcmp(type_info->type, "pointer_to_array")) {
       ent_array[local_ind++] = 8884099;
     } else if (!strcmp(type_info->type, "pointer")) {
       ent_array[local_ind++] = 1;
