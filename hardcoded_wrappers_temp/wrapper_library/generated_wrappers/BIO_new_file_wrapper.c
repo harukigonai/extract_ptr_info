@@ -51,24 +51,24 @@ BIO * bb_BIO_new_file(const char * arg_a,const char * arg_b)
     args_addr->num_args = 0;
     uint32_t *em = args_addr->entity_metadata;
     em[0] = 8884097; em[1] = 8; em[2] = 0; /* 0: pointer.func */
-    em[3] = 8884099; em[4] = 8; em[5] = 2; /* 3: pointer_to_array_of_pointers_to_stack */
-    	em[6] = 10; em[7] = 0; 
-    	em[8] = 13; em[9] = 20; 
-    em[10] = 0; em[11] = 8; em[12] = 0; /* 10: pointer.void */
-    em[13] = 0; em[14] = 4; em[15] = 0; /* 13: int */
-    em[16] = 0; em[17] = 32; em[18] = 2; /* 16: struct.crypto_ex_data_st_fake */
-    	em[19] = 3; em[20] = 8; 
-    	em[21] = 0; em[22] = 24; 
+    em[3] = 0; em[4] = 32; em[5] = 2; /* 3: struct.crypto_ex_data_st_fake */
+    	em[6] = 10; em[7] = 8; 
+    	em[8] = 0; em[9] = 24; 
+    em[10] = 8884099; em[11] = 8; em[12] = 2; /* 10: pointer_to_array_of_pointers_to_stack */
+    	em[13] = 17; em[14] = 0; 
+    	em[15] = 20; em[16] = 20; 
+    em[17] = 0; em[18] = 8; em[19] = 0; /* 17: pointer.void */
+    em[20] = 0; em[21] = 4; em[22] = 0; /* 20: int */
     em[23] = 1; em[24] = 8; em[25] = 1; /* 23: pointer.struct.bio_st */
     	em[26] = 28; em[27] = 0; 
     em[28] = 0; em[29] = 112; em[30] = 7; /* 28: struct.bio_st */
     	em[31] = 45; em[32] = 0; 
     	em[33] = 94; em[34] = 8; 
     	em[35] = 97; em[36] = 16; 
-    	em[37] = 10; em[38] = 48; 
+    	em[37] = 17; em[38] = 48; 
     	em[39] = 23; em[40] = 56; 
     	em[41] = 23; em[42] = 64; 
-    	em[43] = 16; em[44] = 96; 
+    	em[43] = 3; em[44] = 96; 
     em[45] = 1; em[46] = 8; em[47] = 1; /* 45: pointer.struct.bio_method_st */
     	em[48] = 50; em[49] = 0; 
     em[50] = 0; em[51] = 80; em[52] = 9; /* 50: struct.bio_method_st */

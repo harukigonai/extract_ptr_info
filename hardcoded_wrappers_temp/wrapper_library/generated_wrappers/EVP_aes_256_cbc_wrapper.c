@@ -50,20 +50,20 @@ const EVP_CIPHER * bb_EVP_aes_256_cbc(void)
     memset(args_addr, 0, sizeof(struct lib_enter_args));
     args_addr->num_args = 0;
     uint32_t *em = args_addr->entity_metadata;
-    em[0] = 0; em[1] = 8; em[2] = 0; /* 0: pointer.void */
+    em[0] = 8884097; em[1] = 8; em[2] = 0; /* 0: pointer.func */
     em[3] = 8884097; em[4] = 8; em[5] = 0; /* 3: pointer.func */
     em[6] = 8884097; em[7] = 8; em[8] = 0; /* 6: pointer.func */
     em[9] = 8884097; em[10] = 8; em[11] = 0; /* 9: pointer.func */
     em[12] = 0; em[13] = 88; em[14] = 7; /* 12: struct.evp_cipher_st */
-    	em[15] = 29; em[16] = 24; 
-    	em[17] = 6; em[18] = 32; 
-    	em[19] = 32; em[20] = 40; 
-    	em[21] = 3; em[22] = 56; 
-    	em[23] = 3; em[24] = 64; 
-    	em[25] = 9; em[26] = 72; 
-    	em[27] = 0; em[28] = 80; 
+    	em[15] = 9; em[16] = 24; 
+    	em[17] = 3; em[18] = 32; 
+    	em[19] = 6; em[20] = 40; 
+    	em[21] = 29; em[22] = 56; 
+    	em[23] = 29; em[24] = 64; 
+    	em[25] = 0; em[26] = 72; 
+    	em[27] = 32; em[28] = 80; 
     em[29] = 8884097; em[30] = 8; em[31] = 0; /* 29: pointer.func */
-    em[32] = 8884097; em[33] = 8; em[34] = 0; /* 32: pointer.func */
+    em[32] = 0; em[33] = 8; em[34] = 0; /* 32: pointer.void */
     em[35] = 1; em[36] = 8; em[37] = 1; /* 35: pointer.struct.evp_cipher_st */
     	em[38] = 12; em[39] = 0; 
     args_addr->ret_entity_index = 35;

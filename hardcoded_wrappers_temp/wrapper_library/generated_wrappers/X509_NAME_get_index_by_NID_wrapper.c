@@ -56,15 +56,15 @@ int bb_X509_NAME_get_index_by_NID(X509_NAME * arg_a,int arg_b,int arg_c)
     	em[8] = 0; em[9] = 8; 
     em[10] = 1; em[11] = 8; em[12] = 1; /* 10: pointer.struct.buf_mem_st */
     	em[13] = 5; em[14] = 0; 
-    em[15] = 0; em[16] = 1; em[17] = 0; /* 15: unsigned char */
-    em[18] = 1; em[19] = 8; em[20] = 1; /* 18: pointer.struct.asn1_string_st */
-    	em[21] = 23; em[22] = 0; 
-    em[23] = 0; em[24] = 24; em[25] = 1; /* 23: struct.asn1_string_st */
-    	em[26] = 28; em[27] = 8; 
-    em[28] = 1; em[29] = 8; em[30] = 1; /* 28: pointer.unsigned char */
-    	em[31] = 15; em[32] = 0; 
+    em[15] = 1; em[16] = 8; em[17] = 1; /* 15: pointer.struct.asn1_string_st */
+    	em[18] = 20; em[19] = 0; 
+    em[20] = 0; em[21] = 24; em[22] = 1; /* 20: struct.asn1_string_st */
+    	em[23] = 25; em[24] = 8; 
+    em[25] = 1; em[26] = 8; em[27] = 1; /* 25: pointer.unsigned char */
+    	em[28] = 30; em[29] = 0; 
+    em[30] = 0; em[31] = 1; em[32] = 0; /* 30: unsigned char */
     em[33] = 1; em[34] = 8; em[35] = 1; /* 33: pointer.unsigned char */
-    	em[36] = 15; em[37] = 0; 
+    	em[36] = 30; em[37] = 0; 
     em[38] = 0; em[39] = 1; em[40] = 0; /* 38: char */
     em[41] = 8884097; em[42] = 8; em[43] = 0; /* 41: pointer.func */
     em[44] = 1; em[45] = 8; em[46] = 1; /* 44: pointer.struct.X509_name_st */
@@ -72,7 +72,7 @@ int bb_X509_NAME_get_index_by_NID(X509_NAME * arg_a,int arg_b,int arg_c)
     em[49] = 0; em[50] = 40; em[51] = 3; /* 49: struct.X509_name_st */
     	em[52] = 58; em[53] = 0; 
     	em[54] = 10; em[55] = 16; 
-    	em[56] = 28; em[57] = 24; 
+    	em[56] = 25; em[57] = 24; 
     em[58] = 1; em[59] = 8; em[60] = 1; /* 58: pointer.struct.stack_st_X509_NAME_ENTRY */
     	em[61] = 63; em[62] = 0; 
     em[63] = 0; em[64] = 32; em[65] = 2; /* 63: struct.stack_st_fake_X509_NAME_ENTRY */
@@ -87,7 +87,7 @@ int bb_X509_NAME_get_index_by_NID(X509_NAME * arg_a,int arg_b,int arg_c)
     	em[85] = 87; em[86] = 0; 
     em[87] = 0; em[88] = 24; em[89] = 2; /* 87: struct.X509_name_entry_st */
     	em[90] = 94; em[91] = 0; 
-    	em[92] = 18; em[93] = 8; 
+    	em[92] = 15; em[93] = 8; 
     em[94] = 1; em[95] = 8; em[96] = 1; /* 94: pointer.struct.asn1_object_st */
     	em[97] = 99; em[98] = 0; 
     em[99] = 0; em[100] = 40; em[101] = 3; /* 99: struct.asn1_object_st */

@@ -48,11 +48,11 @@ void bb_ERR_remove_thread_state(const CRYPTO_THREADID * arg_a)
     memset(args_addr, 0, sizeof(struct lib_enter_args));
     args_addr->num_args = 0;
     uint32_t *em = args_addr->entity_metadata;
-    em[0] = 0; em[1] = 16; em[2] = 1; /* 0: struct.crypto_threadid_st */
-    	em[3] = 5; em[4] = 0; 
-    em[5] = 0; em[6] = 8; em[7] = 0; /* 5: pointer.void */
+    em[0] = 0; em[1] = 8; em[2] = 0; /* 0: pointer.void */
+    em[3] = 0; em[4] = 16; em[5] = 1; /* 3: struct.crypto_threadid_st */
+    	em[6] = 0; em[7] = 0; 
     em[8] = 1; em[9] = 8; em[10] = 1; /* 8: pointer.struct.crypto_threadid_st */
-    	em[11] = 0; em[12] = 0; 
+    	em[11] = 3; em[12] = 0; 
     args_addr->arg_entity_index[0] = 8;
     args_addr->ret_entity_index = -1;
     populate_arg(args_addr, arg_a);

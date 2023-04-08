@@ -197,39 +197,39 @@ int bb_EVP_EncryptInit_ex(EVP_CIPHER_CTX * arg_a,const EVP_CIPHER * arg_b,ENGINE
     em[345] = 0; em[346] = 8; em[347] = 0; /* 345: pointer.void */
     em[348] = 0; em[349] = 4; em[350] = 0; /* 348: int */
     em[351] = 8884097; em[352] = 8; em[353] = 0; /* 351: pointer.func */
-    em[354] = 0; em[355] = 1; em[356] = 0; /* 354: unsigned char */
-    em[357] = 8884097; em[358] = 8; em[359] = 0; /* 357: pointer.func */
-    em[360] = 1; em[361] = 8; em[362] = 1; /* 360: pointer.struct.evp_cipher_st */
-    	em[363] = 365; em[364] = 0; 
-    em[365] = 0; em[366] = 88; em[367] = 7; /* 365: struct.evp_cipher_st */
-    	em[368] = 357; em[369] = 24; 
-    	em[370] = 382; em[371] = 32; 
-    	em[372] = 385; em[373] = 40; 
-    	em[374] = 388; em[375] = 56; 
-    	em[376] = 388; em[377] = 64; 
-    	em[378] = 391; em[379] = 72; 
-    	em[380] = 345; em[381] = 80; 
-    em[382] = 8884097; em[383] = 8; em[384] = 0; /* 382: pointer.func */
-    em[385] = 8884097; em[386] = 8; em[387] = 0; /* 385: pointer.func */
-    em[388] = 8884097; em[389] = 8; em[390] = 0; /* 388: pointer.func */
-    em[391] = 8884097; em[392] = 8; em[393] = 0; /* 391: pointer.func */
-    em[394] = 1; em[395] = 8; em[396] = 1; /* 394: pointer.struct.engine_st */
-    	em[397] = 5; em[398] = 0; 
-    em[399] = 0; em[400] = 1; em[401] = 0; /* 399: char */
-    em[402] = 1; em[403] = 8; em[404] = 1; /* 402: pointer.unsigned char */
-    	em[405] = 354; em[406] = 0; 
-    em[407] = 1; em[408] = 8; em[409] = 1; /* 407: pointer.struct.evp_cipher_ctx_st */
-    	em[410] = 412; em[411] = 0; 
-    em[412] = 0; em[413] = 168; em[414] = 4; /* 412: struct.evp_cipher_ctx_st */
-    	em[415] = 360; em[416] = 0; 
-    	em[417] = 394; em[418] = 8; 
-    	em[419] = 345; em[420] = 96; 
-    	em[421] = 345; em[422] = 120; 
-    args_addr->arg_entity_index[0] = 407;
-    args_addr->arg_entity_index[1] = 360;
-    args_addr->arg_entity_index[2] = 394;
-    args_addr->arg_entity_index[3] = 402;
-    args_addr->arg_entity_index[4] = 402;
+    em[354] = 0; em[355] = 88; em[356] = 7; /* 354: struct.evp_cipher_st */
+    	em[357] = 371; em[358] = 24; 
+    	em[359] = 374; em[360] = 32; 
+    	em[361] = 377; em[362] = 40; 
+    	em[363] = 380; em[364] = 56; 
+    	em[365] = 380; em[366] = 64; 
+    	em[367] = 383; em[368] = 72; 
+    	em[369] = 345; em[370] = 80; 
+    em[371] = 8884097; em[372] = 8; em[373] = 0; /* 371: pointer.func */
+    em[374] = 8884097; em[375] = 8; em[376] = 0; /* 374: pointer.func */
+    em[377] = 8884097; em[378] = 8; em[379] = 0; /* 377: pointer.func */
+    em[380] = 8884097; em[381] = 8; em[382] = 0; /* 380: pointer.func */
+    em[383] = 8884097; em[384] = 8; em[385] = 0; /* 383: pointer.func */
+    em[386] = 0; em[387] = 1; em[388] = 0; /* 386: unsigned char */
+    em[389] = 1; em[390] = 8; em[391] = 1; /* 389: pointer.struct.evp_cipher_st */
+    	em[392] = 354; em[393] = 0; 
+    em[394] = 0; em[395] = 1; em[396] = 0; /* 394: char */
+    em[397] = 1; em[398] = 8; em[399] = 1; /* 397: pointer.struct.evp_cipher_ctx_st */
+    	em[400] = 402; em[401] = 0; 
+    em[402] = 0; em[403] = 168; em[404] = 4; /* 402: struct.evp_cipher_ctx_st */
+    	em[405] = 389; em[406] = 0; 
+    	em[407] = 413; em[408] = 8; 
+    	em[409] = 345; em[410] = 96; 
+    	em[411] = 345; em[412] = 120; 
+    em[413] = 1; em[414] = 8; em[415] = 1; /* 413: pointer.struct.engine_st */
+    	em[416] = 5; em[417] = 0; 
+    em[418] = 1; em[419] = 8; em[420] = 1; /* 418: pointer.unsigned char */
+    	em[421] = 386; em[422] = 0; 
+    args_addr->arg_entity_index[0] = 397;
+    args_addr->arg_entity_index[1] = 389;
+    args_addr->arg_entity_index[2] = 413;
+    args_addr->arg_entity_index[3] = 418;
+    args_addr->arg_entity_index[4] = 418;
     args_addr->ret_entity_index = 348;
     populate_arg(args_addr, arg_a);
     populate_arg(args_addr, arg_b);

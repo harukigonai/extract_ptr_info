@@ -821,6 +821,66 @@ void make_types_revisions(
       }
     }
   }
+
+  for (auto const& [type, type_info] : types) {
+    if (strstr(type_info->name, "struct.evp_pkey_st") ==
+        &type_info->name[0]) {
+
+      struct child_type *type_child_type = (*type_info->child_types)[0];
+      struct child_type *union_child_type = (*type_info->child_types)[5];
+      struct type_info *old_union_type = union_child_type->type_info;
+
+      /* Create a copy of struct.stack_st */
+      struct type_info *new_union_type = new struct type_info;
+      strcpy(
+        new_union_type->name,
+        "union.union_of_evp_pkey_st"
+      );
+      strcpy(
+        new_union_type->type,
+        "union"
+      );
+      new_union_type->size =
+        old_union_type->size;
+      new_union_type->md_node_ptr = (MDNode *)8884101; /* union */
+      new_union_type->child_types =
+        new vector<struct child_type *>(
+          *old_union_type->child_types
+        );
+      vector<struct child_type *> *new_union_type_children =
+        new_union_type->child_types;
+
+      (*new_union_type_children)[0]->type_info = types[(MDNode *)8884098];
+      (*new_union_type_children)[0]->offset = 0;
+      (*new_union_type_children)[1]->offset = 6;
+      (*new_union_type_children)[2]->offset = 116;
+      (*new_union_type_children)[3]->offset = 28;
+      (*new_union_type_children)[4]->offset = 408;
+
+      struct type_info *type_info_int = NULL;
+      for (auto const& [type_2, type_info_2] : types) {
+        if (strcmp(type_info_2->name, "int") == 0) {
+          type_info_int = type_info_2;
+        }
+      }
+
+      struct child_type *child_type_int =
+        new struct child_type;
+      child_type_int->type_info =
+        type_info_int;
+      /* A dummy offset, to be used to index into the parent struct */
+      child_type_int->offset = type_child_type->offset;
+      strcpy(child_type_int->name,
+        type_info_int->name);
+
+      new_union_type_children->insert(
+        new_union_type_children->end(),
+        child_type_int
+      );
+
+      union_child_type->type_info = new_union_type;
+    }
+  }
 }
 
 struct type_info *
@@ -972,6 +1032,8 @@ bool remove_non_ptr_types(
 
   if (type_info->md_node_ptr == (MDNode *)8884099) {
     /* Don't remove 8884099's children */
+  } else if (type_info->md_node_ptr == (MDNode *)8884101) {
+    contains_ptr = true;
   } else if (strcmp(type_info->name, "pointer.func") == 0) {
     for (it = child_types->begin(); it != child_types->end();) {
       struct child_type *child_type = *it;
