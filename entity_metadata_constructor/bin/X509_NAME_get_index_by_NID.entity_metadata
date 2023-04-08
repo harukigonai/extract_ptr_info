@@ -13,35 +13,35 @@
 	15, 0,
 1, 8, 1, /* 33: pointer.unsigned char */
 	15, 0,
-0, 8, 1, /* 38: pointer.X509_NAME_ENTRY */
-	43, 0,
-0, 0, 1, /* 43: X509_NAME_ENTRY */
-	48, 0,
-0, 24, 2, /* 48: struct.X509_name_entry_st */
-	55, 0,
-	18, 8,
-1, 8, 1, /* 55: pointer.struct.asn1_object_st */
-	60, 0,
-0, 40, 3, /* 60: struct.asn1_object_st */
-	69, 0,
-	69, 8,
-	33, 24,
-1, 8, 1, /* 69: pointer.char */
-	8884096, 0,
-0, 1, 0, /* 74: char */
-8884097, 8, 0, /* 77: pointer.func */
-1, 8, 1, /* 80: pointer.struct.X509_name_st */
-	85, 0,
-0, 40, 3, /* 85: struct.X509_name_st */
-	94, 0,
+0, 1, 0, /* 38: char */
+8884097, 8, 0, /* 41: pointer.func */
+1, 8, 1, /* 44: pointer.struct.X509_name_st */
+	49, 0,
+0, 40, 3, /* 49: struct.X509_name_st */
+	58, 0,
 	10, 16,
 	28, 24,
-1, 8, 1, /* 94: pointer.struct.stack_st_X509_NAME_ENTRY */
-	99, 0,
-0, 32, 2, /* 99: struct.stack_st_fake_X509_NAME_ENTRY */
-	106, 8,
-	77, 24,
-8884099, 8, 2, /* 106: pointer_to_array_of_pointers_to_stack */
-	38, 0,
+1, 8, 1, /* 58: pointer.struct.stack_st_X509_NAME_ENTRY */
+	63, 0,
+0, 32, 2, /* 63: struct.stack_st_fake_X509_NAME_ENTRY */
+	70, 8,
+	41, 24,
+8884099, 8, 2, /* 70: pointer_to_array_of_pointers_to_stack */
+	77, 0,
 	113, 20,
+0, 8, 1, /* 77: pointer.X509_NAME_ENTRY */
+	82, 0,
+0, 0, 1, /* 82: X509_NAME_ENTRY */
+	87, 0,
+0, 24, 2, /* 87: struct.X509_name_entry_st */
+	94, 0,
+	18, 8,
+1, 8, 1, /* 94: pointer.struct.asn1_object_st */
+	99, 0,
+0, 40, 3, /* 99: struct.asn1_object_st */
+	108, 0,
+	108, 8,
+	33, 24,
+1, 8, 1, /* 108: pointer.char */
+	8884096, 0,
 0, 4, 0, /* 113: int */

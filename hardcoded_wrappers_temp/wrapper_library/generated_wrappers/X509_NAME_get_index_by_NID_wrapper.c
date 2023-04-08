@@ -65,39 +65,39 @@ int bb_X509_NAME_get_index_by_NID(X509_NAME * arg_a,int arg_b,int arg_c)
     	em[31] = 15; em[32] = 0; 
     em[33] = 1; em[34] = 8; em[35] = 1; /* 33: pointer.unsigned char */
     	em[36] = 15; em[37] = 0; 
-    em[38] = 0; em[39] = 8; em[40] = 1; /* 38: pointer.X509_NAME_ENTRY */
-    	em[41] = 43; em[42] = 0; 
-    em[43] = 0; em[44] = 0; em[45] = 1; /* 43: X509_NAME_ENTRY */
-    	em[46] = 48; em[47] = 0; 
-    em[48] = 0; em[49] = 24; em[50] = 2; /* 48: struct.X509_name_entry_st */
-    	em[51] = 55; em[52] = 0; 
-    	em[53] = 18; em[54] = 8; 
-    em[55] = 1; em[56] = 8; em[57] = 1; /* 55: pointer.struct.asn1_object_st */
-    	em[58] = 60; em[59] = 0; 
-    em[60] = 0; em[61] = 40; em[62] = 3; /* 60: struct.asn1_object_st */
-    	em[63] = 69; em[64] = 0; 
-    	em[65] = 69; em[66] = 8; 
-    	em[67] = 33; em[68] = 24; 
-    em[69] = 1; em[70] = 8; em[71] = 1; /* 69: pointer.char */
-    	em[72] = 8884096; em[73] = 0; 
-    em[74] = 0; em[75] = 1; em[76] = 0; /* 74: char */
-    em[77] = 8884097; em[78] = 8; em[79] = 0; /* 77: pointer.func */
-    em[80] = 1; em[81] = 8; em[82] = 1; /* 80: pointer.struct.X509_name_st */
-    	em[83] = 85; em[84] = 0; 
-    em[85] = 0; em[86] = 40; em[87] = 3; /* 85: struct.X509_name_st */
-    	em[88] = 94; em[89] = 0; 
-    	em[90] = 10; em[91] = 16; 
-    	em[92] = 28; em[93] = 24; 
-    em[94] = 1; em[95] = 8; em[96] = 1; /* 94: pointer.struct.stack_st_X509_NAME_ENTRY */
+    em[38] = 0; em[39] = 1; em[40] = 0; /* 38: char */
+    em[41] = 8884097; em[42] = 8; em[43] = 0; /* 41: pointer.func */
+    em[44] = 1; em[45] = 8; em[46] = 1; /* 44: pointer.struct.X509_name_st */
+    	em[47] = 49; em[48] = 0; 
+    em[49] = 0; em[50] = 40; em[51] = 3; /* 49: struct.X509_name_st */
+    	em[52] = 58; em[53] = 0; 
+    	em[54] = 10; em[55] = 16; 
+    	em[56] = 28; em[57] = 24; 
+    em[58] = 1; em[59] = 8; em[60] = 1; /* 58: pointer.struct.stack_st_X509_NAME_ENTRY */
+    	em[61] = 63; em[62] = 0; 
+    em[63] = 0; em[64] = 32; em[65] = 2; /* 63: struct.stack_st_fake_X509_NAME_ENTRY */
+    	em[66] = 70; em[67] = 8; 
+    	em[68] = 41; em[69] = 24; 
+    em[70] = 8884099; em[71] = 8; em[72] = 2; /* 70: pointer_to_array_of_pointers_to_stack */
+    	em[73] = 77; em[74] = 0; 
+    	em[75] = 113; em[76] = 20; 
+    em[77] = 0; em[78] = 8; em[79] = 1; /* 77: pointer.X509_NAME_ENTRY */
+    	em[80] = 82; em[81] = 0; 
+    em[82] = 0; em[83] = 0; em[84] = 1; /* 82: X509_NAME_ENTRY */
+    	em[85] = 87; em[86] = 0; 
+    em[87] = 0; em[88] = 24; em[89] = 2; /* 87: struct.X509_name_entry_st */
+    	em[90] = 94; em[91] = 0; 
+    	em[92] = 18; em[93] = 8; 
+    em[94] = 1; em[95] = 8; em[96] = 1; /* 94: pointer.struct.asn1_object_st */
     	em[97] = 99; em[98] = 0; 
-    em[99] = 0; em[100] = 32; em[101] = 2; /* 99: struct.stack_st_fake_X509_NAME_ENTRY */
-    	em[102] = 106; em[103] = 8; 
-    	em[104] = 77; em[105] = 24; 
-    em[106] = 8884099; em[107] = 8; em[108] = 2; /* 106: pointer_to_array_of_pointers_to_stack */
-    	em[109] = 38; em[110] = 0; 
-    	em[111] = 113; em[112] = 20; 
+    em[99] = 0; em[100] = 40; em[101] = 3; /* 99: struct.asn1_object_st */
+    	em[102] = 108; em[103] = 0; 
+    	em[104] = 108; em[105] = 8; 
+    	em[106] = 33; em[107] = 24; 
+    em[108] = 1; em[109] = 8; em[110] = 1; /* 108: pointer.char */
+    	em[111] = 8884096; em[112] = 0; 
     em[113] = 0; em[114] = 4; em[115] = 0; /* 113: int */
-    args_addr->arg_entity_index[0] = 80;
+    args_addr->arg_entity_index[0] = 44;
     args_addr->arg_entity_index[1] = 113;
     args_addr->arg_entity_index[2] = 113;
     args_addr->ret_entity_index = 113;
