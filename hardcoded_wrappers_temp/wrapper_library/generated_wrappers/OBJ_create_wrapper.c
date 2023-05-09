@@ -1,9 +1,11 @@
 #define _GNU_SOURCE
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <dlfcn.h>
 #include <sys/syscall.h>
 #include <unistd.h>
+#include <string.h>
 #include <openssl/crypto.h>
 #include <openssl/err.h>
 #include <openssl/x509.h>
@@ -44,18 +46,18 @@ int bb_OBJ_create(const char * arg_a,const char * arg_b,const char * arg_c)
 {
     int ret;
 
-    struct lib_enter_args args = {
-        .num_args = 0,
-        .entity_metadata = {
-            1, 8, 1, /* 0: pointer.char */
-            	8884096, 0,
-            0, 1, 0, /* 5: char */
-            0, 4, 0, /* 8: int */
-        },
-        .arg_entity_index = { 0, 0, 0, },
-        .ret_entity_index = 8,
-    };
-    struct lib_enter_args *args_addr = &args;
+    struct lib_enter_args *args_addr = malloc(sizeof(struct lib_enter_args));
+    memset(args_addr, 0, sizeof(struct lib_enter_args));
+    args_addr->num_args = 0;
+    uint32_t *em = args_addr->entity_metadata;
+    em[0] = 1; em[1] = 8; em[2] = 1; /* 0: pointer.char */
+    	em[3] = 8884096; em[4] = 0; 
+    em[5] = 0; em[6] = 1; em[7] = 0; /* 5: char */
+    em[8] = 0; em[9] = 4; em[10] = 0; /* 8: int */
+    args_addr->arg_entity_index[0] = 0;
+    args_addr->arg_entity_index[1] = 0;
+    args_addr->arg_entity_index[2] = 0;
+    args_addr->ret_entity_index = 8;
     populate_arg(args_addr, arg_a);
     populate_arg(args_addr, arg_b);
     populate_arg(args_addr, arg_c);
@@ -76,6 +78,8 @@ int bb_OBJ_create(const char * arg_a,const char * arg_b,const char * arg_c)
     *new_ret_ptr = (*orig_OBJ_create)(new_arg_a,new_arg_b,new_arg_c);
 
     syscall(889);
+
+    free(args_addr);
 
     return ret;
 }

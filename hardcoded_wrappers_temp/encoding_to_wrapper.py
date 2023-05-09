@@ -6,9 +6,11 @@ import pathlib
 headers = """#define _GNU_SOURCE
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <dlfcn.h>
 #include <sys/syscall.h>
 #include <unistd.h>
+#include <string.h>
 #include <openssl/crypto.h>
 #include <openssl/err.h>
 #include <openssl/x509.h>
@@ -136,6 +138,53 @@ def generate_function_wrapper(func_dict, wrapper_output_dir, ent_metadata_dir):
     else:
         pass
 
+    func_text += "    struct lib_enter_args *args_addr = malloc(sizeof(struct lib_enter_args));\n"
+    func_text += "    memset(args_addr, 0, sizeof(struct lib_enter_args));\n"
+    func_text += "    args_addr->num_args = 0;\n"
+    func_text += "    uint32_t *em = args_addr->entity_metadata;\n"
+
+    # start entity_metadata
+    num_elems = 0
+    ent_meta_filename = os.path.join(ent_metadata_dir, f"{func_name}.entity_metadata")
+    f_ent_meta = open(ent_meta_filename, "r")
+    line = f_ent_meta.readline()
+    while line != "":
+        func_text += "    "
+        line_splitted = line.split(",")
+        if len(line_splitted) - 1 == 2:
+            func_text += "\t"
+        for k in range(len(line_splitted) - 1):
+            element = line_splitted[k].strip()
+            func_text += f"em[{num_elems}] = {element}; "
+            num_elems += 1
+        if len(line_splitted) - 1 == 3:
+            func_text += line_splitted[len(line_splitted) - 1].strip()
+        func_text += "\n"
+
+        line = f_ent_meta.readline()
+    # end entity_metadata
+
+    # start arg_entity_index
+    arg_ent_ind_filename = os.path.join(ent_metadata_dir, f"{func_name}.arg_entity_index")
+    f_arg_ent_ind = open(arg_ent_ind_filename, "r")
+    line = f_arg_ent_ind.readline()
+    line = line.strip()
+    line_splitted = line.split(",")
+    for k in range(len(line_splitted) - 1):
+        func_text += f"    args_addr->arg_entity_index[{k}] = {line_splitted[k].strip()};\n"
+    # end arg_entity_index
+
+    # start ret_entity_index
+    ret_ent_ind_filename = os.path.join(ent_metadata_dir, f"{func_name}.ret_entity_index")
+    f_ret_ent_ind = open(ret_ent_ind_filename, "r")
+    line = f_ret_ent_ind.readline()
+    line = line.strip()
+    func_text += f"    args_addr->ret_entity_index = {line};\n"
+    # end ret_entity_index
+
+    # end struct lib_enter_args
+
+    """
     # start struct lib_enter_args
     func_text += "    struct lib_enter_args args = {\n"
 
@@ -174,7 +223,8 @@ def generate_function_wrapper(func_dict, wrapper_output_dir, ent_metadata_dir):
     # end struct lib_enter_args
 
     func_text += "    struct lib_enter_args *args_addr = &args;\n"
-
+    """
+    
     # populate args and ret
     for i in range(func_dict["num_args"]):
         let = f"arg_{num_to_letter(i)}"
@@ -230,6 +280,8 @@ def generate_function_wrapper(func_dict, wrapper_output_dir, ent_metadata_dir):
 
     # Call syscall 889
     func_text += "    syscall(889);\n\n"
+
+    func_text += "    free(args_addr);\n\n"
 
     # Return
     if ret_type != "void":

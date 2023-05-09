@@ -1,9 +1,11 @@
 #define _GNU_SOURCE
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <dlfcn.h>
 #include <sys/syscall.h>
 #include <unistd.h>
+#include <string.h>
 #include <openssl/crypto.h>
 #include <openssl/err.h>
 #include <openssl/x509.h>
@@ -44,18 +46,16 @@ const char * bb_SSLeay_version(int arg_a)
 {
     const char * ret;
 
-    struct lib_enter_args args = {
-        .num_args = 0,
-        .entity_metadata = {
-            1, 8, 1, /* 0: pointer.char */
-            	8884096, 0,
-            0, 1, 0, /* 5: char */
-            0, 4, 0, /* 8: int */
-        },
-        .arg_entity_index = { 8, },
-        .ret_entity_index = 0,
-    };
-    struct lib_enter_args *args_addr = &args;
+    struct lib_enter_args *args_addr = malloc(sizeof(struct lib_enter_args));
+    memset(args_addr, 0, sizeof(struct lib_enter_args));
+    args_addr->num_args = 0;
+    uint32_t *em = args_addr->entity_metadata;
+    em[0] = 1; em[1] = 8; em[2] = 1; /* 0: pointer.char */
+    	em[3] = 8884096; em[4] = 0; 
+    em[5] = 0; em[6] = 1; em[7] = 0; /* 5: char */
+    em[8] = 0; em[9] = 4; em[10] = 0; /* 8: int */
+    args_addr->arg_entity_index[0] = 8;
+    args_addr->ret_entity_index = 0;
     populate_arg(args_addr, arg_a);
     populate_ret(args_addr, ret);
 
@@ -70,6 +70,8 @@ const char * bb_SSLeay_version(int arg_a)
     *new_ret_ptr = (*orig_SSLeay_version)(new_arg_a);
 
     syscall(889);
+
+    free(args_addr);
 
     return ret;
 }

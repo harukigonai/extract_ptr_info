@@ -1,9 +1,11 @@
 #define _GNU_SOURCE
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <dlfcn.h>
 #include <sys/syscall.h>
 #include <unistd.h>
+#include <string.h>
 #include <openssl/crypto.h>
 #include <openssl/err.h>
 #include <openssl/x509.h>
@@ -42,15 +44,13 @@ void CRYPTO_set_dynlock_lock_callback(void (*arg_a)(int, struct CRYPTO_dynlock_v
 
 void bb_CRYPTO_set_dynlock_lock_callback(void (*arg_a)(int, struct CRYPTO_dynlock_value *, const char *, int)) 
 {
-    struct lib_enter_args args = {
-        .num_args = 0,
-        .entity_metadata = {
-            8884097, 8, 0, /* 0: pointer.func */
-        },
-        .arg_entity_index = { 0, },
-        .ret_entity_index = -1,
-    };
-    struct lib_enter_args *args_addr = &args;
+    struct lib_enter_args *args_addr = malloc(sizeof(struct lib_enter_args));
+    memset(args_addr, 0, sizeof(struct lib_enter_args));
+    args_addr->num_args = 0;
+    uint32_t *em = args_addr->entity_metadata;
+    em[0] = 8884097; em[1] = 8; em[2] = 0; /* 0: pointer.func */
+    args_addr->arg_entity_index[0] = 0;
+    args_addr->ret_entity_index = -1;
     populate_arg(args_addr, arg_a);
 
     struct lib_enter_args *new_args = (struct lib_enter_args *)syscall(888, args_addr);
@@ -62,6 +62,8 @@ void bb_CRYPTO_set_dynlock_lock_callback(void (*arg_a)(int, struct CRYPTO_dynloc
     (*orig_CRYPTO_set_dynlock_lock_callback)(new_arg_a);
 
     syscall(889);
+
+    free(args_addr);
 
 }
 

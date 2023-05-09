@@ -1,9 +1,11 @@
 #define _GNU_SOURCE
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <dlfcn.h>
 #include <sys/syscall.h>
 #include <unistd.h>
+#include <string.h>
 #include <openssl/crypto.h>
 #include <openssl/err.h>
 #include <openssl/x509.h>
@@ -44,231 +46,229 @@ EC_KEY * bb_EC_KEY_new_by_curve_name(int arg_a)
 {
     EC_KEY * ret;
 
-    struct lib_enter_args args = {
-        .num_args = 0,
-        .entity_metadata = {
-            8884097, 8, 0, /* 0: pointer.func */
-            8884097, 8, 0, /* 3: pointer.func */
-            0, 40, 5, /* 6: struct.ec_extra_data_st */
-            	19, 0,
-            	24, 8,
-            	3, 16,
-            	27, 24,
-            	27, 32,
-            1, 8, 1, /* 19: pointer.struct.ec_extra_data_st */
-            	6, 0,
-            0, 8, 0, /* 24: pointer.void */
-            8884097, 8, 0, /* 27: pointer.func */
-            1, 8, 1, /* 30: pointer.struct.ec_extra_data_st */
-            	6, 0,
-            0, 4, 0, /* 35: unsigned int */
-            8884099, 8, 2, /* 38: pointer_to_array_of_pointers_to_stack */
-            	35, 0,
-            	45, 12,
-            0, 4, 0, /* 45: int */
-            0, 24, 1, /* 48: struct.bignum_st */
-            	53, 0,
-            8884099, 8, 2, /* 53: pointer_to_array_of_pointers_to_stack */
-            	35, 0,
-            	45, 12,
-            8884097, 8, 0, /* 60: pointer.func */
-            8884097, 8, 0, /* 63: pointer.func */
-            8884097, 8, 0, /* 66: pointer.func */
-            8884097, 8, 0, /* 69: pointer.func */
-            8884097, 8, 0, /* 72: pointer.func */
-            8884097, 8, 0, /* 75: pointer.func */
-            8884097, 8, 0, /* 78: pointer.func */
-            1, 8, 1, /* 81: pointer.struct.ec_extra_data_st */
-            	86, 0,
-            0, 40, 5, /* 86: struct.ec_extra_data_st */
-            	99, 0,
-            	24, 8,
-            	3, 16,
-            	27, 24,
-            	27, 32,
-            1, 8, 1, /* 99: pointer.struct.ec_extra_data_st */
-            	86, 0,
-            8884097, 8, 0, /* 104: pointer.func */
-            1, 8, 1, /* 107: pointer.struct.ec_point_st */
-            	112, 0,
-            0, 88, 4, /* 112: struct.ec_point_st */
-            	123, 0,
-            	48, 8,
-            	48, 32,
-            	48, 56,
-            1, 8, 1, /* 123: pointer.struct.ec_method_st */
-            	128, 0,
-            0, 304, 37, /* 128: struct.ec_method_st */
-            	205, 8,
-            	208, 16,
-            	208, 24,
-            	211, 32,
-            	214, 40,
-            	217, 48,
-            	220, 56,
-            	223, 64,
-            	226, 72,
-            	229, 80,
-            	229, 88,
-            	232, 96,
-            	235, 104,
-            	238, 112,
-            	241, 120,
-            	244, 128,
-            	247, 136,
-            	250, 144,
-            	253, 152,
-            	256, 160,
-            	259, 168,
-            	104, 176,
-            	78, 184,
-            	72, 192,
-            	69, 200,
-            	262, 208,
-            	78, 216,
-            	265, 224,
-            	66, 232,
-            	268, 240,
-            	220, 248,
-            	63, 256,
-            	75, 264,
-            	63, 272,
-            	75, 280,
-            	75, 288,
-            	60, 296,
-            8884097, 8, 0, /* 205: pointer.func */
-            8884097, 8, 0, /* 208: pointer.func */
-            8884097, 8, 0, /* 211: pointer.func */
-            8884097, 8, 0, /* 214: pointer.func */
-            8884097, 8, 0, /* 217: pointer.func */
-            8884097, 8, 0, /* 220: pointer.func */
-            8884097, 8, 0, /* 223: pointer.func */
-            8884097, 8, 0, /* 226: pointer.func */
-            8884097, 8, 0, /* 229: pointer.func */
-            8884097, 8, 0, /* 232: pointer.func */
-            8884097, 8, 0, /* 235: pointer.func */
-            8884097, 8, 0, /* 238: pointer.func */
-            8884097, 8, 0, /* 241: pointer.func */
-            8884097, 8, 0, /* 244: pointer.func */
-            8884097, 8, 0, /* 247: pointer.func */
-            8884097, 8, 0, /* 250: pointer.func */
-            8884097, 8, 0, /* 253: pointer.func */
-            8884097, 8, 0, /* 256: pointer.func */
-            8884097, 8, 0, /* 259: pointer.func */
-            8884097, 8, 0, /* 262: pointer.func */
-            8884097, 8, 0, /* 265: pointer.func */
-            8884097, 8, 0, /* 268: pointer.func */
-            8884097, 8, 0, /* 271: pointer.func */
-            8884097, 8, 0, /* 274: pointer.func */
-            0, 232, 12, /* 277: struct.ec_group_st */
-            	304, 0,
-            	470, 8,
-            	475, 16,
-            	475, 40,
-            	487, 80,
-            	30, 96,
-            	475, 104,
-            	475, 152,
-            	475, 176,
-            	24, 208,
-            	24, 216,
-            	0, 224,
-            1, 8, 1, /* 304: pointer.struct.ec_method_st */
-            	309, 0,
-            0, 304, 37, /* 309: struct.ec_method_st */
-            	386, 8,
-            	389, 16,
-            	389, 24,
-            	392, 32,
-            	395, 40,
-            	398, 48,
-            	401, 56,
-            	404, 64,
-            	407, 72,
-            	410, 80,
-            	410, 88,
-            	413, 96,
-            	416, 104,
-            	419, 112,
-            	422, 120,
-            	425, 128,
-            	428, 136,
-            	431, 144,
-            	434, 152,
-            	437, 160,
-            	274, 168,
-            	440, 176,
-            	443, 184,
-            	271, 192,
-            	446, 200,
-            	449, 208,
-            	443, 216,
-            	452, 224,
-            	455, 232,
-            	458, 240,
-            	401, 248,
-            	461, 256,
-            	464, 264,
-            	461, 272,
-            	464, 280,
-            	464, 288,
-            	467, 296,
-            8884097, 8, 0, /* 386: pointer.func */
-            8884097, 8, 0, /* 389: pointer.func */
-            8884097, 8, 0, /* 392: pointer.func */
-            8884097, 8, 0, /* 395: pointer.func */
-            8884097, 8, 0, /* 398: pointer.func */
-            8884097, 8, 0, /* 401: pointer.func */
-            8884097, 8, 0, /* 404: pointer.func */
-            8884097, 8, 0, /* 407: pointer.func */
-            8884097, 8, 0, /* 410: pointer.func */
-            8884097, 8, 0, /* 413: pointer.func */
-            8884097, 8, 0, /* 416: pointer.func */
-            8884097, 8, 0, /* 419: pointer.func */
-            8884097, 8, 0, /* 422: pointer.func */
-            8884097, 8, 0, /* 425: pointer.func */
-            8884097, 8, 0, /* 428: pointer.func */
-            8884097, 8, 0, /* 431: pointer.func */
-            8884097, 8, 0, /* 434: pointer.func */
-            8884097, 8, 0, /* 437: pointer.func */
-            8884097, 8, 0, /* 440: pointer.func */
-            8884097, 8, 0, /* 443: pointer.func */
-            8884097, 8, 0, /* 446: pointer.func */
-            8884097, 8, 0, /* 449: pointer.func */
-            8884097, 8, 0, /* 452: pointer.func */
-            8884097, 8, 0, /* 455: pointer.func */
-            8884097, 8, 0, /* 458: pointer.func */
-            8884097, 8, 0, /* 461: pointer.func */
-            8884097, 8, 0, /* 464: pointer.func */
-            8884097, 8, 0, /* 467: pointer.func */
-            1, 8, 1, /* 470: pointer.struct.ec_point_st */
-            	112, 0,
-            0, 24, 1, /* 475: struct.bignum_st */
-            	480, 0,
-            8884099, 8, 2, /* 480: pointer_to_array_of_pointers_to_stack */
-            	35, 0,
-            	45, 12,
-            1, 8, 1, /* 487: pointer.unsigned char */
-            	492, 0,
-            0, 1, 0, /* 492: unsigned char */
-            0, 56, 4, /* 495: struct.ec_key_st */
-            	506, 8,
-            	107, 16,
-            	511, 24,
-            	81, 48,
-            1, 8, 1, /* 506: pointer.struct.ec_group_st */
-            	277, 0,
-            1, 8, 1, /* 511: pointer.struct.bignum_st */
-            	516, 0,
-            0, 24, 1, /* 516: struct.bignum_st */
-            	38, 0,
-            1, 8, 1, /* 521: pointer.struct.ec_key_st */
-            	495, 0,
-        },
-        .arg_entity_index = { 45, },
-        .ret_entity_index = 521,
-    };
-    struct lib_enter_args *args_addr = &args;
+    struct lib_enter_args *args_addr = malloc(sizeof(struct lib_enter_args));
+    memset(args_addr, 0, sizeof(struct lib_enter_args));
+    args_addr->num_args = 0;
+    uint32_t *em = args_addr->entity_metadata;
+    em[0] = 0; em[1] = 24; em[2] = 1; /* 0: struct.bignum_st */
+    	em[3] = 5; em[4] = 0; 
+    em[5] = 8884099; em[6] = 8; em[7] = 2; /* 5: pointer_to_array_of_pointers_to_stack */
+    	em[8] = 12; em[9] = 0; 
+    	em[10] = 15; em[11] = 12; 
+    em[12] = 0; em[13] = 8; em[14] = 0; /* 12: long unsigned int */
+    em[15] = 0; em[16] = 4; em[17] = 0; /* 15: int */
+    em[18] = 8884097; em[19] = 8; em[20] = 0; /* 18: pointer.func */
+    em[21] = 8884097; em[22] = 8; em[23] = 0; /* 21: pointer.func */
+    em[24] = 1; em[25] = 8; em[26] = 1; /* 24: pointer.struct.ec_extra_data_st */
+    	em[27] = 29; em[28] = 0; 
+    em[29] = 0; em[30] = 40; em[31] = 5; /* 29: struct.ec_extra_data_st */
+    	em[32] = 24; em[33] = 0; 
+    	em[34] = 42; em[35] = 8; 
+    	em[36] = 21; em[37] = 16; 
+    	em[38] = 45; em[39] = 24; 
+    	em[40] = 45; em[41] = 32; 
+    em[42] = 0; em[43] = 8; em[44] = 0; /* 42: pointer.void */
+    em[45] = 8884097; em[46] = 8; em[47] = 0; /* 45: pointer.func */
+    em[48] = 1; em[49] = 8; em[50] = 1; /* 48: pointer.struct.ec_extra_data_st */
+    	em[51] = 29; em[52] = 0; 
+    em[53] = 0; em[54] = 24; em[55] = 1; /* 53: struct.bignum_st */
+    	em[56] = 58; em[57] = 0; 
+    em[58] = 8884099; em[59] = 8; em[60] = 2; /* 58: pointer_to_array_of_pointers_to_stack */
+    	em[61] = 12; em[62] = 0; 
+    	em[63] = 15; em[64] = 12; 
+    em[65] = 8884097; em[66] = 8; em[67] = 0; /* 65: pointer.func */
+    em[68] = 8884097; em[69] = 8; em[70] = 0; /* 68: pointer.func */
+    em[71] = 8884097; em[72] = 8; em[73] = 0; /* 71: pointer.func */
+    em[74] = 8884097; em[75] = 8; em[76] = 0; /* 74: pointer.func */
+    em[77] = 8884097; em[78] = 8; em[79] = 0; /* 77: pointer.func */
+    em[80] = 8884097; em[81] = 8; em[82] = 0; /* 80: pointer.func */
+    em[83] = 1; em[84] = 8; em[85] = 1; /* 83: pointer.struct.ec_point_st */
+    	em[86] = 88; em[87] = 0; 
+    em[88] = 0; em[89] = 88; em[90] = 4; /* 88: struct.ec_point_st */
+    	em[91] = 99; em[92] = 0; 
+    	em[93] = 253; em[94] = 8; 
+    	em[95] = 253; em[96] = 32; 
+    	em[97] = 253; em[98] = 56; 
+    em[99] = 1; em[100] = 8; em[101] = 1; /* 99: pointer.struct.ec_method_st */
+    	em[102] = 104; em[103] = 0; 
+    em[104] = 0; em[105] = 304; em[106] = 37; /* 104: struct.ec_method_st */
+    	em[107] = 181; em[108] = 8; 
+    	em[109] = 184; em[110] = 16; 
+    	em[111] = 184; em[112] = 24; 
+    	em[113] = 187; em[114] = 32; 
+    	em[115] = 190; em[116] = 40; 
+    	em[117] = 193; em[118] = 48; 
+    	em[119] = 196; em[120] = 56; 
+    	em[121] = 199; em[122] = 64; 
+    	em[123] = 202; em[124] = 72; 
+    	em[125] = 205; em[126] = 80; 
+    	em[127] = 205; em[128] = 88; 
+    	em[129] = 208; em[130] = 96; 
+    	em[131] = 211; em[132] = 104; 
+    	em[133] = 214; em[134] = 112; 
+    	em[135] = 217; em[136] = 120; 
+    	em[137] = 220; em[138] = 128; 
+    	em[139] = 223; em[140] = 136; 
+    	em[141] = 226; em[142] = 144; 
+    	em[143] = 229; em[144] = 152; 
+    	em[145] = 232; em[146] = 160; 
+    	em[147] = 235; em[148] = 168; 
+    	em[149] = 238; em[150] = 176; 
+    	em[151] = 241; em[152] = 184; 
+    	em[153] = 80; em[154] = 192; 
+    	em[155] = 77; em[156] = 200; 
+    	em[157] = 244; em[158] = 208; 
+    	em[159] = 241; em[160] = 216; 
+    	em[161] = 247; em[162] = 224; 
+    	em[163] = 74; em[164] = 232; 
+    	em[165] = 71; em[166] = 240; 
+    	em[167] = 196; em[168] = 248; 
+    	em[169] = 68; em[170] = 256; 
+    	em[171] = 250; em[172] = 264; 
+    	em[173] = 68; em[174] = 272; 
+    	em[175] = 250; em[176] = 280; 
+    	em[177] = 250; em[178] = 288; 
+    	em[179] = 65; em[180] = 296; 
+    em[181] = 8884097; em[182] = 8; em[183] = 0; /* 181: pointer.func */
+    em[184] = 8884097; em[185] = 8; em[186] = 0; /* 184: pointer.func */
+    em[187] = 8884097; em[188] = 8; em[189] = 0; /* 187: pointer.func */
+    em[190] = 8884097; em[191] = 8; em[192] = 0; /* 190: pointer.func */
+    em[193] = 8884097; em[194] = 8; em[195] = 0; /* 193: pointer.func */
+    em[196] = 8884097; em[197] = 8; em[198] = 0; /* 196: pointer.func */
+    em[199] = 8884097; em[200] = 8; em[201] = 0; /* 199: pointer.func */
+    em[202] = 8884097; em[203] = 8; em[204] = 0; /* 202: pointer.func */
+    em[205] = 8884097; em[206] = 8; em[207] = 0; /* 205: pointer.func */
+    em[208] = 8884097; em[209] = 8; em[210] = 0; /* 208: pointer.func */
+    em[211] = 8884097; em[212] = 8; em[213] = 0; /* 211: pointer.func */
+    em[214] = 8884097; em[215] = 8; em[216] = 0; /* 214: pointer.func */
+    em[217] = 8884097; em[218] = 8; em[219] = 0; /* 217: pointer.func */
+    em[220] = 8884097; em[221] = 8; em[222] = 0; /* 220: pointer.func */
+    em[223] = 8884097; em[224] = 8; em[225] = 0; /* 223: pointer.func */
+    em[226] = 8884097; em[227] = 8; em[228] = 0; /* 226: pointer.func */
+    em[229] = 8884097; em[230] = 8; em[231] = 0; /* 229: pointer.func */
+    em[232] = 8884097; em[233] = 8; em[234] = 0; /* 232: pointer.func */
+    em[235] = 8884097; em[236] = 8; em[237] = 0; /* 235: pointer.func */
+    em[238] = 8884097; em[239] = 8; em[240] = 0; /* 238: pointer.func */
+    em[241] = 8884097; em[242] = 8; em[243] = 0; /* 241: pointer.func */
+    em[244] = 8884097; em[245] = 8; em[246] = 0; /* 244: pointer.func */
+    em[247] = 8884097; em[248] = 8; em[249] = 0; /* 247: pointer.func */
+    em[250] = 8884097; em[251] = 8; em[252] = 0; /* 250: pointer.func */
+    em[253] = 0; em[254] = 24; em[255] = 1; /* 253: struct.bignum_st */
+    	em[256] = 258; em[257] = 0; 
+    em[258] = 8884099; em[259] = 8; em[260] = 2; /* 258: pointer_to_array_of_pointers_to_stack */
+    	em[261] = 12; em[262] = 0; 
+    	em[263] = 15; em[264] = 12; 
+    em[265] = 8884097; em[266] = 8; em[267] = 0; /* 265: pointer.func */
+    em[268] = 8884097; em[269] = 8; em[270] = 0; /* 268: pointer.func */
+    em[271] = 8884097; em[272] = 8; em[273] = 0; /* 271: pointer.func */
+    em[274] = 8884097; em[275] = 8; em[276] = 0; /* 274: pointer.func */
+    em[277] = 0; em[278] = 56; em[279] = 4; /* 277: struct.ec_key_st */
+    	em[280] = 288; em[281] = 8; 
+    	em[282] = 83; em[283] = 16; 
+    	em[284] = 493; em[285] = 24; 
+    	em[286] = 498; em[287] = 48; 
+    em[288] = 1; em[289] = 8; em[290] = 1; /* 288: pointer.struct.ec_group_st */
+    	em[291] = 293; em[292] = 0; 
+    em[293] = 0; em[294] = 232; em[295] = 12; /* 293: struct.ec_group_st */
+    	em[296] = 320; em[297] = 0; 
+    	em[298] = 480; em[299] = 8; 
+    	em[300] = 53; em[301] = 16; 
+    	em[302] = 53; em[303] = 40; 
+    	em[304] = 485; em[305] = 80; 
+    	em[306] = 48; em[307] = 96; 
+    	em[308] = 53; em[309] = 104; 
+    	em[310] = 53; em[311] = 152; 
+    	em[312] = 53; em[313] = 176; 
+    	em[314] = 42; em[315] = 208; 
+    	em[316] = 42; em[317] = 216; 
+    	em[318] = 18; em[319] = 224; 
+    em[320] = 1; em[321] = 8; em[322] = 1; /* 320: pointer.struct.ec_method_st */
+    	em[323] = 325; em[324] = 0; 
+    em[325] = 0; em[326] = 304; em[327] = 37; /* 325: struct.ec_method_st */
+    	em[328] = 402; em[329] = 8; 
+    	em[330] = 405; em[331] = 16; 
+    	em[332] = 405; em[333] = 24; 
+    	em[334] = 408; em[335] = 32; 
+    	em[336] = 411; em[337] = 40; 
+    	em[338] = 414; em[339] = 48; 
+    	em[340] = 417; em[341] = 56; 
+    	em[342] = 420; em[343] = 64; 
+    	em[344] = 423; em[345] = 72; 
+    	em[346] = 271; em[347] = 80; 
+    	em[348] = 271; em[349] = 88; 
+    	em[350] = 426; em[351] = 96; 
+    	em[352] = 429; em[353] = 104; 
+    	em[354] = 432; em[355] = 112; 
+    	em[356] = 435; em[357] = 120; 
+    	em[358] = 438; em[359] = 128; 
+    	em[360] = 441; em[361] = 136; 
+    	em[362] = 444; em[363] = 144; 
+    	em[364] = 274; em[365] = 152; 
+    	em[366] = 447; em[367] = 160; 
+    	em[368] = 268; em[369] = 168; 
+    	em[370] = 450; em[371] = 176; 
+    	em[372] = 453; em[373] = 184; 
+    	em[374] = 265; em[375] = 192; 
+    	em[376] = 456; em[377] = 200; 
+    	em[378] = 459; em[379] = 208; 
+    	em[380] = 453; em[381] = 216; 
+    	em[382] = 462; em[383] = 224; 
+    	em[384] = 465; em[385] = 232; 
+    	em[386] = 468; em[387] = 240; 
+    	em[388] = 417; em[389] = 248; 
+    	em[390] = 471; em[391] = 256; 
+    	em[392] = 474; em[393] = 264; 
+    	em[394] = 471; em[395] = 272; 
+    	em[396] = 474; em[397] = 280; 
+    	em[398] = 474; em[399] = 288; 
+    	em[400] = 477; em[401] = 296; 
+    em[402] = 8884097; em[403] = 8; em[404] = 0; /* 402: pointer.func */
+    em[405] = 8884097; em[406] = 8; em[407] = 0; /* 405: pointer.func */
+    em[408] = 8884097; em[409] = 8; em[410] = 0; /* 408: pointer.func */
+    em[411] = 8884097; em[412] = 8; em[413] = 0; /* 411: pointer.func */
+    em[414] = 8884097; em[415] = 8; em[416] = 0; /* 414: pointer.func */
+    em[417] = 8884097; em[418] = 8; em[419] = 0; /* 417: pointer.func */
+    em[420] = 8884097; em[421] = 8; em[422] = 0; /* 420: pointer.func */
+    em[423] = 8884097; em[424] = 8; em[425] = 0; /* 423: pointer.func */
+    em[426] = 8884097; em[427] = 8; em[428] = 0; /* 426: pointer.func */
+    em[429] = 8884097; em[430] = 8; em[431] = 0; /* 429: pointer.func */
+    em[432] = 8884097; em[433] = 8; em[434] = 0; /* 432: pointer.func */
+    em[435] = 8884097; em[436] = 8; em[437] = 0; /* 435: pointer.func */
+    em[438] = 8884097; em[439] = 8; em[440] = 0; /* 438: pointer.func */
+    em[441] = 8884097; em[442] = 8; em[443] = 0; /* 441: pointer.func */
+    em[444] = 8884097; em[445] = 8; em[446] = 0; /* 444: pointer.func */
+    em[447] = 8884097; em[448] = 8; em[449] = 0; /* 447: pointer.func */
+    em[450] = 8884097; em[451] = 8; em[452] = 0; /* 450: pointer.func */
+    em[453] = 8884097; em[454] = 8; em[455] = 0; /* 453: pointer.func */
+    em[456] = 8884097; em[457] = 8; em[458] = 0; /* 456: pointer.func */
+    em[459] = 8884097; em[460] = 8; em[461] = 0; /* 459: pointer.func */
+    em[462] = 8884097; em[463] = 8; em[464] = 0; /* 462: pointer.func */
+    em[465] = 8884097; em[466] = 8; em[467] = 0; /* 465: pointer.func */
+    em[468] = 8884097; em[469] = 8; em[470] = 0; /* 468: pointer.func */
+    em[471] = 8884097; em[472] = 8; em[473] = 0; /* 471: pointer.func */
+    em[474] = 8884097; em[475] = 8; em[476] = 0; /* 474: pointer.func */
+    em[477] = 8884097; em[478] = 8; em[479] = 0; /* 477: pointer.func */
+    em[480] = 1; em[481] = 8; em[482] = 1; /* 480: pointer.struct.ec_point_st */
+    	em[483] = 88; em[484] = 0; 
+    em[485] = 1; em[486] = 8; em[487] = 1; /* 485: pointer.unsigned char */
+    	em[488] = 490; em[489] = 0; 
+    em[490] = 0; em[491] = 1; em[492] = 0; /* 490: unsigned char */
+    em[493] = 1; em[494] = 8; em[495] = 1; /* 493: pointer.struct.bignum_st */
+    	em[496] = 0; em[497] = 0; 
+    em[498] = 1; em[499] = 8; em[500] = 1; /* 498: pointer.struct.ec_extra_data_st */
+    	em[501] = 503; em[502] = 0; 
+    em[503] = 0; em[504] = 40; em[505] = 5; /* 503: struct.ec_extra_data_st */
+    	em[506] = 516; em[507] = 0; 
+    	em[508] = 42; em[509] = 8; 
+    	em[510] = 21; em[511] = 16; 
+    	em[512] = 45; em[513] = 24; 
+    	em[514] = 45; em[515] = 32; 
+    em[516] = 1; em[517] = 8; em[518] = 1; /* 516: pointer.struct.ec_extra_data_st */
+    	em[519] = 503; em[520] = 0; 
+    em[521] = 1; em[522] = 8; em[523] = 1; /* 521: pointer.struct.ec_key_st */
+    	em[524] = 277; em[525] = 0; 
+    args_addr->arg_entity_index[0] = 15;
+    args_addr->ret_entity_index = 521;
     populate_arg(args_addr, arg_a);
     populate_ret(args_addr, ret);
 
@@ -283,6 +283,8 @@ EC_KEY * bb_EC_KEY_new_by_curve_name(int arg_a)
     *new_ret_ptr = (*orig_EC_KEY_new_by_curve_name)(new_arg_a);
 
     syscall(889);
+
+    free(args_addr);
 
     return ret;
 }

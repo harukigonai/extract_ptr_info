@@ -1,9 +1,11 @@
 #define _GNU_SOURCE
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <dlfcn.h>
 #include <sys/syscall.h>
 #include <unistd.h>
+#include <string.h>
 #include <openssl/crypto.h>
 #include <openssl/err.h>
 #include <openssl/x509.h>
@@ -44,20 +46,22 @@ int bb_SSL_get_ex_new_index(long arg_a,void * arg_b,CRYPTO_EX_new * arg_c,CRYPTO
 {
     int ret;
 
-    struct lib_enter_args args = {
-        .num_args = 0,
-        .entity_metadata = {
-            8884097, 8, 0, /* 0: pointer.func */
-            8884097, 8, 0, /* 3: pointer.func */
-            8884097, 8, 0, /* 6: pointer.func */
-            0, 8, 0, /* 9: long int */
-            0, 4, 0, /* 12: int */
-            0, 8, 0, /* 15: pointer.void */
-        },
-        .arg_entity_index = { 9, 15, 6, 3, 0, },
-        .ret_entity_index = 12,
-    };
-    struct lib_enter_args *args_addr = &args;
+    struct lib_enter_args *args_addr = malloc(sizeof(struct lib_enter_args));
+    memset(args_addr, 0, sizeof(struct lib_enter_args));
+    args_addr->num_args = 0;
+    uint32_t *em = args_addr->entity_metadata;
+    em[0] = 8884097; em[1] = 8; em[2] = 0; /* 0: pointer.func */
+    em[3] = 8884097; em[4] = 8; em[5] = 0; /* 3: pointer.func */
+    em[6] = 8884097; em[7] = 8; em[8] = 0; /* 6: pointer.func */
+    em[9] = 0; em[10] = 8; em[11] = 0; /* 9: long int */
+    em[12] = 0; em[13] = 4; em[14] = 0; /* 12: int */
+    em[15] = 0; em[16] = 8; em[17] = 0; /* 15: pointer.void */
+    args_addr->arg_entity_index[0] = 9;
+    args_addr->arg_entity_index[1] = 15;
+    args_addr->arg_entity_index[2] = 6;
+    args_addr->arg_entity_index[3] = 3;
+    args_addr->arg_entity_index[4] = 0;
+    args_addr->ret_entity_index = 12;
     populate_arg(args_addr, arg_a);
     populate_arg(args_addr, arg_b);
     populate_arg(args_addr, arg_c);
@@ -84,6 +88,8 @@ int bb_SSL_get_ex_new_index(long arg_a,void * arg_b,CRYPTO_EX_new * arg_c,CRYPTO
     *new_ret_ptr = (*orig_SSL_get_ex_new_index)(new_arg_a,new_arg_b,new_arg_c,new_arg_d,new_arg_e);
 
     syscall(889);
+
+    free(args_addr);
 
     return ret;
 }

@@ -136,75 +136,68 @@
 0, 32, 2, /* 324: struct.ENGINE_CMD_DEFN_st */
 	56, 8,
 	56, 16,
-0, 16, 1, /* 331: struct.crypto_ex_data_st */
-	336, 0,
-1, 8, 1, /* 336: pointer.struct.stack_st_void */
-	341, 0,
-0, 32, 1, /* 341: struct.stack_st_void */
-	346, 0,
-0, 32, 2, /* 346: struct.stack_st */
-	353, 8,
-	358, 24,
-1, 8, 1, /* 353: pointer.pointer.char */
-	107, 0,
-8884097, 8, 0, /* 358: pointer.func */
-1, 8, 1, /* 361: pointer.struct.bignum_st */
-	366, 0,
-0, 24, 1, /* 366: struct.bignum_st */
-	371, 0,
-8884099, 8, 2, /* 371: pointer_to_array_of_pointers_to_stack */
-	378, 0,
-	381, 12,
-0, 4, 0, /* 378: unsigned int */
-0, 4, 0, /* 381: int */
-0, 1, 0, /* 384: char */
-8884097, 8, 0, /* 387: pointer.func */
-0, 72, 8, /* 390: struct.dh_method */
+0, 32, 2, /* 331: struct.crypto_ex_data_st_fake */
+	338, 8,
+	351, 24,
+8884099, 8, 2, /* 338: pointer_to_array_of_pointers_to_stack */
+	345, 0,
+	348, 20,
+0, 8, 0, /* 345: pointer.void */
+0, 4, 0, /* 348: int */
+8884097, 8, 0, /* 351: pointer.func */
+8884097, 8, 0, /* 354: pointer.func */
+0, 72, 8, /* 357: struct.dh_method */
 	56, 0,
-	409, 8,
-	412, 16,
-	415, 24,
-	409, 32,
-	409, 40,
+	376, 8,
+	379, 16,
+	382, 24,
+	376, 32,
+	376, 40,
 	107, 56,
-	387, 64,
-8884097, 8, 0, /* 409: pointer.func */
-8884097, 8, 0, /* 412: pointer.func */
-8884097, 8, 0, /* 415: pointer.func */
-0, 32, 1, /* 418: struct.stack_st_void */
-	423, 0,
-0, 32, 2, /* 423: struct.stack_st */
-	353, 8,
-	358, 24,
-0, 144, 12, /* 430: struct.dh_st */
-	361, 8,
-	361, 16,
-	361, 32,
-	361, 40,
-	457, 56,
-	361, 64,
-	361, 72,
-	471, 80,
-	361, 96,
-	479, 112,
-	489, 128,
-	494, 136,
-1, 8, 1, /* 457: pointer.struct.bn_mont_ctx_st */
-	462, 0,
-0, 96, 3, /* 462: struct.bn_mont_ctx_st */
-	366, 8,
-	366, 32,
-	366, 56,
-1, 8, 1, /* 471: pointer.unsigned char */
-	476, 0,
-0, 1, 0, /* 476: unsigned char */
-0, 16, 1, /* 479: struct.crypto_ex_data_st */
-	484, 0,
-1, 8, 1, /* 484: pointer.struct.stack_st_void */
-	418, 0,
-1, 8, 1, /* 489: pointer.struct.dh_method */
-	390, 0,
-1, 8, 1, /* 494: pointer.struct.engine_st */
+	354, 64,
+8884097, 8, 0, /* 376: pointer.func */
+8884097, 8, 0, /* 379: pointer.func */
+8884097, 8, 0, /* 382: pointer.func */
+1, 8, 1, /* 385: pointer.struct.dh_method */
+	357, 0,
+1, 8, 1, /* 390: pointer.struct.bignum_st */
+	395, 0,
+0, 24, 1, /* 395: struct.bignum_st */
+	400, 0,
+8884099, 8, 2, /* 400: pointer_to_array_of_pointers_to_stack */
+	407, 0,
+	348, 12,
+0, 8, 0, /* 407: long unsigned int */
+0, 144, 12, /* 410: struct.dh_st */
+	390, 8,
+	390, 16,
+	390, 32,
+	390, 40,
+	437, 56,
+	390, 64,
+	390, 72,
+	451, 80,
+	390, 96,
+	459, 112,
+	385, 128,
+	473, 136,
+1, 8, 1, /* 437: pointer.struct.bn_mont_ctx_st */
+	442, 0,
+0, 96, 3, /* 442: struct.bn_mont_ctx_st */
+	395, 8,
+	395, 32,
+	395, 56,
+1, 8, 1, /* 451: pointer.unsigned char */
+	456, 0,
+0, 1, 0, /* 456: unsigned char */
+0, 32, 2, /* 459: struct.crypto_ex_data_st_fake */
+	466, 8,
+	351, 24,
+8884099, 8, 2, /* 466: pointer_to_array_of_pointers_to_stack */
+	345, 0,
+	348, 20,
+1, 8, 1, /* 473: pointer.struct.engine_st */
 	5, 0,
-1, 8, 1, /* 499: pointer.struct.dh_st */
-	430, 0,
+0, 1, 0, /* 478: char */
+1, 8, 1, /* 481: pointer.struct.dh_st */
+	410, 0,

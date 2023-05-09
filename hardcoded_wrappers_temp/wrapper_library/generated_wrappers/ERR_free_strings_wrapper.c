@@ -1,9 +1,11 @@
 #define _GNU_SOURCE
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <dlfcn.h>
 #include <sys/syscall.h>
 #include <unistd.h>
+#include <string.h>
 #include <openssl/crypto.h>
 #include <openssl/err.h>
 #include <openssl/x509.h>
@@ -42,14 +44,11 @@ void ERR_free_strings(void)
 
 void bb_ERR_free_strings(void) 
 {
-    struct lib_enter_args args = {
-        .num_args = 0,
-        .entity_metadata = {
-        },
-        .arg_entity_index = { -1 },
-        .ret_entity_index = -1,
-    };
-    struct lib_enter_args *args_addr = &args;
+    struct lib_enter_args *args_addr = malloc(sizeof(struct lib_enter_args));
+    memset(args_addr, 0, sizeof(struct lib_enter_args));
+    args_addr->num_args = 0;
+    uint32_t *em = args_addr->entity_metadata;
+    args_addr->ret_entity_index = -1;
 
     struct lib_enter_args *new_args = (struct lib_enter_args *)syscall(888, args_addr);
 
@@ -58,6 +57,8 @@ void bb_ERR_free_strings(void)
     (*orig_ERR_free_strings)();
 
     syscall(889);
+
+    free(args_addr);
 
 }
 

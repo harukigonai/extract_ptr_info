@@ -1,5 +1,5 @@
 0, 4, 0, /* 0: int */
-0, 4, 0, /* 3: unsigned int */
+0, 8, 0, /* 3: long unsigned int */
 8884099, 8, 2, /* 6: pointer_to_array_of_pointers_to_stack */
 	3, 0,
 	0, 12,

@@ -17,7 +17,7 @@
 
 #define MAX_ARGS 100
 
-#define ENTITY_METADATA_SIZE 4096 * 2
+#define ENTITY_METADATA_SIZE 4096 * 3
 
 struct lib_enter_args {
     int num_args;

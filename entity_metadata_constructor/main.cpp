@@ -691,7 +691,7 @@ void make_types_revisions(
 
       struct type_info *type_info_type_in_arr;
       for (auto const& [type_2, type_info_2] : types) {
-        if (strcmp(type_info_2->name, "unsigned int") == 0) {
+        if (strcmp(type_info_2->name, "long unsigned int") == 0) {
           type_info_type_in_arr = type_info_2;
         }
       }
@@ -722,6 +722,162 @@ void make_types_revisions(
       );
 
       (*child_types)[0]->type_info = type_info_ptr_to_arr;
+    }
+  }
+
+  for (auto const& [type_tmp, type_info_tmp] : types) {
+    size_t child_types_size = type_info_tmp->child_types->size();
+    for (int i = 0; i < child_types_size; i++) {
+      struct child_type *child_type = (*type_info_tmp->child_types)[i];
+      struct type_info *type_info = child_type->type_info;
+      if (strstr(type_info->name, "struct.crypto_ex_data_st") ==
+          &type_info->name[0]) {
+
+        /* Find struct.stack_st */
+        struct type_info *type_info_stack_st;
+        for (auto const& [type_2, type_info_2] : types) {
+          if (strcmp(type_info_2->name, "struct.stack_st") == 0) {
+            type_info_stack_st = type_info_2;
+          }
+        }
+
+        /* Create a copy of struct.stack_st */
+        struct type_info *new_type_info_stack_st = new struct type_info;
+        strcpy(
+          new_type_info_stack_st->name,
+          "struct.crypto_ex_data_st_fake"
+        );
+        strcpy(
+          new_type_info_stack_st->type,
+          "struct"
+        );
+        new_type_info_stack_st->size =
+          type_info_stack_st->size;
+        new_type_info_stack_st->md_node_ptr = (MDNode *)8884100; /* Pointer to array, dummy */
+        new_type_info_stack_st->child_types =
+          new vector<struct child_type *>(
+            *type_info_stack_st->child_types
+          );
+
+        struct child_type *child_type_data =
+          (*new_type_info_stack_st->child_types)[1];
+
+        struct child_type *child_type_num_alloc =
+          (*new_type_info_stack_st->child_types)[3];
+
+        struct type_info *type_info_ptr_to_arr = new struct type_info;
+        memset(type_info_ptr_to_arr->name, 0, 4096);
+        memset(type_info_ptr_to_arr->type, 0, 4096);
+        type_info_ptr_to_arr->size = 8;
+        type_info_ptr_to_arr->child_types = new vector<struct child_type *>();
+        vector<struct child_type *> *type_info_ptr_to_arr_child_types =
+          type_info_ptr_to_arr->child_types;
+        type_info_ptr_to_arr->md_node_ptr = (MDNode *)8884099; /* Pointer to array */
+        strcpy(type_info_ptr_to_arr->name, "pointer_to_array_of_pointers_to_stack");
+        strcpy(type_info_ptr_to_arr->type, "pointer_to_array");
+
+        struct child_type *child_type_in_arr =
+          new struct child_type;
+        child_type_in_arr->type_info =
+          types[(MDNode *)8884098]; /* Hmm not sure how to handle this */
+        child_type_in_arr->offset = 0;
+        strcpy(child_type_in_arr->name, "pointer.void");
+
+        struct type_info *type_info_int = NULL;
+        for (auto const& [type_2, type_info_2] : types) {
+          if (strcmp(type_info_2->name, "int") == 0) {
+            type_info_int = type_info_2;
+          }
+        }
+
+        struct child_type *child_type_int =
+          new struct child_type;
+        child_type_int->type_info =
+          type_info_int;
+        /* A dummy offset, to be used to index into the parent struct */
+        child_type_int->offset = child_type_num_alloc->offset;
+        strcpy(child_type_int->name,
+          type_info_int->name);
+
+        /* Later, make sure non-ptr children of 8884099 do NOT get deleted */
+        type_info_ptr_to_arr_child_types->insert(
+          type_info_ptr_to_arr_child_types->end(),
+          child_type_in_arr
+        );
+        type_info_ptr_to_arr_child_types->insert(
+          type_info_ptr_to_arr_child_types->end(),
+          child_type_int
+        );
+
+        (*new_type_info_stack_st->child_types)[1] = new struct child_type;
+        (*new_type_info_stack_st->child_types)[1]->offset = child_type_data->offset;
+        strcpy(
+          (*new_type_info_stack_st->child_types)[1]->name,
+          child_type_data->name
+        );
+        (*new_type_info_stack_st->child_types)[1]->type_info = type_info_ptr_to_arr;
+
+        child_type->type_info = new_type_info_stack_st;
+      }
+    }
+  }
+
+  for (auto const& [type, type_info] : types) {
+    if (!strcmp(type_info->name, "struct.evp_pkey_st")) {
+
+      struct child_type *type_child_type = (*type_info->child_types)[0];
+      struct child_type *union_child_type = (*type_info->child_types)[5];
+      struct type_info *old_union_type = union_child_type->type_info;
+
+      /* Create a copy of struct.stack_st */
+      struct type_info *new_union_type = new struct type_info;
+      strcpy(
+        new_union_type->name,
+        "union.union_of_evp_pkey_st"
+      );
+      strcpy(
+        new_union_type->type,
+        "union_handled"
+      );
+      new_union_type->size =
+        old_union_type->size;
+      new_union_type->md_node_ptr = (MDNode *)8884101; /* union */
+      new_union_type->child_types =
+        new vector<struct child_type *>(
+          *old_union_type->child_types
+        );
+      vector<struct child_type *> *new_union_type_children =
+        new_union_type->child_types;
+
+      (*new_union_type_children)[0]->type_info = types[(MDNode *)8884098];
+      (*new_union_type_children)[0]->offset = 0;
+      (*new_union_type_children)[1]->offset = 6;
+      (*new_union_type_children)[2]->offset = 116;
+      (*new_union_type_children)[3]->offset = 28;
+      (*new_union_type_children)[4]->offset = 408;
+
+      struct type_info *type_info_int = NULL;
+      for (auto const& [type_2, type_info_2] : types) {
+        if (strcmp(type_info_2->name, "int") == 0) {
+          type_info_int = type_info_2;
+        }
+      }
+
+      struct child_type *child_type_int =
+        new struct child_type;
+      child_type_int->type_info =
+        type_info_int;
+      /* A dummy offset, to be used to index into the parent struct */
+      child_type_int->offset = type_child_type->offset;
+      strcpy(child_type_int->name,
+        type_info_int->name);
+
+      new_union_type_children->insert(
+        new_union_type_children->end(),
+        child_type_int
+      );
+
+      union_child_type->type_info = new_union_type;
     }
   }
 }
@@ -875,6 +1031,8 @@ bool remove_non_ptr_types(
 
   if (type_info->md_node_ptr == (MDNode *)8884099) {
     /* Don't remove 8884099's children */
+  } else if (type_info->md_node_ptr == (MDNode *)8884101) {
+    contains_ptr = true;
   } else if (strcmp(type_info->name, "pointer.func") == 0) {
     for (it = child_types->begin(); it != child_types->end();) {
       struct child_type *child_type = *it;
@@ -1028,7 +1186,10 @@ int setEntInArray(uint64_t *ent_array,
     ind += 3 + 2 * child_types_size;
     // ent_array[local_ind++] = 9999999999999999;
     // ent_array[local_ind++] = ent_to_id[type_info];
-    if (!strcmp(type_info->type, "pointer_to_array")) {
+
+    if (!strcmp(type_info->type, "union_handled")) {
+      ent_array[local_ind++] = 8884101;
+    } else if (!strcmp(type_info->type, "pointer_to_array")) {
       ent_array[local_ind++] = 8884099;
     } else if (!strcmp(type_info->type, "pointer")) {
       ent_array[local_ind++] = 1;

@@ -1,9 +1,11 @@
 #define _GNU_SOURCE
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <dlfcn.h>
 #include <sys/syscall.h>
 #include <unistd.h>
+#include <string.h>
 #include <openssl/crypto.h>
 #include <openssl/err.h>
 #include <openssl/x509.h>
@@ -44,35 +46,32 @@ BIO_METHOD * bb_BIO_s_file(void)
 {
     BIO_METHOD * ret;
 
-    struct lib_enter_args args = {
-        .num_args = 0,
-        .entity_metadata = {
-            8884097, 8, 0, /* 0: pointer.func */
-            8884097, 8, 0, /* 3: pointer.func */
-            8884097, 8, 0, /* 6: pointer.func */
-            8884097, 8, 0, /* 9: pointer.func */
-            8884097, 8, 0, /* 12: pointer.func */
-            0, 1, 0, /* 15: char */
-            8884097, 8, 0, /* 18: pointer.func */
-            1, 8, 1, /* 21: pointer.char */
-            	8884096, 0,
-            0, 80, 9, /* 26: struct.bio_method_st */
-            	21, 8,
-            	12, 16,
-            	9, 24,
-            	6, 32,
-            	9, 40,
-            	18, 48,
-            	0, 56,
-            	0, 64,
-            	3, 72,
-            1, 8, 1, /* 47: pointer.struct.bio_method_st */
-            	26, 0,
-        },
-        .arg_entity_index = { -1 },
-        .ret_entity_index = 47,
-    };
-    struct lib_enter_args *args_addr = &args;
+    struct lib_enter_args *args_addr = malloc(sizeof(struct lib_enter_args));
+    memset(args_addr, 0, sizeof(struct lib_enter_args));
+    args_addr->num_args = 0;
+    uint32_t *em = args_addr->entity_metadata;
+    em[0] = 8884097; em[1] = 8; em[2] = 0; /* 0: pointer.func */
+    em[3] = 8884097; em[4] = 8; em[5] = 0; /* 3: pointer.func */
+    em[6] = 8884097; em[7] = 8; em[8] = 0; /* 6: pointer.func */
+    em[9] = 8884097; em[10] = 8; em[11] = 0; /* 9: pointer.func */
+    em[12] = 8884097; em[13] = 8; em[14] = 0; /* 12: pointer.func */
+    em[15] = 0; em[16] = 1; em[17] = 0; /* 15: char */
+    em[18] = 8884097; em[19] = 8; em[20] = 0; /* 18: pointer.func */
+    em[21] = 1; em[22] = 8; em[23] = 1; /* 21: pointer.char */
+    	em[24] = 8884096; em[25] = 0; 
+    em[26] = 0; em[27] = 80; em[28] = 9; /* 26: struct.bio_method_st */
+    	em[29] = 21; em[30] = 8; 
+    	em[31] = 12; em[32] = 16; 
+    	em[33] = 9; em[34] = 24; 
+    	em[35] = 6; em[36] = 32; 
+    	em[37] = 9; em[38] = 40; 
+    	em[39] = 18; em[40] = 48; 
+    	em[41] = 0; em[42] = 56; 
+    	em[43] = 0; em[44] = 64; 
+    	em[45] = 3; em[46] = 72; 
+    em[47] = 1; em[48] = 8; em[49] = 1; /* 47: pointer.struct.bio_method_st */
+    	em[50] = 26; em[51] = 0; 
+    args_addr->ret_entity_index = 47;
     populate_ret(args_addr, ret);
 
     struct lib_enter_args *new_args = (struct lib_enter_args *)syscall(888, args_addr);
@@ -84,6 +83,8 @@ BIO_METHOD * bb_BIO_s_file(void)
     *new_ret_ptr = (*orig_BIO_s_file)();
 
     syscall(889);
+
+    free(args_addr);
 
     return ret;
 }

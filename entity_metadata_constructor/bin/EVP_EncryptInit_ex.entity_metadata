@@ -136,45 +136,40 @@
 0, 32, 2, /* 324: struct.ENGINE_CMD_DEFN_st */
 	56, 8,
 	56, 16,
-0, 16, 1, /* 331: struct.crypto_ex_data_st */
-	336, 0,
-1, 8, 1, /* 336: pointer.struct.stack_st_void */
-	341, 0,
-0, 32, 1, /* 341: struct.stack_st_void */
-	346, 0,
-0, 32, 2, /* 346: struct.stack_st */
-	353, 8,
-	358, 24,
-1, 8, 1, /* 353: pointer.pointer.char */
-	107, 0,
-8884097, 8, 0, /* 358: pointer.func */
-1, 8, 1, /* 361: pointer.struct.engine_st */
+0, 32, 2, /* 331: struct.crypto_ex_data_st_fake */
+	338, 8,
+	351, 24,
+8884099, 8, 2, /* 338: pointer_to_array_of_pointers_to_stack */
+	345, 0,
+	348, 20,
+0, 8, 0, /* 345: pointer.void */
+0, 4, 0, /* 348: int */
+8884097, 8, 0, /* 351: pointer.func */
+1, 8, 1, /* 354: pointer.struct.engine_st */
 	5, 0,
-0, 1, 0, /* 366: unsigned char */
-1, 8, 1, /* 369: pointer.struct.evp_cipher_st */
-	374, 0,
-0, 88, 7, /* 374: struct.evp_cipher_st */
-	391, 24,
-	394, 32,
-	397, 40,
-	400, 56,
-	400, 64,
-	403, 72,
-	406, 80,
-8884097, 8, 0, /* 391: pointer.func */
-8884097, 8, 0, /* 394: pointer.func */
-8884097, 8, 0, /* 397: pointer.func */
-8884097, 8, 0, /* 400: pointer.func */
-8884097, 8, 0, /* 403: pointer.func */
-0, 8, 0, /* 406: pointer.void */
-0, 1, 0, /* 409: char */
-0, 4, 0, /* 412: int */
-1, 8, 1, /* 415: pointer.unsigned char */
-	366, 0,
-1, 8, 1, /* 420: pointer.struct.evp_cipher_ctx_st */
-	425, 0,
-0, 168, 4, /* 425: struct.evp_cipher_ctx_st */
-	369, 0,
-	361, 8,
-	406, 96,
-	406, 120,
+0, 1, 0, /* 359: unsigned char */
+1, 8, 1, /* 362: pointer.struct.evp_cipher_st */
+	367, 0,
+0, 88, 7, /* 367: struct.evp_cipher_st */
+	384, 24,
+	387, 32,
+	390, 40,
+	393, 56,
+	393, 64,
+	396, 72,
+	345, 80,
+8884097, 8, 0, /* 384: pointer.func */
+8884097, 8, 0, /* 387: pointer.func */
+8884097, 8, 0, /* 390: pointer.func */
+8884097, 8, 0, /* 393: pointer.func */
+8884097, 8, 0, /* 396: pointer.func */
+1, 8, 1, /* 399: pointer.unsigned char */
+	359, 0,
+1, 8, 1, /* 404: pointer.struct.evp_cipher_ctx_st */
+	409, 0,
+0, 168, 4, /* 409: struct.evp_cipher_ctx_st */
+	362, 0,
+	354, 8,
+	345, 96,
+	345, 120,
+0, 1, 0, /* 420: char */
